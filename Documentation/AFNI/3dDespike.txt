@@ -1,0 +1,90 @@
+Usage: 3dDespike [options] dataset
+Removes 'spikes' from the 3D+time input dataset and writes
+a new dataset with the spike values replaced by something
+more pleasing to the eye.
+
+Method:
+ * L1 fit a smooth-ish curve to each voxel time series
+    [see -corder option for description of the curve].
+ * Compute the MAD of the difference between the curve and
+    the data time series (the residuals).
+ * Estimate the standard deviation 'sigma' of the residuals
+    as sqrt(PI/2)*MAD.
+ * For each voxel value, define s = (value-curve)/sigma.
+ * Values with s > c1 are replaced with a value that yields
+    a modified s' = c1+(c2-c1)*tanh((s-c1)/(c2-c1)).
+ * c1 is the threshold value of s for a 'spike' [default c1=2.5].
+ * c2 is the upper range of the allowed deviation from the curve:
+    s=[c1..infinity) is mapped to s'=[c1..c2)   [default c2=4].
+
+Options:
+ -ignore I  = Ignore the first I points in the time series:
+               these values will just be copied to the
+               output dataset [default I=0].
+ -corder L  = Set the curve fit order to L:
+               the curve that is fit to voxel data v(t) is
+
+                       k=L [        (2*PI*k*t)          (2*PI*k*t) ]
+ f(t) = a+b*t+c*t*t + SUM  [ d * sin(--------) + e * cos(--------) ]
+                       k=1 [  k     (    T   )    k     (    T   ) ]
+
+               where T = duration of time series;
+               the a,b,c,d,e parameters are chosen to minimize
+               the sum over t of |v(t)-f(t)| (L1 regression);
+               this type of fitting is is insensitive to large
+               spikes in the data.  The default value of L is
+               NT/30, where NT = number of time points.
+
+ -cut c1 c2 = Alter default values for the spike cut values
+               [default c1=2.5, c2=4.0].
+ -prefix pp = Save de-spiked dataset with prefix 'pp'
+               [default pp='despike']
+ -ssave ttt = Save 'spikiness' measure s for each voxel into a
+               3D+time dataset with prefix 'ttt' [default=no save]
+ -nomask    = Process all voxels
+               [default=use a mask of high-intensity voxels, ]
+               [as created via '3dAutomask -dilate 4 dataset'].
+ -q[uiet]   = Don't print '++' informational messages.
+
+ -localedit = Change the editing process to the following:
+                If a voxel |s| value is >= c2, then replace
+                the voxel value with the average of the two
+                nearest non-spike (|s| < c2) values; the first
+                one previous and the first one after.
+                Note that the c1 cut value is not used here.
+
+Caveats:
+* Despiking may interfere with image registration, since head
+   movement may produce 'spikes' at the edge of the brain, and
+   this information would be used in the registration process.
+   This possibility has not been explored or calibrated.
+* Check your data visually before and after despiking and
+   registration!
+   [Hint: open 2 AFNI controllers, and turn Time Lock on.]
+
+ =========================================================================
+* This binary version of 3dDespike is compiled using OpenMP, a semi-
+   automatic parallelizer software toolkit, which splits the work across
+   multiple CPUs/cores on the same shared memory computer.
+* OpenMP is NOT like MPI -- it does not work with CPUs connected only
+   by a network (e.g., OpenMP doesn't work with 'cluster' setups).
+* For implementation and compilation details, please see
+   http://afni.nimh.nih.gov/pub/dist/doc/misc/OpenMP.html
+* The number of CPU threads used will default to the maximum number on
+   your system.  You can control this value by setting environment variable
+   OMP_NUM_THREADS to some smaller value (including 1).
+* Un-setting OMP_NUM_THREADS resets OpenMP back to its default state of
+   using all CPUs available.
+   ++ However, on some systems (such as the NIH Biowulf), it seems to be
+      necessary to set OMP_NUM_THREADS explicitly, or you only get one CPU.
+* You must set OMP_NUM_THREADS in the shell BEFORE running the program,
+   since OpenMP queries this variable BEFORE the program actually starts.
+   ++ You can't usefully set this variable in your ~/.afnirc file or on the
+      command line with the '-D' option.
+* How many threads are useful?  That varies with the program, and how well
+   it was coded.  You'll have to experiment on your own systems!
+* The number of CPUs on this particular computer system is ...... 8.
+ =========================================================================
+
+++ Compile date = Jul  5 2011
+

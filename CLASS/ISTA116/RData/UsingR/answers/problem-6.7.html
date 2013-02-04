@@ -1,0 +1,30 @@
+
+
+
+
+
+
+
+
+<title> problem-6.7</title>
+    
+<h1 align="center">problem-6.7 </h1>
+<b>problem-6.7</b>&nbsp;
+    The central limit theorem says that the sampling distribution of
+    the sample average of a large number of independent, identically
+    distributed random numbers is approximately normal. This indicates
+    that the chi-squared distribution should become bell-shaped for
+    large values of n.  The following simulation shows that this
+    happens by n=100 or so.
+    
+<pre>
+&#62; res = c()
+&#62; n = 4;   for(i in 1:500) res[i] = sum(rnorm(n)^2); qqnorm(res)
+&#62; n = 10;  for(i in 1:500) res[i] = sum(rnorm(n)^2); qqnorm(res)
+&#62; n = 25;  for(i in 1:500) res[i] = sum(rnorm(n)^2); qqnorm(res)
+&#62; n = 50;  for(i in 1:500) res[i] = sum(rnorm(n)^2); qqnorm(res)
+&#62; n = 100; for(i in 1:500) res[i] = sum(rnorm(n)^2); qqnorm(res)
+    
+</pre>
+
+<div class="p"><!----></div>

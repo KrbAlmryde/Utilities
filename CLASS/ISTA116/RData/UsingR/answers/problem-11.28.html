@@ -1,0 +1,28 @@
+
+
+
+
+
+
+
+
+<title> problem-11.28</title>
+    
+<h1 align="center">problem-11.28 </h1>
+<b>problem-11.28</b>&nbsp;
+    We proceed as follows:
+    
+<pre>
+&#62; with(ToothGrowth, interaction.plot(dose, supp, len))
+&#62; res.full = lm(len ~ supp + dose, ToothGrowth)
+&#62; res.add = lm(len ~ supp * dose, ToothGrowth)
+&#62; anova(res.full, res.add)
+Analysis of Variance Table
+
+Model 1: len ~ supp + dose
+Model 2: len ~ supp * dose
+  Res.Df  RSS Df Sum of Sq    F Pr(&#62;F)
+1     57 1023
+2     56  934  1        89 5.33  0.025 *
+
+</pre>

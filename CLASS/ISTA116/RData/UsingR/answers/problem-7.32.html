@@ -1,0 +1,36 @@
+
+
+
+
+
+
+
+
+<title> problem-7.32</title>
+    
+<h1 align="center">problem-7.32 </h1>
+<b>problem-7.32</b>&nbsp;
+    The <b>AGE</b> variable is symmetric, so no transformation is needed.
+  
+<pre>
+&#62; hist(cfb$AGE)                 # symmetric
+&#62; wilcox.test(cfb$AGE, conf.int=TRUE)
+...
+95 percent confidence interval:
+ 48 50
+...
+  
+</pre>
+The <b>INCOME</b> variable is skewed. We do a log-transform first.
+
+<pre>
+&#62; hist(log(cfb$INCOME +1))
+&#62; wilcox.test((log(cfb$INCOME +1)), conf.int=TRUE)
+...
+95 percent confidence interval:
+ 10.49 10.61
+...
+&#62; exp(c(10.49,10.61)) - 1
+[1] 35953 40537
+
+</pre>

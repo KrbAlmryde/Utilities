@@ -1,0 +1,47 @@
+
+
+
+
+
+
+
+
+<title> problem-3.32</title>
+    
+<h1 align="center">problem-3.32 </h1>
+<b>problem-3.32</b>&nbsp;
+    From the scatterplot we see that four temperatures were used. It
+    appears that only one data point is associated with a temperature
+    of 150, but in fact there were ten:
+    
+<pre>
+&#62; table(motors$temp)
+
+150 170 190 220
+ 10  10  10  10
+    
+</pre>
+    It is hard to tell whether the values for this temperature fit a linear
+    model. Assuming they do, we can fit the model with
+    
+<pre>
+&#62; res = lm(time ~ temp,  data=motors)
+&#62; res
+
+Call:
+lm(formula = time ~ temp, data = motors)
+
+Coefficients:
+(Intercept)         temp
+      22999         -107
+    
+</pre>
+    Then predictions can be made using <b>predict()</b>:
+    
+<pre>
+&#62; predict(res, newdata=data.frame(temp=210))
+[1] 580.6
+    
+</pre>
+
+<div class="p"><!----></div>

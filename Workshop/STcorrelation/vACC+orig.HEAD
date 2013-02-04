@@ -1,0 +1,111 @@
+
+type = string-attribute
+name = HISTORY_NOTE
+count = 376
+'[kerryw@careless.convert.slhs.arizona.edu: Thu Apr  2 11:19:29 2009] to3d -spgr -prefix S31_spgr e5111s5i001 e5111s5i002 e5111s5i003 ... e5111s5i127 e5111s5i128\n[kylealmryde@mbb-techs-power-mac-g5.local: Fri May  6 13:59:59 2011] Drawing plugin COPY: Fill->Zero Type->Func\n[kylealmryde@mbb-techs-power-mac-g5.local: Fri May  6 14:00:37 2011] Drawing plugin COPY: Fill->Data~
+
+type = string-attribute
+name = TYPESTRING
+count = 15
+'3DIM_HEAD_FUNC~
+
+type = string-attribute
+name = IDCODE_STRING
+count = 27
+'XYZ_QEhloWDFG7EDszNw1DLlPg~
+
+type = string-attribute
+name = IDCODE_DATE
+count = 25
+'Fri May  6 14:00:37 2011~
+
+type = integer-attribute
+name = SCENE_DATA
+count = 8
+ 0 0 1 -999 -999
+ -999 -999 -999
+
+type = string-attribute
+name = LABEL_1
+count = 15
+'CCOPY_S31_spgr~
+
+type = string-attribute
+name = LABEL_2
+count = 5
+'zyxt~
+
+type = string-attribute
+name = DATASET_NAME
+count = 5
+'zyxt~
+
+type = integer-attribute
+name = ORIENT_SPECIFIC
+count = 3
+ 3 5 1
+
+type  = float-attribute
+name  = ORIGIN
+count = 3
+      -119.5312       119.5312          95.25
+
+type  = float-attribute
+name  = DELTA
+count = 3
+         0.9375        -0.9375           -1.5
+
+type  = float-attribute
+name  = IJK_TO_DICOM
+count = 12
+              0             -0           -1.5          95.25         0.9375
+             -0             -0      -119.5312              0        -0.9375
+             -0       119.5312
+
+type  = float-attribute
+name  = IJK_TO_DICOM_REAL
+count = 12
+              0              0           -1.5          95.25         0.9375
+              0              0      -119.5312              0        -0.9375
+              0       119.5312
+
+type  = float-attribute
+name  = BRICK_STATS
+count = 2
+              0              1
+
+type = integer-attribute
+name = DATASET_RANK
+count = 8
+ 3 1 0 0 0
+ 0 0 0
+
+type = integer-attribute
+name = DATASET_DIMENSIONS
+count = 5
+ 256 256 128 0 0
+
+type = integer-attribute
+name = BRICK_TYPES
+count = 1
+ 1
+
+type  = float-attribute
+name  = BRICK_FLOAT_FACS
+count = 1
+              0
+
+type = string-attribute
+name = BRICK_LABS
+count = 3
+'#0~
+
+type = string-attribute
+name = BRICK_KEYWORDS
+count = 1
+'~
+
+type = string-attribute
+name = BYTEORDER_STRING
+count = 10
+'MSB_FIRST~

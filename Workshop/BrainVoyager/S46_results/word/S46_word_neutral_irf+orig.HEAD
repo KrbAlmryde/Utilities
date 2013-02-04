@@ -1,0 +1,139 @@
+
+type = string-attribute
+name = HISTORY_NOTE
+count = 4043
+'[kylealmryde@hagar.local: Mon Jun 20 17:02:24 2011] ===================================\n[kylealmryde@hagar.local: Mon Jun 20 17:02:24 2011] === History of inputs to 3dcalc ===\n[kylealmryde@hagar.local: Mon Jun 20 17:02:24 2011] === Input a:\n[kylealmryde@hagar.local: Mon Jun 20 17:02:24 2011] [kylealmryde@hagar.local: Mon Jun 20 17:02:14 2011] 3dTcat -prefix S46_word_tcat '/Volumes/Data/Stroop/S46/run_word/S46_word_epan+orig[4..$]'\n[kylealmryde@hagar.local: Mon Jun 20 17:02:16 2011] 3dTshift -tzero 0 -rlt+ -quintic -prefix S46_word_tshift S46_word_tcat+orig\n[kylealmryde@hagar.local: Mon Jun 20 17:02:19 2011] 3dvolreg -verbose -zpad 1 -base 'S46_word_tshift+orig[78]' -1Dfile dfile_S46_word.1D -prefix S46_word_volreg -cubic S46_word_tshift+orig\n[kylealmryde@hagar.local: Mon Jun 20 17:02:22 2011] 3dmerge -1blur_fwhm 6.0 -doall -prefix S46_word_blur S46_word_volreg+orig\n[kylealmryde@hagar.local: Mon Jun 20 17:02:24 2011] === Input b:\n[kylealmryde@hagar.local: Mon Jun 20 17:02:24 2011] [kylealmryde@hagar.local: Mon Jun 20 17:02:14 2011] 3dTcat -prefix S46_word_tcat '/Volumes/Data/Stroop/S46/run_word/S46_word_epan+orig[4..$]'\n[kylealmryde@hagar.local: Mon Jun 20 17:02:16 2011] 3dTshift -tzero 0 -rlt+ -quintic -prefix S46_word_tshift S46_word_tcat+orig\n[kylealmryde@hagar.local: Mon Jun 20 17:02:19 2011] 3dvolreg -verbose -zpad 1 -base 'S46_word_tshift+orig[78]' -1Dfile dfile_S46_word.1D -prefix S46_word_volreg -cubic S46_word_tshift+orig\n[kylealmryde@hagar.local: Mon Jun 20 17:02:22 2011] 3dmerge -1blur_fwhm 6.0 -doall -prefix S46_word_blur S46_word_volreg+orig\n[kylealmryde@hagar.local: Mon Jun 20 17:02:23 2011] 3dTstat -prefix S46_word_mean S46_word_blur+orig\n[kylealmryde@hagar.local: Mon Jun 20 17:02:24 2011] === Input c:\n[kylealmryde@hagar.local: Mon Jun 20 17:02:24 2011] [kylealmryde@hagar.local: Mon Jun 20 17:02:14 2011] 3dTcat -prefix S46_word_tcat '/Volumes/Data/Stroop/S46/run_word/S46_word_epan+orig[4..$]'\n[kylealmryde@hagar.local: Mon Jun 20 17:02:16 2011] 3dTshift -tzero 0 -rlt+ -quintic -prefix S46_word_tshift S46_word_tcat+orig\n[kylealmryde@hagar.local: Mon Jun 20 17:02:19 2011] 3dvolreg -verbose -zpad 1 -base 'S46_word_tshift+orig[78]' -1Dfile dfile_S46_word.1D -prefix S46_word_volreg -cubic S46_word_tshift+orig\n[kylealmryde@hagar.local: Mon Jun 20 17:02:22 2011] 3dmerge -1blur_fwhm 6.0 -doall -prefix S46_word_blur S46_word_volreg+orig\n[kylealmryde@hagar.local: Mon Jun 20 17:02:23 2011] 3dAutomask -prefix S46_word_automask S46_word_blur+orig\n[kylealmryde@hagar.local: Mon Jun 20 17:02:24 2011] ===================================\n[kylealmryde@hagar.local: Mon Jun 20 17:02:24 2011] 3dcalc -a S46_word_blur+orig -b S46_word_mean+orig -c S46_word_automask+orig -expr 'c * min(200, a/b*100)' -prefix S46_word_norm\n[kylealmryde@hagar.local: Mon Jun 20 17:02:30 2011] 3dDeconvolve -input S46_word_norm+orig -polort 5 -mask S46_word_automask+orig -num_stimts 10 -local_times -stim_times 1 /Volumes/Data/Stroop/Utilities/word_congruent.txt GAM -stim_label 1 S46_word_congruent -stim_times 2 /Volumes/Data/Stroop/Utilities/word_incongruent.txt GAM -stim_label 2 S46_word_incongruent -stim_times 3 /Volumes/Data/Stroop/Utilities/word_neutral.txt GAM -stim_label 3 S46_word_neutral -stim_times 4 /Volumes/Data/Stroop/Utilities/word_null.txt GAM -stim_label 4 S46_word_null -stim_file 5 'dfile_S46_word.1D[0]' -stim_base 5 -stim_label 5 roll -stim_file 6 'dfile_S46_word.1D[1]' -stim_base 6 -stim_label 6 pitch -stim_file 7 'dfile_S46_word.1D[2]' -stim_base 7 -stim_label 7 yaw -stim_file 8 'dfile_S46_word.1D[3]' -stim_base 8 -stim_label 8 dS -stim_file 9 'dfile_S46_word.1D[4]' -stim_base 9 -stim_label 9 dL -stim_file 10 'dfile_S46_word.1D[5]' -stim_base 10 -stim_label 10 dP -iresp 1 S46_word_congruent_irf -TR_times 0.575 -iresp 2 S46_word_incongruent_irf -TR_times 0.575 -iresp 3 S46_word_neutral_irf -TR_times 0.575 -iresp 4 S46_word_null_irf -TR_times 0.575 -tout -x1D word_X_matrix.1D -xjpeg word_X_matrix.jpg -bucket S46_word_bucket ; Impulse response: S46_word_neutral_irf~
+
+type = string-attribute
+name = TYPESTRING
+count = 15
+'3DIM_HEAD_ANAT~
+
+type = string-attribute
+name = IDCODE_STRING
+count = 27
+'XYZ_ZNgyZ_MmFhYR04oKE9Yr6w~
+
+type = string-attribute
+name = IDCODE_DATE
+count = 25
+'Mon Jun 20 17:02:30 2011~
+
+type = integer-attribute
+name = SCENE_DATA
+count = 8
+ 0 2 0 -999 -999
+ -999 -999 -999
+
+type = string-attribute
+name = LABEL_1
+count = 21
+'S46_word_neutral_irf~
+
+type = string-attribute
+name = LABEL_2
+count = 5
+'zyxt~
+
+type = string-attribute
+name = DATASET_NAME
+count = 21
+'S46_word_neutral_irf~
+
+type = integer-attribute
+name = ORIENT_SPECIFIC
+count = 3
+ 0 3 4
+
+type  = float-attribute
+name  = ORIGIN
+count = 3
+       -118.125       -118.125          -62.5
+
+type  = float-attribute
+name  = DELTA
+count = 3
+           3.75           3.75              5
+
+type  = float-attribute
+name  = IJK_TO_DICOM
+count = 12
+           3.75              0              0       -118.125              0
+           3.75              0       -118.125              0              0
+              5          -62.5
+
+type  = float-attribute
+name  = IJK_TO_DICOM_REAL
+count = 12
+           3.75              0              0       -118.125              0
+           3.75              0       -118.125              0              0
+              5          -62.5
+
+type  = float-attribute
+name  = BRICK_STATS
+count = 42
+              0              0   -0.001912734   0.0004890143     -0.2594104
+     0.06632149      -2.963789      0.7577296      -12.29688        3.14385
+      -29.28842       7.487949      -49.10543       12.55441      -64.61698
+       16.52014      -71.21178       18.20618       -68.5391       17.52287
+      -59.28266       15.15635       -47.0305       12.02393      -34.74051
+       8.881843      -24.16933        6.17919       -15.9782       4.085024
+      -10.10848       2.584359      -6.154709       1.573528      -3.623361
+      0.9263572      -2.070471      0.5293417      -1.152076      0.2945427
+              0              0
+
+type = integer-attribute
+name = TAXIS_NUMS
+count = 8
+ 21 0 77002 -999 -999
+ -999 -999 -999
+
+type  = float-attribute
+name  = TAXIS_FLOATS
+count = 8
+              0          0.575              0              0              0
+        -999999        -999999        -999999
+
+type = integer-attribute
+name = DATASET_RANK
+count = 8
+ 3 21 0 0 0
+ 0 0 0
+
+type = integer-attribute
+name = DATASET_DIMENSIONS
+count = 5
+ 64 64 26 0 0
+
+type = integer-attribute
+name = BRICK_TYPES
+count = 21
+ 3 3 3 3 3
+ 3 3 3 3 3
+ 3 3 3 3 3
+ 3 3 3 3 3
+ 3
+
+type  = float-attribute
+name  = BRICK_FLOAT_FACS
+count = 21
+              0              0              0              0              0
+              0              0              0              0              0
+              0              0              0              0              0
+              0              0              0              0              0
+              0
+
+type = string-attribute
+name = TEMPLATE_SPACE
+count = 5
+'ORIG~
+
+type = integer-attribute
+name = INT_CMAP
+count = 1
+ 0
+
+type = string-attribute
+name = BYTEORDER_STRING
+count = 10
+'LSB_FIRST~

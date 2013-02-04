@@ -1,0 +1,63 @@
+
+
+
+
+
+
+
+
+<title> problem-11.25</title>
+    
+<h1 align="center">problem-11.25 </h1>
+<b>problem-11.25</b>&nbsp;
+    The data can be entered and models fit as follows:
+    
+<pre>
+&#62; likability = c(-1,4,0,-1,4,1,6,2,7,1,2,2,7,5,2,3,6,1)
+&#62; web = factor(rep(c("N","Y"), c(9,9)))
+&#62; tv = factor(rep(c(0,"1-2","3+"), c(6,6,6)))
+&#62; res.web = lm(likability ~ web)
+&#62; res.tv = lm(likability ~ tv)
+&#62; res.both = lm(likability ~ tv + web)
+    
+</pre>
+    To see whether the web itself has an effect we can look at the output
+    of <b>summary()</b>:
+    
+<pre>
+&#62; summary(res.web)
+...
+Coefficients:
+            Estimate Std. Error t value Pr(&#62;|t|)
+(Intercept)    2.444      0.873    2.80    0.013 *
+webY           0.778      1.235    0.63    0.538
+---
+Signif. codes:  0 `***' 0.001 `**' 0.01 `*' 0.05 `.' 0.1 ` ' 1
+
+Residual standard error: 2.62 on 16 degrees of freedom
+Multiple R-Squared: 0.0242,     Adjusted R-squared: -0.0368
+F-statistic: 0.397 on 1 and 16 DF,  p-value: 0.538
+    
+</pre>
+    Web advertising is not effective in this assessment. However,
+    controlling first for television exposure we have
+    
+<pre>
+&#62; anova(res.tv, res.both)
+Analysis of Variance Table
+
+Model 1: likability ~ tv
+Model 2: likability ~ tv + web
+  Res.Df  RSS Df Sum of Sq    F Pr(&#62;F)
+1     15 86.2
+2     14 69.5  1      16.7 3.36  0.088 .
+---
+Signif. codes:  0 `***' 0.001 `**' 0.01 `*' 0.05 `.' 0.1 ` ' 1
+    
+</pre>
+    That is, the effect of web advertising seems more likely. It may
+    be worthwhile to perform this test on a bigger sample to try to
+    detect any differences. It is difficult to detect differences with
+    so few observations per category.
+
+<div class="p"><!----></div>

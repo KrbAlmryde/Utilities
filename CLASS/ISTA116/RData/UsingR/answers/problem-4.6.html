@@ -1,0 +1,64 @@
+
+
+
+
+
+
+
+
+<title> problem-4.6</title>
+    
+<h1 align="center">problem-4.6 </h1>
+<b>problem-4.6</b>&nbsp;
+    A table shows the relationship between  manufacturer
+    and vitamin type by shelf location:
+    
+<pre>
+## load and attach data set
+&#62; library(MASS); attach(UScereal)
+&#62; table(mfr, vitamins, shelf)
+, , shelf = 1
+
+, , shelf = 3
+
+   vitamins
+mfr 100% enriched none
+  G 3    6        0
+  K 2    8        0
+  N 0    1        0
+  P 0    6        0
+  Q 0    1        1
+  R 0    1        0
+    
+</pre>
+    The most obvious relationship is that 100% fortified cereal
+    appears only on the highest shelf. This leaves space for the
+    kid-desirable, sugar-laden cereals on the coveted second
+    shelf.
+
+<div class="p"><!----></div>
+    The bubble plot is produced with the commands
+    
+<pre>
+&#62; plot(calories ~ sugars, data=UScereal, cex=2*sqrt(fat))
+    
+</pre>
+    There appears to be a linear relationship between sugars and
+    calories, as expected. The larger bubbles appear to be above the
+    smaller ones, indicating that more fat implies more calories as
+    well.
+
+<div class="p"><!----></div>
+    A pairs plot (<b>pairs(UScereal)</b>) shows many
+    relationships. For example, the <b>fibre</b>, <b>shelf</b> plot
+    shows some relationship. A better plot than the scatterplot for
+    showing a factor and a numeric variable is the boxplot:
+    
+<pre>
+&#62; boxplot(fibre ~ shelf, data=UScereal)
+    
+</pre>
+    The high-fiber cereals live on the top shelf for presumably the
+    same reason that the fortified cereals do.
+
+<div class="p"><!----></div>

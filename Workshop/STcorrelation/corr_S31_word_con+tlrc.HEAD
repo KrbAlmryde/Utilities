@@ -1,0 +1,295 @@
+
+type = string-attribute
+name = HISTORY_NOTE
+count = 7093
+'[tom@careless.convert.slhs.arizona.edu: Thu Mar 10 12:06:20 2011] ===================================\n[tom@careless.convert.slhs.arizona.edu: Thu Mar 10 12:06:20 2011] === History of inputs to 3dcalc ===\n[tom@careless.convert.slhs.arizona.edu: Thu Mar 10 12:06:20 2011] === Input a:\n[tom@careless.convert.slhs.arizona.edu: Thu Mar 10 12:06:20 2011] [tom@careless.convert.slhs.arizona.edu: Thu Mar 10 12:01:34 2011] ===================================\n[tom@careless.convert.slhs.arizona.edu: Thu Mar 10 12:01:34 2011] === History of inputs to 3dcalc ===\n[tom@careless.convert.slhs.arizona.edu: Thu Mar 10 12:01:34 2011] === Input a:\n[tom@careless.convert.slhs.arizona.edu: Thu Mar 10 12:01:34 2011] [tom@careless.convert.slhs.arizona.edu: Thu Mar 10 11:50:40 2011] 3dTcat -prefix 01_Tcat/S31_word_tcat '00_Data/S31_word_epan+orig[4..$]'\n[tom@careless.convert.slhs.arizona.edu: Thu Mar 10 11:51:20 2011] 3dAutomask -prefix 00_Data/S31_word_Spiralmask 01_Tcat/S31_word_tcat+orig\n[tom@careless.convert.slhs.arizona.edu: Thu Mar 10 12:01:34 2011] === Input b:\n[tom@careless.convert.slhs.arizona.edu: Thu Mar 10 12:01:34 2011] [tom@careless.convert.slhs.arizona.edu: Thu Mar 10 11:50:40 2011] 3dTcat -prefix 01_Tcat/S31_word_tcat '00_Data/S31_word_epan+orig[4..$]'\n[tom@careless.convert.slhs.arizona.edu: Thu Mar 10 12:01:34 2011] ===================================\n[tom@careless.convert.slhs.arizona.edu: Thu Mar 10 12:01:34 2011] 3dcalc -a 00_Data/S31_word_Spiralmask+orig -b 01_Tcat/S31_word_tcat+orig -expr '(a*b)' -prefix 01_Tcat/S31_word_clean_tcat\n[tom@careless.convert.slhs.arizona.edu: Thu Mar 10 12:05:21 2011] 3dTshift -tzero 0 -rlt+ -quintic -prefix 02_Tshift/S31_word_tshift 00_Data/S31_word_clean_tcat+orig\n[tom@careless.convert.slhs.arizona.edu: Thu Mar 10 12:05:43 2011] 3dvolreg -verbose -zpad 1 -base '02_Tshift/S31_word_tshift+orig[100]' -1Dfile 03_VolReg/dfile_S31_word_1D -prefix 03_VolReg/S31_word_volreg -cubic 02_Tshift/S31_word_tshift+orig\n[tom@careless.convert.slhs.arizona.edu: Thu Mar 10 12:06:02 2011] 3dmerge -1blur_fwhm 6.0 -doall -prefix 04_Merge/S31_word_blur 03_VolReg/S31_word_volreg+orig\n[tom@careless.convert.slhs.arizona.edu: Thu Mar 10 12:06:20 2011] === Input b:\n[tom@careless.convert.slhs.arizona.edu: Thu Mar 10 12:06:20 2011] [tom@careless.convert.slhs.arizona.edu: Thu Mar 10 12:01:34 2011] ===================================\n[tom@careless.convert.slhs.arizona.edu: Thu Mar 10 12:01:34 2011] === History of inputs to 3dcalc ===\n[tom@careless.convert.slhs.arizona.edu: Thu Mar 10 12:01:34 2011] === Input a:\n[tom@careless.convert.slhs.arizona.edu: Thu Mar 10 12:01:34 2011] [tom@careless.convert.slhs.arizona.edu: Thu Mar 10 11:50:40 2011] 3dTcat -prefix 01_Tcat/S31_word_tcat '00_Data/S31_word_epan+orig[4..$]'\n[tom@careless.convert.slhs.arizona.edu: Thu Mar 10 11:51:20 2011] 3dAutomask -prefix 00_Data/S31_word_Spiralmask 01_Tcat/S31_word_tcat+orig\n[tom@careless.convert.slhs.arizona.edu: Thu Mar 10 12:01:34 2011] === Input b:\n[tom@careless.convert.slhs.arizona.edu: Thu Mar 10 12:01:34 2011] [tom@careless.convert.slhs.arizona.edu: Thu Mar 10 11:50:40 2011] 3dTcat -prefix 01_Tcat/S31_word_tcat '00_Data/S31_word_epan+orig[4..$]'\n[tom@careless.convert.slhs.arizona.edu: Thu Mar 10 12:01:34 2011] ===================================\n[tom@careless.convert.slhs.arizona.edu: Thu Mar 10 12:01:34 2011] 3dcalc -a 00_Data/S31_word_Spiralmask+orig -b 01_Tcat/S31_word_tcat+orig -expr '(a*b)' -prefix 01_Tcat/S31_word_clean_tcat\n[tom@careless.convert.slhs.arizona.edu: Thu Mar 10 12:05:21 2011] 3dTshift -tzero 0 -rlt+ -quintic -prefix 02_Tshift/S31_word_tshift 00_Data/S31_word_clean_tcat+orig\n[tom@careless.convert.slhs.arizona.edu: Thu Mar 10 12:05:43 2011] 3dvolreg -verbose -zpad 1 -base '02_Tshift/S31_word_tshift+orig[100]' -1Dfile 03_VolReg/dfile_S31_word_1D -prefix 03_VolReg/S31_word_volreg -cubic 02_Tshift/S31_word_tshift+orig\n[tom@careless.convert.slhs.arizona.edu: Thu Mar 10 12:06:02 2011] 3dmerge -1blur_fwhm 6.0 -doall -prefix 04_Merge/S31_word_blur 03_VolReg/S31_word_volreg+orig\n[tom@careless.convert.slhs.arizona.edu: Thu Mar 10 12:06:20 2011] 3dTstat -prefix 06_Norm/S31_word_mean 04_Merge/S31_word_blur+orig\n[tom@careless.convert.slhs.arizona.edu: Thu Mar 10 12:06:20 2011] === Input c:\n[tom@careless.convert.slhs.arizona.edu: Thu Mar 10 12:06:20 2011] [tom@careless.convert.slhs.arizona.edu: Thu Mar 10 12:01:34 2011] ===================================\n[tom@careless.convert.slhs.arizona.edu: Thu Mar 10 12:01:34 2011] === History of inputs to 3dcalc ===\n[tom@careless.convert.slhs.arizona.edu: Thu Mar 10 12:01:34 2011] === Input a:\n[tom@careless.convert.slhs.arizona.edu: Thu Mar 10 12:01:34 2011] [tom@careless.convert.slhs.arizona.edu: Thu Mar 10 11:50:40 2011] 3dTcat -prefix 01_Tcat/S31_word_tcat '00_Data/S31_word_epan+orig[4..$]'\n[tom@careless.convert.slhs.arizona.edu: Thu Mar 10 11:51:20 2011] 3dAutomask -prefix 00_Data/S31_word_Spiralmask 01_Tcat/S31_word_tcat+orig\n[tom@careless.convert.slhs.arizona.edu: Thu Mar 10 12:01:34 2011] === Input b:\n[tom@careless.convert.slhs.arizona.edu: Thu Mar 10 12:01:34 2011] [tom@careless.convert.slhs.arizona.edu: Thu Mar 10 11:50:40 2011] 3dTcat -prefix 01_Tcat/S31_word_tcat '00_Data/S31_word_epan+orig[4..$]'\n[tom@careless.convert.slhs.arizona.edu: Thu Mar 10 12:01:34 2011] ===================================\n[tom@careless.convert.slhs.arizona.edu: Thu Mar 10 12:01:34 2011] 3dcalc -a 00_Data/S31_word_Spiralmask+orig -b 01_Tcat/S31_word_tcat+orig -expr '(a*b)' -prefix 01_Tcat/S31_word_clean_tcat\n[tom@careless.convert.slhs.arizona.edu: Thu Mar 10 12:05:21 2011] 3dTshift -tzero 0 -rlt+ -quintic -prefix 02_Tshift/S31_word_tshift 00_Data/S31_word_clean_tcat+orig\n[tom@careless.convert.slhs.arizona.edu: Thu Mar 10 12:05:43 2011] 3dvolreg -verbose -zpad 1 -base '02_Tshift/S31_word_tshift+orig[100]' -1Dfile 03_VolReg/dfile_S31_word_1D -prefix 03_VolReg/S31_word_volreg -cubic 02_Tshift/S31_word_tshift+orig\n[tom@careless.convert.slhs.arizona.edu: Thu Mar 10 12:06:02 2011] 3dmerge -1blur_fwhm 6.0 -doall -prefix 04_Merge/S31_word_blur 03_VolReg/S31_word_volreg+orig\n[tom@careless.convert.slhs.arizona.edu: Thu Mar 10 12:06:15 2011] 3dAutomask -prefix 05_Automask/S31_word_automask 04_Merge/S31_word_blur+orig\n[tom@careless.convert.slhs.arizona.edu: Thu Mar 10 12:06:20 2011] ===================================\n[tom@careless.convert.slhs.arizona.edu: Thu Mar 10 12:06:20 2011] 3dcalc -a 04_Merge/S31_word_blur+orig -b 06_Norm/S31_word_mean+orig -c 05_Automask/S31_word_automask+orig -expr 'c * min(200, a/b*100)' -prefix 06_Norm/S31_word_norm\n[kylealmryde@mbb-techs-power-mac-g5.local: Thu May  5 13:05:27 2011] adwarp.c -apar S31_spgr+tlrc -dpar S31_word_norm+orig -dxyz 3\n[kylealmryde@mbb-techs-power-mac-g5.local: Fri May  6 14:06:31 2011] 3dDeconvolve -input S31_word_norm+tlrc -polort A -num_stimts 2 -stim_file 1 Seed_ts.1D -stim_label 1 Seed -stim_file 2 inter_ts.1D -stim_label 2 word_con -rout -bucket corr_S31_word_con\n[kylealmryde@mbb-techs-power-mac-g5.local: Fri May  6 14:06:31 2011] Output prefix: corr_S31_word_con~
+
+type = string-attribute
+name = TYPESTRING
+count = 15
+'3DIM_HEAD_FUNC~
+
+type = string-attribute
+name = IDCODE_STRING
+count = 27
+'XYZ_XKOFM-Mt6SqYwSRrOWkz4w~
+
+type = string-attribute
+name = IDCODE_DATE
+count = 25
+'Fri May  6 14:06:31 2011~
+
+type = integer-attribute
+name = SCENE_DATA
+count = 8
+ 2 11 1 -999 -999
+ -999 -999 -999
+
+type = string-attribute
+name = LABEL_1
+count = 5
+'zyxt~
+
+type = string-attribute
+name = LABEL_2
+count = 5
+'zyxt~
+
+type = string-attribute
+name = DATASET_NAME
+count = 5
+'zyxt~
+
+type = integer-attribute
+name = ORIENT_SPECIFIC
+count = 3
+ 0 3 4
+
+type  = float-attribute
+name  = ORIGIN
+count = 3
+          -79.5          -79.5          -63.5
+
+type  = float-attribute
+name  = DELTA
+count = 3
+              3              3              3
+
+type  = float-attribute
+name  = IJK_TO_DICOM
+count = 12
+              3              0              0          -79.5              0
+              3              0          -79.5              0              0
+              3          -63.5
+
+type  = float-attribute
+name  = IJK_TO_DICOM_REAL
+count = 12
+              3              0              0          -79.5              0
+              3              0          -79.5              0              0
+              3          -63.5
+
+type  = float-attribute
+name  = BRICK_STATS
+count = 12
+              0      0.9479851              0           1000      -3.392081
+       2.556561              0      0.9364232      -181.1753       323.2722
+              0       0.148944
+
+type = integer-attribute
+name = DATASET_RANK
+count = 8
+ 3 6 0 0 0
+ 0 0 0
+
+type = integer-attribute
+name = DATASET_DIMENSIONS
+count = 5
+ 54 64 50 0 0
+
+type = integer-attribute
+name = BRICK_TYPES
+count = 6
+ 1 1 1 1 1
+ 1
+
+type  = float-attribute
+name  = BRICK_FLOAT_FACS
+count = 6
+   2.893109e-05     0.03051851   0.0001035213   2.857824e-05    0.009865786
+   4.545549e-06
+
+type = string-attribute
+name = BRICK_LABS
+count = 70
+'Full_R^2~Full_Fstat~Seed#0_Coef~Seed_R^2~word_con#0_Coef~word_con_R^2~
+
+type  = float-attribute
+name  = BRICK_STATAUX
+count = 20
+              0              7              2              1            101
+              1              4              2              2            202
+              3              7              2            0.5            101
+              5              7              2            0.5            101
+
+type = string-attribute
+name = BRICK_STATSYM
+count = 63
+'Beta(1,101);Ftest(2,202);none;Beta(0.5,101);none;Beta(0.5,101)~
+
+type  = float-attribute
+name  = FDRCURVE_000000
+count = 103
+   2.893109e-05    0.003847546      0.7183737      0.9114975       1.087782
+       1.251156       1.403986       1.549022        1.68885        1.82345
+       1.950473       2.075474       2.196597       2.315312       2.432089
+        2.54557       2.656201       2.764323       2.872519       2.977209
+       3.080697       3.182392        3.28367        3.38315        3.48129
+       3.579351       3.674522       3.769094       3.861708       3.954342
+       4.043945       4.133387       4.221349        4.30819       4.393019
+       4.477124       4.560874       4.642993       4.726574       4.808566
+       4.889987       4.971342         5.0512       5.130833       5.208035
+       5.286184       5.363317       5.440495       5.516414       5.592163
+       5.666756       5.740999       5.814819       5.887212       5.961109
+       6.033895       6.105002       6.175538       6.246374       6.317989
+       6.389435       6.459283       6.528952       6.599826       6.668833
+       6.739927       6.809661       6.879487       6.947106       7.015087
+       7.084549       7.154055       7.221433       7.287828       7.354496
+       7.421019        7.48904       7.555479       7.571968       7.572047
+       7.572126       7.572205       7.572284       7.572363       7.572442
+       7.572521         7.5726        7.57268       7.572758       7.572837
+       7.572917       7.572996       7.573075       7.573153       7.573233
+       7.573312        7.57339        7.57347       7.573549       7.573628
+       7.573707       7.573786        7.57388
+
+type  = float-attribute
+name  = FDRCURVE_000001
+count = 103
+     0.03051851      0.6131169      0.6969118      0.9949425        1.25399
+         1.4841       1.698153       1.896037       2.081277       2.257361
+       2.426811       2.588313       2.742063       2.892548       3.035878
+       3.175549       3.312012       3.443739       3.573008       3.697614
+       3.818774       3.936317       4.050163       4.160987       4.269415
+       4.373269       4.475285        4.57544       4.673162       4.769869
+       4.864647       4.957946       5.048757       5.137766       5.224018
+       5.309229       5.393796       5.477119       5.557266       5.636825
+       5.714566       5.791507       5.866482       5.941177       6.014731
+       6.085661       6.155217       6.225517       6.294598       6.362857
+       6.429341       6.495337       6.561185       6.625141        6.68989
+       6.753738       6.816981       6.878883       6.938542       6.998034
+       7.058216       7.117431       7.175385       7.232329        7.28792
+       7.343299       7.398335       7.454034       7.508105       7.561253
+       7.566659       7.566735       7.566811       7.566886       7.566961
+       7.567037       7.567112       7.567187       7.567263       7.567331
+       7.567331       7.567331        7.56733       7.567331       7.567331
+       7.567331       7.567331       7.567331       7.567331       7.567331
+       7.567331       7.567331       7.567331       7.567331       7.567331
+       7.567331       7.567331       7.567331       7.567331       7.567331
+       7.567331       7.567331       7.567331
+
+type  = float-attribute
+name  = FDRCURVE_000003
+count = 103
+   2.857824e-05    0.003395952      0.5004701      0.8355333       1.043473
+       1.220459       1.387655       1.540961       1.686203       1.822412
+       1.953596       2.076786       2.197284       2.312874       2.425832
+       2.533198       2.640569       2.746043       2.848205       2.948932
+       3.048571       3.145374       3.241285       3.333837        3.42679
+       3.515593       3.604323       3.691463       3.777254       3.862065
+       3.946457       4.028817       4.110417       4.191638       4.270005
+       4.348273       4.425071       4.501695       4.578308       4.652775
+       4.726346       4.799128       4.871611       4.944063       5.015478
+       5.086875        5.15447       5.224613       5.292144       5.361189
+       5.428391       5.497941       5.564318       5.630994        5.69744
+       5.760017       5.826776       5.892251       5.956398       6.021689
+       6.087841       6.152793       6.217814       6.283312       6.346877
+       6.408821       6.471645       6.533663       6.596231       6.659214
+       6.721951       6.785051       6.845991       6.907452       6.967423
+       7.029952        7.09137       7.151163       7.209866       7.269354
+       7.329491       7.389785       7.448711       7.480989       7.480994
+       7.480999       7.481005       7.481011       7.481017       7.481022
+       7.481028       7.481034        7.48104       7.481045       7.481051
+       7.481057       7.481062       7.481068       7.481074        7.48108
+       7.481085       7.481091       7.481102
+
+type  = float-attribute
+name  = FDRCURVE_000005
+count = 103
+   4.545549e-06    0.001489395      0.4014649      0.5944633      0.7037071
+      0.7944142       0.873888      0.9466399         1.0189       1.081601
+        1.14216       1.199608       1.256798       1.312898       1.363394
+       1.415521       1.466603       1.516464       1.566893       1.614708
+       1.661461       1.706232        1.74694       1.790103       1.831084
+       1.869164       1.907073       1.942102        1.97839       2.014011
+        2.04944        2.08402       2.117198       2.148514       2.176308
+       2.202285       2.229839       2.254779       2.283506       2.300809
+       2.324612       2.345961       2.372165       2.399193       2.420173
+       2.445958       2.468287       2.493991       2.518402       2.540175
+       2.555557        2.57751       2.596367       2.621069        2.64483
+       2.675095       2.698819       2.726739       2.765944       2.797748
+       2.827811       2.851257       2.879897       2.897758       2.935198
+       2.952732       2.970159        2.99489       3.003927       3.022252
+        3.04285       3.066749       3.071935       3.071934       3.097294
+       3.109541       3.126727       3.155619       3.164626       3.201339
+       3.230136       3.232513       3.257579       3.275671       3.305137
+        3.33807       3.359701       3.359701        3.38326       3.409808
+       3.428549       3.440532       3.458275       3.476019       3.477684
+       3.490461       3.503237       3.521421       3.547548       3.573674
+       3.599801       3.625928       3.641928
+
+type  = float-attribute
+name  = MDFCURVE_000000
+count = 77
+            -15      0.2026855      0.9990329      0.9670307      0.9660928
+      0.9653631      0.9642632      0.9629351      0.9614828       0.960444
+      0.9592981      0.9583542      0.9573037       0.955682       0.953967
+      0.9529496      0.9513456      0.9503322      0.9484451      0.9468704
+      0.9448279      0.9426749      0.9405745      0.9387571      0.9364074
+       0.933947      0.9305909      0.9275616      0.9249197      0.9220348
+      0.9185249      0.9152352      0.9115676      0.9078993      0.9039943
+      0.9002858      0.8960151      0.8917768       0.886849      0.8813319
+      0.8765237      0.8707767      0.8654298      0.8590431       0.852656
+      0.8456144      0.8367611      0.8276002      0.8172102      0.8067429
+      0.7959778      0.7838007       0.771917      0.7582648      0.7437716
+      0.7279929      0.7101572      0.6921533      0.6707326       0.646585
+      0.6177272      0.5874588      0.5506015      0.5122047      0.4660456
+      0.4138389      0.3577681      0.2967201      0.2294742        0.15967
+      0.0876095     0.03218823    0.001026519  -9.926702e-09  -9.926701e-09
+  -9.926701e-09              0
+
+type  = float-attribute
+name  = MDFCURVE_000001
+count = 77
+            -15      0.2025236      0.9990005      0.9672917      0.9663628
+      0.9656429      0.9645402      0.9632196      0.9618215      0.9607871
+      0.9596366      0.9586846      0.9576446      0.9560481       0.954353
+      0.9533414      0.9517397      0.9507297      0.9488497      0.9472932
+      0.9452607      0.9433118      0.9410866      0.9392649       0.936927
+      0.9344728      0.9311496      0.9281471      0.9255724      0.9226927
+      0.9192566       0.916024      0.9123151      0.9086497      0.9049078
+      0.9010893      0.8969144      0.8927429      0.8878551      0.8822913
+      0.8776901       0.871853      0.8666189      0.8601888       0.854082
+      0.8470591      0.8381606      0.8293859      0.8189759      0.8084503
+      0.7982095      0.7863355      0.7739496      0.7604144      0.7460144
+      0.7311953      0.7137299      0.6955144      0.6736978      0.6509191
+      0.6218172      0.5928044      0.5572828      0.5171133      0.4719874
+      0.4213084      0.3662127      0.3054948      0.2379589      0.1673643
+     0.09410597     0.03915896     0.00242703  -3.290081e-09  -3.290081e-09
+  -3.290081e-09              0
+
+type  = float-attribute
+name  = MDFCURVE_000003
+count = 77
+            -15      0.2023365      0.9990273      0.9686363      0.9677097
+      0.9670587      0.9662505      0.9649955      0.9635925      0.9625795
+      0.9618592      0.9609901      0.9597593      0.9584849       0.957294
+      0.9564267      0.9552248      0.9541597      0.9525121      0.9508972
+       0.948913      0.9471978      0.9459797      0.9446995      0.9428433
+      0.9414088      0.9392054      0.9365669      0.9343504      0.9313653
+      0.9273806      0.9247715      0.9210517      0.9182416      0.9140401
+      0.9103407      0.9055181      0.9006401      0.8952264      0.8904647
+       0.885278      0.8797753      0.8732589      0.8663583      0.8593525
+      0.8523738      0.8436836      0.8355796       0.826345      0.8166689
+      0.8065146      0.7954102      0.7838178      0.7695066      0.7549443
+      0.7380584      0.7200532      0.6999243      0.6778836      0.6539936
+      0.6282378      0.5964823      0.5600595      0.5212473      0.4732798
+       0.420014      0.3596261      0.2952669      0.2248349      0.1571971
+     0.09213357     0.03403717    0.004938683   1.806967e-09   1.806967e-09
+   1.806967e-09              0
+
+type  = float-attribute
+name  = MDFCURVE_000005
+count = 36
+      -6.620071      0.2002866      0.9990656      0.9989641      0.9985483
+      0.9981819      0.9976186      0.9969135      0.9952685      0.9933308
+      0.9912194      0.9888241      0.9859527      0.9833516      0.9786105
+      0.9713037      0.9609867      0.9489363      0.9323549      0.9103348
+      0.8796847      0.8419505      0.7951754      0.7448668      0.6821008
+      0.6054657      0.5214573      0.4290496      0.3334495      0.2272722
+      0.1233724     0.02924524  -1.366352e-08  -1.366352e-08  -1.366352e-08
+              0
+
+type = string-attribute
+name = BYTEORDER_STRING
+count = 10
+'MSB_FIRST~

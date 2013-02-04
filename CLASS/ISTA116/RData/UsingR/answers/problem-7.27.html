@@ -1,0 +1,39 @@
+
+
+
+
+
+
+
+
+<title> problem-7.27</title>
+    
+<h1 align="center">problem-7.27 </h1>
+<b>problem-7.27</b>&nbsp;
+    This data is paired off, as it is reasonable to assume that there is a
+    correlation between the IQ scores of twins. We assume that
+    differences in the scores can be viewed as a random sample from a
+    normally distributed population. Then a confidence interval is
+    found as follows:
+    
+<pre>
+&#62; foster = c(80, 88,75, 113, 95, 82, 97, 94, 132, 108)
+&#62; biological = c(90, 91, 79, 97, 97, 82, 87, 94, 131, 115)
+&#62; plot(foster, biological)
+&#62; boxplot(foster - biological)
+&#62; t.test(foster, biological, conf.level=0.90, paired=TRUE)
+
+        Paired t-test
+
+data:  foster and biological
+t = 0.041, df = 9, p-value = 0.9682
+alternative hypothesis: true difference in means is not equal to 0
+90 percent confidence interval:
+ -4.369  4.569
+    
+</pre>
+    The exploratory plots show the correlation between the two sets of
+    scores and the distribution of the differences, indicating that a
+    paired t-test is appropriate.
+
+<div class="p"><!----></div>

@@ -1,0 +1,40 @@
+
+
+
+
+
+
+
+
+<title> problem-8.27</title>
+    
+<h1 align="center">problem-8.27 </h1>
+<b>problem-8.27</b>&nbsp;
+    We have n<sub>1</sub> = n<sub>2</sub> = 10,000 and \phat<sub>1</sub>=.216,
+    \phat<sub>2</sub>=.193. A two-sided significance test is performed with
+    <b>prop.test()</b> as follows:
+    
+<pre>
+&#62; n = c(10000,10000)
+&#62; phat = c(.216,.193)
+&#62; x = n*phat
+&#62; prop.test(x,n,conf.level = 0.01)
+
+        2-sample test for equality of proportions with
+        continuity correction
+
+data:  x out of n
+X-squared = 16.12, df = 1, p-value = 5.952e-05
+alternative hypothesis: two.sided
+1 percent confidence interval:
+ 0.02283 0.02317
+sample estimates:
+prop 1 prop 2
+ 0.216  0.193
+    
+</pre>
+    The difference is statistically significant. However, if the
+    surveys were only of size 1,000m the difference would not have
+    been statistically significant.
+
+<div class="p"><!----></div>

@@ -1,0 +1,50 @@
+
+
+
+
+
+
+
+
+<title> problem-11.12</title>
+    
+<h1 align="center">problem-11.12 </h1>
+<b>problem-11.12</b>&nbsp;
+    The data can be entered as follows:
+    
+<pre>
+&#62; type1 = c(303, 293, 296, 299, 298)
+&#62; type2 = c(322, 326, 315, 318, 320, 320)
+&#62; type3 = c(309, 327, 317, 315)
+&#62; wear = list(type1=type1,type2=type2,type3=type3)
+&#62; wear.st = stack(wear)
+    
+</pre>
+The use of <b>stack()</b> stores the data in two variables: the numeric
+information in <b>values</b> and a factor indicating the type in
+<b>ind</b>. The p-value from <b>oneway.test()</b> can be returned
+succinctly with
+
+<pre>
+&#62; oneway.test(values ~ ind, data = wear.st)$p.value
+[1] 0.0001522
+
+</pre>
+Using <b>lm()</b>, this p-value is returned by the extractor function
+<b>summary()</b> in the section labeled <b>F-statistic</b>.
+
+<pre>
+&#62; summary(lm(values ~ ind, data = wear.st))
+...
+F-statistic:   31 on 2 and 12 DF,  p-value: 1.81e-05
+
+</pre>
+Why the difference? The F-test assumes equal variances, whereas the
+default for <b>oneway.test()</b> assumes unequal
+variances. Changing the default produces equivalent answers.
+
+<pre>
+&#62; oneway.test(values ~ ind, data = wear.st, var.equal=TRUE)$p.value
+[1] 1.810e-05
+
+</pre>

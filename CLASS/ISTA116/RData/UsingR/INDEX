@@ -1,0 +1,190 @@
+BushApproval            U.S. President George Bush approval ratings
+DOTplot                 Make big DOT plot likestripchart
+DensityPlot             Plots densities of data
+HUMMER                  Deliveries of new HUMMER vehicles
+KSI                     Data set on automobile deaths and injuries in
+                        Great Britain
+MLBattend               Major league baseball attendance data
+OBP                     On base percentage for 2002 major league
+                        baseball season
+QQplot                  Creates a qqplot with shaded density estimate
+Split.zoo               Add split method for zoo objects
+UsingR                  Opens browser to UsingR webpages
+age.universe            Best estimate of the age of the universe
+aid                     monthly payment for federal program
+alaska.pipeline         Comparison of in-field and laboratory
+                        measurement of defects
+alltime.movies          Top movies of all time
+aosat                   Artic Oscillation data based on SAT data
+arctic.oscillations     Measurement of sea-level pressure at the arctic
+babies                  Mothers and their babies data
+babyboom                Babyboom: data for 44 babies born in one
+                        24-hour period.
+batting                 Batting statistics for 2002 baseball season
+baycheck                Population estimate of type of Bay Checkerspot
+                        butterfly
+best.times              Best track and field times by age and distance
+blood                   blood pressure readings
+breakdown               Time of insulating fluid to breakdown
+bright.stars            List of bright stars with Hipparcos catalog
+                        number
+brightness              Brightness of 966 stars
+bumpers                 Bumper repair costs for various automobiles
+bycatch                 Number of Albatrosses accidentaly caught during
+                        a fishing haul
+cabinet                 Estimated tax savings for US President Bush's
+                        cabinet
+camp                    Mount Campito Yearly Treering Data, -3435-1969.
+cancer                  cancer survival times
+carbon                  Carbon Monoxide levels at different sites
+carsafety               Fatality information in U.S. for several
+                        popular cars
+central.park            Weather in Central Park NY in May 2003
+central.park.cloud      Type of day in Central Park, NY May 2003
+cfb                     Bootstrap sample from the Survey of Consumer
+                        Finances
+chicken                 weight gain of chickens fed 3 different rations
+chips                   Measurements of chip wafers
+co2emiss                Carbon Dioxide Emissions from the U.S.A. from
+                        fossil fuel
+coins                   The coins in my change bin
+coldvermont             Daily minimum temperature in Woodstock Vermont
+corn                    Comparison of corn for new and standard variety
+crime                   violent crime rates in 50 states of US
+deflection              Deflection under load
+diamond                 Price by size for diamond rings
+divorce                 Time until divorce for divorced women (by age)
+do                      Function for repeating commands.
+dottodot                Dot-to-dot puzzle
+dowdata                 The Dow Jones average from Jan 1999 to October
+                        2000
+dvdsales                Monthly DVD player sales since introduction to
+                        May 2004
+emissions               CO2 emissions data and gross domestic product
+                        for 26 countries
+ewr                     Taxi in and taxi out times at EWR (Newark)
+                        airport for 1999-2001
+exec.pay                Direct compensation for 199 United States CEOs
+                        in the year 2000
+fat                     Body measurements to predict percentage of body
+                        fat in males
+father.son              Pearson's data set on heights of fathers and
+                        their sons
+female.inc              Income distribution for females in 2001
+firstchi                Age of mother at birth of first child
+five.yr.temperature     Five years of weather in New York City
+florida                 County-by-county results of year 2000 US
+                        presidential election in Florida
+galileo                 Galileo data on falling bodies
+galton                  Galton's height data for parents and children
+gap                     Sales data for the Gap
+gasprices               Monthly average gasoline prices in the United
+                        States
+getAnswer               Display answers to selected problems
+goalspergame            Goals per game in NHL
+google                  Google stock values during 2005-02-07 to
+                        2005-07-07
+grades                  Current and previous grades
+grip                    Effects of cross-country ski-pole grip
+hall.fame               Data frame containing baseball statistics
+                        including Hall of Fame membership
+healthy                 Healthy or not?
+heartrate               Simulated data of age vs. max heart rate
+home                    Maplewood NJ homedata
+homedata                Maplewood NJ assessed values for years 1970 and
+                        2000
+homeprice               Sale price of homes in New Jersey in the year
+                        2001
+homework                Homework averages for Private and Public
+                        schools
+iq                      IQ scores
+kid.weights             Weight and height measurement for a sample of
+                        U.S. children
+last.tie                Last tie in 100 coin tosses
+lawsuits                Law suit settlements
+malpract                malpractice settlements
+mandms                  Proportions of colors in various M and M's
+                        varieties
+math                    Standardized math scores
+maydow                  Dow Jones industrial average and May maximum
+                        temperature
+midsize                 Price of new and used of three mid-sized cars
+movies                  Data frome on top 25 movies for some week, many
+                        weeks ago
+mw.ages                 Age distribution in year 2000 in Maplewood New
+                        Jersey
+nba.draft               NBA draft lottery odds for 2002
+normtemp                Body temperature and heart rate of 130 health
+                        individuals
+npdb                    National Practioner Data Bank
+nym.2002                Random sample of 2002 New York City Marathon
+                        finishers
+oral.lesion             Oral lesion location by town
+ozonemonthly            Monthly mean ozone values at Halley Bay
+                        Antartica
+paradise                Annual snowfall at Paradise Ranger Station,
+                        Mount Ranier
+pi2000                  first 2000 digits of pi
+primes                  Primes numbers less than 2003
+puerto                  Incomes for Puerto Rican immigrants to Miami
+rat                     Survival times of 20 rats exposed to radiation
+reaction.time           Reaction time with cell phone usage
+reddrum                 Growth of red drum
+salmon.rate             Simulated Data on Rate of Recruitment for
+                        Salmon
+salmonharvest           Salmon harvest in Alaska from 1980 to 1998
+samhda                  Substance Abuse and Mental Health Data for
+                        teens
+scatter.with.hist       Scatterplot with histograms
+scrabble                Distribution of Scrabble pieces
+sim                     Function to simulate sampling distributions
+simple.chutes           simulate a chutes and ladder game
+simple.densityplot      Plots densities of data
+simple.eda              Simple function to plot histogram, boxplot and
+                        normal plot
+simple.eda.ts           Makes 3 useful graphs for eda of times series
+simple.fancy.stripchart
+                        Makes a fancier strip chart: plots means and a
+                        line
+simple.freqpoly         Simply plot histogram and frequency polygon
+simple.hist.and.boxplot
+                        A function to plot both a histogram and a
+                        boxplot
+simple.lag              applies function to moving subsets of a data
+                        vector
+simple.lm               Simplify usage of lm
+simple.median.test      Do simple sign test for median - no ranks
+simple.scatterplot      Simple scatter plot of x versus y with
+                        histograms of each
+simple.sim              Simplify the process of simulation
+simple.violinplot       Plots violinplots instead of boxplots
+simple.z.test           Implement basic z-test for illustrative
+                        purposes
+skateranks              Judges scores for disputed ice skating
+                        competition
+slc                     Sodium-Lithium countertransport
+smokyph                 Water pH levels at 75 water samples in the
+                        Great Smoky Mountains
+south                   Murder rates for 30 Southern US cities
+southernosc             Southern Oscillations
+sp500.excess            Excess returns of S&P 500
+squareplot              Create a squareplot alternative to a segmented
+                        barplot
+stud.recs               Student records
+student.expenses        Some simulated data on student expenses
+superbarplot            super segmented barplot
+tastesgreat             Does new goo taste great?
+tcm1y                   One-year treasury security values
+tempsalinity            Temperature/Salinity measurements along a
+                        moving Eddy
+too.young               What age is too young for a male to data a
+                        female?
+twins                   Burt's IQ data for twins
+u2                      Song and lengths for U2 albums
+urchin.growth           Data on growth of sea urchins
+vacation                vacation days
+violinplot              Plots violinplots instead of boxplots
+watertemp               Temperature measurement of water at 85m depth
+yahoo.get.hist.quote    Download stock data from Yahoo!
+yellowfin               Yellow fin tuna catch rate in Tropical Indian
+                        Ocean

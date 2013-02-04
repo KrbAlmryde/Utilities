@@ -1,0 +1,22 @@
+
+Usage: @ScaleVolume <-input DSET> <-prefix PREFIX>
+                     [-perc_clip P0 P1] [-val_clip V0 V1]
+                     [-scale_by_mean] [-scale_by_median]
+                     [-norm] 
+Method 1: (default)
+Scale a volume so that its values range between V0 and V1
+-val_clip V0 V1: Min and Max of output dset
+                 Default V0 = 0 and V1 = 255
+-perc_clip P0 P1: Set lowest P0 percentile to Min 
+                  and highest P1 percentile to Max
+                  Default P0 = 2 and P1 = 98
+
+At the moment, Method 1 only operates on volumes with one sub-brick
+
+Method 2:
+-scale_by_mean: Divide each sub-brick by mean of non-zero voxels
+-scale_by_median: Divide each sub-brick by median of non-zero voxels
+
+Method 3:
+-norm: For each time series T, Tnorm= (T-mean(T))/stdev(T)
+

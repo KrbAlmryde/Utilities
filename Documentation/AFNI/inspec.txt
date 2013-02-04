@@ -1,0 +1,26 @@
+
+Usage: inspec <-spec specfile> 
+              [-detail d] [-prefix newspecname] 
+              [-LRmerge leftspec rightspec]
+              [-h/-help]
+Outputs information found from specfile.
+    -spec specfile: specfile to be read
+    -prefix newspecname: rewrite spec file.
+    -detail d: level of output detail default is 1 in general,
+               0 with -LRmerge.  
+               Available levels are 0, 1, 2 and 3.
+    -LRmerge LeftSpec RightSpec:
+             Merge two spec files in a way that makes
+             sense for viewing in SUMA
+    -h or -help: This message here.
+++ SUMA version 2006_7_3
+
+CVS tag:
+   SUMA_2005_04_29_1733
+
+Compile Date:
+   Jul  5 2011
+
+      Ziad S. Saad SSCC/NIMH/NIH saadz@mail.nih.gov 
+     Dec 2 03
+

@@ -1,0 +1,46 @@
+
+
+
+
+
+
+
+
+<title> problem-8.2</title>
+    
+<h1 align="center">problem-8.2 </h1>
+<b>problem-8.2</b>&nbsp;
+    We  tabulate to get the counts.
+    
+<pre>
+&#62; table(samhda$marijuana)
+marijuana
+  1   2
+309 281
+    
+</pre>
+    The hypothesis test is between
+    
+<br clear="all" /><table border="0" width="100%"><tr><td>
+<table align="center" cellspacing="0"  cellpadding="2"><tr><td nowrap="nowrap" align="center">
+ H<sub>0</sub>: p = 0.5,&nbsp;&nbsp;&nbsp; H<sub>A</sub>: p  &gt;  0.5. </td></tr></table>
+</td></tr></table>
+
+
+    The p-value is given by
+    
+<pre>
+&#62; x = 309; n = 309 + 281
+&#62; prop.test(x,n,p=.5,alt="greater")
+
+        1-sample proportions test with continuity correction
+
+data:  x out of n, null probability 0.5
+X-squared = 1.236, df = 1, p-value = 0.1332
+alternative hypothesis: true p is greater than 0.5
+...
+    
+</pre>
+    which is a small, but not significant p-value.
+
+<div class="p"><!----></div>

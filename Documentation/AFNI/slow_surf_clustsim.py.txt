@@ -1,0 +1,53 @@
+
+=============================================================================
+slow_surf_clustsim.py    - generate a tcsh script to run clustsim on surface
+
+------------------------------------------
+
+   examples:
+
+   1. basic: give 3 required inputs, all else is default
+
+        slow_surf_clustsim.py -print_script             \
+            -uvar spec_file sb23_lh_141_std.spec        \
+            -uvar surf_vol sb23_SurfVol_aligned+orig    \
+            -uvar vol_mask mask_3mm+orig
+
+------------------------------------------
+
+   script outline:
+
+        set control variables
+        create and enter results directory
+        convert p-value list (pthr_list) to z-scores (zthr_list)
+        create dummy time series of length itersize
+        for each iter ( iteration list )
+            3dcalc: generate noise volume
+            3dVol2Surf: map noise to surface
+            SurfSmooth: blur to FWHM
+            for each index ( itersize list )
+                for each zthr ( zthr_list )
+                    SurfClust: make clust file clust.out.$iter.$index.$zthr
+        extract lists of maximum areas
+
+------------------------------------------
+
+   terminal options:
+
+      -help                     : show this help
+      -hist                     : show module history
+      -show_default_vars        : list user variable defaults
+      -show_valid_opts          : list valid options
+      -ver                      : show current version
+
+   other options
+      -print_script             : print script to terminal
+      -save_script FILE         : save script to given file
+      -uvar value ...           : set the user variable
+                                  (use -show_default_vars to see user vars)
+      -verb LEVEL               : set the verbosity level
+
+-----------------------------------------------------------------------------
+R Reynolds    June 2011
+=============================================================================
+

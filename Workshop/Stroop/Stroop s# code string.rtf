@@ -1,0 +1,103 @@
+{\rtf1\mac\ansicpg10000\cocoartf824\cocoasubrtf480
+{\fonttbl\f0\fswiss\fcharset77 Helvetica;\f1\fswiss\fcharset77 Helvetica-Bold;\f2\fnil\fcharset77 LucidaGrande;
+}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww9860\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\f0\fs24 \cf0 to3d -epan -prefix S4-voice-epan -save_outliers S4-voice-out.1D -time:tz 214 26 3500 @offsets.1D S4-voice.\\*\
+\
+to3d -epan -prefix S4-word-epan -save_outliers S4-word-out.1D -time:tz 214 26 3500 @offsets.1D  S4-word.\\*\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\f1\b \cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\f0\b0 \cf0 3dtshift -prefix S4-voice-shift -ignore 4 -rlt+ S4-voice-epan+orig\
+\
+3dtshift -prefix S4-word-shift -ignore 4 -rlt+ S4-word-epan+orig\
+\
+3dvolreg -prefix S4-voice-reg -1Dfile S4-voice-reg.1D -Fourier -base 39 'S4-voice-shift+orig[4-213]'\
+\
+3dvolreg -prefix S4-word-reg -1Dfile S4-word-reg.1D -Fourier -base 12 -rotparent S4-voice-reg+orig 'S4-word-shift+orig[4-213]'\
+\
+3dDespike -prefix S4-voice-despike -ssave S4-voice-spike -nomask S4-voice-reg+orig\
+\
+3dDespike -prefix S4-word-despike -ssave S4-word-spike -nomask S4-word-reg+orig\
+\
+3dmerge -1blur_fwhm 8 -doall -prefix S4-voice-blur S4-voice-despike+orig\
+\
+3dmerge -1blur_fwhm 8 -doS4all -prefix S4-word-blur S4-word-despike+orig\
+\
+3dcliplevel S4-voice-blur+orig\
+\
+3dcliplevel S4-word-blur+orig\
+\
+3dtstat -prefix S4-voice-mean S4-voice-blur+orig\
+\
+3dtstat -prefix S4-word-mean S4-word-blur+orig\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\f1\b \cf0 Be sure to have the outliers and make sure you change them for every subject (remember, this is just a template, you are still going to have to change the values)\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\f0\b0 \cf0 \
+3dcalc -a S4-voice-blur+orig -b S4-voice-mean+orig -c S4-voice-mask-3dd+orig -expr "(a/b*100) * c" -prefix S4-voice-norm-mask\
+\
+3dcalc -a S4-word-blur+orig -b S4-word-mean+orig -c S4-word-mask-3dd+orig -expr "(a/b*100) * c" -prefix S4-word-norm-mask\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\f1\b \cf0 Move both voice and word runs and change directories to 3dD...\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\f0\b0 \cf0 \
+3dAutomask -prefix S4-voice-erodemask  -erode 1 S4-voice-norm+orig\
+\
+3dAutomask -prefix S4-word-erodemask  -erode 1 S4-word-norm+orig\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\f1\b \cf0 Be sure to check to make sure that the info is correct to that paticular subject\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\f0\b0 \cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
+
+\f2 \cf0 ./3dD_stimtimes_word_7stim.txt\
+\
+./3dD_stimtimes_voice_7stim.txt
+\f0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+\cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\f1\b \cf0 Yes these numbers have been checked....
+\f0\b0 \
+\
+3dbucket -prefix S4-voice-fwmv-tstat -fbuc S4-voice-norm.bucket+orig'[31]'\
+\
+3dbucket -prefix S4-voice-mwfv-tstat -fbuc S4-voice-norm.bucket+orig'[35]'\
+\
+3dbucket -prefix S4-voice-mwmv-tstat -fbuc S4-voice-norm.bucket+orig'[39]'\
+\
+3dbucket -prefix S4-voice-nwfv-tstat -fbuc S4-voice-norm.bucket+orig'[43]'\
+\
+3dbucket -prefix S4-voice-mwmvn-tstat -fbuc S4-voice-norm.bucket+orig'[47]'\
+\
+3dbucket -prefix S4-voice-nwfvn-tstat -fbuc S4-voice-norm.bucket+orig'[51]'\
+\
+3dbucket -prefix S4-word-fwmv-tstat -fbuc S4-word-norm.bucket+orig'[31]'\
+\
+3dbucket -prefix S4-word-mwfv-tstat -fbuc S4-word-norm.bucket+orig'[35]'\
+\
+3dbucket -prefix S4-word-mwmv-tstat -fbuc S4-word-norm.bucket+orig'[39]'\
+\
+3dbucket -prefix S4-word-nwfv-tstat -fbuc S4-word-norm.bucket+orig'[43]'\
+\
+3dbucket -prefix S4-word-mwmvn-tstat -fbuc S4-word-norm.bucket+orig'[47]'\
+\
+3dbucket -prefix S4-word-nwfvn-tstat -fbuc S4-word-norm.bucket+orig'[51]'\
+\
+}

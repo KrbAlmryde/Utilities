@@ -1,0 +1,38 @@
+
+
+
+
+
+
+
+
+<title> problem-9.13</title>
+    
+<h1 align="center">problem-9.13 </h1>
+<b>problem-9.13</b>&nbsp;
+    After massaging the data, a glimpse at a contingency table shows
+    us that there appears to be some dependency between the variables. This
+    is borne out by the tiny p-value returned by <b>chisq.test()</b>.
+    
+<pre>
+&#62; aq = airquality[complete.cases(airquality),]
+&#62; attach(aq)
+&#62; te = cut(Temp, quantile(Temp))
+&#62; oz = cut(Ozone,quantile(Ozone))
+&#62; table(te,oz)
+           oz
+te          (1,18] (18,31] (31,62] (62,168]
+  (57,71]   15      9       3       0
+  (71,79]   10     10       7       1
+  (79,84.5]  4      6      11       5
+  (84.5,97]  0      0       6      22
+&#62; chisq.test(te,oz)
+
+        Pearson's Chi-squared test
+
+data:  te and oz
+X-squared = 76.31, df = 9, p-value = 8.713e-13
+    
+</pre>
+
+<div class="p"><!----></div>

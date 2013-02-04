@@ -1,0 +1,32 @@
+Variable names and descriptions
+
+
+home_dir=${DICHOTIC}
+subj_dir=${DICHOTIC}/${subj}
+orig_dir=${DICHOTIC}/${subj}/Orig
+anat_dir=${subj_dir}/struc
+run_dir=${DICHOTIC}/${subj}/${run}
+anova_dir=${DICHOTIC}/ANOVA/${run}
+fsl_dir=${DICHOTIC}/FSL/${run}
+####################################################################################################
+#
+# Names for files
+
+subrun=${subj}_${run}
+submod=${subj}_${run}_${mod}
+subcond=${subj}_${run}_${cond}
+runmod=${run}_${mod}
+runcond=${run}_${cond}
+spgr=${subj}_spgr
+fse=${subj}_fse
+subj
+run
+hrm=
+mod=
+brik=
+stim=
+stim1
+alevel
+factor
+#base=`base_reg`
+

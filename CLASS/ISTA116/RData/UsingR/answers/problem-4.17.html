@@ -1,0 +1,49 @@
+
+
+
+
+
+
+
+
+<title> problem-4.17</title>
+    
+<h1 align="center">problem-4.17 </h1>
+<b>problem-4.17</b>&nbsp;
+    The following commands will create the boxplots
+    
+<pre>
+&#62; attach(npdb)
+&#62; tmp = split(amount,ID)
+&#62; df = data.frame(sum=sapply(tmp,sum),number=sapply(tmp,length))
+&#62; boxplot(sum ~ number, data = df) ## or even better
+&#62; boxplot(log(sum) ~ number, data = df)
+&#62; detach(npdb)
+    
+</pre>
+    Based on the latter graph, the two or more awards appear higher; the
+    total amounts aren't even comparable. To see this, again we can
+    use  and then <b>sapply()</b> as follows:
+    
+<pre>
+&#62; attach(df)
+&#62; tmp =  sapply(split(sum,number),sum)
+&#62; tmp
+         1          2          3          4          5
+1034406350   81199650    4400500    2593750    1995000
+         6          8         11         15         22
+   1090000     960000     243550    1492500     855250
+        73
+    813500
+&#62; tmp/sum(tmp)
+        1         2         3         4         5         6
+0.9153633 0.0718549 0.0038941 0.0022953 0.0017654 0.0009646
+        8        11        15        22        73
+0.0008495 0.0002155 0.0013207 0.0007568 0.0007199
+    
+</pre>
+    (An obvious complaint-that there aren't enough years in the
+    data set to catch all the repeat offenders-is valid. The full
+    data set shows a much less skewed picture.)
+
+<div class="p"><!----></div>

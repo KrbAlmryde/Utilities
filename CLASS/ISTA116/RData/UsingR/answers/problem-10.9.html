@@ -1,0 +1,37 @@
+
+
+
+
+
+
+
+
+<title> problem-10.9</title>
+    
+<h1 align="center">problem-10.9 </h1>
+<b>problem-10.9</b>&nbsp;
+For illustration, we type the data into a text file with two columns,
+the first being the elevation. Then we use <b>read.table()</b> to read it in.
+    
+<pre>
+&#62; x = read.table(file="tmp.txt")
+&#62; names(x) = c("elev","Temp")
+&#62; res = lm(Temp ~ elev, x)
+&#62; summary(res)
+...
+Coefficients:
+             Estimate Std. Error t value Pr(&#62;|t|)
+(Intercept) 59.290662   1.717329   34.52  3.9e-08 ***
+elev        -0.005115   0.000921   -5.55   0.0014 **
+---
+...
+&#62; T = (-0.005115 - (-.00534)) / .000921
+&#62; T
+[1] 0.2443
+&#62; 2*pt(T,df=6,lower.tail=FALSE) # two-sided
+[1] 0.8151
+
+</pre>
+The p-value is not statistically significant.
+
+<div class="p"><!----></div>

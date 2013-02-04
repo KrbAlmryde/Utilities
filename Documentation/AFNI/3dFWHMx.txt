@@ -1,0 +1,122 @@
+Usage: 3dFWHMx [options] dataset
+
+Unlike the older 3dFWHM, this program computes FWHMs for all sub-bricks
+in the input dataset, each one separately.  The output for each one is
+written to the file specified by '-out'.  The mean (arithmetic or geometric)
+of all the FWHMs along each axis is written to stdout.  (A non-positive
+output value indicates something happened; e.g., FWHM in z is meaningless
+for a 2D dataset.)
+
+METHODS:
+ - Calculate ratio of variance of first differences to data variance.
+ - Should be the same as 3dFWHM for a 1-brick dataset.
+   (But the output format is simpler to use in a script.)
+
+OPTIONS:
+  -mask mmm   = Use only voxels that are nonzero in dataset 'mmm'.
+  -automask   = Compute a mask from THIS dataset, a la 3dAutomask.
+                [Default = use all voxels]
+
+  -input ddd }=
+    *OR*     }= Use dataset 'ddd' as the input.
+  -dset  ddd }=
+
+  -demed      = If the input dataset has more than one sub-brick
+                (e.g., has a time axis), then subtract the median
+                of each voxel's time series before processing FWHM.
+                This will tend to remove intrinsic spatial structure
+                and leave behind the noise.
+                [Default = don't do this]
+  -unif       = If the input dataset has more than one sub-brick,
+                then normalize each voxel's time series to have
+                the same MAD before processing FWHM.  Implies -demed.
+                [Default = don't do this]
+  -detrend [q]= Instead of demed (0th order detrending), detrend to
+                order 'q'.  If q is not given, the program picks q=NT/30.
+                -detrend disables -demed, and includes -unif.
+        **N.B.: I recommend this option, and it is not the default
+                only for historical compatibility reasons.  It may
+                become the default someday. Depending on my mood.
+                It is already the default in program 3dBlurToFWHM.
+        **N.B.: This is the same detrending as done in 3dDespike;
+                using 2*q+3 basis functions for q > 0.
+        ******* If you don't use '-detrend', the program now [Aug 2010]
+                checks if a large number of voxels are have significant
+                nonzero means. If so, the program will print a warning
+                message suggesting the use of '-detrend', since inherent
+                spatial structure in the image will bias the estimation
+                of the FWHM of the image time series NOISE (which is usually
+                the point of using 3dFWHMx).
+  -detprefix d= Save the detrended file into a dataset with prefix 'd'.
+                Used mostly to figure out what the hell is going on,
+                when strange results transpire.
+
+  -geom      }= If the input dataset has more than one sub-brick,
+    *OR*     }= compute the final estimate as the geometric mean
+  -arith     }= or the arithmetic mean of the individual sub-brick
+                FWHM estimates. [Default = -geom, for no good reason]
+
+  -combine    = combine the final measurements along each axis into
+                one result
+
+  -out ttt    = Write output to file 'ttt' (3 columns of numbers).
+                If not given, the sub-brick outputs are not written.
+                Use '-out -' to write to stdout, if desired.
+
+  -compat     = Be compatible with the older 3dFWHM, where if a
+                voxel is in the mask, then its neighbors are used
+                for differencing, even if they are not themselves in
+                the mask.  This was an error; now, neighbors must also
+                be in the mask to be used in the differencing.
+                Use '-compat' to use the older method.
+              **NOT RECOMMENDED except for comparison purposes!
+
+SAMPLE USAGE: (tcsh)
+  set zork = ( `3dFWHMx -automask -input junque+orig` )
+Captures the FWHM-x, FWHM-y, FWHM-z values into shell variable 'zork'.
+
+INPUT FILE RECOMMENDATIONS:
+* For FMRI statistical purposes, you DO NOT want the FWHM to reflect
+  the spatial structure of the underlying anatomy.  Rather, you want
+  the FWHM to reflect the spatial structure of the noise.  This means
+  that the input dataset should not have anatomical (spatial) structure.
+* One good form of input is the output of '3dDeconvolve -errts', which is
+  the dataset of residuals left over after the GLM fitted signal model is
+  subtracted out from each voxel's time series.
+* If you don't want to go to that much trouble, use '-detrend' to approximately
+  subtract out the anatomical spatial structure, OR use the output of 3dDetrend
+  for the same purpose.
+* If you do not use '-detrend', the program attempts to find non-zero spatial
+  structure in the input, and will print a warning message if it is detected.
+
+ *** Do NOT use 3dFWHMx on the statistical results (e.g., '-bucket') from ***
+ *** 3dDeconvolve or 3dREMLfit!!!  The function of 3dFWHMx is to estimate ***
+ *** the smoothness of the time series NOISE, not of the statistics. This ***
+ *** proscription is especially true if you plan to use 3dClustSim next!! ***
+
+IF YOUR DATA HAS SMOOTH-ISH SPATIAL STRUCTURE YOU CAN'T GET RID OF:
+For example, you only have 1 volume, say from PET imaging.  In this case,
+the standard estimate of the noise smoothness will be mixed in with the
+structure of the background.  An approximate way to avoid this problem
+is provided with the semi-secret '-2difMAD' option, which uses a combination of
+first-neighbor and second-neighbor differences to estimate the smoothness,
+rather than just first-neighbor differences, and uses the MAD of the differences
+rather than the standard deviation.  (If you must know the details, read the
+source code in mri_fwhm.c!)                    [For Jatin Vaidya, March 2010]
+
+ALSO SEE:
+* The older program 3dFWHM is now superseded by 3dFWHMx.
+* The program 3dClustSim takes as input the FHWM estimates and then
+  estimates the cluster sizes thresholds to help you get 'corrected'
+  (for multiple comparisons) p-values.
+* 3dLocalstat -stat FWHM will estimate the FWHM values at each voxel,
+  using the same first-difference algorithm as this program, but applied
+  only to a local neighborhood of each voxel in turn.
+* 3dBlurToFWHM will iteratively blur a dataset (inside a mask) to have a
+  given global FWHM.
+* 3dBlurInMask will blur a dataset inside a mask, but doesn't measure FWHM.
+
+-- Bob Cox - Halloween 2006 --- BOO!
+
+++ Compile date = Jul  5 2011
+

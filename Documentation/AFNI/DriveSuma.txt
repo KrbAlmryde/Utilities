@@ -1,0 +1,378 @@
+
+Usage: A program to drive suma from command line.
+       DriveSuma [options] -com COM1 -com COM2 ...
+Mandatory parameters:
+---------------------
+   -com COM: Command to be sent to SUMA.
+             At least one command must be used
+             and various commands can follow in
+             succession.
+        COM is the command string and consists
+            of at least an action ACT. Some actions
+            require additional parameters to follow
+            ACT. 
+ Actions (ACT) and their parameters:
+ -----------------------------------
+ o pause [MSG]: Pauses DriveSuma and awaits
+                an 'Enter' to proceed with
+                other commands. 
+                MSG is an optional collection of
+                strings that can be displayed as
+                a prompt to the user. See usage
+                in examples below.
+
+ o sleep DUR: Put DriveSuma to sleep for a duration DUR.
+              DUR is the duration, specified with something
+              like 2s (or 2) or 150ms
+              See usage in examples below.
+
+ o show_surf: Send surface to SUMA.
+     + Mandatory parameters for show_surf action:
+        -surf_label S_LABEL: A label (identifier) to assign to the
+                           surface
+        -i_TYPE SURF: Name of surface file, see surface I/O 
+                      options below for details.
+     + Optional parameters for show_surf action:
+          -surf_state STATE: Name the state of that surface
+          -surf_winding WIND: Winding of triangles. Choose 
+                              from ccw or cw (normals on sphere
+                              pointing in). This option affects
+                              the lighting of the surface.
+     + Example show_surf: 
+        1- Create some surface
+        2- Start SUMA
+        3- Send new surface to SUMA
+        ---------------------------
+        CreateIcosahedron -rd 4
+        suma -niml &
+        echo 'Wait until suma is ready then proceed.'
+        DriveSuma -com show_surf -label icoco \
+                       -i_fs CreateIco_surf.asc
+
+ o node_xyz: Assign new coordinates to surface in SUMA
+     + Mandatory parameters for action node_xyz:
+        -surf_label S_LABEL: A label to identify the target 
+                           surface
+        -xyz_1D COORDS.1D: A 1D formatted file containing a new 
+                           coordinate for each of the nodes 
+                           forming the surface. COORDS.1D must 
+                           have three columns.
+                           Column selectors can be used here as 
+                           they are in AFNI.
+     + Example node_xyz (needs surface from 'Example show_surf')
+        1- Create some variation on the coords of the surface
+        2- Send new coordinates to SUMA
+        3- Manipulate the x coordinate now
+        4- Send new coordinates again to SUMA
+        -------------------------------------
+        ConvertSurface -i_fs CreateIco_surf.asc \
+                       -o_1D radcoord radcoord \
+                       -radial_to_sphere 100
+        DriveSuma -com node_xyz -label icoco \
+                       -xyz_1D radcoord.1D.coord'[0,1,2]'
+        1deval -a radcoord.1D.coord'[0]' -expr 'sin(a)*100' \
+            > xmess.1D ;1dcat xmess.1D radcoord.1D.coord'[1,2]' \
+            > somecoord.1D.coord ; rm xmess.1D
+        DriveSuma -com node_xyz -label icoco \
+                       -xyz_1D somecoord.1D.coord
+
+ o viewer_cont: Apply settings to viewer or viewer controller
+     + Optional parameters for action viewer_cont:
+       (Parameter names reflect GUI labels or key strokes.)
+        -load_view VIEW_FILE: Load a previously
+                              saved view file (.vvs).
+                              Same as 'File-->Load View'
+        -load_do   DO_FILE: Load a displayable object file
+                            For detailed information on DO_FILE's format,
+                            see the section under suma's  help (ctrl+h)
+                            where the function of Ctrl+Alt+s is detailed.
+        -key KEY_STRING: Act as if the key press KEY_STRING
+                         was applied in the viewer.
+                         ~ Not all key presses from interactive
+                         mode are allowed here.
+                         ~ Available keys and their variants are:
+                         [, ], comma (or ','), period (or '.'), space,
+                         a, b, d, G, j, m, n, p, r, t, z, 
+                         up, down, left, right, and F1 to F8.
+                         ~ Key variants are specified this way:
+                         ctrl+Up or ctrl+alt+Down etc.
+                         ~ For help on key actions consult SUMA's
+                         GUI help.
+                         ~ Using multiple keys in the same command
+                         might not result in the serial display of
+                         the effect of each key, unless 'd' modifier
+                         is used as shown further below. For example,
+                         -key right -key right would most likely
+                         produce one image rotated twice rather than
+                         two images, each turned right once.
+           The -key string can be followed by modifiers:
+              For example, -key:r5:s0.2 has two modifiers,
+              r5 and s0.2. All modifiers are separated by ':'.
+              'r' Repeat parameter, so r5 would repeat the 
+                  same key 5 times.
+              's' Sleep parameter, so s0.2 would sleep for 0.2
+                  seconds between repeated keys.
+              'd' Immediate redisplay flag. That is useful
+                  when you are performing a succession of keys and
+                  want to ensure each individual one gets displayed
+                  and recorded (most likely). Otherwise, successive
+                  keys may only display their resultant. 'd' is used
+                  automatically with 's' modifier.
+              'p' Pause flag. Requires user intervention to proceed.
+              'v' Value string. The string is passed to the function
+                  that processes this key, as if you'd entered that string
+                  in the GUI directly. To avoid parsing headaches, you
+                  should use quotes with this qualifier. For example, say
+                  you want to pass 0.0 0.0 0.0 to the 'ctrl+j' key press.
+                  At the shell you would enter:
+                  DriveSuma -com viewer_cont '-key:v"0.8 0 10.3"' ctrl+j
+        -viewer VIEWER: Specify which viewer should be acted 
+                        upon. Default is viewer 'A'. Viewers
+                        must be created first (ctrl+n) before
+                        they can be acted upon.
+                        You can also refer to viewers with integers
+                        0 for A, 1 for B, etc.
+        -viewer_width or (-width) WIDTH: Set the width in pixels of
+                                     the current viewer.
+        -viewer_height or (-height) HEIGHT: Set the height in pixels of
+                                     the current viewer.
+        -viewer_size WIDTH HEIGHT : Convenient combo of -viewer_width 
+                                    and -viewer_height
+        -viewer_position X Y: Set position on the screen
+        -inout_notify y/n: Turn on or off function call tracing
+     + Example viewer_cont (assumes all previous examples have
+       been executed and suma is still running).
+        - a series of commands that should be obvious.
+       -------------------------------------
+       DriveSuma -com  viewer_cont -key R -key ctrl+right
+       DriveSuma -com  viewer_cont -key:r3:s0.3 up  \
+                       -key:r2:p left -key:r5:d right \
+                       -key:r3 z   -key:r5 left -key F6
+       DriveSuma -com  viewer_cont -key m -key down \
+                 -com  sleep 2s -com viewer_cont -key m \
+                       -key:r4 Z   -key ctrl+right
+       DriveSuma -com  viewer_cont -key m -key right \
+                 -com  pause press enter to stop this misery \
+                 -com  viewer_cont -key m 
+
+ o recorder_cont: Apply commands to recorder window
+     + Optional parameters for action recorder_cont:
+       -anim_dup DUP: Save DUP copies of each frame into movie
+                      This has the effect of slowing movies down
+                      at the expense of file size, of course.
+                      DUP's default is set by the value of AFNI_ANIM_DUP
+                      environment variable. 
+                      To set DUP back to its default value, use -anim_dup 0.
+       -save_as PREFIX.EXT: Save image(s) in recorder
+                             in the format determined by
+                             extension EXT.
+                             Allowed extensions are:
+                             agif or gif: Animated GIF (movie)
+                             mpeg or mpg: MPEG (movie)
+                             jpeg or jpg: JPEG (stills)
+                             png: PNG (stills)
+       -save_index IND: Save one image indexed IND (start at 0)
+       -save_range FROM TO: Save images from FROM to TO 
+       -save_last: Save last image (default for still formats)
+       -save_last_n N: Save last N images
+       -save_all: Save all images (default for movie formats)
+       -cwd ABSPATH: Set ABSPATH as SUMA's working directory. 
+                     This path is used for storing output files
+                     or loading dsets.
+     + Example recorder_cont (assumes there is a recorder window)
+       currently open from SUMA.
+       -------------------------------------
+       DriveSuma -com  recorder_cont -save_as allanimgif.agif \
+                 -com  recorder_cont -save_as lastone.jpg \
+                 -com  recorder_cont -save_as three.jpg -save_index 3\
+                 -com  recorder_cont -save_as some.png -save_range 3 6
+
+ o surf_cont: Apply settings to surface controller.
+     + Optional parameters for action surf_cont:
+       (Parameter names reflect GUI labels.)
+       -surf_label S_LABEL: A label to identify the target surface
+       -load_dset DSET: Load a dataset
+           ! NOTE: When using -load_dset you can follow it
+                   with -surf_label in order to attach
+                   the dataset to a particular target surface.
+       -view_surf y/n: Show or hide surface S_LABEL
+       -RenderMode V/F/L/P/H: Set the render mode for surface S_LABEL.
+       -load_col COL: Load a colorfile named COL.
+                      Similar to what one loads under
+                      SUMA-->ctrl+s-->Load Col
+                      COL contains 4 columns, of
+                      the following format:
+                      n r g b
+                      where n is the node index and 
+                      r g b are thre flooat values between 0 and 1
+                      specifying the color of each node.
+       -view_surf_cont y/n: View surface controller
+       -switch_surf S_LABEL: switch state to that of surface 
+                           labeled S_LABEL and make that surface 
+                           be in focus.
+       -switch_dset DSET: switch dataset to DSET
+       -view_dset y/n: Set view toggle button of DSET
+       -1_only y/n: Set 1_only toggle button of DSET
+       -switch_cmap CMAP: switch colormap to CMAP
+       -load_cmap CMAP.1D.cmap: load and switch colormap in 
+                                file CMAP.1D.cmap
+       -I_sb ISB: Switch intensity to ISBth column (sub-brick)
+       -I_range IR0 IR1: set intensity range from IR0 to IR1.
+                         If only one number is given, the range
+                         is symmetric from -|IR0| to |IR0|.
+       -shw_0 y/n      or 
+       -show_0 y/n: Set shw 0 toggle button of DSET.
+       -Dsp MODE: Set the viewing mode of the current DSET.
+                  MODE is one of XXX, Con, Col, or 'C&C' 
+                      (single quotes necessary for 'C&C' MODE).
+                  This is equivalent to setting the 'Dsp' menu button
+                  in the surface controller. The option is applied
+                  to the current DSET on the selected surface.
+       -T_sb TSB: Switch threshold to TSBth column (sub-brick)
+                  Set TSB to -1 to turn off thresholding.
+       -T_val THR: Set threshold to THR
+       -B_sb BSB: Switch brightness modulation to BSBth column (sub-brick)
+       -B_range BR0 BR1: set brightness clamping range from BR0 to BR1.
+                         If only one number is given, the range
+                         is symmetric from -|BR0| to |BR0|.
+       -B_scale BS0 BS1: Modulate brightness by BS0 factor for BR0 or lower
+                         by BS1 factor for BR1 or higher, and linearly 
+                         interpolate scaling for BR0 < values < BR1
+       -Dim DIM: Set the dimming factor.
+     + Example surf_cont (assumes all previous examples have
+       been executed and suma is still running).
+       - Obvious chicaneries to follow:
+       --------------------------------
+       echo 1 0 0 > bbr.1D.cmap; echo 1 1 1 >> bbr.1D.cmap; \
+       echo 0 0  1 >> bbr.1D.cmap
+       IsoSurface -shape 4 128 -o_ply blooby.ply
+       quickspec -spec blooby.spec -tn ply blooby.ply
+       SurfaceMetrics -curv -spec blooby.spec \
+                      -surf_A blooby -prefix blooby      
+       DriveSuma -com show_surf -surf_label blooby \
+                      -i_ply blooby.ply -surf_winding cw \
+                      -surf_state la_blooby
+       DriveSuma -com surf_cont -load_dset blooby.curv.1D.dset \
+                      -surf_label blooby -view_surf_cont y
+       DriveSuma -com surf_cont -I_sb 7 -T_sb 8 -T_val 0.0
+       DriveSuma -com surf_cont -I_range 0.05 -T_sb -1
+       DriveSuma -com surf_cont -I_sb 8 -I_range -0.1 0.1 \
+                      -T_val 0.02 -Dim 0.4
+       DriveSuma -com surf_cont -B_sb 7 -B_range 0.5 -B_scale 0.1 0.9
+       DriveSuma -com surf_cont -switch_dset Convexity -1_only y
+       DriveSuma -com surf_cont -switch_cmap roi64 -1_only n
+       DriveSuma -com surf_cont -view_dset n
+       DriveSuma -com surf_cont -switch_dset blooby.curv.1D.dset \
+                      -view_surf_cont n -I_range -0.05 0.14
+       DriveSuma -com surf_cont -load_cmap bbr.1D.cmap
+
+ o kill_suma: Close suma and quit.
+
+Advice:
+-------
+   If you get a colormap in your recorded image, it is
+   because the last thing you drew was the surface controller
+   which has an openGL surface for a colormap. In such cases,
+   Force a redisplay of the viewer with something like:
+      -key:r2:d m 
+                  where the m key is pressed twice (nothing)
+                  changes in the setup but the surface is 
+                  redisplayed nonetheless because of the 'd'
+                  key option.
+Options:
+--------
+   -echo_edu: Echos the entire command line (without -echo_edu)
+              for edification purposes
+   -examples: Show all the sample commands and exit
+   -C_demo: execute a preset number of commands
+            which are meant to illustrate how one
+            can communicate with SUMA from one's 
+            own C code. Naturally, you'll need to
+            look at the source code file SUMA_DriveSuma.c
+      Example:
+      suma -niml &
+      DriveSuma -C_demo
+
+ Specifying input surfaces using -i or -i_TYPE options: 
+    -i_TYPE inSurf specifies the input surface,
+            TYPE is one of the following:
+       fs: FreeSurfer surface. 
+           If surface name has .asc it is assumed to be
+           in ASCII format. Otherwise it is assumed to be
+           in BINARY_BE (Big Endian) format.
+           Patches in Binary format cannot be read at the moment.
+       sf: SureFit surface. 
+           You must specify the .coord followed by the .topo file.
+       vec (or 1D): Simple ascii matrix format. 
+            You must specify the coord (NodeList) file followed by 
+            the topo (FaceSetList) file.
+            coord contains 3 floats per line, representing 
+            X Y Z vertex coordinates.
+            topo contains 3 ints per line, representing 
+            v1 v2 v3 triangle vertices.
+       ply: PLY format, ascii or binary.
+            Only vertex and triangulation info is preserved.
+       mni: MNI .obj format, ascii only.
+            Only vertex, triangulation, and node normals info is preserved.
+       byu: BYU format, ascii.
+            Polygons with more than 3 edges are turned into
+            triangles.
+       bv: BrainVoyager format. 
+           Only vertex and triangulation info is preserved.
+       dx: OpenDX ascii mesh format.
+           Only vertex and triangulation info is preserved.
+           Requires presence of 3 objects, the one of class 
+           'field' should contain 2 components 'positions'
+           and 'connections' that point to the two objects
+           containing node coordinates and topology, respectively.
+       gii: GIFTI XML surface format.
+ Note that if the surface filename has the proper extension, 
+ it is enough to use the -i option and let the programs guess
+ the type from the extension.
+ Specifying surfaces using -t* options: 
+   -tn TYPE NAME: specify surface type and name.
+                  See below for help on the parameters.
+   -tsn TYPE STATE NAME: specify surface type state and name.
+        TYPE: Choose from the following (case sensitive):
+           1D: 1D format
+           FS: FreeSurfer ascii format
+           PLY: ply format
+           MNI: MNI obj ascii format
+           BYU: byu format
+           SF: Caret/SureFit format
+           BV: BrainVoyager format
+           GII: GIFTI format
+        NAME: Name of surface file. 
+           For SF and 1D formats, NAME is composed of two names
+           the coord file followed by the topo file
+        STATE: State of the surface.
+           Default is S1, S2.... for each surface.
+ Specifying a surface specification (spec) file:
+    -spec SPEC: specify the name of the SPEC file.
+   [-novolreg|-noxform]: Ignore any Rotate, Volreg, Tagalign, 
+                or WarpDrive transformations present in 
+                the Surface Volume.
+  Common Debugging Options:
+   [-trace]: Turns on In/Out debug and Memory tracing.
+             For speeding up the tracing log, I recommend 
+             you redirect stdout to a file when using this option.
+             For example, if you were running suma you would use:
+             suma -spec lh.spec -sv ... > TraceFile
+             This option replaces the old -iodbg and -memdbg.
+   [-TRACE]: Turns on extreme tracing.
+   [-nomall]: Turn off memory tracing.
+   [-yesmall]: Turn on memory tracing (default).
+  NOTE: For programs that output results to stdout
+    (that is to your shell/screen), the debugging info
+    might get mixed up with your results.
+ 
+
+++ SUMA version 2006_7_3
+
+CVS tag:
+   SUMA_2005_04_29_1733
+
+Compile Date:
+   Jul  5 2011
+
+       Ziad S. Saad SSCC/NIMH/NIH saadz@mail.nih.gov     

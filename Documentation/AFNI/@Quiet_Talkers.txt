@@ -1,0 +1,12 @@
+A program to kill AFNI/SUMA talking programs
+ps is used to lookfor processes running the programs:
+afni 3dGroupInCorr plugout_drive suma DriveSuma
+that also have the -npb option used in their command line.
+
+Examples:
+   @Quiet_Talkers
+
+   @Quiet_Talkers -npb_val 3 -npb_val 6
+
+   @Quiet_Talkers -npb_range 5 9
+

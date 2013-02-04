@@ -1,0 +1,35 @@
+
+
+
+
+
+
+
+
+<title> problem-11.6</title>
+    
+<h1 align="center">problem-11.6 </h1>
+<b>problem-11.6</b>&nbsp;
+    Before using either function, the data is put into the form of a
+    numeric variable to record the values and a factor to record the
+    laboratory.
+    
+<pre>
+&#62; lab1 = c(4.13, 4.07, 4.04, 4.07, 4.05)
+&#62; lab2 = c(3.86, 3.85, 4.08, 4.11, 4.08)
+&#62; lab3 = c(4.00, 4.02, 4.01, 4.01, 4.04)
+&#62; lab4 = c(3.88, 3.89, 3.91, 3.96, 3.92)
+&#62; chems = stack(data.frame(lab1,lab2,lab3,lab4))
+&#62; boxplot(values ~ ind, data=chems) # var.equal unlikely
+&#62; oneway.test(values ~ ind, data=chems, var.equal=FALSE)
+
+        One-way analysis of means (not assuming equal variances)
+
+data:  values and ind
+F = 18.71, num df = 3.000, denom df = 7.914, p-value = 0.0005927
+    
+</pre>
+    The null hypothesis is that each lab has the same mean. The small
+    p-value suggests that the data is not consistent with this assumption.
+
+<div class="p"><!----></div>

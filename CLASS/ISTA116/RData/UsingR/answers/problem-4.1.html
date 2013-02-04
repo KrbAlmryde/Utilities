@@ -1,0 +1,46 @@
+
+
+
+
+
+
+
+
+<title> problem-4.1</title>
+    
+<h1 align="center">problem-4.1 </h1>
+<b>problem-4.1</b>&nbsp;
+    The tables can be made using <b>table()</b>. Different tables are
+    produced for each level of the last variable specified. For
+    example, to answer the first question we have:
+    
+<pre>
+&#62; attach(samhda)
+&#62; table(amt.smoke, marijuana, gender)
+, , gender = 1
+
+         marijuana
+amt.smoke 1   2   9
+       1   13   3   0
+       2    3   0   0
+       3    5   0   0
+       4    5   1   0
+       5    2   5   0
+       6   11  13   0
+       7   25  38   1
+       98   6 148   0
+       99   4   4   2
+
+...
+&#62; detach(samhda)
+    
+</pre>
+    By looking at the help page for <b>samhda</b> to see how the
+    variables are coded, we can see that a <b>marijuana</b> value of
+    2 is "not smoking", and an <b>amt.smoke</b> value of 7 is "no
+    smoking in the last 30 days," whereas 1 indicates "smoking every
+    day." The table for males (<b>gender</b> equal 1) shows that in
+    this data set marijuana smokers are much more likely to be among
+    the heavier cigarette smokers.
+
+<div class="p"><!----></div>

@@ -1,0 +1,32 @@
+
+
+
+
+
+
+
+
+<title> problem-7.24</title>
+    
+<h1 align="center">problem-7.24 </h1>
+<b>problem-7.24</b>&nbsp;
+    The confidence interval can be found with:
+    
+<pre>
+&#62; attach(nym.2002)
+&#62; n = length(place)
+&#62; alpha = .10
+&#62; (1-alpha)^(1/n)
+[1] 0.9999
+&#62; max(place)/(1-alpha)^(1/n)
+[1] 23664
+&#62; max(place)
+[1] 23662
+&#62; detach(nym.2002)
+    
+</pre>
+So  it is 90% certain that <font face="symbol">q</font
+> is between 23,662 and
+23,664. (The real answer is 23,664.)
+
+<div class="p"><!----></div>

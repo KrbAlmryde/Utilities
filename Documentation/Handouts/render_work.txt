@@ -1,0 +1,58 @@
+--- Render display steps  (watch instructor, then do on your own) ---
+
+A. Get a reasonable slice display in afni (directory AFNI_data6/afni):
+    1. Underlay : anat+orig - open 2 image windows
+
+    2. Overlay  : func_slim+orig
+        - set both OLay and Thr to the V-A GLT t-stat (sub-brick #6)
+        - threshold at t=5.5
+        - jump-to-xyz: 22 86 9 (22L, 86.1P, 9.0S)
+        - use 'Clusterize' to apply a cluster of 100 voxels
+            o  (radius 0, volume 100) or (radius 3.0, volume 2269)
+            o  note: 2.75*2.75*3.0 = 22.6875 (so 100 voxels = 2268.75 vmul)
+         
+B. Duplicate in the renderer : Define Datamode -> Plugins -> Render [new]
+    1. Choose Underlay Dataset
+        - anat+orig (and [Draw])
+        - change underlay to strip+orig (and [Draw], to see difference)
+          (created via: 3dSkullStrip -input anat+orig -prefix strip)
+
+    2. Interlude: play with some buttons
+        - View crosshairs in green (via right-click on "See Xhairs")
+        - set DynaDraw - so some changes result in automatic "Draw"
+        - set Accumulate - to be able to review history of images
+        - play with Roll/Pitch/Yaw arrows
+        - make a cutout: Superior to, [Get], then change to 10 [Draw]
+        - click Opacity Factor down to 0.1, then reset to 1
+        - reset Roll/Pitch/Yaw to {70 120 0}
+        - automate rolling by -6 degress, 25 times
+            o  set Roll to: 70-6*t
+            o  set Automate, and set Frames to 25
+            o  [Compute]
+
+    3. Choose Overlay Dataset: func_slim+orig
+        - set both OLay and Thr to the V-A GLT t-stat (sub-brick #6)
+        - See Overlay [Draw]
+        - set Thresh to 5.5 [Draw]
+        - Cutout Overlay [Draw]
+        - back on underlay: cutout "Superior to": [Get]
+        - unset Cutout Overlay [Draw]
+        - Remove Small Clusters [Draw]
+            o  rmm: 1.0 (because it is resampled to underlay)
+            o  vmul: 2269
+        - re-automate 25 rotations
+
+C. Make a nice rendering
+    1. Make a final nice picture
+        - set Cutout Overlay [Draw]
+        - set ShowThru Mode [Draw]
+        - set 'Color Opacity' to 0.2
+        - unset Accumulate [Draw]       <-- clears history
+
+    2. Create MPEG
+        - reset Roll/Pitch/Yaw to {70 120 0} and [Draw]
+        - set Accumulate
+        - reautomate rolling by -6 degress, 60 times
+        - [Sav:mpeg] to render (makes render.mpg)
+            o  change "save" format to MPEG via right-click
+        - can use "v" for video mode, or "r" for rebound in render window

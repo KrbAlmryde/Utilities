@@ -1,0 +1,51 @@
+head	1.2;
+access;
+symbols;
+locks
+	kylealmryde:1.2; strict;
+comment	@# @;
+
+
+1.2
+date	2011.07.29.19.12.20;	author kylealmryde;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2011.07.29.19.11.33;	author kylealmryde;	state Exp;
+branches;
+next	;
+
+
+desc
+@I have decided to remove the subfunc etc variables because they are redundant
+@
+
+
+1.2
+log
+@I think this will work much better
+@
+text
+@#define general path variables that can be called by my scripts
+
+echo "exp_profile has been sourced!"
+
+. $UTL/funcs.sh
+
+UTL=/usr/local/utilities
+SUBJECTS=$UTL/lst_subj_${1}.txt
+RUNS=$UTL/lst_run_${1}.txt
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@a9 4
+subfunc=`subj_func`
+runfunc=`run_func`
+subloop=`echo $subfunc`
+runloop=`echo $runfunc`@

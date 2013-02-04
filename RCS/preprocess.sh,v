@@ -1,0 +1,530 @@
+head	1.3;
+access;
+symbols;
+locks
+	kylealmryde:1.3; strict;
+comment	@# @;
+
+
+1.3
+date	2011.09.01.20.21.44;	author kylealmryde;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2011.08.10.18.24.55;	author kylealmryde;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2011.07.29.18.07.19;	author kylealmryde;	state Exp;
+branches;
+next	;
+
+
+desc
+@Ok, I am adding some echos and dressing the script up a bit so we can see whats going on. Rather than try to figure out what the hell I changed, I am just going to log it here.
+@
+
+
+1.3
+log
+@I made a shit ton of revisions, this is mostly for testing purposes. I have no idea if its going to work or not.
+@
+text
+@. $UTL/${1}_profile
+####################################################################################################
+#
+# copy the TLRC anatomical dataset to the current functional directory
+
+cd ${anat_dir}
+cp ${spgr}* ${func_dir}
+####################################################################################################
+#
+# Then change into the current functional directory
+
+cd ${func_dir}
+############################################# tcat #################################################
+#
+
+echo "3dTcat....."
+echo "Removing first 4 trs from functional data"
+echo "Graph results"
+echo ""
+3dTcat -prefix ${runnm}_tcat+orig ${runnm}_epan+orig'[4..$]'
+3dToutcount ${runnm}_tcat+orig > ${runnm}_precount.txt
+1dplot -jpeg ${runnm}_precount ${runnm}_precount.txt
+############################################# tshift ###############################################
+#
+
+echo "3dTshift....."
+echo "Shift timeseries data back to zero"
+echo "Graph results"
+echo ""
+3dTshift -tzero 0 -rlt+ -quintic -prefix ${runnm}_tshift+orig ${runnm}_tcat+orig
+3dToutcount ${runnm}_tshift+orig > ${runnm}_postcount.txt
+1dplot -jpeg ${runnm}_postcount ${runnm}_postcount.txt
+######################################## align_epi_anat #############################################
+#
+#
+
+echo "align anatomy to EPI registration base"
+align_epi_anat.py -anat2epi -anat ${spgr}+orig -epi ${runnm}_tshift+orig -epi_base 2 \
+	-volreg off -tshift off
+############################################## 3dcal ###############################################
+#
+#
+
+echo "create an all-1 dataset to mask the extents of the warp"
+
+3dcalc -a ${runnm}_tshift+orig -expr 1 -prefix rm.epi.all1
+############################################## 3dvolreg ############################################
+# Im going to see how the program handles running the base as a mean value, then we can try reading
+# the base value in
+# echo "what is you base value?"
+# read base
+
+echo "register and warp"
+echo "Graph results"
+echo ""
+
+3dvolreg -verbose -zpad 1 -base mean -1Dfile ${runm}_dfile.1D -prefix rm.epi.volreg.${run} -cubic \
+	-1Dmatrix_save mat_${run}_vr.aff12.1D ${runnm}_tshift+orig
+
+1dplot -jpeg -sep -ynames roll pitch yaw dS dL dP -xlabel TIME ${runnm}_dfile.txt
+####################################################################################################
+#
+#catenate volreg, epi2anat and tlrc transformations
+
+cat_matvec -ONELINE ${spgr}+tlrc::WARP_DATA -I ${spgr}_al_mat.aff12.1D -I mat_${run}_vr.aff12.1D > \
+ 	mat_${run}_warp.aff12.1D
+####################################################################################################
+#
+# apply catenated xform : volreg, epi2anat and tlrc
+
+3dAllineate -base ${spgr}+tlrc -input ${runnm}_tshift+orig -1Dmatrix_apply mat_${run}_warp.aff12.1D \
+	-mast_dxyz 3.5 -prefix rm.epi.nomask.${run}
+####################################################################################################
+#
+# warp the all-1 dataset for extents masking
+
+3dAllineate -base ${spgr}+tlrc -input rm.epi.all1+orig -1Dmatrix_apply mat_${run}_warp.aff12.1D \
+	-mast_dxyz 3.5 -final NN -quiet -prefix rm.epi.1.${run}
+####################################################################################################
+#
+# make an extents intersection mask of this run
+
+3dTstat -min -prefix rm.epi.min.${run} rm.epi.1.${run}+tlrc
+####################################################################################################
+#
+# make a single file of registration params
+
+cat dfile_${run}_1D > dfile.rall.1D
+####################################################################################################
+#
+#
+
+echo "create the extents mask: mask_epi_extents+tlrc
+echo "(this is a mask of voxels that have valid data at every TR)
+echo "(only 1 run, so just use 3dcopy to keep naming straight)
+
+3dcopy rm.epi.min.${run} mask_epi_extents
+####################################################################################################
+#
+# (delete any time series with missing data)
+
+echo "and apply the extents mask to the EPI data
+
+3dcalc -a rm.epi.nomask.${run}+tlrc -b mask_epi_extents+tlrc -expr 'a*b' -prefix ${runnm}_volreg
+####################################################################################################
+#
+#
+
+echo "blur each volume of each run
+
+3dmerge -1blur_fwhm 5.0 -doall -prefix ${runnm}_blur ${runnm}_volreg+tlrc
+####################################################################################################
+#
+#
+
+echo "create 'full_mask' dataset (union mask)
+
+3dAutomask -dilate 1 -prefix rm.mask_${run} ${runnm}_blur+tlrc
+####################################################################################################
+#
+# only 1 run, so copy this to full_mask
+
+3dcopy rm.mask_${run}+tlrc full_mask_${subj}
+####################################################################################################
+#
+# ---- create subject anatomy mask, mask_anat.${subj}+tlrc ----
+#      (resampled from tlrc anat)
+
+3dresample -master full_mask_${subj}+tlrc -prefix rm.resam.anat -input ${spgr}+tlrc
+####################################################################################################
+#
+# convert resampled anat brain to binary mask
+
+3dcalc -a rm.resam.anat+tlrc -expr 'ispositive(a)' -prefix mask_anat.${subj}
+####################################################################################################
+#
+# ---- create group anatomy mask, mask_group+tlrc ----
+#      (resampled from tlrc base anat, TT_N27+tlrc)
+
+3dresample -master full_mask_${subj}+tlrc -prefix rm.resam.group -input TT_N27+tlrc
+####################################################################################################
+#
+# convert resampled group brain to binary mask
+
+3dcalc -a rm.resam.group+tlrc -expr 'ispositive(a)' -prefix mask_group
+####################################################################################################
+#
+# (be sure no negatives creep in)
+# (subject to a range of [0,200])
+
+echo "scale each voxel time series to have a mean of 100
+
+3dTstat -prefix rm.mean_${run} ${runnm}_blur+tlrc
+
+3dcalc -a ${runnm}_blur+tlrc -b rm.mean_${run}+tlrc -c mask_group+tlrc -expr \
+	'c * min(200, a/b*100)*step(a)*step(b)' -prefix ${runnm}_scale
+3dToutcount ${runnm}_scale+tlrc > ${runnm}_norm.txt
+1dplot -jpeg ${runnm}_norm ${runnm}_norm.txt
+####################################################################################################
+#
+# create censor file motion_${subj}_censor.1D, for censoring motion
+
+1d_tool.py -infile dfile.rall.1D -set_nruns 1 -set_tr 3.5 -show_censor_count -censor_prev_TR \
+	-censor_motion 0.3 motion_${runnm}
+####################################################################################################
+@
+
+
+1.2
+log
+@Ive made a lot of changes, particularly with regards to names etc, lots of refactoring
+@
+text
+@d2 13
+a15 8
+# Remove the first 4 trs to account for scanner equilibration. Identify and report outliers
+# following tr removal.
+# Graph outliers, save image to Jpeg
+
+echo "--------------------------------- preprocess.sh	---------------------------------"
+echo "--------------------------------- ${subj} ${run} ---------------------------------"
+echo "										..."
+# =============================================== tcat =============================================
+d18 7
+a24 5
+echo "..."
+
+3dTcat -prefix ${func_dir}/${runnm}_tcat+orig ${func_dir}/${runnm}_epan+orig'[4..$]'
+
+3dToutcount ${func_dir}/${runnm}_tcat+orig > ${func_dir}/${runnm}_precount.txt
+a25 3
+1dplot -jpeg -one ${func_dir}/${runnm}_precount.txt
+
+# ===============================================	tshift ==========================================
+a28 40
+echo "..."
+
+3dTshift -tzero 0 -rlt+ -quintic -prefix ${func_dir}/${runnm}_tshift+orig ${func_dir}/${runnm}_tcat+orig
+
+3dToutcount ${func_dir}/${runnm}_tshift+orig > ${func_dir}/${runnm}_postcount.txt
+
+1dplot -jpeg -one ${func_dir}/${runnm}_postcount.txt
+
+# =============================================== align ============================================
+# I chose 0 as the base because that is the very first scan and subjects are more likely to hold
+# still
+echo "Align..."
+echo "Align anatomy to EPI registration base"
+echo "..."
+
+align_epi_anat.py -anat2epi -anat ${anat_dir}/${spgr}+orig -epi ${func_dir}/${runnm}_tshift+orig \
+	-epi_base 0 -volreg off -tshift off
+
+# ===================================================== tlrc =======================================
+# warp anatomy to standard space
+echo "auto_tlrc...."
+echo "warp anatomy to standard space"
+echo "..."
+
+@@auto_tlrc -base TT_N27+tlrc -input ${anat_dir}/${spgr}+orig -suffix NONE
+
+# =================================================== volreg ===================================================
+echo "3dVolreg....."
+echo "align each dset to base volume, align to anat, warp to tlrc space"
+echo "..."
+
+# verify that we have a +tlrc warp dataset
+if [ -f ${anat_dir}/${spgr}+tlrc.HEAD = ! ]
+then
+
+		echo "** missing +tlrc warp dataset: ${anat_dir}/${spgr}+tlrc.HEAD"
+		exit
+
+endif
+
+d30 22
+a51 2
+echo " create an all-1 dataset to mask the extents of the warp"
+3dcalc -a ${func_dir}/${runnm}_tshift+orig -expr 1 -prefix ${func_dir}/rm.${runnm}.epi.all1
+d53 2
+a55 15
+echo "register and warp"
+
+echo "register each volume to the base"
+3dvolreg -verbose -zpad 1 -base ${func_dir}/${runnm}_tshift+orig"[${base}]" -1Dfile ${func_dir}/${runnm}_dfile.txt \
+	-prefix ${func_dir}/rm.${runnm}.epi.volreg.${run} -cubic -1Dmatrix_save \
+	${func_dir}/${runnm}.mat.vr.aff12.txt ${func_dir}/${runnm}_tshift+orig
+
+# catenate volreg, epi2anat and tlrc transformations
+cat_matvec -ONELINE ${anat_dir}/${spgr}+tlrc::WARP_DATA -I ${anat_dir}/${spgr}_al_mat.aff12.txt \
+	-I ${func_dir}/${runnm}.mat.vr.aff12.txt > ${func_dir}/${runnm}.mat.warp.aff12.txt
+
+# =================================================== Allineate ====================================================
+echo "3dAllineate..."
+echo "apply catenated xform : volreg, epi2anat and tlrc"
+echo "..."
+d57 2
+a58 2
+3dAllineate -base ${anat_dir}/${spgr}+tlrc -input ${func_dir}/${runnm}_tshift+orig -1Dmatrix_apply \
+	${func_dir}/${runnm}.mat.warp.aff12.txt -mast_dxyz ${tr} -prefix ${func_dir}/rm.${runnm}.epi.nomask
+d60 15
+a75 3
+3dAllineate -base ${anat_dir}/${spgr}+tlrc -input ${func_dir}/rm.${runnm}.epi.all1+orig \
+	-1Dmatrix_apply ${func_dir}/${runnm}.mat.warp.aff12.txt -mast_dxyz 3.5 -final NN -quiet \
+	-prefix ${func_dir}/rm.${runnm}.epi.1.${run}
+d77 4
+a81 2
+3dTstat -min -prefix ${func_dir}/rm.${runnm}.epi.min.${run} ${func_dir}/rm.${runnm}.epi.1.${run}+tlrc
+
+d83 3
+a86 1
+cat ${func_dir}/${runnm}_dfile.txt > ${func_dir}/${runnm}_dfile.rall.txt
+d88 13
+a100 5
+# ----------------------------------------
+# create the extents mask: mask_epi_extents+tlrc
+# (this is a mask of voxels that have valid data at every TR)
+# (only 1 run, so just use 3dcopy to keep naming straight)
+3dcopy ${func_dir}/rm.${runnm}.epi.min.${run} mask_epi_extents
+d102 1
+a102 2
+# and apply the extents mask to the EPI data
+# (delete any time series with missing data)
+d104 4
+a107 2
+3dcalc -a ${func_dir}/rm.${runnm}.epi.nomask.${run}+tlrc -b mask_epi_extents+tlrc \
+	-expr 'a*b' -prefix ${func_dir}/${runnm}_volreg+orig
+d109 1
+a109 11
+# ==================================================== blur =====================================================
+echo "Blur..."
+echo "blur each volume of each run"
+echo "..."
+
+3dmerge -1blur_fwhm 5.0 -doall -prefix ${func_dir}/${runnm}_blur ${func_dir}/${runnm}_volreg+tlrc
+
+# ===================================================== mask ====================================================
+echo "Masking"
+echo "create 'full_mask' dataset (union mask)"
+echo "..."
+d111 4
+a114 1
+3dAutomask -dilate 1 -prefix ${func_dir}/rm.${runnm}.mask_${run} ${func_dir}/${runnm}_blur+tlrc
+d116 1
+d118 3
+a121 6
+3dcopy ${func_dir}/rm.${runnm}.mask_${run}+tlrc ${func_dir}/${runnm}_full_mask
+
+# ---- create subject anatomy mask,  ${func_dir}/${runnm}_mask_anat.+tlrc ----
+#			(resampled from tlrc anat)
+3dresample -master ${func_dir}/${runnm}_full_mask+tlrc -prefix ${func_dir}/rm.${runnm}.resam.anat \
+	-input ${anat_dir}/${spgr}+tlrc
+d123 9
+a132 6
+3dcalc -a ${func_dir}/rm.${runnm}.resam.anat+tlrc -expr 'ispositive(a)' -prefix ${func_dir}/${spgr}_${run}_mask_anat
+
+# ---- create group anatomy mask, ${runnm}_mask_group+tlrc ----
+#			(resampled from tlrc base anat, TT_N27+tlrc)
+3dresample -master ${func_dir}/${runnm}_full_mask+tlrc -prefix ${func_dir}/rm.${runnm}.resam.group \
+	-input TT_N27+tlrc
+d134 9
+a143 6
+3dcalc -a ${func_dir}/rm.${runnm}.resam.group+tlrc -expr 'ispositive(a)' -prefix ${func_dir}/${runnm}_mask_group
+
+# ===================================================== scale ===================================================
+echo "Scale..."
+echo "scale each voxel time series to have a mean of 100"
+echo "..."
+d145 3
+d151 1
+a151 4
+3dTstat -prefix ${func_dir}/rm.${runnm}.mean_${run} ${func_dir}/${runnm}_blur+tlrc
+
+3dcalc -a ${func_dir}/${runnm}_blur+tlrc -b ${func_dir}/rm.${runnm}.mean_${run}+tlrc -c ${func_dir}/${runnm}_mask_group+tlrc \
+	-expr 'c * min(200, a/b*100)*step(a)*step(b)' -prefix ${func_dir}/${runnm}_scale
+d153 1
+a153 5
+# =================================================== regress ===================================================
+echo "Regress..."
+echo "run the regression analysis"
+echo "create censor file motion_${subj}_censor.1D, for censoring motion"
+echo "..."
+d155 11
+a165 2
+1d_tool.py -infile ${func_dir}/${runnm}_dfile.rall.txt -set_nruns 1 -set_tr ${tr} -show_censor_count \
+	-censor_prev_TR -censor_motion 1 ${func_dir}/${runnm}_motion
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d1 1
+a1 1
+#!/bin/sh
+d7 4
+a10 1
+## =============================================== tcat =============================================
+d13 9
+a21 4
+# 		3dTcat -prefix ${name}_tcat.nii ${name}_epan.nii'[4..$]'
+# 		3dToutcount ${name}_tcat.nii > ${name}_precount.txt
+# 		1dplot -jpeg -one ${name}_precount.txt
+# # ===============================================  tshift ==========================================
+d25 11
+a35 7
+#
+# 		3dTshift -tzero 0 -rlt+ -quintic -prefix ${name}_tshift.nii ${name}_tcat.nii #
+# 		3dToutcount ${name}_tshift.nii > ${name}_postcount.txt #
+# 		1dplot -jpeg -one ${name}_postcount.txt #
+#
+# # =============================================== align ============================================
+# # align anatomy to EPI registration base
+d38 7
+a44 7
+#
+# 		align_epi_anat.py -anat2epi -anat ${anat}/${subj}_spgr.nii -epi ${name}_tshift.nii \
+# 			-epi_base 0 -volreg off -tshift off
+# # I chose 0 as the base because that is the very first scan and subjects are more likely to hold
+# # still
+# # ===================================================== tlrc =======================================
+# # warp anatomy to standard space
+d47 5
+a51 5
+#
+# 		@@auto_tlrc -base TT_N27+tlrc -input ${anat}/${subj}_spgr.nii -suffix NONE
+#
+# # =================================================== volreg ===================================================
+# # align each dset to base volume, align to anat, warp to tlrc space
+d54 60
+a113 55
+#
+# # verify that we have a +tlrc warp dataset
+# if ( ! -f ${anat}/${subj}_spgr+tlrc.HEAD ) then
+#     echo "** missing +tlrc warp dataset: ${anat}/${subj}_spgr+tlrc.HEAD"
+#     exit
+# endif
+#
+# # create an all-1 dataset to mask the extents of the warp
+# 3dcalc -a ${name}_tshift.nii -expr 1 -prefix ${func}/rm.${subj}.epi.all1
+#
+# # register and warp
+#
+# # register each volume to the base
+#     3dvolreg -verbose -zpad 1 -base ${name}_tshift.nii"[${base}]" -1Dfile ${name}_dfile.txt \
+#     	-prefix ${func}/rm.${subj}.epi.volreg.${run} -cubic -1Dmatrix_save \
+#     	${name}.mat.vr.aff12.txt ${name}_tshift.nii
+#
+# # catenate volreg, epi2anat and tlrc transformations
+#     cat_matvec -ONELINE ${anat}/${subj}_spgr+tlrc::WARP_DATA -I \
+#     	${anat}/${subj}_spgr_al_mat.aff12.txt -I \
+#         ${name}.mat.vr.aff12.txt > ${name}.mat.warp.aff12.txt
+#
+# # =================================================== Allineate ====================================================
+echo "3dAllineate"
+# # apply catenated xform : volreg, epi2anat and tlrc
+#     3dAllineate -base ${anat}/${subj}_spgr+tlrc -input ${name}_tshift.nii \
+# 		-1Dmatrix_apply ${name}.mat.warp.aff12.txt -mast_dxyz 3.5 \
+# 		-prefix ${func}/rm.${subj}.epi.nomask
+#
+# # warp the all-1 dataset for extents masking
+#     3dAllineate -base ${anat}/${subj}_spgr+tlrc -input ${func}/rm.${subj}.epi.all1.nii \
+#     	-1Dmatrix_apply ${name}.mat.warp.aff12.txt -mast_dxyz 3.5 -final NN -quiet \
+#     	-prefix ${func}/rm.${subj}.epi.1.${run}
+#
+# # make an extents intersection mask of this run
+#     3dTstat -min -prefix ${func}/rm.${subj}.epi.min.${run} ${func}/rm.${subj}.epi.1.${run}+tlrc
+#
+#
+# # make a single file of registration params
+# cat ${name}_dfile.txt > ${name}_dfile.rall.txt
+#
+# # ----------------------------------------
+# # create the extents mask: mask_epi_extents+tlrc
+# # (this is a mask of voxels that have valid data at every TR)
+# # (only 1 run, so just use 3dcopy to keep naming straight)
+# 3dcopy ${func}/rm.${subj}.epi.min.${run} mask_epi_extents
+#
+# # and apply the extents mask to the EPI data
+# # (delete any time series with missing data)
+#
+#     3dcalc -a ${func}/rm.${subj}.epi.nomask.${run}+tlrc -b mask_epi_extents+tlrc
+# 		-expr 'a*b' -prefix ${name}_volreg.nii
+#
+# # ==================================================== blur =====================================================
+# # blur each volume of each run
+d115 53
+a167 46
+#
+#     3dmerge -1blur_fwhm 5.0 -doall -prefix ${name}_blur ${name}_volreg+tlrc
+#
+# # ===================================================== mask ====================================================
+# # create 'full_mask' dataset (union mask)
+echo "masking"
+#
+#     3dAutomask -dilate 1 -prefix ${func}/rm.${subj}.mask_${run} ${name}_blur+tlrc
+#
+#
+# # only 1 run, so copy this to full_mask
+#     3dcopy ${func}/rm.${subj}.mask_${run}+tlrc ${anat}_full_mask
+#
+# # ---- create subject anatomy mask, mask_anat.${subj}+tlrc ----
+# #      (resampled from tlrc anat)
+#     3dresample -master ${anat}_full_mask+tlrc -prefix ${func}/rm.${subj}.resam.anat    \
+#            -input ${anat}/${subj}_spgr+tlrc
+#
+# # convert resampled anat brain to binary mask
+#     3dcalc -a ${func}/rm.${subj}.resam.anat+tlrc -expr 'ispositive(a)' -prefix mask_anat.${subj}
+#
+# # ---- create group anatomy mask, mask_group+tlrc ----
+# #      (resampled from tlrc base anat, TT_N27+tlrc)
+#     3dresample -master ${anat}_full_mask+tlrc -prefix ${func}/rm.${subj}.resam.group \
+#            -input TT_N27+tlrc
+#
+# # convert resampled group brain to binary mask
+#     3dcalc -a ${func}/rm.${subj}.resam.group+tlrc -expr 'ispositive(a)' -prefix mask_group
+#
+# # ===================================================== scale ===================================================
+# # scale each voxel time series to have a mean of 100
+# # (be sure no negatives creep in)
+# # (subject to a range of [0,200])
+echo "scale"
+#
+#     3dTstat -prefix ${func}/rm.${subj}.mean_${run} ${name}_blur+tlrc
+#     3dcalc -a ${name}_blur+tlrc -b ${func}/rm.${subj}.mean_${run}+tlrc -c mask_group+tlrc \
+#            -expr 'c * min(200, a/b*100)*step(a)*step(b)' -prefix ${name}_scale
+#
+# # =================================================== regress ===================================================
+# # run the regression analysis
+echo "Regress"
+#
+# # create censor file motion_${subj}_censor.1D, for censoring motion
+# 	1d_tool.py -infile ${name}_dfile.rall.txt -set_nruns 1 -set_tr 3.5 -show_censor_count \
+# 		-censor_prev_TR -censor_motion 1 ${name}_motion@

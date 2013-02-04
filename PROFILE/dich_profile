@@ -1,0 +1,151 @@
+####################################################################################################
+#
+# This list specifies variables specifc to the TAP study
+####################################################################################################
+#
+####################################################################################################
+# Sourcing the exp_profile so our variables get passed to the shell properly
+. $DRIVR/exp_profile
+####################################################################################################
+echo "------------------------dich_profile has been sourced------------------------"
+####################################################################################################
+#
+# These are path variables that will be specified in the individual program scripts
+
+home_dir=${DICHOTIC}
+anova_dir=${DICHOTIC}/ANOVA/${run}
+ICA_dir=${DICHOTIC}/ICA/${run}
+subj_dir=${DICHOTIC}/${subj}
+orig_dir=${subj_dir}/Orig
+anat_dir=${subj_dir}/Struc
+prep_dir=${subj_dir}/Prep
+glm_dir=${subj_dir}/GLM
+####################################################################################################
+#
+# FSE Preprocessing parameters
+
+nfs=105 #number of functional scans
+nas=26 #number of anatomical slices
+tr=3500 #the TR
+thick=5 #Z-slice thickness
+z1=I #Slice acquisition direction
+fov=240 #field of view
+####################################################################################################
+#
+# For calculating xyz sizes for functional and structural (fse) reconstruction in to3d
+# Calculate the zslab value ((nas-1)* thick)/2), yFOV
+
+x=`expr ${nas} - 1`
+y=`echo "scale=2; ${x} * ${thick}"| bc`
+z=`echo "scale=2; ${y}/2"| bc`
+halffov=`echo "scale=2; ${fov}/2"| bc`
+####################################################################################################
+#
+# Spgr Preprocessing parameters
+
+nasspgr=164 #number of anatomical slices
+thickspgr=1 #Z-slice thickness
+z1spgr=L #Slice acquisition direction
+fovspgr=256 #field of view for spgr
+####################################################################################################
+#
+# For calculating xyz sizes for structural reconstruction in to3d
+# Calculate the zslab value ((nas-1)* thick)/2), yFOV
+# I had to include spgr variables because the tap study uses different parameters for that scan
+
+xspgr=`expr ${nasspgr} - 1`
+yspgr=`echo "scale=2; ${xspgr} * ${thickspgr}"| bc`
+zspgr=`echo "scale=2; ${yspgr}/2"| bc`
+anatfov=`echo "scale=2; ${fovspgr}/2"| bc`
+####################################################################################################
+# Condition name decision maker
+# TP "Training-Passive" TV "Training Verbal" PL "Passive Listening" UF "Unforced"
+# FR "Forced Right"  FL "Forced Left"
+
+cond1=binaural
+cond2=dichotic
+####################################################################################################
+# Deconvolution; Hemodynamic Response Model specific variables
+####################################################################################################
+# For the default WAV and GAM models
+if [ "${hrm}" = "WAV" ]; then
+	mod=WAV
+elif [ "${hrm}" = "GAM" ]; then
+	mod=GAM
+fi
+####################################################################################################
+# Names of second(s) shifted GAMA models
+if [ "${hrm}" = "GAM(1.828154,.547)" ]; then
+	mod=sec1
+elif [ "${hrm}" = "GAM(3.656307,.547)" ]; then
+	mod=sec2
+elif [ "${hrm}" = "GAM(5.484461,.547)" ]; then
+	mod=sec3
+elif [ "${hrm}" = "GAM(7.312614,.547)" ]; then
+	mod=sec4
+elif [ "${hrm}" = "GAM(9.140768,.547)" ]; then
+	mod=sec5
+elif [ "${hrm}" = "GAM(10.968921,.547)" ]; then
+	mod=sec6
+elif [ "${hrm}" = "GAM(12.797076,.547)" ]; then
+	mod=sec7
+elif [ "${hrm}" = "GAM(14.625229,.547)" ]; then
+	mod=sec8
+fi
+####################################################################################################
+# Names of TR-shifted GAMA models
+if [ "${hrm}" = "GAM(3.199269,.547)" ]; then
+	mod=GAM1
+elif [ "${hrm}" = "GAM(6.398537,.547)" ]; then
+	mod=GAM2
+elif [ "${hrm}" = "GAM(9.597806,.547)" ]; then
+	mod=GAM3
+elif [ "${hrm}" = "GAM(12.797075,.547)" ]; then
+	mod=GAM4
+elif [ "${hrm}" = "GAM(15.996344,.547)" ]; then
+	mod=GAM5
+elif [ "${hrm}" = "GAM(19.195612,.547)" ]; then
+	mod=GAM6
+elif [ "${hrm}" = "GAM(25.594150,.547)" ]; then
+	mod=GAM7
+elif [ "${hrm}" = "GAM(22.394881,.547)" ]; then
+	mod=GAM8
+elif [ "${hrm}" = "GAM(28.793419,.547)" ]; then
+	mod=GAM9
+elif [ "${hrm}" = "GAM(31.992687,.547)" ]; then
+	mod=GAM10
+elif [ "${hrm}" = "GAM(35.191956,.547)" ]; then
+	mod=GAM11
+elif [ "${hrm}" = "GAM(38.391225,.547)" ]; then
+	mod=GAM12
+elif [ "${hrm}" = "GAM(44.789762,.547)" ]; then
+	mod=GAM13
+elif [ "${hrm}" = "GAM(51.188300,.547)" ]; then
+	mod=GAM14
+fi
+####################################################################################################
+# Names for files. Naming hierachy should follow this pattern: subj, run, mod, cond, brik
+
+subrun=${subj}.${run}
+submod=${subrun}.${mod}
+subcond1=${submod}.${cond1}
+subcond2=${submod}.${cond2}
+spgr=${subj}.spgr
+fse=${subj}.fse
+####################################################################################################
+# ANOVA specific variables
+
+factorB=Subjects
+alevel1=$cond1
+alevel2=$cond2
+
+if [ "${run}" = "PL" ]; then
+	factorA=Passive
+elif [ "${run}" = "FR" ]; then
+	factorA=RightAdvantage
+elif [ "${run}" = "FL" ]; then
+	factorA=LeftAdvantage
+else
+	factorA=NoAdvantage
+fi
+####################################################################################################

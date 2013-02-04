@@ -1,0 +1,26 @@
+
+
+
+
+
+
+
+
+<title> problem-5.12</title>
+    
+<h1 align="center">problem-5.12 </h1>
+<b>problem-5.12</b>&nbsp;
+    This is known as de Mere's problem. Although the expected number of
+    successes in each case is identical, as 24/36 = 4/6,  the
+    probabilities differ. Namely,
+    
+<pre>
+&#62; 1 - pbinom(0,4,1/6)           # one or more 6 in 4 rolls
+[1] 0.5177
+&#62; 1 - pbinom(0,24,1/36)         # one or more double sixes
+[1] 0.4914
+    
+</pre>
+    The rolling of four dice is better than even, and the rolling of 24 is worse.
+
+<div class="p"><!----></div>

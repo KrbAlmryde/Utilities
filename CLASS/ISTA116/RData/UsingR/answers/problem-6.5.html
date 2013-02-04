@@ -1,0 +1,25 @@
+
+
+
+
+
+
+
+
+<title> problem-6.5</title>
+    
+<h1 align="center">problem-6.5 </h1>
+<b>problem-6.5</b>&nbsp;
+    The t distribution with 3 degrees of freedom has quite a long
+    tail. Because of this, it takes a large sample size for
+    \Xbar to have an approximately normal sampling distribution. The
+    following simulation should show that n=25 is large enough, as
+    measured by a q-q plot.
+  
+<pre>
+&#62; res = c();for(i in 1:500) res[i] = mean(rt(25,3));qqnorm(res)
+  
+</pre>
+  When n is much smaller than 25, the tails are still quite long.
+
+<div class="p"><!----></div>

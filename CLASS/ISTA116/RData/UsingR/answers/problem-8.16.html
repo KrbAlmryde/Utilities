@@ -1,0 +1,31 @@
+
+
+
+
+
+
+
+
+<title> problem-8.16</title>
+    
+<h1 align="center">problem-8.16 </h1>
+<b>problem-8.16</b>&nbsp;
+      We do this all at once using a list for storage
+      
+<pre>
+&#62; lst = list()
+&#62; m = 250; n = 10
+&#62; for(i in 1:m) {
++ lst$exp[i]  = t.test(rexp(n),     mu=1,  df=n-1)$p.value
++ lst$unif[i] = t.test(runif(n),    mu=.5, df=n-1)$p.value
++ lst$t4[i]   = t.test(rt(n, df=4), mu=0,  df=n-1)$p.value
++ }
+&#62; sapply(lst, function(x) sum(x&lt;0.05)/length(x))
+  exp  unif    t4
+0.088 0.052 0.044
+      
+</pre>
+      When the population distribution is skewed, the sampling
+      distribution of T may differ a lot from the t-distribution.
+
+<div class="p"><!----></div>

@@ -1,0 +1,51 @@
+
+
+
+
+
+
+
+
+<title> problem-10.27</title>
+    
+<h1 align="center">problem-10.27 </h1>
+<b>problem-10.27</b>&nbsp;
+    Only the <b>Weight</b> variable is selected.
+    
+<pre>
+&#62; library(MASS)                 # load data set
+&#62; res = lm(MPG.city ~ EngineSize + Weight + Passengers + Price, data=Cars93)
+&#62; summary(res)
+
+Call:
+lm(formula = MPG.city ~ EngineSize + Weight + Passengers + Price,
+    data = Cars93)
+
+Residuals:
+    Min      1Q  Median      3Q     Max
+-6.1207 -1.9098  0.0522  1.1294 13.9580
+
+Coefficients:
+            Estimate Std. Error t value Pr(&#62;|t|)
+(Intercept) 46.38941    2.09752   22.12  &lt; 2e-16 ***
+EngineSize   0.19612    0.58888    0.33     0.74
+Weight      -0.00821    0.00134   -6.11  2.6e-08 ***
+Passengers   0.26962    0.42495    0.63     0.53
+Price       -0.03580    0.04918   -0.73     0.47
+---
+Signif. codes:  0 `***' 0.001 `**' 0.01 `*' 0.05 `.' 0.1 ` ' 1
+...
+&#62; stepAIC(res)
+Start:  AIC= 212.9
+ MPG.city ~ EngineSize + Weight + Passengers + Price
+...
+Call:
+lm(formula = MPG.city ~ Weight, data = Cars93)
+
+Coefficients:
+(Intercept)       Weight
+   47.04835     -0.00803
+    
+</pre>
+
+<div class="p"><!----></div>

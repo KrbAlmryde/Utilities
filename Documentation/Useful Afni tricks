@@ -1,0 +1,40 @@
+#Create a BRIK & HEADER from a manual TLRC
+
+adwarp -apar anat+tlrc -dpar anat+orig -prefix anat -overwrite
+
+
+First I ran the align_epi_anat.py script on the ${spgr}+orig in order to align it to the
+${fse}+orig. This is a standard procedure for all of my subjects, as it not only aligns the spgr to the fse,
+but it also skull-strips. Here is the code I used....
+
+	`align_epi_anat.py -dset1to2 -dset1 ${spgr}+orig -dset2 ${fse}+orig -cost lpa`
+
+For whatever reason, likely something to do with the align_epi_anat.py script, there are no markers
+to allow you to manually talairach, so I used the 3drefit command to add some for me at AFNI`s		'
+suggestion. This will become a standard procedure soon. Here is the code I used
+
+	`3drefit -markers ${spgr}_al+orig`
+
+From that point I was able to manually talairach the ${spgr}_al+orig images. The manual talaiarch
+doesnt always do a very good job however, so its often necessary to nudge the images a bit so that
+they fit the standard a little better. Unfortunately, you need to have both a .BRIK & .HEADER +tlrc
+file. The output of the manual talairach leaves you with only a .HEADER file, appending the changes
+to the BRIK of the +orig dataset. In order to make both a .BRIK & .HEADER +tlrc file you will need
+to run the following code...
+
+	`adwarp -apar ${spgr}_al+tlrc -dpar ${spgr}_al+orig -prefix ${spgr}_al -overwrite`
+
+At this point I was about to manually nudge the subjects BRIK/HEADER spgr image to try and match my
+standard model brain, in this case TT_N27+tlrc, when tt occured to me that I could use the
+align_epi_anat.py script to do that for me. I wasnt sure how well this was going to work since it
+is going to attempt to skull-strip the already skull-stripped ${spgr}_al image. However that turned
+out to not be an issue, and the result was a very beautifully aligned, talairached spgr image, that
+fits to the best of its ability, our standard template. Here is the code I used...
+
+	`align_epi_anat.py -dset1to2 -dset1 ${spgr}_al+tlrc -dset2 TT_N27+tlrc -suffix igned -cost lpa`
+
+The final output look something like this....${spgr}_aligned+tlrc
+
+Woot! Woot! SS out!
+
+SS

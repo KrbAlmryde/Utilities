@@ -1,0 +1,40 @@
+
+
+
+
+
+
+
+
+<title> problem-12.8</title>
+    
+<h1 align="center">problem-12.8 </h1>
+<b>problem-12.8</b>&nbsp;
+    This model is actually done in the help page for the data set. We
+    can fit the model by running the command
+    
+<pre>
+&#62; library(MASS)                 # load in help page
+&#62; example(wtloss)
+&#62; wtloss.fm
+Nonlinear regression model
+  model:  Weight ~ b0 + b1 * 2^(-Days/th)
+   data:  wtloss
+    b0     b1     th
+ 81.37 102.68 141.91
+ residual sum-of-squares:  39.24
+&#62; plot(Weight ~ Days, wtloss)   # make scatterplot
+&#62; lines(predict(wtloss.fm) ~ Days, data = wtloss)
+    
+</pre>
+The value of <b>b0</b> is the predicted long-term weight. If we want
+the predicted amount after 365 days we have
+
+<pre>
+&#62; predict(wtloss.fm, newdata=data.frame(Days=365))
+[1] 98.64
+
+</pre>
+(Of course, predictions beyond the range of the data are not a good idea.)
+
+<div class="p"><!----></div>

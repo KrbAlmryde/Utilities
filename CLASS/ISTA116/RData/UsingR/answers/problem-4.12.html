@@ -1,0 +1,50 @@
+
+
+
+
+
+
+
+
+<title> problem-4.12</title>
+    
+<h1 align="center">problem-4.12 </h1>
+<b>problem-4.12</b>&nbsp;
+    As the data is stored in a list, the boxplots are produced
+    without any additional work:
+    
+<pre>
+&#62; boxplot(u2)
+    
+</pre>
+    However, we see that the titles are not legible. We can plot
+    the titles along the side and give enough room for them to print
+    with the commands:
+    
+<pre>
+&#62; par(mar=c(5,15,4,2))          # increase to 15 from default 4
+&#62; boxplot(u2, las=2, horizontal=TRUE)
+&#62; par(mar=c(5,4,4,2))           # restore to original settings
+    
+</pre>
+    The mean and median for each album can be found using
+    <b>sapply()</b>:
+    
+<pre>
+&#62; sapply(u2,mean)
+&#62; sapply(u2,median)
+    
+</pre>
+Comparisons can be made by subtracting the two. Finally, after
+unlisting we can sort to find the lengths:
+
+<pre>
+&#62; rev(sort(unlist(u2)))[1:3]
+                 Zooropa. Lemon                Zooropa. Zooropa
+                            416                             390
+Rattle &amp; Hum. All I Want Is You
+                            390
+
+</pre>
+
+<div class="p"><!----></div>

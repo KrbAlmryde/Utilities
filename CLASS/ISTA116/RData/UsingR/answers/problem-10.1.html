@@ -1,0 +1,123 @@
+
+
+
+
+
+
+
+
+<title> problem-10.1</title>
+    
+<h1 align="center">problem-10.1 </h1>
+<b>problem-10.1</b>&nbsp;
+    We begin by loading in the data set and looking at the names.
+    
+<pre>
+&#62; library(MASS)                 # loads data set
+
+</pre>
+For the model of highway mileage by horsepower we expect a negative
+correlation. A scatterplot confirms this.
+
+<pre>
+&#62; plot(MPG.highway ~ Horsepower, data = Cars93)
+&#62; res = lm(MPG.highway ~ Horsepower, data = Cars93)
+&#62; res
+
+Call:
+lm(formula = MPG.highway ~ Horsepower, data = Cars93)
+
+Coefficients:
+(Intercept)   Horsepower
+     38.150       -0.063
+
+&#62; predict(res, newdata=data.frame(Horsepower=225))
+[1] 23.97
+    
+</pre>
+Modeling highway mileage by automobile weight should have a similar
+negative correlation. Again we confirm and make the requested
+predictions.
+
+<pre>
+&#62; f = MPG.highway ~ Weight
+&#62; plot(f, data=Cars93)
+&#62; res = lm(f, data=Cars93)
+&#62; res
+
+Call:
+lm(formula = f, data = Cars93)
+
+Coefficients:
+(Intercept)       Weight
+   51.60137     -0.00733
+
+&#62; predict(res, newdata=data.frame(Weight=c(2524, 6400)))
+     1      2
+33.108  4.708
+
+</pre>
+The prediction for the MINI Cooper may be close, but there is no
+reason to expect the prediction for the HUMMER to be close, as the
+value of the predictor is outside the range of the data.
+
+<div class="p"><!----></div>
+The variable <b>Min.Price</b> records the value of the stripped-down
+version of the car, and <b>Max.Price</b> records the fully equipped
+version. We'd expect that <b>Max.Price</b> would roughly be a fixed
+amount more than <b>Min.Price</b>, as the differences-the cost of
+leather seats, a bigger engine, perhaps- are roughly the same for
+each car. Checking, we have:
+
+<pre>
+&#62; f = Max.Price ~ Min.Price
+&#62; plot(f, data=Cars93)
+&#62; res = lm(f,data=Cars93)
+&#62; abline(res)
+&#62; res
+
+Call:
+lm(formula = f, data = Cars93)
+
+Coefficients:
+(Intercept)    Min.Price
+       2.31         1.14
+
+</pre>
+The slope of 1.14 indicates that perhaps add-ons for more expensive
+cars cost more, but in this case it appears to be due to the one large
+outlier, as robust regression estimates are much closer to 1:
+
+<pre>
+&#62; rlm(f, data=Cars93)
+Call:
+rlm(formula = f, data = Cars93)
+Converged in 7 iterations
+
+Coefficients:
+(Intercept)   Min.Price
+      3.609       1.029
+
+Degrees of freedom: 93 total; 91 residual
+Scale estimate: 3.18
+
+</pre>
+
+<div class="p"><!----></div>
+A scatterplot matrix may show additional linear relationships. These
+are produced with the <b>pairs()</b> command, as in
+<b>pairs(Cars93)</b>. Doing so directly produces too many
+scatterplots. We can trim down the size of the data frame then plot
+again. Doing so using only the nonfactors can be done as follows:
+
+<pre>
+&#62; cars = Cars93[,sapply(Cars93, function(x) !is.factor(x))]
+&#62; pairs(cars)
+
+</pre>
+Looking at the plots produced we see, for example, that variables 1
+and 2, 2 and 3, 4 and 5, etc., are linearly related. These variables
+can be identified from the graphic if the monitor is large enough, or
+with the command <b>names(cars)</b>.
+
+<div class="p"><!----></div>

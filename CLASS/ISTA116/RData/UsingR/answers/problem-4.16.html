@@ -1,0 +1,38 @@
+
+
+
+
+
+
+
+
+<title> problem-4.16</title>
+    
+<h1 align="center">problem-4.16 </h1>
+<b>problem-4.16</b>&nbsp;
+    This can be done as follows:
+    
+<pre>
+&#62; before.72 = year &lt; 72 &amp; year &#62; 0
+&#62; tapply(runs.scored[before.72],league[before.72],mean)
+   AL    NL
+653.9 673.9
+&#62; tapply(runs.scored[!before.72],league[!before.72],mean)
+   AL    NL
+718.7 675.6
+    
+</pre>
+    Alternatively, <b>tapply()</b> can use two factors to split up the
+    results in one command.
+    
+<pre>
+&#62; tapply(runs.scored,list(factor(before.72),league),mean)
+         AL    NL
+FALSE 718.7 675.6
+TRUE  653.9 673.9
+    
+</pre>
+    The <b>tapply()</b> syntax above uses a list of factors to split up
+    the value of <b>runs.scored</b>.
+
+<div class="p"><!----></div>

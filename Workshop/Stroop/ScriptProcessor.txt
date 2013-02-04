@@ -1,0 +1,19 @@
+afni_proc.py -dsets s1-memboth-cat+orig \
+	-blocks despike tshift volreg blur mask scale regress	\
+	-script WorkInProgressScript	\
+	-tcat_remove_first_trs 0	\
+	-volreg_align_to first	\
+	-regress_stim_times mf-memory.1D.txt	\
+			ff-memory.1D.txt	\
+			nf-memory.1D.txt	\
+			na-memory.1D.txt	\
+			ma-memory.1D.txt	\
+			fa-memory.1D.txt	\
+			null-memory.1D.txt	\
+	-regress_stim_labels mf_memory	\
+			ff_memory	\
+			nf_memory	\
+			na_memory	\
+			ma_memory	\
+			fa_memory	\
+			null_memory	

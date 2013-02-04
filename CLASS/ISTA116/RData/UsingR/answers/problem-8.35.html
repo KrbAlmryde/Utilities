@@ -1,0 +1,35 @@
+
+
+
+
+
+
+
+
+<title> problem-8.35</title>
+    
+<h1 align="center">problem-8.35 </h1>
+<b>problem-8.35</b>&nbsp;
+    The data is not independent among the samples as there are only
+    205 parents and 930 children represented. Treating it as though
+    the pairs are independently drawn, we can use a paired t-test to
+    get
+    
+<pre>
+&#62; attach(galton)
+&#62; t.test(child,parent,paired=TRUE)
+
+        Paired t-test
+
+data:  child and parent
+t = -2.966, df = 929, p-value = 0.003089
+alternative hypothesis: true difference in means is not equal to 0
+...
+&#62; detach(galton)
+    
+</pre>
+    The small p-value indicates a difference in the means. The
+    confidence interval suggests that it is between 0.07 inches and
+    0.37 inches.
+
+<div class="p"><!----></div>

@@ -1,0 +1,23 @@
+
+
+
+
+
+
+
+
+<title> problem-5.28</title>
+    
+<h1 align="center">problem-5.28 </h1>
+<b>problem-5.28</b>&nbsp;
+    The binomial model assumes   at bats.
+    The answer can be found with the following:
+    
+<pre>
+&#62; n = 600; p = .300; phat = .350; a = n*phat
+&#62; 1 - pnorm(a - 1/2, n*p, sqrt(n*p*(1-p)))
+[1] 0.004294
+    
+</pre>
+
+<div class="p"><!----></div>

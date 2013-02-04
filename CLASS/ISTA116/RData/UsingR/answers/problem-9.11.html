@@ -1,0 +1,41 @@
+
+
+
+
+
+
+
+
+<title> problem-9.11</title>
+    
+<h1 align="center">problem-9.11 </h1>
+<b>problem-9.11</b>&nbsp;
+    The accident data can be entered in using <b>cbind</b> as
+    follows:
+    
+<pre>
+&#62; accidents = cbind(
++ none=c(67,42,75,56,57),
++ minor=c(10,6,8,4,15),
++ major=c(5,5,4,6,1))
+&#62; rownames(accidents)=c("&lt;18","18-25","26-40","40-65","65&#62;")
+&#62; accidents
+      none minor major
+&lt;18     67    10     5
+18-25   42     6     5
+26-40   75     8     4
+40-65   56     4     6
+65&#62;     57    15     1
+&#62; chisq.test(accidents)
+
+        Pearson's Chi-squared test
+
+data:  accidents
+X-squared = 12.59, df = 8, p-value = 0.1269
+
+Warning message:
+Chi-squared approximation may be incorrect in: chisq.test(accidents)
+    
+</pre>
+
+<div class="p"><!----></div>

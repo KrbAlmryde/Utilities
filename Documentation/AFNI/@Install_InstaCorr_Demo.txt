@@ -1,0 +1,21 @@
+Installs and sets up AFNI's InstaCorr demo archive
+After setup, all you need to do is run the demo scripts
+this way:
+*****************
+
+For Volume-based 3dGroupInCorr run:
+cd /usr/local/utilities/Documentation/AFNI/AFNI_InstaCorrDemo/vol
+tcsh ./@RunVolGroupInCorr 
+
+For Surface-based 3dGroupInCorr run:
+cd /usr/local/utilities/Documentation/AFNI/AFNI_InstaCorrDemo/srf
+tcsh ./@RunSurfGroupInCorr 
+
+For Surface-based Single-Subject InstaCorr run:
+cd /usr/local/utilities/Documentation/AFNI/AFNI_InstaCorrDemo/srf
+tcsh ./@RunSingleSurfInstaCorr 
+
+*****************
+
+It taks a while to download, unpack, and run the setup scripts
+

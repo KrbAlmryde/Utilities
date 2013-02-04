@@ -1,0 +1,56 @@
+
+===========================================================================
+uber_subject.py               - graphical interface to afni_proc.py
+
+The expected use of this program is to simply run it without any options.
+That will start the graphical user interface (GUI), which has its own set
+of help and help tools.
+
+        usage:  uber_subject.py
+
+---
+
+This help describes only the command line options to this program, which
+enables one to:
+
+        - run without the GUI
+        - initialize subject variables in the GUI
+        - initialize control variables for control of execution
+        - pass PyQt4 options directly to the GUI
+
+----------------------------------------------------------------------
+Examples:
+
+   GUI examples:
+
+      uber_subject.py
+      uber_subject.py -qt_opts -style=motif
+      uber_subject.py -svar sid FT -svar gid idiots  \
+                      -svar anat FT_anat+orig.HEAD   \
+                      -svar epi FT_epi_r*.HEAD       \
+                      -svar stim AV*.txt             \
+                      -svar stim_basis 'BLOCK(15,1)'
+      uber_subject.py -cvar subj_dir my/subject/dir
+
+   Informational examples:
+
+      uber_subject.py -help
+      uber_subject.py -help_gui
+      uber_subject.py -hist
+      uber_subject.py -show_valid_opts
+      uber_subject.py -show_default_vars
+      uber_subject.py -todo
+
+   Non-GUI examples (all have -no_gui):
+
+      uber_subject.py -no_gui -save_ap_command cmd.AP             \
+          -svar sid FT -svar gid idiots                           \
+          -svar anat FT_anat+orig.HEAD -svar epi FT_epi_r*.HEAD   \
+          -svar stim AV*.txt -svar stim_basis 'BLOCK(15,1)'       \
+          -cvar subj_dir my/subject/dir
+
+----------------------------------------------------------------------
+
+- R Reynolds  Feb, 2011
+===========================================================================
+

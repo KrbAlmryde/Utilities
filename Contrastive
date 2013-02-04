@@ -1,0 +1,70 @@
+#!/usr/bin/env tcsh
+# execute via : tcsh -x S#-t-script |& tee output.S#-t-script
+# --------------------------------------------------
+# script setup
+echo "this is just a test to see if it really worked"
+echo "holly crap it did"
+# --------------------------------------------------
+# script setup
+set t = $1 #task
+set s = $2 #seed
+set x = $3 #x
+set y = $4 #y
+set z = $5 #z
+set H = /Volumes/Data/MRI-AttnMem/Anova #Home
+set R = $H/Contrasts #Results
+set C = ${t}_GAM${g}_${m}_${x}_${y}_${z} #Coordinates
+set A = $H/Anova_GAM${g}_results #Anova
+foreach v (FvM FvN FvMN MvF MvN  MvFN NvF NvM NvFM) #variation
+# --------------------------------------------------
+# script setup
+echo ""
+echo "This is the $0 script!" 
+echo "$H"
+echo "$R"
+echo "${t}_${g}_${m}_${x}_${y}_${z}_${v}"
+echo "${C}_${v}.txt"
+echo "temp1_${C}.txt"
+echo "cat ${C}_FvM.txt ${C}_FvN.txt ${C}_MvF.txt ${C}_MvN.txt ${C}_NvF.txt ${C}_NvM.txt > temp1_${C}.txt"
+# --------------------------------------------------
+# script setup
+3dmaskdump -noijk -dbox ${x} ${y} ${z} ${R}/contr_GAM${g}_${v}_0.05+tlrc > $R/roi/temp_${C}_${v}.txt
+# 3dmaskdump -noijk -dbox ${x} ${y} ${z} ${R}/base_GAM${g}_${v}_0.05+tlrc > $R/roi/1.base_${C}_${v}.txt
+# 3dmaskdump -noijk -dbox ${x} ${y} ${z} ${R}/base2_GAM${g}_${v}_0.05+tlrc > $R/roi/1.base2_${C}_${v}.txt
+
+end
+# --------------------------------------------------
+# script setup
+cd ${R}/roi
+# --------------------------------------------------
+# script setup
+cat temp_${C}_FvM.txt temp_${C}_FvN.txt temp_${C}_FvMN.txt temp_${C}_MvF.txt temp_${C}_MvN.txt temp_${C}_MvFN.txt temp_${C}_NvF.txt temp_${C}_NvM.txt temp_${C}_NvFM.txt > compile_${C}.txt
+#cat 1.base2_${C}_FvM.txt 1.base2_${C}_FvN.txt 1.base2_${C}_FvMN.txt 1.base2_${C}_MvF.txt 1.base2_${C}_MvN.txt 1.base2_${C}_MvFN.txt 1.base2_${C}_NvF.txt 1.base2_${C}_NvM.txt 1.base2_${C}_NvFM.txt > 2.base_compile_${C}.txt
+#cat 1.base2_${C}_FvM.txt 1.base2_${C}_FvN.txt 1.base2_${C}_FvMN.txt 1.base2_${C}_MvF.txt 1.base2_${C}_MvN.txt 1.base2_${C}_MvFN.txt 1.base2_${C}_NvF.txt 1.base2_${C}_NvM.txt 1.base2_${C}_NvFM.txt > 2.base2_compile_${C}.txt
+# --------------------------------------------------
+# script setup
+awk '$1=$1' RS= compile_${C}.txt > trans_${C}.txt
+awk -v OFS='\t' '$0=$0 {print "\t" $1,$2,$3,$4,$5,$6,$7,$8,$9}' trans_${C}.txt > ${C}.txt
+cat ${C}.txt >> 1Contrasts.txt
+# --------------------------------------------------
+# script setup
+#awk '$1=$1' RS= 2.base_compile_${C}.txt > 3.base_trans_${C}.txt
+#awk -v OFS='\t' '$0=$0 {print "\t" $1,$2,$3,$4,$5,$6,$7,$8,$9}' 2.base_trans_${C}.txt > 4.base_${C}.txt
+#cat 4.base_${C}.txt >> $R/base_Contrasts.txt
+# --------------------------------------------------
+# script setup
+#awk '$1=$1' RS= 2.base2_compile_${C}.txt > 3.base2_trans_${C}.txt
+#awk -v OFS='\t' '$0=$0 {print "\t" $1,$2,$3,$4,$5,$6,$7,$8,$9}' 2.base2_trans_${C}.txt > 4.base2_${C}.txt
+#cat 4.base2_${C}.txt >> $R/base2_Contrasts.txt
+# 
+# 
+# --------------------------------------------------
+# script setup
+#echo "rm temp*"
+#rm temp*
+# --------------------------------------------------
+# script setup
+#echo "mv Contrast_${C}.txt ../"
+#mv awk_temp3_${C}.txt ../
+end
+end

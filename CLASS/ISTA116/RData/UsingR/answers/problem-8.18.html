@@ -1,0 +1,43 @@
+
+
+
+
+
+
+
+
+<title> problem-8.18</title>
+    
+<h1 align="center">problem-8.18 </h1>
+<b>problem-8.18</b>&nbsp;
+    The <b>log()</b> function can be used directly, as in
+    
+<pre>
+&#62; wilcox.test(log(exec.pay), mu = log(22), alt="greater")
+
+        Wilcoxon signed rank test with continuity correction
+
+data:  log(exec.pay)
+V = 10966, p-value = 0.004144
+alternative hypothesis: true mu is greater than 3.091
+    
+</pre>
+    We see a similarly small p-value as in the previous question,
+    indicating that the null hypothesis is not supported.
+
+<div class="p"><!----></div>
+    If you tried to do a histogram to check for symmetry, you may have
+    gotten an error message. This is because of the data values for
+    which the compensation is 0. (The logarithm of 0 is treated as
+    <font face="symbol">-</font
+><font face="symbol">¥</font
+>.)  To avoid this error, you can exclude this case first
+    as follows:
+   
+<pre>
+&#62; ep = exec.pay[exec.pay &#62; 0]
+&#62; hist(log(ep))                 # fairly symmetric
+   
+</pre>
+
+<div class="p"><!----></div>

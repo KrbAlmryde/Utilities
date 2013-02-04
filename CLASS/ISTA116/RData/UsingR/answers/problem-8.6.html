@@ -1,0 +1,33 @@
+
+
+
+
+
+
+
+
+<title> problem-8.6</title>
+    
+<h1 align="center">problem-8.6 </h1>
+<b>problem-8.6</b>&nbsp;
+    The key to solving this is to find the value of z so that
+    P(\phat  &gt;  z) = 0.05. This is answered using the quantiles of the
+    normal distribution, as \phat is approximately normally distributed with mean p=0.113 and
+    standard deviation <font face="symbol">Ö</font>{p(1<font face="symbol">-</font
+>p)/n}.
+    
+<pre>
+&#62; p = .113; n = 50000; qnorm(.95, mean=p,sd=sqrt(p*(1-p)/n))
+[1] 0.1153
+    
+</pre>
+    Multiplying by n produces the cutoffs
+    
+<pre>
+&#62; n*0.1153
+[1] 5765
+    
+</pre>
+    Any value of 5,765 or larger would give a p-value less than 0.05.
+
+<div class="p"><!----></div>

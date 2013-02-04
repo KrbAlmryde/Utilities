@@ -1,0 +1,130 @@
+
+Usage1: 
+MakeColorMap <-fn Fiducials_Ncol> [-pos] [-ah prefix] [-h/-help]
+    Creates a colormap of N colors that contains the fiducial colors.
+    -fn Fiducials_Ncol: Fiducial colors and their indices in the color
+                        map are listed in file Fiducials_Ncol.
+       Each row contains 4 tab delimited values:
+       R G B i
+       R G B values are between 0 and 1 and represent the 
+       i-th color in the colormap. i should be between 0 and
+       N-1, N being the total number of colors in the colormap.
+
+Usage2: 
+MakeColorMap <-f Fiducials> <-nc N> [-sl] [-ah prefix] [-h/-help]
+    Creates a colormap of N colors that contains the fiducial colors.
+    -f Fiducials:  Fiducial colors are listed in an ascii file Fiducials. 
+       Each row contains 3 tab delimited R G B values between 0 and 1.
+    -nc N: Total number of colors in the color map.
+    -sl: (optional, default is NO) if used, the last color in the Fiducial 
+       list is omitted. This is useful in creating cyclical color maps.
+
+Usage3: 
+MakeColorMap <-std MapName>
+    Returns one of SUMA's standard colormaps. Choose from:
+    rgybr20, ngray20, gray20, bw20, bgyr19, 
+    matlab_default_byr64, roi128, roi256, roi64
+ or if the colormap is in a .pal file:  
+MakeColorMap -cmapdb Palfile -cmap MapName
+
+Usage4:
+MakeColorMap <-fscolut lbl0 lbl1> 
+             [<-fscolutfile FS_COL_LUT>]
+   Create AFNI/SUMA colormaps of FreeSurfer colors
+   indexed between lbl0 and lbl1. 
+   -fscolut lbl0 lbl1: Get colors indexed between
+                        lbl0 and lbl1, non existing
+                        integer labels are given a 
+                        gray color. Use -fscolut -1 -1 to
+                        get all the colors and labels.
+   -fscolutfile FS_COL_LUT: Use color LUT file FS_COL_LUT
+                            Default is to use 
+                            $FREESURFER_HOME/FreeSurferColorLUT.txt
+   -show_fscolut: Show all of the LUT
+
+Common options to all usages:
+    -ah prefix: (optional, Afni Hex format.
+                 default is RGB values in decimal form)
+       use this option if you want a color map formatted to fit 
+       in AFNI's .afnirc file. The colormap is written out as 
+      prefix_01 = #xxxxxxx 
+      prefix_02 = #xxxxxxx
+       etc...
+    -ahc prefix: optional, Afni Hex format, ready to go into.
+                 pbardefs.h 
+    -h or -help: displays this help message.
+    -flipud: Flip the map upside down. If the colormap is being 
+             created for interactive loading into SUMA with the 'New'
+             button from the 'Surface Controller' you will need
+             to flip it upside down. 
+
+Example Usage 1: Creating a colormap of 20 colors that goes from 
+Red to Green to Blue to Yellow to Red.
+
+   The file FidCol_Nind contains the following:
+   1 0 0 0
+   0 1 0 5
+   0 0 1 10
+   1 1 0 15
+   1 0 0 19
+
+   The following command will generate the RGB colormap in decimal form:
+   MakeColorMap -fn FidCol_Nind 
+
+   The following command will generate the colormap and write it as 
+   an AFNI color palette file:
+   MakeColorMap -fn FidCol_Nind -ah TestPalette > TestPalette.pal
+
+Example Usage 2: Creating a cyclical version of the colormap in usage 1:
+
+   The file FidCol contains the following:
+   1 0 0
+   0 1 0
+   0 0 1
+   1 1 0
+   1 0 0
+
+   The following command will generate the RGB colormap in decimal form:
+   MakeColorMap -f FidCol -sl -nc 20 
+
+Example Usage 3: 
+   MakeColorMap -std ngray20 
+
+Example Usage 4: 
+   MakeColorMap -fscolut 0 255
+
+To read in a new colormap into AFNI, either paste the contents of 
+TestPalette.pal in your .afnirc file or read the .pal file using 
+AFNI as follows:
+1- run afni
+2- Define Function --> right click on Inten (over colorbar) 
+   --> Read in palette (choose TestPalette.pal)
+3- set the #colors chooser (below colorbar) to 20 (the number of colors in 
+   TestPalette.pal).
+   [-novolreg|-noxform]: Ignore any Rotate, Volreg, Tagalign, 
+                or WarpDrive transformations present in 
+                the Surface Volume.
+  Common Debugging Options:
+   [-trace]: Turns on In/Out debug and Memory tracing.
+             For speeding up the tracing log, I recommend 
+             you redirect stdout to a file when using this option.
+             For example, if you were running suma you would use:
+             suma -spec lh.spec -sv ... > TraceFile
+             This option replaces the old -iodbg and -memdbg.
+   [-TRACE]: Turns on extreme tracing.
+   [-nomall]: Turn off memory tracing.
+   [-yesmall]: Turn on memory tracing (default).
+  NOTE: For programs that output results to stdout
+    (that is to your shell/screen), the debugging info
+    might get mixed up with your results.
+ 
+++ SUMA version 2006_7_3
+
+CVS tag:
+   SUMA_2005_04_29_1733
+
+Compile Date:
+   Jul  5 2011
+
+    Ziad S. Saad & Rick R. Reynolds SSCC/NIMH/NIH saadz@mail.nih.gov    Tue Apr 23 14:14:48 EDT 2002
+

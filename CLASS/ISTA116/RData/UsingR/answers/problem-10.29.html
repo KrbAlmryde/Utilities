@@ -1,0 +1,29 @@
+
+
+
+
+
+
+
+
+<title> problem-10.29</title>
+    
+<h1 align="center">problem-10.29 </h1>
+<b>problem-10.29</b>&nbsp;
+    This can be done as follows:
+    
+<pre>
+&#62; n = length(year)
+&#62; yt = log(Nt[-1]/Nt[-n])
+&#62; nt = Nt[-n]
+&#62; detach(baycheck)
+&#62; lm(yt ~ nt)
+  Coefficients:
+(Intercept)           nt
+   0.345810    -0.000409
+    
+</pre>
+    So [^r] = \betahat<sub>0</sub> = 0.34 and [^K] = <font face="symbol">-</font
+> [^r]/\betahat<sub>1</sub> = 845.5.
+
+<div class="p"><!----></div>

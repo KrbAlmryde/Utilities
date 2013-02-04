@@ -1,0 +1,20 @@
+
+Prints out sort-of-useful information from a 3D dataset's header
+Usage: 3dinfo [-verb OR -short] dataset [dataset ...]
+  -verb means to print out lots of stuff
+  -VERB means even more stuff
+  -short means to print out less stuff [now the default]
+
+Alternative Usage (without either of the above options):
+  3dinfo -label2index label dataset
+  * Prints to stdout the index corresponding to the sub-brick with
+    the name label, or a blank line if label not found.
+  * If this option is used, then the ONLY output is this sub-brick index.
+    This is intended to be used in a script, as in this tcsh fragment:
+      set face = `3dinfo -label2index Face#0 AA_Decon+orig`
+      set hous = `3dinfo -label2index House#0 AA_Decon+orig`
+      3dcalc -a AA_Decon+orig"[$face]" -b AA_Decon+orig"[$hous]" ...
+  * Added per the request and efforts of Colm Connolly.
+
+++ Compile date = Jul  5 2011
+

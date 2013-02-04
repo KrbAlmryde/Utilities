@@ -1,0 +1,31 @@
+
+
+
+
+
+
+
+
+<title> problem-11.1</title>
+    
+<h1 align="center">problem-11.1 </h1>
+<b>problem-11.1</b>&nbsp;
+    The data is stored so that the function <b>oneway.test()</b> is
+    straightforward to use:
+    
+<pre>
+&#62; names(morley)
+[1] "Expt"  "Run"   "Speed"
+&#62; oneway.test(Speed ~ Expt, data=morley)
+
+        One-way analysis of means (not assuming equal variances)
+
+data:  Speed and Expt
+F = 3.006, num df = 4.00, denom df = 47.04, p-value = 0.02738
+    
+</pre>
+    The small p-value is consistent with the impression left
+    after considering side-by-side boxplots that the
+    centers are not the same.
+
+<div class="p"><!----></div>

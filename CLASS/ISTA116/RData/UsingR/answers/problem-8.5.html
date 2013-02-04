@@ -1,0 +1,35 @@
+
+
+
+
+
+
+
+
+<title> problem-8.5</title>
+    
+<h1 align="center">problem-8.5 </h1>
+<b>problem-8.5</b>&nbsp;
+    The normal approximation is said to be valid provided np and
+    n(1<font face="symbol">-</font
+>p) are 5 or more. In this case p=.999 under H<sub>0</sub> and
+    n=5,760, leaving n(1<font face="symbol">-</font
+>p) just larger than 5. Assuming the
+    approximation produces accurate p-values, we have the one-sided
+    test, yielding
+    
+<pre>
+&#62; prop.test(5731, 5760, p=.999, alt="less")
+
+        1-sample proportions test with continuity correction
+
+data:  5731 out of 5760, null probability 0.999
+X-squared = 89.87, df = 1, p-value &lt; 2.2e-16
+alternative hypothesis: true p is less than 0.999
+...
+    
+</pre>
+    This is a very small p-value, indicating that the data is
+    inconsistent with the null hypothesis.
+
+<div class="p"><!----></div>

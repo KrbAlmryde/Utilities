@@ -1,0 +1,37 @@
+#!/usr/bin/env tcsh
+echo "./3dmaskdump x y z gam task seed"
+# execute via : tcsh -x S#-task-script |& tee output.S#-task-script
+# --------------------------------------------------
+# script setup
+
+pwd
+set images_home = /Volumes/Data/MRI-AttnMem/Anova/
+echo "$images_home"
+
+#set x coordinate = 42
+set x = $1
+echo "x $x"
+
+#set y coordinate = -28
+set y = $2
+echo "y $y"
+
+#set z coordinate = 55
+set z = $3
+echo "z $z"
+
+#set seed coordinate = ACC
+set gam = $4
+echo "gam $gam"
+
+
+#set seed coordinate = ACC
+set task = $5
+echo "task $task"
+
+#set seed coordinate = ACC
+set seed = $6
+echo "seed $seed"
+
+echo "3dmaskdump"
+3dmaskdump -noijk -dbox ${x} ${y} ${z} ${task}/mean_GAM${gam}_${task}+tlrc'[1]' > ${task}/GAM${gam}_${seed}_${x}_${y}_${z}_${task}.1D

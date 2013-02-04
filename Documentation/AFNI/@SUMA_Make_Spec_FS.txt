@@ -1,0 +1,71 @@
+
+@SUMA_Make_Spec_FS - prepare for surface viewing in SUMA
+
+    This script goes through the following steps:
+      - verify existence of necessary programs 
+        (afni, to3d, suma, mris_convert)
+      - determine the location of surface and COR files
+      - creation of ascii surface files via 'mris_convert'
+      - creation of left and right hemisphere SUMA spec files
+      - creation of an AFNI dataset from the COR files via 'to3d'
+      - creation of AFNI datasets from various .mgz volumes created
+        by FreeSurfer. The segmentation volumes with aseg in the 
+        name are best viewed in AFNI with the FreeSurfer_Seg_255
+        colormap. See bottom of @SUMA_FSvolToBRIK -help for more
+        info.
+
+      - all created files are stored in a new SUMA directory
+
+  Usage: @SUMA_Make_Spec_FS [options] -sid SUBJECT_ID
+
+  examples:
+
+    @SUMA_Make_Spec_FS -sid subject1
+    @SUMA_Make_Spec_FS -help
+    @SUMA_Make_Spec_FS -fspath subject1/surface_stuff -sid subject1
+    @SUMA_Make_Spec_FS -neuro -sid 3.14159265 -debug 1
+
+  options:
+
+    -help    : show this help information
+
+    -debug LEVEL    : print debug information along the way
+          e.g. -debug 1
+          the default level is 0, max is 2
+
+    -fspath PATH    : path to 'surf' and 'orig' directories
+          e.g. -fspath subject1/surface_info
+          the default PATH value is './', the current directory
+
+          This is generally the location of the 'surf' directory,
+          though having PATH end in surf is OK.  The mri/orig
+          directory should also be located here.
+
+          Note: when this option is provided, all file/path
+          messages will be with respect to this directory.
+
+    -neuro          : use neurological orientation
+          e.g. -neuro
+          the default is radiological orientation
+
+          In the default radiological orientation, the subject's
+          right is on the left side of the image.  In the
+          neurological orientation, left is really left.
+
+    -sid SUBJECT_ID : required subject ID for file naming
+
+
+  notes:
+
+    0. More help may be found at http://afni.nimh.nih.gov/ssc/ziad/SUMA/SUMA_doc.htm
+    1. Surface file names should look like 'lh.smoothwm'.
+    2. Patches of surfaces need the word patch in their name, in
+       order to use the correct option for 'mris_convert'.
+    3. Flat surfaces must have .flat in their name.
+    4. You can tailor the script to your needs. Just make sure you rename it or risk
+       having your modifications overwritten with the next SUMA version you install.
+
+     R. Reynolds (rickr@codon.nih.gov)
+     Z. Saad (saadz@mail.nih.gov)
+     M. Beauchamp (Michael.S.Beauchamp@uth.tmc.edu)
+

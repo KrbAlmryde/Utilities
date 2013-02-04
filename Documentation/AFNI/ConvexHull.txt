@@ -1,0 +1,193 @@
+
+Usage: A program to find the convex hull, or perform a delaunay triangulation
+       of a set of points.
+  This program is a wrapper for the qhull, and qdelaunay programs.
+  see copyright notice by running suma -sources.
+
+  ConvexHull  
+     usage 1: < -input VOL >
+              < -isoval V | -isorange V0 V1 | -isocmask MASK_COM >
+              [<-xform XFORM>]
+     usage 2: < i_TYPE input surface >
+              [<-sv SURF_VOL>]
+     usage 3: < -input_1D XYZ >
+              [<-q_opt OPT>]
+     common optional:
+              [< -o_TYPE PREFIX>]
+              [< -debug DBG >]
+
+  Mandatory parameters, choose one of three usage modes:
+  Usage 1:
+     You must use one of the following two options:
+     -input VOL: Input AFNI (or AFNI readable) volume.
+     You must use one of the following iso* options:
+     -isoval V: Create isosurface where volume = V
+     -isorange V0 V1: Create isosurface where V0 <= volume < V1
+     -isocmask MASK_COM: Create isosurface where MASK_COM != 0
+        For example: -isocmask '-a VOL+orig -expr (1-bool(a-V))' 
+        is equivalent to using -isoval V. 
+     NOTE: -isorange and -isocmask are only allowed with -xform mask
+            See -xform below for details.
+
+  Usage 2:
+     -i_TYPE SURF:  Use the nodes of a surface model
+                    for input. See help for i_TYPE usage
+                    below.
+
+  Usage 3:
+     -input_1D XYZ: Construct the triangulation of the points
+                    contained in 1D file XYZ. If the file has
+                    more than 3 columns, use AFNI's [] selectors
+                    to specify the XYZ columns.
+     -q_opt OPT: Meshing option OPT can be one of.
+                    convex_hull: For convex hull of points (default)
+                    triangulate_xy: Delaunay triangulation using x y coords
+
+ These three options are only useful with -q_opt triangulate_xy
+     -proj_xy: Project points onto plane whose normal is the third principal 
+               component. Then rotate projection so that plane in parallel to
+               Z = constant.
+     -orig_coord: Use original coordinates when writing surface, not
+                  transformed ones.
+     -these_coords COORDS.1D: Use coordinates in COORDS.1D when 
+                              writing surface.
+
+  Optional Parameters:
+     Usage 1 only:
+     -xform XFORM:  Transform to apply to volume values
+                    before searching for sign change
+                    boundary. XFORM can be one of:
+            mask: values that meet the iso* conditions
+                  are set to 1. All other values are set
+                  to -1. This is the default XFORM.
+            shift: subtract V from the dataset and then 
+                   search for 0 isosurface. This has the
+                   effect of constructing the V isosurface
+                   if your dataset has a continuum of values.
+                   This option can only be used with -isoval V.
+            none: apply no transforms. This assumes that
+                  your volume has a continuum of values 
+                  from negative to positive and that you
+                  are seeking to 0 isosurface.
+                  This option can only be used with -isoval 0.
+     Usage 2 only:
+     -sv SURF_VOL: Specify a surface volume which contains
+                   a transform to apply to the surface node
+                   coordinates prior to constructing the 
+                   convex hull.
+     All Usage:
+     -o_TYPE PREFIX: prefix of output surface.
+        where TYPE specifies the format of the surface
+        and PREFIX is, well, the prefix.
+        TYPE is one of: fs, 1d (or vec), sf, ply.
+        Default is: -o_ply 
+
+ Specifying input surfaces using -i or -i_TYPE options: 
+    -i_TYPE inSurf specifies the input surface,
+            TYPE is one of the following:
+       fs: FreeSurfer surface. 
+           If surface name has .asc it is assumed to be
+           in ASCII format. Otherwise it is assumed to be
+           in BINARY_BE (Big Endian) format.
+           Patches in Binary format cannot be read at the moment.
+       sf: SureFit surface. 
+           You must specify the .coord followed by the .topo file.
+       vec (or 1D): Simple ascii matrix format. 
+            You must specify the coord (NodeList) file followed by 
+            the topo (FaceSetList) file.
+            coord contains 3 floats per line, representing 
+            X Y Z vertex coordinates.
+            topo contains 3 ints per line, representing 
+            v1 v2 v3 triangle vertices.
+       ply: PLY format, ascii or binary.
+            Only vertex and triangulation info is preserved.
+       mni: MNI .obj format, ascii only.
+            Only vertex, triangulation, and node normals info is preserved.
+       byu: BYU format, ascii.
+            Polygons with more than 3 edges are turned into
+            triangles.
+       bv: BrainVoyager format. 
+           Only vertex and triangulation info is preserved.
+       dx: OpenDX ascii mesh format.
+           Only vertex and triangulation info is preserved.
+           Requires presence of 3 objects, the one of class 
+           'field' should contain 2 components 'positions'
+           and 'connections' that point to the two objects
+           containing node coordinates and topology, respectively.
+       gii: GIFTI XML surface format.
+ Note that if the surface filename has the proper extension, 
+ it is enough to use the -i option and let the programs guess
+ the type from the extension.
+ Specifying a Surface Volume:
+    -sv SurfaceVolume [VolParam for sf surfaces]
+       If you supply a surface volume, the coordinates of the input surface.
+        are modified to SUMA's convention and aligned with SurfaceVolume.
+        You must also specify a VolParam file for SureFit surfaces.
+ Specifying output surfaces using -o or -o_TYPE options: 
+    -o_TYPE outSurf specifies the output surface, 
+            TYPE is one of the following:
+       fs: FreeSurfer ascii surface. 
+       fsp: FeeSurfer ascii patch surface. 
+            In addition to outSurf, you need to specify
+            the name of the parent surface for the patch.
+            using the -ipar_TYPE option.
+            This option is only for ConvertSurface 
+       sf: SureFit surface. 
+           For most programs, you are expected to specify prefix:
+           i.e. -o_sf brain. In some programs, you are allowed to 
+           specify both .coord and .topo file names: 
+           i.e. -o_sf XYZ.coord TRI.topo
+           The program will determine your choice by examining 
+           the first character of the second parameter following
+           -o_sf. If that character is a '-' then you have supplied
+           a prefix and the program will generate the coord and topo names.
+       vec (or 1D): Simple ascii matrix format. 
+            For most programs, you are expected to specify prefix:
+            i.e. -o_1D brain. In some programs, you are allowed to 
+            specify both coord and topo file names: 
+            i.e. -o_1D brain.1D.coord brain.1D.topo
+            coord contains 3 floats per line, representing 
+            X Y Z vertex coordinates.
+            topo contains 3 ints per line, representing 
+            v1 v2 v3 triangle vertices.
+       ply: PLY format, ascii or binary.
+       byu: BYU format, ascii or binary.
+       mni: MNI obj format, ascii only.
+       gii: GIFTI format, ascii.
+            You can also enforce the encoding of data arrays
+            by using gii_asc, gii_b64, or gii_b64gz for 
+            ASCII, Base64, or Base64 Gzipped. 
+            If AFNI_NIML_TEXT_DATA environment variable is set to YES, the
+            the default encoding is ASCII, otherwise it is Base64.
+ Note that if the surface filename has the proper extension, 
+ it is enough to use the -o option and let the programs guess
+ the type from the extension.
+
+
+   [-novolreg|-noxform]: Ignore any Rotate, Volreg, Tagalign, 
+                or WarpDrive transformations present in 
+                the Surface Volume.
+  Common Debugging Options:
+   [-trace]: Turns on In/Out debug and Memory tracing.
+             For speeding up the tracing log, I recommend 
+             you redirect stdout to a file when using this option.
+             For example, if you were running suma you would use:
+             suma -spec lh.spec -sv ... > TraceFile
+             This option replaces the old -iodbg and -memdbg.
+   [-TRACE]: Turns on extreme tracing.
+   [-nomall]: Turn off memory tracing.
+   [-yesmall]: Turn on memory tracing (default).
+  NOTE: For programs that output results to stdout
+    (that is to your shell/screen), the debugging info
+    might get mixed up with your results.
+ 
+
+++ SUMA version 2006_7_3
+
+CVS tag:
+   SUMA_2005_04_29_1733
+
+Compile Date:
+   Jul  5 2011
+
+       Ziad S. Saad SSCC/NIMH/NIH saadz@mail.nih.gov     

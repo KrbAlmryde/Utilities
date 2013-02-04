@@ -1,0 +1,36 @@
+
+
+
+
+
+
+
+
+<title> problem-7.17</title>
+    
+<h1 align="center">problem-7.17 </h1>
+<b>problem-7.17</b>&nbsp;
+    To properly make such a statistical inference, we assume that we
+    can treat the data as a random sample from the population of
+    visible (with the aid of  a telescope)  stars and then use the sample to
+    make an estimate for the mean brightness of these stars.
+
+<div class="p"><!----></div>
+    First, we make a histogram, to check that the sample appears to come
+    from a normally distributed population. Once this is verified,
+    then <b>t.test()</b> can be used to find the desired confidence
+    interval.
+    
+<pre>
+&#62; hist(brightness)              # looks good
+&#62; t.test(brightness, conf.level = 0.90)
+...
+90 percent confidence interval:
+ 8.349 8.486
+...
+    
+</pre>
+    For reference: in most suburbs the human eye can see stars with a
+    brightness of 5.5 or less of which about 2,800 exist.
+
+<div class="p"><!----></div>

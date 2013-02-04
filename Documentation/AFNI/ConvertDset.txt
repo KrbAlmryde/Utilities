@@ -1,0 +1,148 @@
+Usage: 
+  ConvertDset -o_TYPE -input DSET [-i_TYPE] [-prefix OUT_PREF]
+  Converts a surface dataset from one format to another.
+  Mandatory parameters:
+     -o_TYPE: TYPE of output datasets
+              where TYPE is one of:
+           niml_asc (or niml): for ASCII niml format.
+           niml_bi:            for BINARY niml format.
+           1D:                 for AFNI's 1D ascii format.
+           1Dp:                like 1D but with no comments
+                               or other 1D formatting gimmicks.
+           1Dpt:               like 1Dp but transpose the output.
+           gii:                GIFTI format default .
+           gii_asc:            GIFTI format with ascii DataArrays.
+           gii_b64:            GIFTI format with Base 64 encoded DataArrays.
+           gii_b64gz:          GIFTI format with B64 enconding and gzipping.
+         For stderr and stdout output use one of:
+           1D_stderr, 1D_stdout, niml_stderr, or niml_stdout, 
+           1Dp_stdout, 1Dp_stderr, 1Dpt_stdout, 1Dpt_stderr
+         Actually, this parameter is not that mandatory, the program
+         can look at extensions on the prefix to guess the output
+         format. If the prefix has no extension and o_TYPE is not
+         specified, then the output format is the same as that of the
+         input.
+     -input DSET: Input dataset to be converted.
+                  See more on input datasets below.
+  Optional parameters:
+     -add_node_index: Add a node index element if one does not exist
+                      in the input dset. With this option, the indexing
+                      is assumed to be implicit (0,1,2,3.... for rows 0,1
+                      2,3,...). If that is not the case, use -node_index_1D
+                      option below. 
+     -node_index_1D INDEX.1D: Specify file containing node indices
+                              Use this to provide node indices with 
+                              a .1D dset. In many cases for .1D data
+                              this option is DSET.1D'[0]'
+     -node_select_1D MASK.1D: Specify the nodes you want to keep in the
+                              output. 
+                              The order of the rows in the output dataset 
+                              reflect the order of the nodes in MASK.1D.
+                              Note that the presence of duplicate nodes in
+                              MASK.1D is not allowed. Also, node indices 
+                              that do not have data in the input dataset will
+                              be ignored.
+     -prepend_node_index_1D: Add a node index column to the data, rather
+                             than keep it as part of the metadata.
+     -pad_to_node MAX_INDEX: Output a full dset from node 0 
+                            to node MAX_INDEX (a total of 
+                            MAX_INDEX + 1 nodes). Nodes that
+                            get no value from input DSET are
+                            assigned a value of 0
+                            Notice that padding get done at the
+                            very end.
+
+     -i_TYPE: TYPE of input datasets
+              where TYPE is one of:
+           niml: for niml data sets.
+           1D:   for AFNI's 1D ascii format.
+           dx: OpenDX format, expects to work on 1st
+               object only.
+           If no format is specified, the program will 
+           guess using the extension first and the file
+           content next. However the latter operation might 
+           slow operations down considerably.
+     -prefix OUT_PREF: Output prefix for data set.
+                       Default is something based
+                       on the input prefix.
+     -no_history: Do not include a history element in the output
+  Notes:
+     -This program will not overwrite pre-existing files.
+     -The new data set is given a new idcode.
+
+  SUMA dataset input options:
+      -input DSET: Read DSET1 as input.
+                   In programs accepting multiple input datasets
+                   you can use -input DSET1 -input DSET2 or 
+                   input DSET1 DSET2 ...
+       NOTE: Selecting subsets of a dataset:
+             Much like in AFNI, you can select subsets of a dataset
+             by adding qualifiers to DSET.
+           Append #SEL# to select certain nodes.
+           Append [SEL] to select certain columns.
+           Append {SEL} to select certain rows.
+           The format of SEL is the same as in AFNI, see section:
+           'INPUT DATASET NAMES' in 3dcalc -help for details.
+           Append [i] to get the node index column from
+                      a niml formatted dataset.
+           *  SUMA does not preserve the selection order 
+              for any of the selectors.
+              For example:
+              dset[44,10..20] is the same as dset[10..20,44]
+              Also, duplicate values are not supported.
+              so dset[13, 13] is the same as dset[13].
+              I am not proud of these limitations, someday I'll get
+              around to fixing them.
+
+
+ SUMA mask options:
+      -n_mask INDEXMASK: Apply operations to nodes listed in
+                            INDEXMASK  only. INDEXMASK is a 1D file.
+      -b_mask BINARYMASK: Similar to -n_mask, except that the BINARYMASK
+                          1D file contains 1 for nodes to filter and
+                          0 for nodes to be ignored.
+                          The number of rows in filter_binary_mask must be
+                          equal to the number of nodes forming the
+                          surface.
+      -c_mask EXPR: Masking based on the result of EXPR. 
+                    Use like afni's -cmask options. 
+                    See explanation in 3dmaskdump -help 
+                    and examples in output of 3dVol2Surf -help
+      NOTE: Unless stated otherwise, if n_mask, b_mask and c_mask 
+            are used simultaneously, the resultant mask is the intersection
+            (AND operation) of all masks.
+
+
+   [-novolreg|-noxform]: Ignore any Rotate, Volreg, Tagalign, 
+                or WarpDrive transformations present in 
+                the Surface Volume.
+  Common Debugging Options:
+   [-trace]: Turns on In/Out debug and Memory tracing.
+             For speeding up the tracing log, I recommend 
+             you redirect stdout to a file when using this option.
+             For example, if you were running suma you would use:
+             suma -spec lh.spec -sv ... > TraceFile
+             This option replaces the old -iodbg and -memdbg.
+   [-TRACE]: Turns on extreme tracing.
+   [-nomall]: Turn off memory tracing.
+   [-yesmall]: Turn on memory tracing (default).
+  NOTE: For programs that output results to stdout
+    (that is to your shell/screen), the debugging info
+    might get mixed up with your results.
+ 
+
+Examples:
+1-   Plot a node's time series from a niml dataset:
+     ConvertDset -input DemoSubj_EccCntavir.niml.dset'#5779#' \
+                 -o_1D_stdout | 1dplot -nopush -stdin 
+
+++ SUMA version 2006_7_3
+
+CVS tag:
+   SUMA_2005_04_29_1733
+
+Compile Date:
+   Jul  5 2011
+
+    Ziad S. Saad SSCC/NIMH/NIH saadz@mail.nih.gov    Thu Apr  8 16:15:02 EDT 2004
+

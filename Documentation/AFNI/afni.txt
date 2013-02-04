@@ -1,0 +1,415 @@
+ **** Help for all AFNI programs can be found at the Web page
+    http://afni.nimh.nih.gov/afni/doc/program_help/index.html
+
+----------------------------------------------------------------
+USAGE 1: read in sessions of 3D datasets (created by to3d, etc.)
+----------------------------------------------------------------
+   afni [options] [session_directory ...]
+
+   -purge       Conserve memory by purging data to disk.
+                  [Use this if you run out of memory when running AFNI.]
+                  [This will slow the code down, so use only if needed.]
+   -posfunc     Set up the color 'pbar' to use only positive function values.
+   -R           Recursively search each session_directory for more session
+                  subdirectories.
+       WARNING: This will descend the entire filesystem hierarchy from
+                  each session_directory given on the command line.  On a
+                  large disk, this may take a long time.  To limit the
+                  recursion to 5 levels (for example), use -R5.
+   -ignore N    Tells the program to 'ignore' the first N points in
+                  time series for graphs and FIM calculations.
+   -im1 N       Tells the program to use image N as the first one for
+                  graphs and FIM calculations (same as '-ignore N-1')
+   -tlrc_small  These options set whether to use the 'small' or 'big'
+   -tlrc_big      Talairach brick size.  The compiled in default for
+                  the program is now 'big', unlike AFNI 1.0x.
+   -no1D        Tells AFNI not to read *.1D timeseries files from
+                  the dataset directories.  The *.1D files in the
+                  directories listed in the AFNI_TSPATH environment
+                  variable will still be read (if this variable is
+                  not set, then './' will be scanned for *.1D files.)
+
+   -noqual      Tells AFNI not to enforce the 'quality' checks when
+                  making the transformations to +acpc and +tlrc.
+   -unique      Tells the program to create a unique set of colors
+                  for each AFNI controller window.  This allows
+                  different datasets to be viewed with different
+                  grayscales or colorscales.  Note that -unique
+                  will only work on displays that support 12 bit
+                  PseudoColor (e.g., SGI workstations) or TrueColor.
+   -orient code Tells afni the orientation in which to display
+                  x-y-z coordinates (upper left of control window).
+                  The code must be 3 letters, one each from the
+                  pairs {R,L} {A,P} {I,S}.  The first letter gives
+                  the orientation of the x-axis, the second the
+                  orientation of the y-axis, the third the z-axis:
+                   R = right-to-left         L = left-to-right
+                   A = anterior-to-posterior P = posterior-to-anterior
+                   I = inferior-to-superior  S = superior-to-inferior
+                  The default code is RAI ==> DICOM order.  This can
+                  be set with the environment variable AFNI_ORIENT.
+                  As a special case, using the code 'flipped' is
+                  equivalent to 'LPI' (this is for Steve Rao).
+   -noplugins   Tells the program not to load plugins.
+                  (Plugins can also be disabled by setting the
+                   environment variable AFNI_NOPLUGINS.)
+   -yesplugouts Tells the program to listen for plugouts.
+                  (Plugouts can also be enabled by setting the
+                   environment variable AFNI_YESPLUGOUTS.)
+   -YESplugouts Makes the plugout code print out lots of messages
+                  (useful for debugging a new plugout).
+   -noplugouts  Tells the program NOT to listen for plugouts.
+                  (This option is available to override
+                   the AFNI_YESPLUGOUTS environment variable.)
+   -skip_afnirc Tells the program NOT to read the file .afnirc
+                  in the home directory.  See README.setup for
+                  details on the use of .afnirc for initialization.
+   -layout fn   Tells AFNI to read the initial windows layout from
+                  file 'fn'.  If this option is not given, then
+                  environment variable AFNI_LAYOUT_FILE is used.
+                  If neither is present, then AFNI will do whatever
+                  it feels like.
+
+   -niml        If present, turns on listening for NIML-formatted
+                  data from SUMA.  Can also be turned on by setting
+                  environment variable AFNI_NIML_START to YES.
+   -np PORT_OFFSET: Provide a port offset to allow multiple instances of
+                    AFNI <--> SUMA, AFNI <--> 3dGroupIncorr, or any other
+                    programs that communicate together to operate on the same
+                    machine. 
+                    All ports are assigned numbers relative to PORT_OFFSET.
+         The same PORT_OFFSET value must be used on all programs
+           that are to talk together. PORT_OFFSET is an integer in
+           the inclusive range [1025 to 65500]. 
+         When you want to use multiple instances of communicating programs, 
+           be sure the PORT_OFFSETS you use differ by about 50 or you may
+           still have port conflicts. A BETTER approach is to use -npb below.
+   -npq PORT_OFFSET: Like -np, but more quiet in the face of adversity.
+   -npb PORT_OFFSET_BLOC: Simliar to -np, except it is easier to use.
+                          PORT_OFFSET_BLOC is an integer between 0 and
+                          MAX_BLOC. MAX_BLOC is around 4000 for now, but
+                          it might decrease as we use up more ports in AFNI.
+                          You should be safe for the next 10 years if you 
+                          stay under 2000.
+                          Using this function reduces your chances of causing
+                          port conflicts.
+
+         See also afni and suma options: -list_ports and -port_number for 
+            information about port number assignments.
+
+         You can also provide a port offset with the environment variable
+            AFNI_PORT_OFFSET. Using -np overrides AFNI_PORT_OFFSET.
+
+   -max_port_bloc: Print the current value of MAX_BLOC and exit.
+                   Remember this value can get smaller with future releases.
+                   Stay under 2000.
+   -max_port_bloc_quiet: Spit MAX_BLOC value only and exit.
+   -num_assigned_ports: Print the number of assigned ports used by AFNI 
+                        then quit.
+   -num_assigned_ports_quiet: Do it quietly.
+
+     Port Handling Examples:
+     -----------------------
+         Say you want to run three instances of AFNI <--> SUMA.
+         For the first you just do: 
+            suma -niml -spec ... -sv ...  &
+            afni -niml &
+         Then for the second instance pick an offset bloc, say 1 and run
+            suma -niml -npb 1 -spec ... -sv ...  &
+            afni -niml -npb 1 &
+         And for yet another instance:
+            suma -niml -npb 2 -spec ... -sv ...  &
+            afni -niml -npb 2 &
+         etc.
+
+         Since you can launch many instances of communicating programs now,
+            you need to know wich SUMA window, say, is talking to which AFNI.
+            To sort this out, the titlebars now show the number of the bloc 
+            of ports they are using. When the bloc is set either via 
+            environment variables AFNI_PORT_OFFSET or AFNI_PORT_BLOC, or  
+            with one of the -np* options, window title bars change from 
+            [A] to [A#] with # being the resultant bloc number.
+         In the examples above, both AFNI and SUMA windows will show [A2]
+            when -npb is 2.
+
+   -list_ports  List all port assignments and quit
+   -port_number PORT_NAME: Give port number for PORT_NAME and quit
+   -port_number_quiet PORT_NAME: Same as -port_number but writes out 
+                                    number only
+
+   -com ccc     This option lets you specify 'command strings' to
+                  drive AFNI after the program startup is completed.
+                  Legal command strings are described in the file
+                  README.driver.  More than one '-com' option can
+                  be used, and the commands will be executed in
+                  the order they are given on the command line.
+            N.B.: Most commands to AFNI contain spaces, so the 'ccc'
+                  command strings will need to be enclosed in quotes.
+   -comsep 'c'  Use character 'c' as a separator for commands.
+                  In this way, you can put multiple commands in
+                  a single '-com' option.  Default separator is ';'.
+            N.B.: The command separator CANNOT be alphabetic or
+                  numeric (a..z, A..Z, 0..9) or whitespace or a quote!
+            N.B.: -comsep should come BEFORE any -com option that
+                  uses a non-semicolon separator!
+   Example: -com 'OPEN_WINDOW axialimage; SAVE_JPEG axialimage zork; QUIT'
+   N.B.: You can also put startup commands (one per line) in
+         the file '~/.afni.startup_script'.  For example,
+            OPEN_WINDOW axialimage
+         to always open the axial image window on startup.
+
+ * If no session_directories are given, then the program will use
+    the current working directory (i.e., './').
+ * The maximum number of sessions is now set to  80.
+ * The maximum number of datasets per session is 4096.
+ * To change these maximums, you must edit file '3ddata.h' and then
+    recompile this program.
+
+-----------------------------------------------------
+USAGE 2: read in images for 'quick and dirty' viewing
+-----------------------------------------------------
+(Most advanced features of AFNI will be disabled.)
+(The aiv program can be used now instead of AFNI.)
+
+   afni -im [options] im1 im2 im3 ...
+
+   -im          Flag to read in images instead of 3D datasets
+                  (Talaraich and functional stuff won't work)
+   -dy yratio   Tells afni the downscreen pixel size is 'yratio' times
+                  the across-screen (x) pixel dimension (default=1.0)
+   -dz zratio   Tells afni the slice thickness is 'zratio' times
+                  the x pixel dimension (default=1.0)
+   -orient code Tells afni the orientation of the input images.
+                  The code must be 3 letters, one each from the
+                  pairs {R,L} {A,P} {I,S}.  The first letter gives
+                  the orientation of the x-axis, the second the
+                  orientation of the y-axis, the third the z-axis:
+                   R = right-to-left         L = left-to-right
+                   A = anterior-to-posterior P = posterior-to-anterior
+                   I = inferior-to-superior  S = superior-to-inferior
+                  (the default code is ASL ==> sagittal images).
+                  Note that this use of '-orient' is different from
+                  the use when viewing datasets.
+   -resize      Tells afni that all images should be resized to fit
+                  the size of the first one, if they don't already fit
+                  (by default, images must all 'fit' or afni will stop)
+   -datum type  Tells afni to convert input images into the type given:
+                  byte, short, float, complex are the legal types.
+ The image files (im1 ...) are the same formats as accepted by to3d.
+
+ New image display options (alternatives to -im) [19 Oct 1999]:
+   -tim         These options tell AFNI to arrange the input images
+   -tim:nt      into a internal time-dependent dataset.  Suppose that
+   -zim:nz      there are N input 2D slices on the command line.
+              * -tim alone means these are N points in time (1 slice).
+              * -tim:nt means there are nt points in time (nt is
+                  an integer > 1), so there are N/nt slices in space,
+                  and the images on the command line are input in
+                  time order first (like -time:tz in to3d).
+              * -zim:nz means there are nz slices in space (nz is
+                  an integer > 1), so there are N/nz points in time,
+                  and the images on the command line are input in
+                  slice order first (like -time:zt in to3d).
+
+ N.B.: You may wish to use the -ignore option to set the number of
+        initial points to ignore in the time series graph if you use
+        -tim or -zim, since there is no way to change this from
+        within an AFNI run (the FIM menus are disabled).
+ N.B.: The program 'aiv' (AFNI image viewer) can also be used to
+        get a quick look at images (but not time series graphs).
+
+-------------------------------------------------------
+USAGE 3: read in datasets specified on the command line
+-------------------------------------------------------
+
+  afni -dset [options] dname1 dname2 ...
+
+where 'dname1' is the name of a dataset, etc.  With this option, only
+the chosen datasets are read in, and they are all put in the same
+'session'.  Follower datasets are not created.
+
+INPUT DATASET NAMES
+-------------------
+ An input dataset is specified using one of these forms:
+    'prefix+view', 'prefix+view.HEAD', or 'prefix+view.BRIK'.
+ You can also add a sub-brick selection list after the end of the
+ dataset name.  This allows only a subset of the sub-bricks to be
+ read in (by default, all of a dataset's sub-bricks are input).
+ A sub-brick selection list looks like one of the following forms:
+   fred+orig[5]                     ==> use only sub-brick #5
+   fred+orig[5,9,17]                ==> use #5, #9, and #17
+   fred+orig[5..8]     or [5-8]     ==> use #5, #6, #7, and #8
+   fred+orig[5..13(2)] or [5-13(2)] ==> use #5, #7, #9, #11, and #13
+ Sub-brick indexes start at 0.  You can use the character '$'
+ to indicate the last sub-brick in a dataset; for example, you
+ can select every third sub-brick by using the selection list
+   fred+orig[0..$(3)]
+
+ N.B.: The sub-bricks are read in the order specified, which may
+ not be the order in the original dataset.  For example, using
+   fred+orig[0..$(2),1..$(2)]
+ will cause the sub-bricks in fred+orig to be input into memory
+ in an interleaved fashion.  Using
+   fred+orig[$..0]
+ will reverse the order of the sub-bricks.
+
+ N.B.: You may also use the syntax <a..b> after the name of an input 
+ dataset to restrict the range of values read in to the numerical
+ values in a..b, inclusive.  For example,
+    fred+orig[5..7]<100..200>
+ creates a 3 sub-brick dataset with values less than 100 or
+ greater than 200 from the original set to zero.
+ If you use the <> sub-range selection without the [] sub-brick
+ selection, it is the same as if you had put [0..$] in front of
+ the sub-range selection.
+
+ N.B.: Datasets using sub-brick/sub-range selectors are treated as:
+  - 3D+time if the dataset is 3D+time and more than 1 brick is chosen
+  - otherwise, as bucket datasets (-abuc or -fbuc)
+    (in particular, fico, fitt, etc datasets are converted to fbuc!)
+
+ N.B.: The characters '$ ( ) [ ] < >'  are special to the shell,
+ so you will have to escape them.  This is most easily done by
+ putting the entire dataset plus selection list inside forward
+ single quotes, as in 'fred+orig[5..7,9]', or double quotes "x".
+
+CALCULATED DATASETS
+-------------------
+ Datasets may also be specified as runtime-generated results from
+ program 3dcalc.  This type of dataset specifier is enclosed in
+ quotes, and starts with the string '3dcalc(':
+    '3dcalc( opt opt ... opt )'
+ where each 'opt' is an option to program 3dcalc; this program
+ is run to generate a dataset in the directory given by environment
+ variable TMPDIR (default=/tmp).  This dataset is then read into
+ memory, locked in place, and deleted from disk.  For example
+    afni -dset '3dcalc( -a r1+orig -b r2+orig -expr 0.5*(a+b) )'
+ will let you look at the average of datasets r1+orig and r2+orig.
+ N.B.: using this dataset input method will use lots of memory!
+
+-------------------------------
+GENERAL OPTIONS (for any usage)
+-------------------------------
+
+   -q           Tells afni to be 'quiet' on startup
+   -Dname=val   Sets environment variable 'name' to 'val' inside AFNI;
+                  will supersede any value set in .afnirc.
+   -gamma gg    Tells afni that the gamma correction factor for the
+                  monitor is 'gg' (default gg is 1.0; greater than
+                  1.0 makes the image contrast larger -- this may
+                  also be adjusted interactively)
+   -install     Tells afni to install a new X11 Colormap.  This only
+                  means something for PseudoColor displays.  Also, it
+                  usually cause the notorious 'technicolor' effect.
+   -ncolors nn  Tells afni to use 'nn' gray levels for the image
+                  displays (default is 80)
+   -xtwarns     Tells afni to show any Xt warning messages that may
+                  occur; the default is to suppress these messages.
+   -XTWARNS     Trigger a debug trace when an Xt warning happens.
+   -tbar name   Uses 'name' instead of 'AFNI' in window titlebars.
+   -flipim and  The '-flipim' option tells afni to display images in the
+   -noflipim      'flipped' radiology convention (left on the right).
+                  The '-noflipim' option tells afni to display left on
+                  the left, as neuroscientists generally prefer.  This
+                  latter mode can also be set by the Unix environment
+                  variable 'AFNI_LEFT_IS_LEFT'.  The '-flipim' mode is
+                  the default.
+   -trace       Turns routine call tracing on, for debugging purposes.
+   -TRACE       Turns even more verbose tracing on, for more debugging.
+   -nomall      Disables use of the mcw_malloc() library routines.
+   -motif_ver   Show the applied motif version string.
+   -goodbye     Print a 'goodbye' message and exit (just for fun).
+   -ver         Print the current AFNI version and exit.
+
+N.B.: Many of these options, as well as the initial color set up,
+      can be controlled by appropriate X11 resources.  See the
+      files AFNI.Xdefaults and README.environment for instructions
+      and examples.
+
+--------------------------------------
+Educational and Informational Material
+--------------------------------------
+* The presentations used in our AFNI teaching classes at the NIH can
+   all be found at
+ http://afni.nimh.nih.gov/pub/dist/edu/latest/      (PowerPoint directories)
+ http://afni.nimh.nih.gov/pub/dist/edu/latest/afni_handouts/ (PDF directory)
+* And for the interactive AFNI program in particular, see
+ http://afni.nimh.nih.gov/pub/dist/edu/latest/afni01_intro/afni01_intro.pdf
+ http://afni.nimh.nih.gov/pub/dist/edu/latest/afni03_interactive/afni03_interactive.pdf
+* For the -help on all AFNI programs, plus the README files, and more, please see
+ http://afni.nimh.nih.gov/afni/doc/program_help/index.html
+* For indvidualized help with AFNI problems, and to keep up with AFNI news, please
+   use the AFNI Message Board:
+ http://afni.nimh.nih.gov/afni/community/board/
+* If an AFNI program crashes, please include the EXACT error messages it outputs
+   in your message board posting, as well as any other information needed to
+   reproduce the problem.  Just saying 'program X crashed, what's the issue?'
+   is not helpful at all!  In all message board postings, detail is relevant.
+* Also, be sure your AFNI distribution is up-to-date.  You can check the date
+   on your copy with the command 'afni -ver'.  If it is more than a few months
+   old, you should update your AFNI binaries and try the problematic command
+   again -- it is quite possible the problem you encountered was already fixed!
+
+-----------------------------------------------------------------
+REFERENCES and some light bedtime reading (if you have insomnia)
+-----------------------------------------------------------------
+The following papers describe some of the components of the AFNI package.
+
+RW Cox.  AFNI: Software for analysis and visualization of functional
+  magnetic resonance neuroimages.  Computers and Biomedical Research,
+  29: 162-173, 1996.
+
+  * The first AFNI paper, and the one I prefer you cite if you want to
+    refer to the AFNI package as a whole.
+ ** http://afni.nimh.nih.gov/sscc/rwcox/papers/CBM_1996.pdf
+
+RW Cox, A Jesmanowicz, and JS Hyde.  Real-time functional magnetic
+  resonance imaging.  Magnetic Resonance in Medicine, 33: 230-236, 1995.
+
+  * The first paper on realtime FMRI; describes the algorithm used in
+    3dfim+, the interactive FIM calculations, and in the realtime plugin.
+  * http://afni.nimh.nih.gov/sscc/rwcox/papers/Realtime_FMRI.pdf
+
+RW Cox and JS Hyde.  Software tools for analysis and visualization of
+  FMRI Data.  NMR in Biomedicine, 10: 171-178, 1997.
+
+  * A second paper about AFNI and design issues for FMRI software tools.
+
+RW Cox and A Jesmanowicz.  Real-time 3D image registration for
+  functional MRI.  Magnetic Resonance in Medicine, 42: 1014-1018, 1999.
+
+  * Describes the algorithm used for image registration in 3dvolreg
+    and in the realtime plugin.
+  * I think the first paper to demonstrate realtime MRI volume image
+    registration running on a standard workstation (not a supercomputer).
+  * http://afni.nimh.nih.gov/sscc/rwcox/papers/RealtimeRegistration.pdf
+
+ZS Saad, KM Ropella, RW Cox, and EA DeYoe.  Analysis and use of FMRI
+  response delays.  Human Brain Mapping, 13: 74-93, 2001.
+
+  * Describes the algorithm used in 3ddelay (cf. '3ddelay -help').
+  * http://afni.nimh.nih.gov/sscc/rwcox/papers/Delays2001.pdf
+
+ZS Saad, G Chen, RC Reynolds, PP Christidis, KR Hammett, PSF Bellgowan,
+  and RW Cox.  FIAC Analysis According to AFNI and SUMA.
+  Human Brain Mapping, 27: 417-424, 2006.
+
+  * Describes how we used AFNI to analyze the FIAC contest data.
+  * http://dx.doi.org/10.1002/hbm.20247
+  * http://afni.nimh.nih.gov/sscc/rwcox/papers/FIAC_AFNI_2006.pdf
+
+ZS Saad, DR Glen, G Chen, MS Beauchamp, R Desai, RW Cox.
+  A new method for improving functional-to-structural MRI alignment
+  using local Pearson correlation.  NeuroImage 44: 839-848, 2009.
+
+  * Describes the algorithm used in 3dAllineate (and thence in
+    align_epi_anat.py) for EPI-to-structural volume image registration.
+  * http://dx.doi.org/10.1016/j.neuroimage.2008.09.037
+  * http://afni.nimh.nih.gov/sscc/rwcox/papers/LocalPearson2009.pdf
+
+POSTERS on varied subjects from the AFNI development group can be found at
+  * http://afni.nimh.nih.gov/sscc/posters
+
+SLIDE IMAGES to help with learning the AFNI GUI can be found at
+  * http://afni.nimh.nih.gov/pub/dist/doc/program_help/images/afni03/
+

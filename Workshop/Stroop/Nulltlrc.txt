@@ -1,0 +1,14 @@
+adwarp -apar s1-spgr_AUTO+tlrc -dpar s1_memboth_null-tstat-script+orig
+adwarp -apar s5-spgr_AUTO+tlrc -dpar s5_memboth_null-tstat-script+orig
+adwarp -apar s6_fse_AUTO+tlrc -dpar s6_memboth_null-tstat-script+orig
+adwarp -apar s7-spgr_AUTO+tlrc -dpar s7_memboth_null-tstat-script+orig
+adwarp -apar s8_fse_AUTO+tlrc -dpar s8_memboth_null-tstat-script+orig
+adwarp -apar s9-spgr_AUTO+tlrc -dpar s9_memboth_null-tstat-script+orig
+adwarp -apar s10-spgr_AUTO+tlrc -dpar s10_memboth_null-tstat-script+orig
+adwarp -apar s11-spgr_AUTO+tlrc -dpar s11_memboth_null-tstat-script+orig
+adwarp -apar s12-spgr_AUTO+tlrc -dpar s12_memboth_null-tstat-script+orig
+adwarp -apar s13_fse_AUTO+tlrc -dpar s13_memboth_null-tstat-script+orig
+adwarp -apar s14-spgr_AUTO+tlrc -dpar s14_memboth_null-tstat-script+orig
+adwarp -apar s15_fse_AUTO+tlrc -dpar s15_memboth_null-tstat-script+orig
+adwarp -apar s16-spgr_AUTO+tlrc -dpar s16_memboth_null-tstat-script+orig
+adwarp -apar s17-spgr_AUTO+tlrc -dpar s17_memboth_null-tstat-script+orig

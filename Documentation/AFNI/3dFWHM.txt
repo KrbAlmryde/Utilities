@@ -1,0 +1,50 @@
+This program estimates the Filter Width Half Maximum (FWHM).  
+
+3dFWHM itself will no longer be upgraded.  Any future improvements
+will be made to 3dFWHMx.  **** PLEASE SWITCH TO THAT PROGRAM ****
+
+Usage: 
+3dFWHM 
+-dset file     file  = name of input AFNI 3d dataset 
+[-mask mname]  mname = filename of 3d mask dataset   
+[-quiet]       suppress screen output                
+[-out file]    file  = name of output file           
+
+[-compat] = Be compatible with the older 3dFWHM, where if a
+            voxel is in the mask, then its neighbors are used
+            for differencing, even if they are not themselves in
+            the mask.  This was an error; now, neighbors must also
+            be in the mask to be used in the differencing.
+            Use '-compat' to use the older method [for comparison].
+         ** This change made 09 Nov 2006.
+
+ALSO SEE:
+ - 3dFWHMx, which can deal with multi-brick datasets
+ - 3dLocalstat -stat FWHM, which can estimate the FWHM at each voxel
+3dFWHM itself will no longer be upgraded.  Any future improvements
+will be made to 3dFWHMx.  **** PLEASE SWITCH TO THAT PROGRAM ****
+
+INPUT FILE RECOMMENDATIONS:
+For FMRI statistical purposes, you DO NOT want the FWHM to reflect
+the spatial structure of the underlying anatomy.  Rather, you want
+the FWHM to reflect the spatial structure of the noise.  This means
+that the input dataset should not have anatomical structure.  One
+good form of input is the output of '3dDeconvolve -errts', which is
+the residuals left over after the GLM fitted signal model is subtracted
+out from each voxel's time series.  If you don't want to go to that
+trouble, use the output of 3dDetrend for the same purpose.  But just
+giving a raw EPI dataset to this program will produce un-useful values.
+
+
+INPUT DATASET NAMES
+-------------------
+This program accepts datasets that are modified on input according to the
+following schemes:
+  'r1+orig[3..5]'                                    {sub-brick selector}
+  'r1+orig<100..200>'                                {sub-range selector}
+  'r1+orig[3..5]<100..200>'                          {both selectors}
+  '3dcalc( -a r1+orig -b r2+orig -expr 0.5*(a+b) )'  {calculation}
+For the gruesome details, see the output of 'afni -help'.
+
+++ Compile date = Jul  5 2011
+

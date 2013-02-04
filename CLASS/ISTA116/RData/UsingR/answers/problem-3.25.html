@@ -1,0 +1,33 @@
+
+
+
+
+
+
+
+
+<title> problem-3.25</title>
+    
+<h1 align="center">problem-3.25 </h1>
+<b>problem-3.25</b>&nbsp;
+    The <b>wtloss</b> data can be plotted as follows:
+    
+<pre>
+&#62; attach(wtloss)
+&#62; cor(Weight, Days)             # close to -1
+[1] -0.9853
+&#62; plot(Days, Weight)            # kinda linear
+&#62; res = lm(Weight ~ Days)
+&#62; abline(res)                   # add regression line
+&#62; plot(Days, residuals(res))    # A trend
+&#62; detach(wtloss)
+    
+</pre>
+    We see from the scatterplot that a linear model may not explain the
+    data well, despite the correlation coefficient that is close to -1.
+    The residual plot amplifies this observation. This is to be
+    expected as it is initially easy to lose a large amount of
+    weight, but this gets progressively harder as there is less excess
+    weight to shed.
+
+<div class="p"><!----></div>

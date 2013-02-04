@@ -1,0 +1,33 @@
+
+
+
+
+
+
+
+
+<title> problem-3.2</title>
+    
+<h1 align="center">problem-3.2 </h1>
+<b>problem-3.2</b>&nbsp;
+      The data can be entered using <b>rbind()</b> as
+      
+<pre>
+&#62; all = c(125,210,375,475,590,700)
+&#62; spam = c(50,110,225,315,390,450)
+&#62; tab = rbind(spam,all)
+&#62; dimnames(tab) = list(c("spam","Total"),year=2000:2005)
+      
+</pre>
+      To make the barplot, we make a new table, replacing <b>all</b>
+      with <b>all-spam</b>, which is the number of e-mails that are
+      not spam.
+      
+<pre>
+&#62; newtab = rbind(spam,all-spam)
+&#62; dimnames(newtab) = list(c("spam","notspam"),year=2000:2005)
+&#62; barplot(newtab,legend=TRUE)
+      
+</pre>
+
+<div class="p"><!----></div>

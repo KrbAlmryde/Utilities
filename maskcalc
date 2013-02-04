@@ -1,0 +1,22 @@
+#!/usr/bin/env tcsh
+# execute via : tcsh -x S#-t-script |& tee output.S#-t-script
+# --------------------------------------------------
+# script setup
+set images_home = /Volumes/Data/MRI-AttnMem/Anova
+set C = $images_home/Compare
+foreach g (1 2 3 4 5 6 7)
+foreach mask (AI CAU CER CIN IFG IFG2 IFG3 MFG MFG2 MTG SFG SMG SOG STG THA) 
+# 3dcalc -a ff/roi/${mask}_GAM${g}_ff+tlrc -b mf/roi/${mask}_GAM${g}_mf+tlrc -expr '(a-b)' -prefix ${C}/${mask}_GAM${g}_FvM+tlrc
+# 3dcalc -a ff/roi/${mask}_GAM${g}_ff+tlrc -b nf/roi/${mask}_GAM${g}_nf+tlrc -expr '(a-b)' -prefix ${C}/${mask}_GAM${g}_FvN+tlrc
+# 3dcalc -a mf/roi/${mask}_GAM${g}_mf+tlrc -b ff/roi/${mask}_GAM${g}_ff+tlrc -expr '(a-b)' -prefix ${C}/${mask}_GAM${g}_MvF+tlrc
+# 3dcalc -a mf/roi/${mask}_GAM${g}_mf+tlrc -b nf/roi/${mask}_GAM${g}_nf+tlrc -expr '(a-b)' -prefix ${C}/${mask}_GAM${g}_MvN+tlrc
+# 3dcalc -a nf/roi/${mask}_GAM${g}_nf+tlrc -b ff/roi/${mask}_GAM${g}_ff+tlrc -expr '(a-b)' -prefix ${C}/${mask}_GAM${g}_NvF+tlrc
+# 3dcalc -a nf/roi/${mask}_GAM${g}_nf+tlrc -b mf/roi/${mask}_GAM${g}_mf+tlrc -expr '(a-b)' -prefix ${C}/${mask}_GAM${g}_NvM+tlrc
+3dcalc -a nf/roi/${mask}_GAM${g}_nf+tlrc -b ff/roi/${mask}_GAM${g}_ff+tlrc -c mf/roi/${mask}_GAM${g}_mf+tlrc -expr '(a-(b+c))' -prefix ${C}/${mask}_GAM${g}_NvFM+tlrc
+3dcalc -a ff/roi/${mask}_GAM${g}_ff+tlrc -b mf/roi/${mask}_GAM${g}_mf+tlrc -c nf/roi/${mask}_GAM${g}_nf+tlrc -expr '(a-(b+c))' -prefix ${C}/${mask}_GAM${g}_FvMN+tlrc
+3dcalc -a mf/roi/${mask}_GAM${g}_mf+tlrc -b ff/roi/${mask}_GAM${g}_ff+tlrc -c nf/roi/${mask}_GAM${g}_nf+tlrc -expr '(a-(b+c))' -prefix ${C}/${mask}_GAM${g}_MvFN+tlrc
+3dcalc -a nf/roi/${mask}_GAM${g}_nf+tlrc -b ff/roi/${mask}_GAM${g}_ff+tlrc -c mf/roi/${mask}_GAM${g}_mf+tlrc -expr '(a-(b*c))' -prefix ${C}/${mask}2_GAM${g}_NvFM+tlrc
+3dcalc -a ff/roi/${mask}_GAM${g}_ff+tlrc -b mf/roi/${mask}_GAM${g}_mf+tlrc -c nf/roi/${mask}_GAM${g}_nf+tlrc -expr '(a-(b*c))' -prefix ${C}/${mask}2_GAM${g}_FvMN+tlrc
+3dcalc -a mf/roi/${mask}_GAM${g}_mf+tlrc -b ff/roi/${mask}_GAM${g}_ff+tlrc -c nf/roi/${mask}_GAM${g}_nf+tlrc -expr '(a-(b*c))' -prefix ${C}/${mask}2_GAM${g}_MvFN+tlrc
+end
+end

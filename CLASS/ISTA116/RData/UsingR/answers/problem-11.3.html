@@ -1,0 +1,37 @@
+
+
+
+
+
+
+
+
+<title> problem-11.3</title>
+    
+<h1 align="center">problem-11.3 </h1>
+<b>problem-11.3</b>&nbsp;
+    A boxplot will show that the income data, like most income data, is
+    heavily skewed.
+    
+<pre>
+&#62; boxplot(income ~ race, data=female.inc)
+    
+</pre>
+    An analysis of variance using <b>oneway.test()</b> would be
+    inappropriate. However, the three population distributions appear
+    to be roughly the same shape. The Kruskal-Wallis test then is
+    appropriate.
+    
+<pre>
+&#62; kruskal.test(income ~ race, data=female.inc)
+
+        Kruskal-Wallis rank sum test
+
+data:  income by race
+Kruskal-Wallis chi-squared = 11.79, df = 2, p-value = 0.002748
+    
+</pre>
+    The small p-value is not consistent with the assumption of equal
+    mean wages for all three races represented in the data.
+
+<div class="p"><!----></div>

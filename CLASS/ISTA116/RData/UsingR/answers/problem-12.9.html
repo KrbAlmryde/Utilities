@@ -1,0 +1,36 @@
+
+
+
+
+
+
+
+
+<title> problem-12.9</title>
+    
+<h1 align="center">problem-12.9 </h1>
+<b>problem-12.9</b>&nbsp;
+    We can fit both using the same starting values and compare:
+    
+<pre>
+&#62; l =  function(t,a,b,k,t0) (a + b*t)*(1 - exp(-k*(t-t0)))
+&#62; l1 = function(t,a,k,t0) l(t,a,0,k,t0)
+&#62; res.l = nls(length ~ l(age,a,b,k,t0), data=reddrum,
++  start=c(a=32,b=.25,k=.5,t0=0))
+&#62; res.l1 = nls(length ~ l1(age,a,k,t0), data=reddrum,
++ start=c(a=32,k=.5,t0=0))
+&#62; AIC(res.l)
+[1] 306.7
+&#62; AIC(res.l1)
+[1] 376.2
+    
+</pre>
+    So the more complicated model is better by this criteria.
+
+<div class="p"><!----></div>
+    (The point of the paper that this data came from is to show
+    that both of these models pale in comparison to the more
+    complicated one they presented, which takes into account seasonal
+    growth and a decrease in growth rate due to age.)
+
+<div class="p"><!----></div>

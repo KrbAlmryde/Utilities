@@ -1,0 +1,3 @@
+3dmerge -dxyz=1 -1clust_order 1 -1123 -1thresh 2.262 -prefix FA_Mask mean_FA_Tvalue+tlrc
+
+3dcalc -prefix FA-RMFG -a RMFG-mask+tlrc -b mean_FA_Tvalue+tlrc -expr '(a*b)'

@@ -1,0 +1,29 @@
+chmod ugo+x MemBothscript.txt
+./MemBothscript.txt s1 MemBoth 37
+cd ../s5
+chmod ugo+x MemBothscript.txt
+./MemBothscript.txt s5 MemBoth 26
+cd ../s7
+chmod ugo+x MemBothscript.txt
+./MemBothscript.txt s7 MemBoth 40
+cd ../s9
+chmod ugo+x MemBothscript.txt
+./MemBothscript.txt s9 MemBoth 10
+cd ../s10
+chmod ugo+x MemBothscript.txt
+./MemBothscript.txt s10 MemBoth 43
+cd ../s11
+chmod ugo+x MemBothscript.txt
+./MemBothscript.txt s11 MemBoth 16
+cd ../s12
+chmod ugo+x MemBothscript.txt
+./MemBothscript.txt s12 MemBoth 35
+cd ../s14
+chmod ugo+x MemBothscript.txt
+./MemBothscript.txt s14 MemBoth 67
+cd ../s16
+chmod ugo+x MemBothscript.txt
+./MemBothscript.txt s16 MemBoth 28
+cd ../s17
+chmod ugo+x MemBothscript.txt
+./MemBothscript.txt s17 MemBoth 69

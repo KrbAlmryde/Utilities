@@ -1,0 +1,9 @@
+# program name
+# one sentence description -
+# argument 1  - what it is
+# argument 2 .... thru argument n
+# expected input/output - sample input -> output ( a few lines)
+# maybe example suggested usage: myscript filename  > bigoutputfile
+
+# ....................
+# for each major block (like a big loop or a function) -- a one sentence description

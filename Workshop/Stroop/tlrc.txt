@@ -1,0 +1,25 @@
+adwarp -apar s10-spgr_AUTO+tlrc -dpar mean_across_subj_fa+orig
+adwarp -apar s10-spgr_AUTO+tlrc -dpar mean_across_subj_ff+orig
+adwarp -apar s10-spgr_AUTO+tlrc -dpar mean_across_subj_ma+orig
+adwarp -apar s10-spgr_AUTO+tlrc -dpar mean_across_subj_mf+orig
+adwarp -apar s10-spgr_AUTO+tlrc -dpar mean_across_subj_na+orig
+adwarp -apar s10-spgr_AUTO+tlrc -dpar mean_across_subj_nf+orig
+
+adwarp -apar s10-spgr_AUTO+tlrc -dpar 1vs2+orig
+adwarp -apar s10-spgr_AUTO+tlrc -dpar 1vs3+orig
+adwarp -apar s10-spgr_AUTO+tlrc -dpar 1vs5+orig
+adwarp -apar s10-spgr_AUTO+tlrc -dpar 2vs1+orig
+adwarp -apar s10-spgr_AUTO+tlrc -dpar 2vs4+orig
+adwarp -apar s10-spgr_AUTO+tlrc -dpar 2vs6+orig
+adwarp -apar s10-spgr_AUTO+tlrc -dpar 3vs1+orig
+adwarp -apar s10-spgr_AUTO+tlrc -dpar 3vs4+orig
+adwarp -apar s10-spgr_AUTO+tlrc -dpar 3vs5+orig
+adwarp -apar s10-spgr_AUTO+tlrc -dpar 4vs2+orig
+adwarp -apar s10-spgr_AUTO+tlrc -dpar 4vs3+orig
+adwarp -apar s10-spgr_AUTO+tlrc -dpar 4vs6+orig
+adwarp -apar s10-spgr_AUTO+tlrc -dpar 5vs1+orig
+adwarp -apar s10-spgr_AUTO+tlrc -dpar 5vs3+orig
+adwarp -apar s10-spgr_AUTO+tlrc -dpar 5vs6+orig
+adwarp -apar s10-spgr_AUTO+tlrc -dpar 6vs2+orig
+adwarp -apar s10-spgr_AUTO+tlrc -dpar 6vs4+orig
+adwarp -apar s10-spgr_AUTO+tlrc -dpar 6vs5+orig

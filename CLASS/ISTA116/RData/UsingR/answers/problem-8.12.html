@@ -1,0 +1,27 @@
+
+
+
+
+
+
+
+
+<title> problem-8.12</title>
+    
+<h1 align="center">problem-8.12 </h1>
+<b>problem-8.12</b>&nbsp;
+    First check normality, then use <b>t.test()</b> as follows:
+    
+<pre>
+&#62; x =  babies$dht
+&#62; x = x[x&lt;99]
+&#62; t.test(x, mu=68, alt="greater")
+
+        One Sample t-test
+
+data:  x
+t = 20.80, df = 743, p-value &lt; 2.2e-16
+alternative hypothesis: true mean is greater than 68
+...
+
+</pre>

@@ -1,0 +1,6 @@
+
+Usage: prompt_user <-pause MESSAGE> 
+  -pause MESSAGE: Pops a window prompting the user with MESSAGE.
+                  Program does not return until user responds.
+
+       Ziad S. Saad SSCC/NIMH/NIH saadz@mail.nih.gov     

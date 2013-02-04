@@ -1,0 +1,51 @@
+
+
+
+
+
+
+
+
+<title> problem-3.30</title>
+    
+<h1 align="center">problem-3.30 </h1>
+<b>problem-3.30</b>&nbsp;
+    The slope appears in the output of <b>lm()</b>. The scatterplot
+    shows a linear trend between the transformed variables that is not
+    apparent in a scatterplot of the original variables.
+    
+<pre>
+&#62; library(MASS)                 # loads data set and lqs()
+&#62; names(Animals)
+[1] "body"  "brain"
+&#62; plot(log(brain) ~ log(body), data = Animals)
+&#62; res = lm(log(brain) ~ log(body), data = Animals)
+&#62; res
+
+Call:
+lm(formula = log(brain) ~ log(body), data = Animals)
+
+Coefficients:
+(Intercept)    log(body)
+      2.555        0.496
+    
+</pre>
+To compare to the output of <b>lqs()</b>.
+
+<pre>
+&#62; lqs(log(brain) ~ log(body), data = Animals)
+Call:
+lqs.formula(formula = log(brain) ~ log(body), data = Animals)
+
+Coefficients:
+(Intercept)    log(body)
+      1.816        0.776
+
+Scale estimates 0.464 0.463
+
+</pre>
+There are three influential points in the scatterplot of the
+log-transformed data causing the big change in the slope of the
+regression line.
+
+<div class="p"><!----></div>

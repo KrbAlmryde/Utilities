@@ -1,0 +1,47 @@
+
+
+
+
+
+
+
+
+<title> problem-10.20</title>
+    
+<h1 align="center">problem-10.20 </h1>
+<b>problem-10.20</b>&nbsp;
+    The output of <b>summary()</b> includes
+    
+<pre>
+Coefficients:
+             Estimate Std. Error t value Pr(&#62;|t|)
+(Intercept) -101.9075    23.2918   -4.38  1.4e-05 ***
+gestation      0.4503     0.0391   11.52  &lt; 2e-16 ***
+age            0.1350     0.1881    0.72    0.473
+ht             1.2230     0.2852    4.29  2.1e-05 ***
+wt1            0.0308     0.0343    0.90    0.369
+dage           0.0603     0.1655    0.36    0.716
+dht           -0.0783     0.2706   -0.29    0.772
+dwt            0.0783     0.0331    2.37    0.018 *
+    
+</pre>
+    So the coefficients for <b>gestation</b>, <b>ht</b>, and
+    <b>dwt</b> are flagged.
+
+<div class="p"><!----></div>
+The AIC choice is found with <b>stepAIC()</b>
+
+<pre>
+&#62; library(MASS)                 # to load stepAIC
+&#62; stepAIC(res.lm)
+...
+Call:
+lm(formula = wt ~ gestation + age + ht + dwt, data = b)
+
+Coefficients:
+(Intercept)    gestation          age           ht          dwt
+  -109.1946       0.4532       0.2156       1.3016       0.0756
+
+</pre>
+
+<div class="p"><!----></div>

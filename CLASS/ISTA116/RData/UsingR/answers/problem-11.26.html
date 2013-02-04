@@ -1,0 +1,82 @@
+
+
+
+
+
+
+
+
+<title> problem-11.26</title>
+    
+<h1 align="center">problem-11.26 </h1>
+<b>problem-11.26</b>&nbsp;
+    This can be carried out as follows:
+    
+<pre>
+&#62; with(grip, interaction.plot(grip.type,person,UBP))
+&#62; res.int = lm(UBP ~ person * grip.type, data=grip)
+&#62; res.noint = lm(UBP ~ person + grip.type, data=grip)
+&#62; res.per = lm(UBP ~ person, data=grip)
+&#62; res.grip = lm(UBP ~ grip.type, data=grip)
+&#62; res.none = lm(UBP ~ 1, data=grip)
+    
+</pre>
+    Now, we check to see what is statistically significant:
+    
+<pre>
+&#62; anova(res.noint,res.int)
+Analysis of Variance Table
+
+Model 1: UBP ~ person + grip.type
+Model 2: UBP ~ person * grip.type
+  Res.Df RSS Df Sum of Sq    F Pr(&#62;F)
+1     30 509
+2     24 484  6        25 0.21   0.97
+    
+</pre>
+    This agrees with the interaction plot. No evidence of an
+    interaction is present.
+
+<pre>
+&#62; anova(res.none,res.per)
+Analysis of Variance Table
+
+Model 1: UBP ~ 1
+Model 2: UBP ~ person
+  Res.Df RSS Df Sum of Sq    F Pr(&#62;F)
+1     35 876
+2     32 848  3        27 0.34    0.8
+
+</pre>
+No evidence that the difference varies among subjects (recall that this
+is simulated data).
+
+<pre>
+&#62; anova(res.none,res.grip)
+Analysis of Variance Table
+
+Model 1: UBP ~ 1
+Model 2: UBP ~ grip.type
+  Res.Df RSS Df Sum of Sq    F  Pr(&#62;F)
+1     35 876
+2     33 536  2       339 10.4 0.00031 ***
+---
+Signif. codes:  0 `***' 0.001 `**' 0.01 `*' 0.05 `.' 0.1 ` ' 1
+
+</pre>
+The effect of the grip seems significant.
+
+<div class="p"><!----></div>
+Finally, we see that <b>stepAIC()</b> returns the same conclusion.
+
+<pre>
+&#62; library(MASS)
+&#62; stepAIC(res.int)
+...
+Call:
+lm(formula = UBP ~ grip.type, data = grip)
+...
+
+</pre>
+
+<div class="p"><!----></div>

@@ -1,0 +1,37 @@
+
+
+
+
+
+
+
+
+<title> problem-9.20</title>
+    
+<h1 align="center">problem-9.20 </h1>
+<b>problem-9.20</b>&nbsp;
+    A plot of both the empirical density and the theoretical density
+    of the gamma distribution with parameters chosen by
+    <b>fitdistr()</b> can be produced as follows:
+    
+<pre>
+&#62; library(MASS)
+&#62; fitdistr(rivers,"gamma")
+     shape       rate
+  2.5783541   0.0043609
+ (0.2489438) (0.0004386)
+... skip warnings ...
+&#62; plot(density(rivers))
+&#62; x = 0:4000
+&#62; lines(x, dgamma(x,shape=2.578, rate= 0.00436), lty=2)
+    
+</pre>
+    The gamma shape matches the data, but the tail behavior does not
+    seem that similar. A quantile-quantile plot will show this:
+    
+<pre>
+&#62; qqplot(rivers, rgamma(100,shape=2.578, rate= 0.00436))
+    
+</pre>
+
+<div class="p"><!----></div>

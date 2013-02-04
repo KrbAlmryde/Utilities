@@ -1,0 +1,30 @@
+
+
+
+
+
+
+
+
+<title> problem-2.22</title>
+    
+<h1 align="center">problem-2.22 </h1>
+<b>problem-2.22</b>&nbsp;
+    The function <b>mad()</b> returns the median deviation from the
+    median. It is a measure of variation similar to the mean-squared
+    distance from the mean (basically the variance) but more robust.
+    For the long-tailed <b>exec.pay</b> data set we see that the
+    standard deviation is very skewed by the outliers:
+    
+<pre>
+&#62; attach(exec.pay)
+&#62; mad(exec.pay)
+[1] 20.76
+&#62; IQR(exec.pay)
+[1] 27.5
+&#62; sd(exec.pay)                  # skewed
+[1] 207.0
+    
+</pre>
+
+<div class="p"><!----></div>

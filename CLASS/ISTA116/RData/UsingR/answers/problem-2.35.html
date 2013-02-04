@@ -1,0 +1,28 @@
+
+
+
+
+
+
+
+
+<title> problem-2.35</title>
+    
+<h1 align="center">problem-2.35 </h1>
+<b>problem-2.35</b>&nbsp;
+      First assign names. Then you can access the entries using the
+      repective state abbreviations.
+
+<pre>
+&#62; names(state.area) = state.abb
+&#62; state.area['NJ']
+  NJ
+7836
+&#62; sum(state.area &lt; state.area['NJ'])/50 * 100
+[1] 8
+&#62; sum(state.area &lt; state.area['NY'])/50 * 100
+[1] 40
+
+</pre>
+
+<div class="p"><!----></div>

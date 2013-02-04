@@ -1,0 +1,8 @@
+3dcalc -prefix FA_T_CingulateS -a TT_mask_CingulateS+tlrc -b FA_Merge+tlrc -expr '(a*b)'
+3dcalc -prefix FA_T_CingulateS -a TT_mask_CingulateS+tlrc -b FA_Merge+tlrc -expr '(a*b)'
+3dcalc -prefix FF_T_CingulateS -a TT_mask_CingulateS+tlrc -b FF_Merge+tlrc -expr '(a*b)'
+3dcalc -prefix FF_T_CingulateS -a TT_mask_CingulateS+tlrc -b FF_Merge+tlrc -expr '(a*b)'
+3dcalc -prefix MF_T_CingulateS -a TT_mask_CingulateS+tlrc -b MF_Merge+tlrc -expr '(a*b)'
+3dcalc -prefix MF_T_CingulateS -a TT_mask_CingulateS+tlrc -b MF_Merge+tlrc -expr '(a*b)'
+3dcalc -prefix NF_T_CingulateS -a TT_mask_CingulateS+tlrc -b NF_Merge+tlrc -expr '(a*b)'
+3dcalc -prefix NF_T_CingulateS -a TT_mask_CingulateS+tlrc -b NF_Merge+tlrc -expr '(a*b)'

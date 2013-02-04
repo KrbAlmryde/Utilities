@@ -1,0 +1,44 @@
+
+
+
+
+
+
+
+
+<title> problem-9.7</title>
+    
+<h1 align="center">problem-9.7 </h1>
+<b>problem-9.7</b>&nbsp;
+  The first is done quite quickly using the defaults, as the uniform
+  distribution is the null hypothesis.
+  
+<pre>
+&#62; murder = c(53,42,51,45,36,36,65)
+&#62; chisq.test(murder)
+
+        Chi-squared test for given probabilities
+
+data:  murder
+X-squared = 13.80, df = 6, p-value = 0.03189
+  
+</pre>
+The second we must do by hand. First note that if we specify p<sub>w</sub>,
+the weekend probability, then p<sub>d</sub>, the weekday probability, is
+(1<font face="symbol">-</font
+>2p<sub>w</sub>)/5. There is only 1 degree of freedom. We estimate p<sub>w</sub>
+with the average of the weekend counts:
+
+<pre>
+&#62; n = sum(murder)
+&#62; phatw = (53 + 65)/(2*n)
+&#62; phatd = (1 - 2*phatw)/5
+&#62; e = n * c(phatw, rep(phatd,5), phatw)
+&#62; cs = sum ( (murder - e)^2/e )
+&#62; cs
+[1] 5.077
+&#62; 1 - pchisq(cs,df=1)
+[1] 0.02424
+
+</pre>
+In both cases the p-value is small.

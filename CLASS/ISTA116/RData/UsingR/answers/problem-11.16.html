@@ -1,0 +1,54 @@
+
+
+
+
+
+
+
+
+<title> problem-11.16</title>
+    
+<h1 align="center">problem-11.16 </h1>
+<b>problem-11.16</b>&nbsp;
+    We need to compare the following
+    
+<pre>
+&#62; summary(lm(Speed ~ factor(Expt),data=morley))
+...
+Coefficients:
+                 Estimate Std. Error t value Pr(&#62;|t|)
+(Intercept)         909.0       16.6   54.76  &lt; 2e-16 ***
+factor(Expt)2    -53.0       23.5   -2.26  0.02625 *
+factor(Expt)3    -64.0       23.5   -2.73  0.00763 **
+factor(Expt)4    -88.5       23.5   -3.77  0.00028 ***
+factor(Expt)5    -77.5       23.5   -3.30  0.00136 **
+    
+</pre>
+    To the output of <b>TukeyHSD()</b>
+    
+<pre>
+&#62; TukeyHSD(aov(Speed ~ factor(Expt), data=morley))
+  Tukey multiple comparisons of means
+    95% family-wise confidence level
+
+Fit: aov(formula = Speed ~ factor(Expt), data = morley)
+
+$"factor(Expt)"
+     diff     lwr    upr
+2-1 -53.0 -118.28  12.28
+3-1 -64.0 -129.28   1.28
+4-1 -88.5 -153.78 -23.22
+5-1 -77.5 -142.78 -12.22
+3-2 -11.0  -76.28  54.28
+4-2 -35.5 -100.78  29.78
+5-2 -24.5  -89.78  40.78
+4-3 -24.5  -89.78  40.78
+5-3 -13.5  -78.78  51.78
+5-4  11.0  -54.28  76.28
+    
+</pre>
+The latter flags <b>4-1</b>, <b>5-1</b> and <b>5-4</b>. The
+marginal tests find that all the means are different from the reference
+level <b>1</b>.
+
+<div class="p"><!----></div>

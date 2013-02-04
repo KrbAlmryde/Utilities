@@ -1,0 +1,22 @@
+# define path variables that can be called by my scripts
+
+export REF=/usr/local/ref
+export ROIS=${REF}/rois_useful
+export FSLDIR=/usr/local/fsl
+export STANDARD=${FSLDIR}/data/standard
+export DTIERP=/Exps/Data/dti_erp
+export SZR=/Exps/Data/szr
+export PLANTE=/Exps/Data/plante
+export IJN=/Exps/Data/IJN
+export DATADIR=/Exps/Data
+export stand_brain=${STANDARD}/MNI152_T1_2mm_brain
+
+# define lists
+export LISTS=${REF}/lst*
+
+# define aliases
+alias fv='fslview'
+alias fvs='fslview ${STANDARD}/MNI152_T1_2mm_brain.nii.gz'
+alias math='fslmaths'
+alias stats='fslstats'
+alias itksnap='/Applications/ITK-SNAP.app/Contents/MacOS/InsightSNAP'

@@ -1,0 +1,37 @@
+
+
+
+
+
+
+
+
+<title> problem-6.10</title>
+    
+<h1 align="center">problem-6.10 </h1>
+<b>problem-6.10</b>&nbsp;
+    We should compare the q-q plot with the quantile-normal plot
+    provided by <b>qqnorm()</b> to see the difference for small values
+    of n. First, we define a function, <b>T()</b>, to compute the
+    statistic from a sample:
+    
+<pre>
+&#62; T = function(x) mean(x)/(sd(x)/sqrt(length(x)))
+    
+</pre>
+    Then the simulations can be performed as follows (making it easier
+    to modify the lines using the arrow keys):
+    
+<pre>
+&#62; n=3; m=1000; res=c()
+&#62; for(i in 1:m) res[i]=T(rnorm(n))
+&#62; qqplot(res, rt(m,df=n-1))
+&#62; qqnorm(res)
+    
+</pre>
+    For n=3 the long tail may produce outliers that skew the
+    expected straight line for the q-q plot. This isn't so apparent by
+    n=10, yet the difference between the plot produced with
+    <b>qqplot()</b> and that with <b>qqnorm()</b> should still be apparent.
+
+<div class="p"><!----></div>

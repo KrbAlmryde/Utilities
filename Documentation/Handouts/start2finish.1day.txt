@@ -1,0 +1,111 @@
+
+    ===   Start to Finish: complete analysis   ===
+
+Comments about this course
+   - this file: start2finish.1day.txt (under afni_handouts)
+   - discuss where are we starting from
+   - very few slides
+   - mostly hands-on (ask questions of any instructor)
+   - time is short, must be light on details
+      - try to listen and understand, not to remember details
+   - data, handouts, tutorial are on web site
+     (http://afni.nimh.nih.gov)
+
+Where are we starting from?
+   - e.g. new to some lab, inherit experiment and data
+   - somewhat familiar with FMRI
+   - new to Unix, tcsh (t-shell) and AFNI
+
+      Unix: the type of operating system on the computers (mac/linux)
+      tcsh: command-line interpreter in terminal window
+      AFNI: FMRI software package
+
+Main overview of 'Start to Finish' Course
+   1. discuss experiment and data from notes in afni16 handout
+   2. discuss data used in analysis
+      - getting anat/EPI into AFNI format
+      - creating stimulus timing files
+   3. overview of analysis
+      - goal: run group analysis on single subject response magnitudes
+      - single subject analysis: common pre-processing plus regression
+         - what is single subject regression?
+      - group analysis: 3dANOVA2 or 3dMEMA (examples)
+         - what is a t-test, for example
+   4. how to actually analyze subject FT
+   5. analyze data and inspect results: single subject
+      - the bulk of this class
+   6. analyze data and inspect results: group
+
+1. Discuss experiment and data from notes in afni16 handout
+   - under home directory/afni_handouts, open afni16_start_to_finish.pdf
+   - review stimuli, timing and data on slides 2-4
+     - 2 stimulus classes: auditory-reliable, visual-reliable
+     - 3 EPI runs of randomized 20-second stimulus blocks
+   - acquired data, TRs to remove, timing
+   - experiments well designed before acquiring data
+   - good habits for design is for another time
+
+2. Discuss data used in the analysis
+   - get data into AFNI format (from DICOM images or NIfTI datasets)
+      - to3d/Dimon
+      - groups should already know how (if not, consult us)
+   - HANDS-ON: note files in question (anat, EPI, stim timing)
+      - if on mac, click big "X" in dock to start X11
+      - open terminal window
+         - mac: Applications -> Terminal
+         - linux: click little window icon
+      - type 'ls' to list the contents of the home directory
+      CMD: cd AFNI_data6/FT_analysis
+      CMD: cd FT
+      - HEAD/BRIK, #TRs, command to create, stim timing
+      CMD: afni
+         - look at anat, look at EPI
+
+3. Overview of analysis
+   - goal: find locations in the brain that respond to our stimuli,
+           also locations that show a big difference between them
+      a. each subject: get volumes representing magnitude of response
+      b. group analysis: measure consistency/significance across group
+   - quick overview of single subject analysis
+      - pre-processing remove pre-steady-state TRs, then ...
+         time shift, register, blur, scale
+      - regression: what actually happens?
+         - tell 3dD how to model the data (polort, motion, stimuli)
+         - it computes best fit of the model to the data
+         - output is magnitude of response (per regressor) and
+           significance level
+   - run group analysis with those results
+     - what is a t-test?  average magnitude / stdev
+         - how consistently different from 0 are the subject betas?
+     - have 3dANOVA2 and 3dMEMA scripts for this data
+
+4. How to analyze subject FT
+   - write single subject processing script
+      - why are scripts useful (record, subjects, repeatability)
+      - briefly look at AFNI_data6/FT_analysis/s12.proc.FT.align
+   - can produce that with afni_proc.py (recommended)
+   - can produce AP command with uber_subject.py (or uber_proc.py)
+   - main outputs of processing script:
+      - anat, betas and statistics: aligned and in standard space
+      - blur estimates (to help with multiple comparison correction)
+   - much to look at to evaluate processing
+      - see tutorial (AFNI_data6/FT_analysis/tutorial)
+
+5. Analyze subject FT (the bulk of the class)
+   - run uber_subject.py from FT_analysis directory
+      - is still a work in progress
+   - create AP command and peruse, it creates the proc script
+   - create proc script and peruse, it does the work
+   - execute proc script
+      - discuss overview of script while it executes
+         - it is executed under a new subject_results directory
+         - proc script copies inputs into FT.results and processes there
+   - review processing of data along with script
+      - run afni from results directory
+   - review statistical results
+      - focus on threshold and coloring in afni GUI
+      - cluster results, for practice
+
+6. Analyze and inspect group results
+   - see directory AFNI_data6/group_results
+   - run ANOVA script and view results

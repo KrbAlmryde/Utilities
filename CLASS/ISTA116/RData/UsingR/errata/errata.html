@@ -1,0 +1,508 @@
+
+
+
+
+
+
+
+ 
+
+<div class="p"><!----></div>
+                                          
+
+
+
+
+
+
+
+
+
+<center>  <font size="+2">List of errata found in <i>Using R
+    for Introductory Statistics</i><br />
+  Aug  4, 2011
+
+</font></center>
+
+<dl compact="compact">
+ <dt><b>page 6, bottom line</b></dt>
+	<dd> Should read "although for the most part
+  knowledge of these function<b>s</b> is not essential..."</dd>
+ <dt><b>page 16, exercise 1.12 #5</b></dt>
+	<dd> This one is most easily done using
+  <tt>c()</tt> and the sequence operator <tt>:</tt>. (Please ignore
+  request to use jus <tt>seq</tt> and
+  <tt>rep</tt>.)
+
+<div class="p"><!----></div>
+</dd>
+ <dt><b>page 19, line 17</b></dt>
+	<dd> Should read "if y is to<b>o</b> long..."
+
+<div class="p"><!----></div>
+</dd>
+ <dt><b>page 19, line -9</b></dt>
+	<dd> The greater than or equal operator is wrong. It
+  should be typed <tt>&gt;=</tt> and not <tt>=&gt;</tt>.
+
+<div class="p"><!----></div>
+</dd>
+ <dt><b>page 26, line 3</b></dt>
+	<dd> The data set <tt>Sitka</tt> is part of the
+  <tt>MASS</tt> package. This package needs to be loaded, such as it is
+  on page 24, to have the data set loaded into the workspace.
+
+<div class="p"><!----></div>
+</dd>
+ <dt><b>page 30, line 8</b></dt>
+	<dd> The variable names is <tt>time</tt>, not "times"
+  in the <tt>nym.2002</tt> dataset</dd>
+ <dt><b>page 34, line 1</b></dt>
+	<dd> If you enter <tt>scan()</tt> in the command
+  line the console will appear to stop. It is waiting for a
+  terminating blank line.</dd>
+ <dt><b>page 36, line 5</b></dt>
+	<dd> 
+The data needs 4 terms, not 3, to match the
+  size of the names. Try:
+
+<pre>
+&#62; our.data = c(1,2,2,5); names(our.data) = 1:4
+
+</pre>
+
+<div class="p"><!----></div>
+</dd>
+ <dt><b>page 36, second to last line</b></dt>
+	<dd> The colors were specified with
+
+<pre>
+col(gray(.7, .85, .95))
+
+</pre>
+(A decimal point is used, not the comma with .7.) 
+To be clear, we can produce the pie chart with
+
+<pre>
+&#62; sales &lt;- c(John=45,Jack=44,Suzy=46)
+&#62; col = gray(c(.7,.85,.9))
+&#62; pie(sales, main="sales", col=col) 
+
+</pre>
+
+<div class="p"><!----></div>
+</dd>
+ <dt><b>page 38</b></dt>
+	<dd> Comment on using the function <tt>mean</tt> with a
+  factor variable should read "In the example with mean() an error is
+  returned, as factors are treated as categoric even if their levels
+  are given numeric-looking values."</dd>
+ <dt><b>page 60, line -4</b></dt>
+	<dd> The data set to detach is <tt>faithful</tt>:
+
+<pre>
+&#62; detach(faithful)
+
+</pre>
+
+<div class="p"><!----></div>
+</dd>
+ <dt><b>page 63, excercise 2.46</b></dt>
+	<dd> The formula for the skew is missing a 1/n. Althought the formula as is makes sense - more "skewed" data produces larger values in absolute value, it does not work to compare across different sample sizes without the 1/n.
+
+<div class="p"><!----></div>
+</dd>
+ <dt><b>page 71, line 18</b></dt>
+	<dd> The example showing how the labels for the
+  seat belt data can be made inadvertently switches the order of
+  "buckled" and "unbuckled." The correct line should be
+
+<pre>
+&#62; tmp = c("buckled","unbuckled") # less typing
+
+</pre>
+to match lines 8 and 9 on the same page. Unfortunately, this error
+propagates to the 4 subsequent displays of this data- the two on page
+71, the one on page 72, and the one on page 73. This also effects the
+Figure 3.1 on page 75 which is better presented with these commands (Figure&nbsp;):
+
+<pre>
+&#62; x = matrix(c(56, 2, 8, 16), nrow = 2)
+&#62; tmp = c("buckled", "unbuckled")
+&#62; rownames(x) = tmp
+&#62; colnames(x) = tmp
+&#62; barplot(x, xlab = "Parent", beside = FALSE)
+
+</pre>
+
+<div class="p"><!----></div>
+
+<pre>
+&#62; barplot(x, xlab = "Parent", beside = TRUE)
+
+</pre>
+
+<div class="p"><!----></div>
+ 
+<div class="p"><!----></div>
+<a name="tth_fIg1">
+</a>   <center><img src="errata-003.png" alt="errata-003.png" />
+
+<div class="p"><!----></div>
+<img src="errata-004.png" alt="errata-004.png" />
+
+<div class="p"><!----></div>
+  <center>Figure 1: (From Figure 3.1 page 75) Segmented and side-by-side barplots showing distribution ...</center>
+  <a name="fig:barplots">
+</a>
+</center>
+<div class="p"><!----></div>
+</dd>
+ <dt><b>page 83, lines 12-21</b></dt>
+	<dd> The <tt>homedata</tt> dataset used in the
+  book is not the same as that in the UsingR package version 0.1-8. 
+  This should be fixed by version 0.1-9 of the package, but for
+  reference with the modified data the results would
+  change in the display on page 83 to:
+  
+<pre>
+&#62; attach(homedata)
+&#62; summary(y1970)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+      0   57000   68900   70820   80500  297200 
+&#62; summary(y2000)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   7400  161400  251700  268400  335600 1183000 
+&#62; summary(y2000/y1970)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  0.740   2.878   3.579     Inf   4.310     Inf 
+&#62; detach(homedata)
+
+</pre>
+
+<div class="p"><!----></div>
+Seeing as values of 0 appear in the <tt>y1970</tt> data, we can
+replace those values and compute:
+
+<pre>
+&#62; hd = subset(homedata, subset=y1970 &#62; 0)
+&#62; attach(hd)
+&#62; summary(y1970)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   9200   57000   68900   70830   80500  297200 
+&#62; summary(y2000)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   7400  161400  251600  268300  335400 1183000 
+&#62; summary(y2000/y1970)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  0.740   2.878   3.579   3.641   4.310   9.314 
+&#62; detach(hd)
+
+</pre>
+
+<div class="p"><!----></div>
+</dd>
+ <dt><b>page 87, line -6</b></dt>
+	<dd> The first formula for the Pearson correlation is
+  missing a parenthesis in the denominator. It should be (x<sub>i</sub> <font face="symbol">-</font
+> [<font face="symbol">`</font
+>x])<sup>2</sup>, not x<sub>i</sub> <font face="symbol">-</font
+>[<font face="symbol">`</font
+>x])<sup>2</sup>.
+
+<div class="p"><!----></div>
+</dd>
+ <dt><b>Page 108, line 16</b></dt>
+	<dd> The <tt>boxplot</tt> command should have UA in place
+  of a US. Try
+  
+<pre>
+    boxplot(AA,CO, DL,HP,NW,TW,UA,US)
+  
+</pre>
+Of course, it is more efficient to just use data frame notation for
+these things:
+
+<pre>
+  boxplot(ewr[,3:10])
+
+</pre>
+
+<div class="p"><!----></div>
+</dd>
+ <dt><b>Page 112, lines 12-16</b></dt>
+	<dd> 
+
+<div class="p"><!----></div>
+The following code snippet is incorrect.
+
+<pre>
+&#62; library(MASS)                 # loads Cars93 data set
+&#62; mpg = with(Cars93,cut(MPG.city,c(0,17,25,55)))
+&#62; names(mpg) = c("bad","decent","excellent")    
+&#62; price = with(Cars93,cut(Price,c(0,10,20,62)))
+&#62; names(price) = c("cheap","mid-priced","expensive")
+
+</pre>
+
+<div class="p"><!----></div>
+It should have <tt>names</tt> replaced with <tt>levels</tt>
+
+<pre>
+&#62; library(MASS)                 # loads Cars93 data set
+&#62; mpg = with(Cars93,cut(MPG.city,c(0,17,25,55)))
+&#62; levels(mpg) = c("bad","decent","excellent")    
+&#62; price = with(Cars93,cut(Price,c(0,10,20,62)))
+&#62; levels(price) = c("cheap","mid-priced","expensive")
+
+</pre>
+
+<div class="p"><!----></div>
+The reason being that the variables <tt>mpg</tt> and <tt>price</tt>
+are factors and we wish to rename their internal names, or
+levels. Trying to use <tt>names</tt> will not work as expected as
+there are 93 things to name in <tt>mpg</tt>, but only 3 names given in
+the assignment statement. A such the first three values will be names,
+the remaining 90 will have a <tt>&lt;NA&gt;</tt> value.
+
+<div class="p"><!----></div>
+</dd>
+ <dt><b>Page 123, line 8</b></dt>
+	<dd> 
+
+<div class="p"><!----></div>
+The names of the data frame at this point are <tt>a b V3 V4</tt> and
+not <tt>a b c d</tt>. The command <tt>names(df) &lt;- letters[1:4]</tt> is
+one way to assign those names.
+
+<div class="p"><!----></div>
+</dd>
+ <dt><b>Page 123</b></dt>
+	<dd> The data frame example fails with newer versions of R
+  as the line
+  
+<pre>
+&#62; df[1:2,3:4] = cbind(11:12,13:14)
+  
+</pre>
+Dropping the i index will work:
+
+<pre>
+&#62; df[ ,3:4] = cbind(11:12,13:14)
+
+</pre>
+
+<div class="p"><!----></div>
+</dd>
+ <dt><b>Page 130, line -1</b></dt>
+	<dd> The correct variable name containing the
+  <i>amounts</i> given is called <tt>amounts</tt> and not "award."
+  The proper command should have been:
+  
+<pre>
+    tmp = split(amount, ID)
+  
+</pre>
+
+<div class="p"><!----></div>
+</dd>
+ <dt><b>Page 132</b></dt>
+	<dd> The command to set the background color for lattice
+  graphics is now
+  
+<pre>
+ lattice.options(default.theme = "col.whitebg")
+  
+</pre>
+
+<div class="p"><!----></div>
+</dd>
+ <dt><b>Page 134, line 11</b></dt>
+	<dd> The panel function is called
+  <tt>plot.regression</tt>, not <tt>panel.regression</tt>. Hence when
+  referring to the function on line 11, the argument should read
+  
+<pre>
++ panel = plot.regression)     # a new panel function    
+
+</pre></dd>
+ <dt><b>page 135, line -9</b></dt>
+	<dd> The variable name <tt>Pulse</tt> has spurious
+  parentheses.
+
+<div class="p"><!----></div>
+</dd>
+ <dt><b>page 147, line 33,35</b></dt>
+	<dd>  The value 6,800 should be replaced with
+  6,200 in lines 33 and 35 to match the hypothetical 6,200 in the text.
+
+<div class="p"><!----></div>
+</dd>
+ <dt><b>page 163, line 4</b></dt>
+	<dd> The formula is for the standard deviation, not
+  the variance. (The variance would simply be np(1<font face="symbol">-</font
+>p).)
+
+<div class="p"><!----></div>
+</dd>
+ <dt><b>Page 186, line 5</b></dt>
+	<dd> The position of z<sup>*</sup> and <font face="symbol">a</font
+> is mixed up
+  in the formula display. It should read
+  
+<br clear="all" /><table border="0" width="95%"><tr><td>
+<table align="center" cellspacing="0"  cellpadding="2"><tr><td nowrap="nowrap" align="center">
+ <font face="symbol">a</font
+>/2 = P(Z  <font face="symbol">£</font
+> <font face="symbol">-</font
+>z<sup>*</sup>), <span class="roman">or</span><span class="roman">,</span> <span class="roman">similarly</span>&nbsp;&nbsp;&nbsp; 1 <font face="symbol">-</font
+> <font face="symbol">a</font
+>/2 = P(Z  <font face="symbol">£</font
+> z<sup>*</sup>). </td></tr></table>
+</td></tr></table>
+
+
+
+<div class="p"><!----></div>
+</dd>
+ <dt><b>Page 203, line -6</b></dt>
+	<dd> In Example 7.9, the boxplots are labeled
+  incorrectly. This occurs in the boxplot() call. It should
+  read
+  
+<pre>
+    boxplot(list(placebo=x, drug=y), col="gray") #compare spreads
+  
+</pre>
+
+<div class="p"><!----></div>
+</dd>
+ <dt><b>page 209, line 3</b></dt>
+	<dd> The name Wilcoxon is incorrectly spelled.
+
+<div class="p"><!----></div>
+
+<div class="p"><!----></div>
+</dd>
+ <dt><b>page 220, line -8</b></dt>
+	<dd> The alternative hypothesis should read
+  
+<blockquote>
+    As H<sub>A</sub>: p  &gt;  0.113, we will use...
+  </blockquote>
+  instead of the value p  &gt; 0.11.
+
+<div class="p"><!----></div>
+</dd>
+ <dt><b>page 231,</b></dt>
+	<dd> <tt>wilcox.test(x,...)</tt>  is incorrectly written as
+  <i>wilcox.text(...</i>
+</dd>
+ <dt><b>page 250, line -9</b></dt>
+	<dd> The R code does not match the example. It
+  should read:
+  
+<blockquote>
+    <tt>choose(100,35) * choose(65,40) * .35^35 * .35^40 * .30^25</tt>
+  </blockquote></dd>
+ <dt><b>page 260, third paragraph</b></dt>
+	<dd> The explanation for the number of
+  degrees of freedom in the chi-squared test of independence is not
+  right. The correct reasoning is to subtract the number of estimated
+  parameters, n<sub>r</sub><font face="symbol">-</font
+>1 + n<sub>c</sub><font face="symbol">-</font
+>1 from the usual degrees of freedom for the
+  chi-squared statistic n<sub>r</sub>&#183;n<sub>c</sub> <font face="symbol">-</font
+> 1. Algebraically we have
+
+<br clear="all" /><table border="0" width="95%"><tr><td>
+<table align="center" cellspacing="0"  cellpadding="2"><tr><td nowrap="nowrap" align="center">
+ n<sub>r</sub> &#183;n<sub>c</sub> <font face="symbol">-</font
+> 1 <font face="symbol">-</font
+>(n<sub>r</sub> <font face="symbol">-</font
+>1 + n<sub>c</sub> <font face="symbol">-</font
+>1) = n<sub>r</sub> &#183;n<sub>c</sub> <font face="symbol">-</font
+> n<sub>r</sub> <font face="symbol">-</font
+>n<sub>c</sub> + 1 = (n<sub>r</sub><font face="symbol">-</font
+>1)(n<sub>c</sub><font face="symbol">-</font
+>1).</td></tr></table>
+</td></tr></table>
+
+
+
+<div class="p"><!----></div>
+</dd>
+ <dt><b>page 275, problem 9.20</b></dt>
+	<dd> In the answers, the <tt>rivers</tt> data
+  set produced a warning when fit with <tt>fitdistr</tt>. As of R 2.2.1
+  this is no longer the case. Additionally, the estimated parameters
+  are quite different. This isn't necessarily better as a plot will
+  show. For this problem the default estimates for the optimizer are
+  not great, leading the algorithm to get trapped.</dd>
+ <dt><b>Page 292, line -9</b></dt>
+	<dd> The line <tt>coef(res)[1]</tt> should use the
+  variable <tt>res.mhr</tt> instead. This same error appears in several
+  other places including the next line (page 292, line -8), page 293
+  line 6, page 294 line 16, page 295 line 2, page 195 line -10, and
+  page 2967 line -9.
+
+<div class="p"><!----></div>
+</dd>
+ <dt><b>page 292, subsection 10.2.3</b></dt>
+	<dd>  The <tt>res</tt> variable refers
+  to the <tt>res.mhr</tt> variable previously defined on page 282. The command
+  
+<pre>
+&#62; res &lt;- res.mhr    
+  
+</pre>
+  may be used to replace the version or <tt>res</tt>.
+
+<div class="p"><!----></div>
+</dd>
+ <dt><b>page 335, line -12</b></dt>
+	<dd> The sentence should read <font face="symbol">d</font
+><sub>j</sub> is the
+  mean for the jth level of x<sub>2</sub>.
+
+<div class="p"><!----></div>
+  </dd>
+ <dt><b>page 336, table 11.5</b></dt>
+	<dd> The entry in the table for car A, drive c
+  should be 36.9, not 36.8.</dd>
+ <dt><b>help pages, <b>father.son</b></b></dt>
+	<dd> Data set was used by Pearson,
+  not Galton as indicated.</dd>
+ <dt><b>help pages, <b>central.park</b> </b></dt>
+	<dd> The variable <tt>WX</tt> is
+  incorrectly documented.</dd>
+</dl>
+<br /><br /><br />
+
+<div class="p"><!----></div>
+Special thanks to 
+Steven Banville,
+Joel Daniels,
+Neil Desnoyers,
+Dr. Raul de la Fuente-Fernandez,
+Stephen Haptonstahl, 
+Mary Karlins, 
+Jenifer Larson-Hall, 
+Whitney Nicole Laster, 
+Brian O'Gorman, 
+David Park, 
+Seong Hyun Park,
+Stuart Robinson,
+Carl Simon,
+Dr. Peter Thorhauer, 
+Camille Vanderhoeft,
+and 
+Etienne Voutaz 
+for
+pointing out errors.
+
+<div class="p"><!----></div>
+If you find additional errata please send them to
+<a href="verzani@math.csi.cuny.edu"><tt>verzani@math.csi.cuny.edu</tt></a>. Thanks.
+
+<div class="p"><!----></div>

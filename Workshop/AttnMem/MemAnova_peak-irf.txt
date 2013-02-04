@@ -1,0 +1,57 @@
+3dANOVA2 -type 3 -alevels 4 -blevels 10	\
+-dset 1 1 s1_memboth_fa-peak-irf+tlrc	\
+-dset 2 1 s1_memboth_ff-peak-irf+tlrc	\
+-dset 3 1 s1_memboth_mf-peak-irf+tlrc	\
+-dset 4 1 s1_memboth_nf-peak-irf+tlrc	\
+-dset 1 2 s5_concat_fa-peak-irf+tlrc	\
+-dset 2 2 s5_concat_ff-peak-irf+tlrc	\
+-dset 3 2 s5_concat_mf-peak-irf+tlrc	\
+-dset 4 2 s5_concat_nf-peak-irf+tlrc	\
+-dset 1 3 s7_memboth_fa-peak-irf+tlrc	\
+-dset 2 3 s7_memboth_ff-peak-irf+tlrc	\
+-dset 3 3 s7_memboth_mf-peak-irf+tlrc	\
+-dset 4 3 s7_memboth_nf-peak-irf+tlrc	\
+-dset 1 4 s9_memboth_fa-peak-irf+tlrc	\
+-dset 2 4 s9_memboth_ff-peak-irf+tlrc	\
+-dset 3 4 s9_memboth_mf-peak-irf+tlrc	\
+-dset 4 4 s9_memboth_nf-peak-irf+tlrc	\
+-dset 1 5 s10_memboth_fa-peak-irf+tlrc	\
+-dset 2 5 s10_memboth_ff-peak-irf+tlrc	\
+-dset 3 5 s10_memboth_mf-peak-irf+tlrc	\
+-dset 4 5 s10_memboth_nf-peak-irf+tlrc	\
+-dset 1 6 s11_memboth_fa-peak-irf+tlrc	\
+-dset 2 6 s11_memboth_ff-peak-irf+tlrc	\
+-dset 3 6 s11_memboth_mf-peak-irf+tlrc	\
+-dset 4 6 s11_memboth_nf-peak-irf+tlrc	\
+-dset 1 7 s12_memboth_fa-peak-irf+tlrc	\
+-dset 2 7 s12_memboth_ff-peak-irf+tlrc	\
+-dset 3 7 s12_memboth_mf-peak-irf+tlrc	\
+-dset 4 7 s12_memboth_nf-peak-irf+tlrc	\
+-dset 1 8 s14_memboth_fa-peak-irf+tlrc	\
+-dset 2 8 s14_memboth_ff-peak-irf+tlrc	\
+-dset 3 8 s14_memboth_mf-peak-irf+tlrc	\
+-dset 4 8 s14_memboth_nf-peak-irf+tlrc	\
+-dset 1 9 s16_memboth_fa-peak-irf+tlrc	\
+-dset 2 9 s16_memboth_ff-peak-irf+tlrc	\
+-dset 3 9 s16_memboth_mf-peak-irf+tlrc	\
+-dset 4 9 s16_memboth_nf-peak-irf+tlrc	\
+-dset 1 10 s17_memboth_fa-peak-irf+tlrc	\
+-dset 2 10 s17_memboth_ff-peak-irf+tlrc	\
+-dset 3 10 s17_memboth_mf-peak-irf+tlrc	\
+-dset 4 10 s17_memboth_nf-peak-irf+tlrc	\
+-voxel 2000	\
+-fa Fstat_all	\
+-amean 1 mean_memboth_fa	\
+-amean 2 mean_memboth_ff	\
+-amean 3 mean_memboth_mf	\
+-amean 4 mean_memboth_nf	\
+-acontr 1 -1 0 0  1vs2	\
+-acontr 1 0 -1 0  1vs3	\
+-acontr 1 0 0 -1  1vs4	\
+-acontr 0 1 -1 0  2vs3	\
+-acontr 0 1 0 -1  2vs4	\
+-acontr 0 0 1 -1  3vs4	\
+-acontr 3 -1 -1 -1  1vs234_2	\
+-acontr -1 -1 -1 3  4vs123	\
+-acontr 1 1 -1 -1  12vs34	\
+-fa Fstat_mean_peak-irf

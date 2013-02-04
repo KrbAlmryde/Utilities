@@ -1,0 +1,26 @@
+
+
+
+
+
+
+
+
+<title> problem-3.12</title>
+    
+<h1 align="center">problem-3.12 </h1>
+<b>problem-3.12</b>&nbsp;
+    We can split the data up using the condition <b>gender==1</b> as
+    follows:
+    
+<pre>
+&#62; attach(normtemp)
+&#62; male = temperature[gender == 1]
+&#62; female = temperature[gender == 2]
+&#62; boxplot(list(male=male,female=female))
+&#62; detach()
+    
+</pre>
+    From the graphic it appears that the centers of the distributions are different.
+
+<div class="p"><!----></div>

@@ -1,0 +1,39 @@
+
+
+
+
+
+
+
+
+<title> problem-12.1</title>
+    
+<h1 align="center">problem-12.1 </h1>
+<b>problem-12.1</b>&nbsp;
+    The logistic regression is carried out as follows:
+    
+<pre>
+&#62; res = glm(enjoyed ~ gender + age, data=tastesgreat,
++ family=binomial)
+&#62; summary(res)
+...
+Coefficients:
+            Estimate Std. Error z value Pr(&#62;|z|)
+(Intercept)  -8.1844     3.0964   -2.64   0.0082 **
+genderMale    2.4224     0.9559    2.53   0.0113 *
+age           0.1649     0.0652    2.53   0.0114 *
+---
+Signif. codes:  0 `***' 0.001 `**' 0.01 `*' 0.05 `.' 0.1 ` ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 55.452  on 39  degrees of freedom
+Residual deviance: 38.981  on 37  degrees of freedom
+AIC: 44.98
+
+Number of Fisher Scoring iterations: 5
+    
+</pre>
+This shows that both are flagged as significant.
+
+<div class="p"><!----></div>

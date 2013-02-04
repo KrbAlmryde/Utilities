@@ -1,0 +1,45 @@
+
+
+
+
+
+
+
+
+<title> problem-3.3</title>
+    
+<h1 align="center">problem-3.3 </h1>
+<b>problem-3.3</b>&nbsp;
+    We can tabulate the coins then multiply by the amounts to find
+    the total amount of money in the change bin.
+    
+<pre>
+&#62; table(coins$value)
+0.01 0.05  0.1 0.25
+ 203   59   42   67
+&#62; table(coins$value) * c(0.01, 0.05, 0.1, 0.25)
+ 0.01  0.05   0.1  0.25
+ 2.03  2.95  4.20 16.75
+&#62; sum(table(coins$value) * c(0.01, 0.05, 0.1, 0.25))
+[1] 25.58
+    
+</pre>
+    The barplot can be produced with the command
+    
+<pre>
+&#62; barplot(table(coins$year))
+    
+</pre>
+        It shows a generally increasing trend, as it is more likely to contain
+    more recent coins. Finally, to get the coins by decade, a first
+    attempt would be to try
+    
+<pre>
+&#62; table(cut(coins$year, breaks = seq(1920,2010,by=10)))
+    
+</pre>
+        But this has ranges like 1921-1930. Using the argument
+    <b>right=FALSE</b> will cause the intervals to take the form
+    [a,b),  for example,  1920-1929.
+
+<div class="p"><!----></div>

@@ -1,0 +1,31 @@
+
+
+
+
+
+
+
+
+<title> problem-10.21</title>
+    
+<h1 align="center">problem-10.21 </h1>
+<b>problem-10.21</b>&nbsp;
+    No. The p-value is 0.14.
+    
+<pre>
+&#62; init.h = c(600,700,800,950,1100,1300,1500)
+&#62; h.d = c(253, 337, 395, 451, 495, 534, 573)
+&#62; res.lm3 = lm(h.d ~ init.h + I(init.h^2) + I(init.h^3))
+&#62; res.lm4 = update(res.lm3, . ~ . + I(init.h^4))
+&#62; anova(res.lm3, res.lm4)
+Analysis of Variance Table
+
+Model 1: h.d ~ init.h + I(init.h^2) + I(init.h^3)
+Model 2: h.d ~ init.h + I(init.h^2) + I(init.h^3) + I(init.h^4)
+  Res.Df  RSS Df Sum of Sq    F Pr(&#62;F)
+1      3 48.3
+2      2 12.7  1      35.5 5.58   0.14
+    
+</pre>
+
+<div class="p"><!----></div>

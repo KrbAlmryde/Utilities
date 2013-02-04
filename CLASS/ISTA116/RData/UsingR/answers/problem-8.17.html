@@ -1,0 +1,33 @@
+
+
+
+
+
+
+
+
+<title> problem-8.17</title>
+    
+<h1 align="center">problem-8.17 </h1>
+<b>problem-8.17</b>&nbsp;
+    The sign test of the hypotheses
+    
+<br clear="all" /><table border="0" width="100%"><tr><td>
+<table align="center" cellspacing="0"  cellpadding="2"><tr><td nowrap="nowrap" align="center">
+ H<sub>0</sub>: \textmedian = 220,000, &nbsp;&nbsp;&nbsp; H<sub>A</sub>: \textmedian  &gt;  220,000 </td></tr></table>
+</td></tr></table>
+
+
+    is done with test statistic T, the number of data points more
+    than 22. Larger values of T support the alternative. The
+    p-value is then calculated as
+    
+<pre>
+&#62; T = sum(exec.pay &#62; 22)
+&#62; n = length(exec.pay)
+&#62; T
+[1] 113
+&#62; pbinom(T - 1, n, .5, lower.tail=FALSE)
+[1] 0.03252
+    
+</pre>

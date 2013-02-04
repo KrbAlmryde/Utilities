@@ -1,0 +1,31 @@
+
+
+
+
+
+
+
+
+<title> problem-7.29</title>
+    
+<h1 align="center">problem-7.29 </h1>
+<b>problem-7.29</b>&nbsp;
+    The data set implies that the population distribution is skewed
+    and not normally distributed or symmetric. Thus <b>t.test()</b> and
+    <b>wilcox.test()</b> are not appropriate. However, after a log
+    transform, it appears that <b>wilcox.test()</b> will be.
+    
+<pre>
+&#62; wilcox.test(log(commutes), conf.int=TRUE, conf.level=0.9)
+...
+ 3.135 3.258
+...
+&#62; exp(c(3.135,3.258))           # transform back
+[1] 22.99 26.00
+    
+</pre>
+    Or, that [23,26] is the confidence interval. The warning message is
+    about the ties in the data. Notice that the sampling statistic is based
+    on an assumption of a continuous distribution.
+
+<div class="p"><!----></div>

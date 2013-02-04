@@ -1,0 +1,28 @@
+chmod ugo+x ./MemScrip.txt
+./MemScript.txt s1 memboth 37
+cd ../s5
+./MemScript.txt s5 memboth 26
+cd ../s6
+./MemScriptFse.txt s6 memboth 55
+cd ../s7
+./MemScript.txt s7 memboth 40
+cd ../s8
+./MemScriptFse.txt s8 memboth 30
+cd ../s9
+./MemScript.txt s9 memboth 10
+cd ../s10
+./MemScript.txt s10 memboth 43
+cd ../s11
+./MemScript.txt s11 memboth 16
+cd ../s12
+./MemScript.txt s12 memboth 35
+cd ../s13
+./MemScriptFse.txt s13 memboth 63
+cd ../s14
+./MemScript.txt s14 memboth 67
+cd ../s15
+./MemScriptFse.txt s15 memboth 33
+cd ../s16
+./MemScript.txt s16 memboth 28
+cd ../s17
+./MemScript.txt s17 memboth 69

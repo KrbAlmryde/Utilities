@@ -1,0 +1,39 @@
+
+
+
+
+
+
+
+
+<title> problem-1.17</title>
+    
+<h1 align="center">problem-1.17 </h1>
+<b>problem-1.17</b>&nbsp;
+Enter in the data as follows:
+
+<pre>
+&#62; x = c(0.57, 0.89, 1.08, 1.12, 1.18, 1.07, 1.17, 1.38, 1.441, 1.72)
+
+</pre>
+Using <b>diff()</b> gives
+
+<pre>
+&#62; diff(x)
+[1]  0.320  0.190  0.040  0.060 -0.110  0.100  0.210  0.061
+[9]  0.279
+
+</pre>
+So the jump between 1994 and 1995 was negative. The percentage
+difference is found by dividing by <b>x[-10]</b> and multiplying by
+100. (Recall that <b>x[-10]</b> is all but the tenth (10th) number of
+<b>x</b>).  The first year's jump was the largest.
+
+<pre>
+&#62; diff(x)/x[-10] * 100
+[1] 56.140 21.348  3.704  5.357 -9.322  9.346 17.949  4.420
+[9] 19.362
+
+</pre>
+
+<div class="p"><!----></div>

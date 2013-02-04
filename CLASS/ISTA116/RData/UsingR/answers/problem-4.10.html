@@ -1,0 +1,48 @@
+
+
+
+
+
+
+
+
+<title> problem-4.10</title>
+    
+<h1 align="center">problem-4.10 </h1>
+<b>problem-4.10</b>&nbsp;
+    The data set is stored in a matrix, so we can reverse the years
+    using indexing.
+    
+<pre>
+&#62; barplot(t(dvdsales[7:1,]), beside=TRUE)
+    
+</pre>
+    Using <b>apply()</b> on the rows, we get the yearly amounts:
+    
+<pre>
+&#62; apply(dvdsales, 1, sum)
+    2004     2003     2002     2001     2000     1999     1998
+      NA 21994389 17089823 12706584  8498545  4019389  1089261
+    1997
+      NA
+&#62; apply(dvdsales, 1, function(x) sum(x,na.rm=TRUE)) # avoid NA
+    2004     2003     2002     2001     2000     1999     1998
+ 5957387 21994389 17089823 12706584  8498545  4019389  1089261
+    1997
+  315136
+    
+</pre>
+    Applying <b>sum()</b> to the columns gives the monthly sales. We do
+    so only for years that have complete data.
+    
+<pre>
+&#62; apply(dvdsales[2:6,], 2, sum)
+    JAN     FEB     MAR     APR     MAY     JUN     JUL     AUG
+2407354 2545896 4761189 3677919 3539725 5634658 3521254 3812934
+    SEP     OCT     NOV     DEC
+8362963 7551936 9323618 9169284
+    
+</pre>
+    November is the big winner. (Christmas shopping?)
+
+<div class="p"><!----></div>

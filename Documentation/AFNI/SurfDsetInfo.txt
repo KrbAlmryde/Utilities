@@ -1,0 +1,58 @@
+
+Usage: SurfDsetInfo [options] -input DSET1 -input DSET2 ...
+   or: SurfDsetInfo [options] DSET1 DSET2 ... 
+   Optional Params:
+      -debug DBG: if DBG = 2, show dset->ngr in its entirety in NIML form.
+
+  SUMA dataset input options:
+      -input DSET: Read DSET1 as input.
+                   In programs accepting multiple input datasets
+                   you can use -input DSET1 -input DSET2 or 
+                   input DSET1 DSET2 ...
+       NOTE: Selecting subsets of a dataset:
+             Much like in AFNI, you can select subsets of a dataset
+             by adding qualifiers to DSET.
+           Append #SEL# to select certain nodes.
+           Append [SEL] to select certain columns.
+           Append {SEL} to select certain rows.
+           The format of SEL is the same as in AFNI, see section:
+           'INPUT DATASET NAMES' in 3dcalc -help for details.
+           Append [i] to get the node index column from
+                      a niml formatted dataset.
+           *  SUMA does not preserve the selection order 
+              for any of the selectors.
+              For example:
+              dset[44,10..20] is the same as dset[10..20,44]
+              Also, duplicate values are not supported.
+              so dset[13, 13] is the same as dset[13].
+              I am not proud of these limitations, someday I'll get
+              around to fixing them.
+
+
+   [-novolreg|-noxform]: Ignore any Rotate, Volreg, Tagalign, 
+                or WarpDrive transformations present in 
+                the Surface Volume.
+  Common Debugging Options:
+   [-trace]: Turns on In/Out debug and Memory tracing.
+             For speeding up the tracing log, I recommend 
+             you redirect stdout to a file when using this option.
+             For example, if you were running suma you would use:
+             suma -spec lh.spec -sv ... > TraceFile
+             This option replaces the old -iodbg and -memdbg.
+   [-TRACE]: Turns on extreme tracing.
+   [-nomall]: Turn off memory tracing.
+   [-yesmall]: Turn on memory tracing (default).
+  NOTE: For programs that output results to stdout
+    (that is to your shell/screen), the debugging info
+    might get mixed up with your results.
+ 
+
+++ SUMA version 2006_7_3
+
+CVS tag:
+   SUMA_2005_04_29_1733
+
+Compile Date:
+   Jul  5 2011
+
+       Ziad S. Saad SSCC/NIMH/NIH saadz@mail.nih.gov     

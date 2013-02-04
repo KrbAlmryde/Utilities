@@ -1,0 +1,42 @@
+
+
+
+
+
+
+
+
+<title> problem-6.2</title>
+    
+<h1 align="center">problem-6.2 </h1>
+<b>problem-6.2</b>&nbsp;
+    A few simulations using steps of size 50 produce an answer.
+    
+<pre>
+&#62; data(lawsuits)
+&#62; res = c()
+&#62; n = 5
+&#62; for(i in 1:300) res[i] = mean(sample(lawsuits,n,replace=TRUE))
+&#62; plot(density(scale(res)), xlim=c(-4,4)) # xlim= sets plot window
+&#62; n = 50
+&#62; for(i in 1:300) res[i] = mean(sample(lawsuits,n,replace=TRUE))
+&#62; lines(density(scale(res)), lty=2)
+&#62; n = 150
+&#62; for(i in 1:300) res[i] = mean(sample(lawsuits,n,replace=TRUE))
+&#62; lines(density(scale(res)), lty=3)
+&#62; n = 350
+&#62; for(i in 1:300) res[i] = mean(sample(lawsuits,n,replace=TRUE))
+&#62; lines(density(scale(res)), lty=5)
+&#62; n = 500
+&#62; for(i in 1:300) res[i] = mean(sample(lawsuits,n,replace=TRUE))
+&#62; lines(density(scale(res)), lty=10)
+&#62; qqnorm(res)
+    
+</pre>
+    The use of <b>xlim=c(-4,4)</b> with <b>plot()</b> gives a
+    symmetric plot window for the subsequent density estimates. We see
+    by n=350 that the shape of the density becomes roughly
+    symmetric. A q-q plot shows the approximate normality of the
+    sample.
+
+<div class="p"><!----></div>

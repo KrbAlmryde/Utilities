@@ -1,0 +1,38 @@
+
+
+
+
+
+
+
+
+<title> problem-9.3</title>
+    
+<h1 align="center">problem-9.3 </h1>
+<b>problem-9.3</b>&nbsp;
+    The data set gives percentages, but <b>chisq.test()</b> wants
+    proportions. We first define a quick function to compute
+    proportions, then apply the two tests.
+    
+<pre>
+&#62; prop = function(x) x/sum(x)
+&#62; bagfull = c(15,34,7,19,29,24)
+&#62; names(bagfull) = c("blue","brown","green","orange","red","yellow")
+&#62; chisq.test(bagfull,p = prop(mandms["milk chocolate",]))
+
+        Chi-squared test for given probabilities
+
+data:  bagfull
+X-squared = 7.065, df = 5, p-value = 0.2158
+
+&#62; chisq.test(bagfull,p = prop(mandms["Peanut",]))
+
+        Chi-squared test for given probabilities
+
+data:  bagfull
+X-squared = 13.33, df = 5, p-value = 0.02049
+    
+</pre>
+    It appears that the bag is milk chocolate not peanut.
+
+<div class="p"><!----></div>

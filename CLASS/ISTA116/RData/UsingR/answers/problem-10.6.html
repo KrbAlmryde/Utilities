@@ -1,0 +1,32 @@
+
+
+
+
+
+
+
+
+<title> problem-10.6</title>
+    
+<h1 align="center">problem-10.6 </h1>
+<b>problem-10.6</b>&nbsp;
+  The p-value is found by computing the t-statistic using
+  \betahat<sub>1</sub>, and \SE(\betahat<sub>1</sub>) is found from the <b>summary()</b> function.
+  
+<pre>
+&#62; price = c(300, 250, 400, 550, 317, 389, 425, 289, 389, 559)
+&#62; no.bed = c(3, 3, 4, 5, 4, 3, 6, 3, 4, 5)
+&#62; res = lm(price ~ no.bed)
+&#62; summary(res)
+...
+Coefficients:
+            Estimate Std. Error t value Pr(&#62;|t|)
+(Intercept)     94.4       98.0    0.96    0.364
+no.bed          73.1       23.8    3.08    0.015 *
+...
+&#62; T = (73.1 - 60)/23.8
+&#62; pt(T, df = 8, lower.tail=FALSE)
+[1] 0.2985
+
+</pre>
+The large p-value is not significant.

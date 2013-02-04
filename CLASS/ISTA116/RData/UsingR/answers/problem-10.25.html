@@ -1,0 +1,40 @@
+
+
+
+
+
+
+
+
+<title> problem-10.25</title>
+    
+<h1 align="center">problem-10.25 </h1>
+<b>problem-10.25</b>&nbsp;
+    We can fit the models using <b>update()</b>:
+    
+<pre>
+&#62; res.1 = lm(weight ~ age + height, data=kid.weights)
+&#62; res.2 = update(res.1, . ~ . + I(height^2))
+&#62; res.3 = update(res.2, . ~ . + I(height^3))
+&#62; res.4 = update(res.3, . ~ . + I(height^4))
+&#62; anova(res.1,res.2,res.3,res.4)
+Analysis of Variance Table
+
+Model 1: weight ~ age + height
+Model 2: weight ~ age + height + I(height^2)
+Model 3: weight ~ age + height + I(height^2) + I(height^3)
+Model 4: weight ~ age + height + I(height^2) + I(height^3) + I(height^4)
+  Res.Df   RSS  Df Sum of Sq    F  Pr(&#62;F)
+1    247 33408
+2    246 30604   1      2803 25.4 9.1e-07 ***
+3    245 27880   1      2724 24.7 1.3e-06 ***
+4    244 26931   1       949  8.6  0.0037 **
+---
+Signif. codes:  0 `***' 0.001 `**' 0.01 `*' 0.05 `.' 0.1 ` ' 1
+    
+</pre>
+    The ANOVA table shows that for each nested model the new term is
+    statistically significant. The full model is the one selected by
+    this criteria.
+
+<div class="p"><!----></div>

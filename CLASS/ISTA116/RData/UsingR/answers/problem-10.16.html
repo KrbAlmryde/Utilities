@@ -1,0 +1,25 @@
+
+
+
+
+
+
+
+
+<title> problem-10.16</title>
+    
+<h1 align="center">problem-10.16 </h1>
+<b>problem-10.16</b>&nbsp;
+If <b>res</b> stores the model, this can be done as follows:
+
+<pre>
+&#62; age.sort = sort(unique(age))
+&#62; pred.res = predict(res, newdata = data.frame(age = age.sort),int="conf")
+&#62; plot(mhr ~ age); abline(res)
+&#62; lines(age.sort,pred.res[,3], lty=2)
+&#62; lines(age.sort,pred.res[,2], lty=2)
+
+</pre>
+The only change is the abbreviated <b>int="cont"</b>.
+
+<div class="p"><!----></div>

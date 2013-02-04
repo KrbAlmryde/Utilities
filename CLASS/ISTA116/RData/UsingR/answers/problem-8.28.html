@@ -1,0 +1,28 @@
+
+
+
+
+
+
+
+
+<title> problem-8.28</title>
+    
+<h1 align="center">problem-8.28 </h1>
+<b>problem-8.28</b>&nbsp;
+The assumptions are such that the t-statistic can be used to compute
+the small p-value.  We assume that the population variances are equal.
+
+<pre>
+&#62; xbar1 =79; xbar2 = 110
+&#62; n1 = n2 = 250
+&#62; s1 = 25; s2 = 20
+&#62; sp = sqrt(( (n1-1)*s1^2 + (n2-1)*s2^2 )/(n1+n2-2))
+&#62; SE = sp * sqrt(1/n1 + 1/n2)
+&#62; T = (xbar1 - xbar2)/SE
+&#62; 2 * pt(T, df = n1+n2-2)       # T is negative, two sided
+[1] 1.224e-43
+
+</pre>
+
+<div class="p"><!----></div>

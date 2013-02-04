@@ -1,0 +1,30 @@
+
+
+
+
+
+
+
+
+<title> problem-7.22</title>
+    
+<h1 align="center">problem-7.22 </h1>
+<b>problem-7.22</b>&nbsp;
+    The following will do the simulation:
+    
+<pre>
+&#62; zs = c(); ts = c()
+&#62; for(i in 1:200) {
++ X = rnorm(10,0,2)
++ zs[i] = qnorm(.95)*2/sqrt(10); ts[i] = qt(.95,8)*sd(X)/sqrt(10)
++ }
+&#62; sum(ts &#62; zs)
+[1] 126
+&#62; sum(ts &#62; zs)/200
+[1] 0.63
+    
+</pre>
+    The z one is usually smaller, but not as often as  might have been
+    guessed.
+
+<div class="p"><!----></div>

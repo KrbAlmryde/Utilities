@@ -1,0 +1,91 @@
+Usage: 1dCorrelate [options] 1Dfile 1Dfile ...
+------
+ * Each input 1D column is a collection of data points; the correlation
+   coefficient between each column pair is computed, along with its
+   confidence interval.
+ * The minimum column length is 7.
+ * At least 2 columns are needed [in 1 or more .1D files].
+ * If there are N input columns, there will be N*(N-1)/2 output rows.
+ * Output appears on stdout; redirect as needed.
+ * Only one correlation method can be used in one run of this program.
+ * This program is basically the bastard offspring of program 1ddot.
+
+-------
+Methods   [actually, only the first letter is needed to choose a method]
+-------   [and the case doesn't matter: '-P' and '-p' both = '-Pearson']
+ -Pearson  = Pearson correlation                    [the default method]
+ -Spearman = Spearman (rank) correlation      [more robust vs. outliers]
+ -Quadrant = Quadrant (binarized) correlation  [most robust, but weaker]
+ -Ktaub    = Kendall's tau_b 'correlation'    [popular somewhere, maybe]
+
+-------------
+Other Options  [these options cannot be abbreviated!]
+-------------
+ -nboot B  = Set the number of bootstrap replicates to 'B'.
+             * The default (and minimum allowed) value of B is 4000.
+             * A larger number will give somewhat more accurate
+               confidence intervals, at the cost of more CPU time.
+
+ -alpha A  = Set the 2-sided confidence interval width to '100-A' percent.
+             * The default value of A is 5, giving the 2.5..97.5% interval.
+             * The smallest allowed A is 1 (0.5%..99.5%) and the largest
+               allowed value of A is 20 (10%..90%).
+
+ -block    = Attempt to allow for serial correlation in the data by doing
+   *OR*      variable-length block resampling, rather than completely
+ -blk        random resampling as in the usual bootstrap.
+             * You should NOT do this unless you believe that serial
+               correlation (along each column) is present and significant.
+             * Block resampling requires at least 20 data points in each
+               input column.  Fewer than 20 will turn off this option.
+-----
+Notes
+-----
+* For each pair of columns, the output include the correlation value
+  as directly calculated, plus the bias-corrected bootstrap value, and
+  the desired (100-A)% confidence interval [also via bootstrap].
+
+* The primary purpose of this program is to provide an easy way to get
+  the bootstrap confidence intervals, since people almost always seem to use
+  the asymptotic normal theory to decide if a correlation is 'significant',
+  and this often seems misleading to me [especially for short columns].
+
+* Bootstrapping confidence intervals for the inverse correlations matrix
+  (i.e., partial correlations) would be interesting -- anyone out there
+  need this ability?
+
+-------------
+Sample output  [command was '1dCorrelate -alpha 10 A2.1D B2.1D']
+-------------
+# Pearson correlation [n=12 #col=2]
+# Name      Name       Value   BiasCorr   5.00%   95.00%  N: 5.00% N:95.00%
+# --------  --------  -------- -------- -------- -------- -------- --------
+  A2.1D[0]  B2.1D[0]  +0.57254 +0.57225 -0.03826 +0.86306 +0.10265 +0.83353
+
+* Bias correction of the correlation had little effect; this is very common.
+
+* The correlation is not significant at this level, since the CI (confidence
+  interval) includes 0 in its range.
+
+* For the Pearson method ONLY, the last two columns ('N:', as above) also
+  show the widely used asymptotic normal theory confidence interval.  As in
+  the example, the bootstrap interval is often (but not always) wider than
+  the theoretical interval.
+
+* In the example, the normal theory might indicate that the correlation is
+  significant (less than a 5% chance that the CI includes 0), but the
+  bootstrap CI shows that is not a reasonable statistical conclusion.
+
+* Using the same data with the '-S' option gives the table below, again
+  indicating that there is no significant correlation between the columns
+  (note the lack of the 'N:' results for Spearman correlation):
+
+# Spearman correlation [n=12 #col=2]
+# Name      Name       Value   BiasCorr   5.00%   95.00%
+# --------  --------  -------- -------- -------- --------
+  A2.1D[0]  B2.1D[0]  +0.46154 +0.42756 -0.23063 +0.86078
+
+*** Written by RWCox (AKA Zhark the Correlator) -- 19 May 2011 ***
+
+++ Compile date = Jul  5 2011
+

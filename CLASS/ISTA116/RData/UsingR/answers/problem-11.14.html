@@ -1,0 +1,57 @@
+
+
+
+
+
+
+
+
+<title> problem-11.14</title>
+    
+<h1 align="center">problem-11.14 </h1>
+<b>problem-11.14</b>&nbsp;
+    The boxplot of <b>amount</b> broken up by year shows skewed data.
+    
+<pre>
+&#62; boxplot(amount ~ factor(year), data=npdb)
+    
+</pre>
+    Once a logarithm is taken, the data appears to come from a
+    symmetric distribution.
+    
+<pre>
+&#62; boxplot(log(amount) ~ factor(year), data=npdb)
+    
+</pre>
+    A one-way analysis of variance can be performed using
+    <b>lm()</b> as follows:
+    
+<pre>
+&#62; res = lm(log(amount) ~ factor(year), subset= year &lt; 2003, npdb)
+&#62; summary(res)
+
+Call:
+lm(formula = log(amount) ~ factor(year), data = npdb, subset = year &lt;
+    2003)
+
+Residuals:
+    Min      1Q  Median      3Q     Max
+-6.7957 -1.2743  0.0014  1.4730  6.3266
+
+Coefficients:
+                 Estimate Std. Error t value Pr(&#62;|t|)
+(Intercept)       10.7078     0.0276  387.40   &lt;2e-16 ***
+factor(year)2001  -0.4872     0.0519   -9.39   &lt;2e-16 ***
+factor(year)2002  -1.2851     0.0955  -13.45   &lt;2e-16 ***
+---
+Signif. codes:  0 `***' 0.001 `**' 0.01 `*' 0.05 `.' 0.1 ` ' 1
+
+Residual standard error: 1.87 on 6789 degrees of freedom
+Multiple R-Squared: 0.0336,     Adjusted R-squared: 0.0333
+F-statistic:  118 on 2 and 6789 DF,  p-value: &lt;2e-16
+    
+</pre>
+    The p-value for the F-test is tiny, indicating that the null
+    hypothesis is not likely to have yielded this data.
+
+<div class="p"><!----></div>

@@ -1,0 +1,297 @@
+Usage: 3dClustSim [options]
+
+Program to estimate the probability of false positive (noise-only) clusters.
+An adaptation of Doug Ward's AlphaSim, streamlined for various purposes.
+
+In particular, this program lets you run with multiple p-value thresholds
+(the '-pthr' option) and only outputs the cluster size threshold at chosen
+values of the alpha significance level (the '-athr' option).
+
+In addition, the program allows the output to be formatted for inclusion
+into an AFNI dataset's header, whence it can be used in the AFNI Clusterize
+interface to show approximate alpha values for the displayed clusters.
+
+Three different clustering methods can be used -- the program can give
+you results for any or all of them in one run -- see the '-NN' option.
+
+-------
+OPTIONS  [at least 1 option is required, or you'll get this help message!]
+-------
+ ***** Specify the volume over which the simulation will occur *****
+
+  --** (a) Directly give the spatial domain that will be used **--
+-nxyz n1 n2 n3 = Size of 3D grid to use for simulation
+                  [default values = 64 64 32]
+-dxyz d1 d2 d3 = give all 3 voxel sizes at once
+                  [default values = 3.5 3.5 3.5]
+-BALL          = inside the 3D grid, mask off points outside a ball
+                  at the center of the grid and touching the edges;
+                  this will keep about 1/2 the points in the 3D grid.
+                  [default = use all voxels in the 3D grid]
+
+  --** OR: (b) Specify the spatial domain using a dataset mask **--
+
+-mask mset     = Use the 0 sub-brick of dataset 'mset' as a mask
+                  to indicate which voxels to analyze (a sub-brick
+                  selector '[]' is allowed) 
+
+-OKsmallmask   = Allow small masks. Normally, a mask volume must have
+                  128 or more nonzero voxels.  However, IF you know what
+                  you are doing, and IF you are willing to live life on
+                  the edge of statistical catastrophe, then you can use
+                  this option to allow smaller masks -- in a sense, this
+                  is the 'consent form' for such strange shenanigans.
+                 * If you use this option, it must come BEFORE '-mask'.
+                 * Also read the 'CAUTION and CAVEAT' section, far below.
+
+    ** '-mask' means that '-nxyz' & '-dxyz' & '-BALL' will be ignored. **
+
+-fwhm s        = Gaussian filter width (all 3 dimensions)
+                  [default = 0.0 = no smoothing]
+                 * If you wish to set different smoothing amounts for
+                   each axis, you can instead use option
+                     -fwhmxyz sx sy sz
+                   to specify the three values separately.
+
+-pthr p1 .. pn = list of uncorrected (per voxel) p-values at which to
+                  threshold the simulated images prior to clustering.
+                  [default = 0.02 0.01 0.005 0.002 0.001 0.0005 0.0002 0.0001]
+
+-athr a1 .. an = list of corrected (whole volume) alpha-values at which
+                  the simulation will print out the cluster size
+                  thresholds.  For each 'p' and 'a', the smallest cluster
+                  size C(p,a) for which the probability of the 'p'-thresholded
+                  image having a noise-only cluster of size C is less than 'a'
+                  is the output (cf. the sample output, below)
+                  [default = 0.10 0.05 0.02 0.01]
+
+         ** Both lists '-pthr' and '-athr' (of values between 0 and 0.2)    **
+         ** should be given in DESCENDING order.  They will be sorted to be **
+         ** that way in any case, and such is how the output will be given. **
+
+         ** The list of values following '-pthr' or '-athr' can be replaced **
+         ** with the single word 'LOTS', which will tell the program to use **
+         ** a longer list of values for these probabilities [try it & see!] **
+         ** (i.e., '-pthr LOTS' and/or '-athr LOTS' are legal options)      **
+
+-LOTS          = the same as using '-pthr LOTS -athr LOTS'
+
+-iter n        = number of Monte Carlo simulations [default = 10000]
+
+-NN abc        = Define the clustering method(s) to use.  'abc' contains
+                 some set of digits from the set { 1 , 2 , 3 }, where
+                  1 = Use first-nearest neigbhor clustering
+                      * above threshold voxels cluster together if faces touch
+                  2 = Use second-nearest neigbhor clustering
+                      * voxels cluster together if faces OR edges touch
+                  3 = Use third-nearest neigbhor clustering
+                      * voxels cluster together if faces OR edges OR corners touch
+                 To get outputs from all 3 types of clustering, use '-NN 123'.
+                 If you don't use this option, then only first-nearest neighbor
+                 clustering will be computed (as if you used '-NN 1').
+
+              ** The clustering method only makes a difference at higher **
+              ** (less significant) values of pthr.   At small values of **
+              ** pthr (more significant),  all 3 clustering methods will **
+              ** give very similar results.                              **
+
+-nodec         = normally, the program prints the cluster size threshold to
+                  1 decimal place (e.g., 27.2).  Of course, clusters only come
+                  with an integer number of voxels -- this fractional value
+                  is interpolated to give the desired alpha level.  If you
+                  want no decimal places (so that 27.2 becomes 28), use '-nodec'.
+
+-seed S        = random number seed [default seed = 123456789]
+                  * if seed=0, then program will quasi-randomize it
+
+-niml          = Output the table in an XML/NIML format, rather than a .1D format.
+                  * This option is for use with other software programs;
+                    see the NOTES section below for details.
+                  * '-niml' also implicitly means '-LOTS'.
+                  * '-niml' also implicitly means '-NN 123'.
+                    If you DON'T want all 3 NN methods, then use an explicit
+                    '-NN' option AFTER the '-niml' option to choose what you want.
+
+-both          = Output the table in XML/NIML format AND in .1D format.
+                  * You probably want to use '-prefix' with this option!
+                    Otherwise, everything is mixed together on stdout.
+                  * '-both' does NOT imply '-NN 123'; if you want all 3 NN
+                    methods with '-both', you have to explicitly use '-NN 123'.
+
+-prefix ppp    = Write output for NN method #k to file 'ppp.NNk.1D' for k=1, 2, 3.
+                  * If '-prefix is not used, results go to standard output.
+                  * If '-niml' is used, the filename is 'ppp.NNk.niml'.
+                  * If '-niml' AND '-mask' are both used, then a compressed ASCII
+                    encoding of the mask volume is stored into file 'ppp.mask'.
+                    This string can be stored into a dataset header as an attribute
+                    with name AFNI_CLUSTSIM_MASK, and will be used in the AFNI
+                    Clusterize GUI, if present, to mask out above-threshold voxels
+                    before the clusterizing is done (which is how the mask is used
+                    here in 3dClustSim).
+                  * If the ASCII mask string is NOT stored into the statistics dataset
+                    header, then the Clusterize GUI will try to find the original
+                    mask dataset and use that instead.  If that fails, then masking
+                    won't be done in the Clusterize process.
+
+-quiet         = Don't print out the progress reports, etc.
+                  * Put this option first to quiet most informational messages.
+
+------
+NOTES:
+------
+* This program is like running AlphaSim once for each '-pthr' value and then
+  extracting the relevant information from its 'Alpha' output column.
+ ++ One reason for 3dClustSim to be used in place of AlphaSim is that it will
+    be faster than running AlphaSim multiple times.
+ ++ Another reason is that the resulting table can be stored in an AFNI
+    dataset's header, and used in the AFNI Clusterize GUI to see estimated
+    cluster significance (alpha) levels.
+
+* To be clear, the C(p,alpha) thresholds that are calculated are for
+  alpha = probability of a noise-only smooth random field, after masking
+  and then thresholding at the given per-voxel p value, producing a cluster
+  of voxels at least this big.
+ ++ So if your cluster is larger than the C(p,0.01) threshold in size (say),
+    then it is very unlikely that noise BY ITSELF produced this result.
+ ++ This statement does not mean that ALL the voxels in the cluster are
+    'truly' active -- it means that at least SOME of them are (very probably)
+    active.  The statement of low probability (0.01 in this example) of a
+    false positive result applies to the cluster as a whole, not to each
+    voxel within the cluster.
+
+* To add the cluster simulation C(p,alpha) table to the header of an AFNI
+  dataset, something like the following can be done [tcsh syntax]:
+     set fwhm = ( `3dFWHMx -combine -detrend time_series_dataset+orig` )
+     3dClustSim -mask mask+orig -fwhm $fwhm[4] -niml -prefix CStemp
+     3drefit -atrstring AFNI_CLUSTSIM_NN1 file:CStemp.NN1.niml \
+             -atrstring AFNI_CLUSTSIM_MASK file:CStemp.mask    \
+             statistics_dataset+orig
+     rm -f CStemp.*
+  AFNI's Clusterize GUI makes use of these attributes, if stored in a
+  statistics dataset (e.g., something from 3dDeconvolve, 3dREMLfit, etc.).
+
+   ** Nota Bene: afni_proc.py will automatically run 3dClustSim,  and **
+  *** put the results  into the statistical results  dataset for you. ***
+ **** Another reason to use afni_proc.py for single-subject analyses! ****
+
+* 3dClustSim will print (to stderr) a 3drefit command fragment, similar
+  to the one above, that you can use to add cluster tables to any
+  relevant statistical datasets you have lolling about.
+
+* The C(p,alpha) table will be used in Clusterize to provide the cluster
+  level alpha value when the AFNI GUI is set so that the Overlay threshold
+  sub-brick is a statistical parameter (e.g., a t- or F-statistic), from which
+  a per-voxel p-value can be calculated, so that Clusterize can interpolate
+  in the C(p,alpha) table.
+
+* AFNI will use the NN1, NN2, NN3 tables as needed in its Clusterize
+  interface if they are all stored in the statistics dataset header,
+  depending on the NN level chosen in the Clusterize controller.
+  ++ If only the NN1 table gets stored in the statistics dataset, then
+     that table will be used even if you ask for NN3 clusterizing inside
+     AFNI -- the idea being that to get SOME result is better than nothing.
+
+-------------------
+CAUTION and CAVEAT: [January 2011]
+-------------------
+* If you use a small ROI mask and also have a large FWHM, then it might happen
+  that it is impossible to find a cluster size threshold C that works for a
+  given (p,alpha) combination.
+
+* Generally speaking, C(p,alpha) gets smaller as p gets smaller and C(p,alpha)
+  gets smaller as alpha gets larger.  As a result, in a small mask with small p
+  and large alpha, C(p,alpha) might shrink below 1.  But clusters of size C
+  less than don't make any sense!
+
+* For example, suppose that for p=0.0005 that only 6% of the simulations
+  have ANY above-threshold voxels inside the ROI mask.  In that case,
+  C(p=0.0005,alpha=0.06) = 1.  There is no smaller value of C where 10%
+  of the simulations have a cluster of size C or larger.  Thus, it is
+  impossible to find the cluster size threshold for the combination of
+  p=0.0005 and alpha=0.10 in this case.
+
+* 3dClustSim will report a cluster size threshold of C=1 for such cases.
+  It will also print (to stderr) a warning message for all the (p,alpha)
+  combinations that had this problem.
+
+* This issue arises because 3dClustSim reports C for a given alpha.
+  In contrast, AlphaSim reports alpha for each given C, and leaves
+  you to interpret the resulting table; it doesn't try to find C(p,alpha)
+  for a given alpha, but finds alpha for various values of C.
+
+* If you wish to see this effect in action, the following commands
+  can be used as a starting point:
+
+3dClustSim -nxyz 8 8 8 -dxyz 2 2 2 -fwhm 8 -niter 10000
+AlphaSim -nxyz 8 8 8 -dxyz 2 2 2 -fwhm 8 -niter 10000 -quiet -fast -pthr 0.0005
+
+  From the 3dClustSim command above, you should get a warning message
+  similar to this, right after the table (only the first 2 lines are shown):
+
+*+ WARNING: Simulation not effective for these cases:
+   NN=1  pthr= 0.001000  alpha= 0.100 [max simulated alpha= 0.087]
+
+-----------------------------
+---- RW Cox -- July 2010 ----
+
+-------------
+SAMPLE OUTPUT from the command '3dClustSim -fwhm 7'
+-------------
+# 3dClustSim -fwhm 7
+# Grid: 64x64x32 3.50x3.50x3.50 mm^3 (131072 voxels)
+#
+# CLUSTER SIZE THRESHOLD(pthr,alpha) in Voxels
+# -NN 1  | alpha = Prob(Cluster >= given size)
+#  pthr  |  0.100  0.050  0.020  0.010
+# ------ | ------ ------ ------ ------
+ 0.020000    64.3   71.0   80.5   88.5
+ 0.010000    40.3   44.7   50.7   55.1
+ 0.005000    28.0   31.2   34.9   38.1
+ 0.002000    19.0   21.2   24.2   26.1
+ 0.001000    14.6   16.3   18.9   20.5
+ 0.000500    11.5   13.0   15.1   16.7
+ 0.000200     8.7   10.0   11.6   12.8
+ 0.000100     7.1    8.3    9.7   10.9
+
+e.g., for this sample volume, if the per-voxel p-value threshold is set
+at 0.005, then to keep the probability of getting a single noise-only
+cluster at 0.05 or less, the cluster size threshold should be 32 voxels
+(the next integer above 31.2).
+
+If you ran the same simulation with the '-nodec' option, then the last
+line above would be
+ 0.000100       8      9     10     11
+If you set the per voxel p-value to 0.0001 (1e-4), and want the chance
+of a noise-only false-positive cluster to be 5% or less, then the cluster
+size threshold would be 9 -- that is, you would keep all NN clusters with
+9 or more voxels.
+
+The header lines start with the '#' (commenting) character so that the result
+is a correctly formatted AFNI .1D file -- it can be used in 1dplot, etc.
+
+ =========================================================================
+* This binary version of 3dClustSim is compiled using OpenMP, a semi-
+   automatic parallelizer software toolkit, which splits the work across
+   multiple CPUs/cores on the same shared memory computer.
+* OpenMP is NOT like MPI -- it does not work with CPUs connected only
+   by a network (e.g., OpenMP doesn't work with 'cluster' setups).
+* For implementation and compilation details, please see
+   http://afni.nimh.nih.gov/pub/dist/doc/misc/OpenMP.html
+* The number of CPU threads used will default to the maximum number on
+   your system.  You can control this value by setting environment variable
+   OMP_NUM_THREADS to some smaller value (including 1).
+* Un-setting OMP_NUM_THREADS resets OpenMP back to its default state of
+   using all CPUs available.
+   ++ However, on some systems (such as the NIH Biowulf), it seems to be
+      necessary to set OMP_NUM_THREADS explicitly, or you only get one CPU.
+* You must set OMP_NUM_THREADS in the shell BEFORE running the program,
+   since OpenMP queries this variable BEFORE the program actually starts.
+   ++ You can't usefully set this variable in your ~/.afnirc file or on the
+      command line with the '-D' option.
+* How many threads are useful?  That varies with the program, and how well
+   it was coded.  You'll have to experiment on your own systems!
+* The number of CPUs on this particular computer system is ...... 8.
+ =========================================================================
+
+++ Compile date = Jul  5 2011
+

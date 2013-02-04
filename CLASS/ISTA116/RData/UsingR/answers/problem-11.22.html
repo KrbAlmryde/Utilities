@@ -1,0 +1,50 @@
+
+
+
+
+
+
+
+
+<title> problem-11.22</title>
+    
+<h1 align="center">problem-11.22 </h1>
+<b>problem-11.22</b>&nbsp;
+    We fit the ANCOVA model first:
+    
+<pre>
+&#62; library(MASS)                 # for stepAIC
+&#62; kid.weights$BMI = (kid.weights$weight/2.54)/ (kid.weights$height*2.54/100)^2
+&#62; res.full = lm(BMI ~ age + gender, kid.weights)
+&#62; res.age  = lm(BMI ~ age, kid.weights)
+&#62; res.gender  = lm(BMI ~ gender, kid.weights)
+&#62; anova(res.full, res.age)
+Analysis of Variance Table
+
+Model 1: BMI ~ age + gender
+Model 2: BMI ~ age
+  Res.Df  RSS  Df Sum of Sq    F Pr(&#62;F)
+1    247 9686
+2    248 9686  -1     -0.25 0.01   0.94
+&#62; anova(res.full, res.gender)
+Analysis of Variance Table
+
+Model 1: BMI ~ age + gender
+Model 2: BMI ~ gender
+  Res.Df  RSS  Df Sum of Sq    F Pr(&#62;F)
+1    247 9686
+2    248 9722  -1       -37 0.93   0.33
+&#62; stepAIC(res)
+
+...
+Call:
+lm(formula = BMI ~ 1, data = kid.weights)
+
+Coefficients:
+(Intercept)
+         17
+    
+</pre>
+We see that neither variable is significant by <b>stepAIC()</b>.
+
+<div class="p"><!----></div>

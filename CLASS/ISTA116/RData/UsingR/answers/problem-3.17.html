@@ -1,0 +1,32 @@
+
+
+
+
+
+
+
+
+<title> problem-3.17</title>
+    
+<h1 align="center">problem-3.17 </h1>
+<b>problem-3.17</b>&nbsp;
+    The plot can be  made with the commands
+    
+<pre>
+&#62; attach(twins)
+&#62; plot(Foster, Biological)
+&#62; detach()
+    
+</pre>
+Based on this, a guess of 0.8 for the Pearson coefficient and a similar
+value for the Spearman coefficient seem reasonable. A check can be done with
+
+<pre>
+&#62; cor(Foster, Biological)
+[1] 0.882
+&#62; cor(Foster, Biological,method="spearman")
+[1] 0.8858
+
+</pre>
+
+<div class="p"><!----></div>

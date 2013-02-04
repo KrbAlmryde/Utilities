@@ -1,0 +1,17 @@
+Usage: 3dEmpty [options]
+Makes an 'empty' dataset .HEAD file.
+
+Options:
+=======
+ -prefix p   = Prefix name for output file
+ -nxyz x y z = Set number of voxels to be 'x', 'y', and 'z'
+                 along the 3 axes [defaults=64]
+ -nt         = Number of time points [default=1]
+
+* Other dataset parameters can be changed with 3drefit.
+* The purpose of this program (combined with 3drefit) is to
+  allow you to make up an AFNI header for an existing file.
+
+
+++ Compile date = Jul  5 2011
+

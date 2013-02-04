@@ -1,0 +1,64 @@
+# Extract sub-brick data
+
+3dbucket -prefix ${subj}_${type}_null-tstat-script -fbuc ${subj}_${type}_stats+orig'[20]'
+
+3dbucket -prefix ${subj}_${type}_mf-tstat-script -fbuc ${subj}_${type}_stats+orig'[23]'
+
+3dbucket -prefix ${subj}_${type}_fa-tstat-script -fbuc ${subj}_${type}_stats+orig'[26]'
+
+3dbucket -prefix ${subj}_${type}_na-tstat-script -fbuc ${subj}_${type}_stats+orig'[29]'
+
+3dbucket -prefix ${subj}_${type}_ma-tstat-script -fbuc ${subj}_${type}_stats+orig'[32]'
+
+3dbucket -prefix ${subj}_${type}_ff-tstat-script -fbuc ${subj}_${type}_stats+orig'[35]'
+
+3dbucket -prefix ${subj}_${type}_nf-tstat-script -fbuc ${subj}_${type}_stats+orig'[38]'
+
+mv *tstat* $images_home/attnmem/AnovaData/PreAnova
+
+mv *irf* $images_home/attnmem/AnovaData/PreAnova
+
+echo "My friends are gonna be there too!"
+
+# -------------------------------------------------------
+# return to parent directory
+cd ../../${subj}
+
+# -------------------------------------------------------
+# Change directories to PreAnova, Warp sub-bricked Tstat files to Talairach space
+cd ../AnovaData/PreAnova
+
+adwarp -apar ${subj}-spgr_AUTO+tlrc -dpar ${subj}_${type}_null-norm-irf+orig
+
+adwarp -apar ${subj}-spgr_AUTO+tlrc -dpar ${subj}_${type}_mf-norm-irf+orig
+
+adwarp -apar ${subj}-spgr_AUTO+tlrc -dpar ${subj}_${type}_ff-norm-irf+orig
+
+adwarp -apar ${subj}-spgr_AUTO+tlrc -dpar ${subj}_${type}_nf-norm-irf+orig
+
+adwarp -apar ${subj}-spgr_AUTO+tlrc -dpar ${subj}_${type}_na-norm-irf+orig
+
+adwarp -apar ${subj}-spgr_AUTO+tlrc -dpar ${subj}_${type}_ma-norm-irf+orig
+
+adwarp -apar ${subj}-spgr_AUTO+tlrc -dpar ${subj}_${type}_fa-norm-irf+orig
+
+adwarp -apar ${subj}-spgr_AUTO+tlrc -dpar ${subj}_${type}_null-tstat-script+orig
+
+adwarp -apar ${subj}-spgr_AUTO+tlrc -dpar ${subj}_${type}_mf-tstat-script+orig
+
+adwarp -apar ${subj}-spgr_AUTO+tlrc -dpar ${subj}_${type}_ff-tstat-script+orig
+
+adwarp -apar ${subj}-spgr_AUTO+tlrc -dpar ${subj}_${type}_nf-tstat-script+orig
+
+adwarp -apar ${subj}-spgr_AUTO+tlrc -dpar ${subj}_${type}_na-tstat-script+orig
+
+adwarp -apar ${subj}-spgr_AUTO+tlrc -dpar ${subj}_${type}_ma-tstat-script+orig
+
+adwarp -apar ${subj}-spgr_AUTO+tlrc -dpar ${subj}_${type}_fa-tstat-script+orig
+
+
+# -------------------------------------------------------
+
+echo "Dont Stop Me!"
+
+end

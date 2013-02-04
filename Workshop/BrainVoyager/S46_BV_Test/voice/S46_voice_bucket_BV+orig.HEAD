@@ -1,0 +1,316 @@
+
+type = string-attribute
+name = HISTORY_NOTE
+count = 4103
+'[kylealmryde@hagar.local: Mon Jun 20 16:58:50 2011] ===================================\n[kylealmryde@hagar.local: Mon Jun 20 16:58:50 2011] === History of inputs to 3dcalc ===\n[kylealmryde@hagar.local: Mon Jun 20 16:58:50 2011] === Input a:\n[kylealmryde@hagar.local: Mon Jun 20 16:58:50 2011] [kylealmryde@hagar.local: Mon Jun 20 16:58:44 2011] 3dTcat -prefix S46_voice_sliceTimeCorrection '/Volumes/Data/Stroop/S46/run_voice/S46_voice_epan+orig[4..$]'\n[kylealmryde@hagar.local: Mon Jun 20 16:58:45 2011] 3dvolreg -verbose -zpad 1 -base 'S46_voice_sliceTimeCorrection+orig[78]' -1Dfile motioncorrention_S46_voice.1D -prefix S46_voice_motioncorrention -cubic S46_voice_sliceTimeCorrection+orig\n[kylealmryde@hagar.local: Mon Jun 20 16:58:48 2011] 3dmerge -1blur_fwhm 6.0 -doall -prefix S46_voice_SpatialSmoothing S46_voice_motioncorrention+orig\n[kylealmryde@hagar.local: Mon Jun 20 16:58:50 2011] === Input b:\n[kylealmryde@hagar.local: Mon Jun 20 16:58:50 2011] [kylealmryde@hagar.local: Mon Jun 20 16:58:44 2011] 3dTcat -prefix S46_voice_sliceTimeCorrection '/Volumes/Data/Stroop/S46/run_voice/S46_voice_epan+orig[4..$]'\n[kylealmryde@hagar.local: Mon Jun 20 16:58:45 2011] 3dvolreg -verbose -zpad 1 -base 'S46_voice_sliceTimeCorrection+orig[78]' -1Dfile motioncorrention_S46_voice.1D -prefix S46_voice_motioncorrention -cubic S46_voice_sliceTimeCorrection+orig\n[kylealmryde@hagar.local: Mon Jun 20 16:58:48 2011] 3dmerge -1blur_fwhm 6.0 -doall -prefix S46_voice_SpatialSmoothing S46_voice_motioncorrention+orig\n[kylealmryde@hagar.local: Mon Jun 20 16:58:49 2011] 3dTstat -prefix S46_voice_HighPass S46_voice_SpatialSmoothing+orig\n[kylealmryde@hagar.local: Mon Jun 20 16:58:50 2011] === Input c:\n[kylealmryde@hagar.local: Mon Jun 20 16:58:50 2011] [kylealmryde@hagar.local: Mon Jun 20 16:58:44 2011] 3dTcat -prefix S46_voice_sliceTimeCorrection '/Volumes/Data/Stroop/S46/run_voice/S46_voice_epan+orig[4..$]'\n[kylealmryde@hagar.local: Mon Jun 20 16:58:45 2011] 3dvolreg -verbose -zpad 1 -base 'S46_voice_sliceTimeCorrection+orig[78]' -1Dfile motioncorrention_S46_voice.1D -prefix S46_voice_motioncorrention -cubic S46_voice_sliceTimeCorrection+orig\n[kylealmryde@hagar.local: Mon Jun 20 16:58:48 2011] 3dmerge -1blur_fwhm 6.0 -doall -prefix S46_voice_SpatialSmoothing S46_voice_motioncorrention+orig\n[kylealmryde@hagar.local: Mon Jun 20 16:58:49 2011] 3dAutomask -prefix S46_voice_automask2 S46_voice_SpatialSmoothing+orig\n[kylealmryde@hagar.local: Mon Jun 20 16:58:50 2011] ===================================\n[kylealmryde@hagar.local: Mon Jun 20 16:58:50 2011] 3dcalc -a S46_voice_SpatialSmoothing+orig -b S46_voice_HighPass+orig -c S46_voice_automask2+orig -expr 'c * min(200, a/b*100)' -prefix S46_voice_HighPassfiltering\n[kylealmryde@hagar.local: Mon Jun 20 16:58:54 2011] 3dDeconvolve -input S46_voice_HighPassfiltering+orig -polort 5 -mask S46_voice_automask2+orig -num_stimts 10 -local_times -stim_times 1 /Volumes/Data/Stroop/Utilities/voice_congruent.txt GAM -stim_label 1 S46_voice_congruent -stim_times 2 /Volumes/Data/Stroop/Utilities/voice_incongruent.txt GAM -stim_label 2 S46_voice_incongruent -stim_times 3 /Volumes/Data/Stroop/Utilities/voice_neutral.txt GAM -stim_label 3 S46_voice_neutral -stim_times 4 /Volumes/Data/Stroop/Utilities/voice_null.txt GAM -stim_label 4 S46_voice_null -stim_file 5 'motioncorrention_S46_voice.1D[0]' -stim_base 5 -stim_label 5 roll -stim_file 6 'motioncorrention_S46_voice.1D[1]' -stim_base 6 -stim_label 6 pitch -stim_file 7 'motioncorrention_S46_voice.1D[2]' -stim_base 7 -stim_label 7 yaw -stim_file 8 'motioncorrention_S46_voice.1D[3]' -stim_base 8 -stim_label 8 dS -stim_file 9 'motioncorrention_S46_voice.1D[4]' -stim_base 9 -stim_label 9 dL -stim_file 10 'motioncorrention_S46_voice.1D[5]' -stim_base 10 -stim_label 10 dP -iresp 1 S46_voice_congruent_irf_BV -iresp 2 S46_voice_incongruent_irf_BV -iresp 3 S46_voice_neutral_irf_BV -iresp 4 S46_voice_null_irf_BV -tout -x1D voice_X_matrix.1D -xjpeg voice_X_matrix.jpg -bucket S46_voice_bucket_BV\n[kylealmryde@hagar.local: Mon Jun 20 16:58:54 2011] Output prefix: S46_voice_bucket_BV~
+
+type = string-attribute
+name = TYPESTRING
+count = 15
+'3DIM_HEAD_FUNC~
+
+type = string-attribute
+name = IDCODE_STRING
+count = 27
+'XYZ_9GFX390cBmi7NWmTBdM9vA~
+
+type = string-attribute
+name = IDCODE_DATE
+count = 25
+'Mon Jun 20 16:58:54 2011~
+
+type = integer-attribute
+name = SCENE_DATA
+count = 8
+ 0 11 1 -999 -999
+ -999 -999 -999
+
+type = string-attribute
+name = LABEL_1
+count = 5
+'zyxt~
+
+type = string-attribute
+name = LABEL_2
+count = 5
+'zyxt~
+
+type = string-attribute
+name = DATASET_NAME
+count = 5
+'zyxt~
+
+type = integer-attribute
+name = ORIENT_SPECIFIC
+count = 3
+ 0 3 4
+
+type  = float-attribute
+name  = ORIGIN
+count = 3
+       -118.125       -118.125          -62.5
+
+type  = float-attribute
+name  = DELTA
+count = 3
+           3.75           3.75              5
+
+type  = float-attribute
+name  = IJK_TO_DICOM
+count = 12
+           3.75              0              0       -118.125              0
+           3.75              0       -118.125              0              0
+              5          -62.5
+
+type  = float-attribute
+name  = IJK_TO_DICOM_REAL
+count = 12
+           3.75              0              0       -118.125              0
+           3.75              0       -118.125              0              0
+              5          -62.5
+
+type  = float-attribute
+name  = BRICK_STATS
+count = 18
+              0       9.366469      -2.940067       64.68488      -4.294076
+       5.934209      -3.543147       64.01001      -4.327238       5.613914
+      -4.588173       65.61594      -4.426333       5.797688         -6.167
+       59.16059      -4.549976       5.101123
+
+type = integer-attribute
+name = DATASET_RANK
+count = 8
+ 3 9 0 0 0
+ 0 0 0
+
+type = integer-attribute
+name = DATASET_DIMENSIONS
+count = 5
+ 64 64 26 0 0
+
+type = integer-attribute
+name = BRICK_TYPES
+count = 9
+ 3 3 3 3 3
+ 3 3 3 3
+
+type  = float-attribute
+name  = BRICK_FLOAT_FACS
+count = 9
+              0              0              0              0              0
+              0              0              0              0
+
+type = string-attribute
+name = BRICK_LABS
+count = 221
+'Full_Fstat~S46_voice_congruent#0_Coef~S46_voice_congruent#0_Tstat~S46_voice_incongruent#0_Coef~S46_voice_incongruent#0_Tstat~S46_voice_neutral#0_Coef~S46_voice_neutral#0_Tstat~S46_voice_null#0_Coef~S46_voice_null#0_Tstat~
+
+type  = float-attribute
+name  = BRICK_STATAUX
+count = 21
+              0              4              2              4            194
+              2              3              1            194              4
+              3              1            194              6              3
+              1            194              8              3              1
+            194
+
+type = string-attribute
+name = BRICK_STATSYM
+count = 77
+'Ftest(4,194);none;Ttest(194);none;Ttest(194);none;Ttest(194);none;Ttest(194)~
+
+type  = float-attribute
+name  = FDRCURVE_000000
+count = 103
+    0.009433548     0.09141841      0.1050751      0.1072082      0.1144959
+      0.1277677      0.1430524      0.1568661      0.1737499      0.1964395
+      0.2176769      0.2396593      0.2612329      0.2778437       0.286764
+      0.3013639      0.3173623      0.3331291      0.3424429      0.3538215
+      0.3691277      0.3795492      0.4009022      0.4106622      0.4225608
+      0.4262903      0.4403259      0.4514028      0.4700433      0.4855467
+       0.496788       0.497728      0.5023848      0.5143625      0.5147811
+      0.5148219      0.5401034      0.5459008      0.5460016      0.5460791
+      0.5461566      0.5462341      0.5463116      0.5463789      0.5463789
+      0.5463789      0.5463789      0.5463789      0.5463789      0.5475391
+      0.5475507      0.5860069      0.6548287      0.7326061      0.7823138
+      0.7937263      0.8089852      0.8647505      0.9345002        0.94919
+       1.006578       1.085821        1.16645       1.247079       1.327149
+        1.40001       1.472872       1.545733       1.614133       1.664539
+         1.7179       1.771261       1.821634       1.871093        1.92643
+       1.981766       2.026112       2.073813       2.127364       2.180914
+       2.234465       2.287288       2.333889        2.38049       2.422544
+       2.440691       2.454762       2.468833       2.506725       2.545486
+       2.580863       2.599678       2.639371       2.681299       2.723227
+       2.765155       2.807083       2.849011       2.890939       2.912817
+       2.933223       2.933223       2.933223
+
+type  = float-attribute
+name  = FDRCURVE_000002
+count = 103
+    0.000254558     0.05878949      0.2524989      0.2701853      0.2885625
+      0.3051515      0.3223121      0.3425774      0.3657089      0.3889235
+       0.410493      0.4325283      0.4556282      0.4797154      0.5029172
+      0.5254514      0.5473945      0.5723383      0.5974327      0.6196112
+       0.643227      0.6621044      0.6880742      0.7081434      0.7310913
+      0.7524828      0.7774189      0.7942985      0.8179918      0.8358598
+      0.8547983      0.8737401      0.8887403      0.9045631      0.9290618
+      0.9412212      0.9630761       0.993125       1.019638       1.038183
+        1.06183       1.074827       1.092607       1.118786       1.138347
+       1.145396       1.148261       1.161211       1.190173       1.214604
+       1.228838       1.232796       1.241927       1.250057       1.250739
+       1.259014       1.272942       1.274489       1.275579       1.276317
+       1.277194       1.298258       1.340629       1.399344       1.399344
+       1.470927       1.554814       1.605539       1.693341       1.782967
+       1.877965       1.958949        2.03035       2.093652       2.164905
+       2.240369       2.323126       2.406164       2.489202       2.572239
+       2.655278       2.738316       2.821354       2.904391        2.98743
+       3.070468       3.152282       3.224154       3.296027       3.367899
+       3.439772       3.485514        3.53976       3.581208       3.627287
+       3.690702       3.754118       3.799374       3.848306       3.900521
+       3.949489       3.979364        3.98145
+
+type  = float-attribute
+name  = FDRCURVE_000004
+count = 103
+   0.0002668457     0.05550389      0.1640518      0.1762594      0.1855726
+      0.1970864       0.212674      0.2257692      0.2402192      0.2548575
+        0.26907      0.2841964      0.3042074      0.3216872      0.3379754
+      0.3564519       0.371089      0.3877152      0.4060183      0.4256343
+      0.4455542      0.4639469      0.4803078      0.5005072      0.5166297
+      0.5355398      0.5559713      0.5716595      0.5906472      0.6034234
+      0.6206434      0.6403039      0.6502852      0.6691349      0.6896719
+      0.7115827       0.727108      0.7578593      0.7840976      0.8132029
+      0.8453212      0.8643653      0.8839302      0.9110672      0.9304385
+      0.9500427      0.9782931      0.9907604       1.009013       1.035658
+       1.057571       1.072863       1.100898       1.107327       1.124239
+       1.165885       1.195178       1.201642        1.20346       1.203817
+       1.203817       1.204284       1.204284       1.204284       1.204284
+       1.204284       1.204284       1.219715       1.266552       1.366972
+       1.462289       1.545928       1.627051       1.705803       1.760153
+       1.843032       1.932185       2.021339       2.107903       2.187611
+       2.267328        2.34727       2.427212       2.507155       2.587097
+       2.667039       2.741645       2.813449       2.885253       2.954719
+       3.023103       3.091487       3.149792        3.17409       3.227619
+        3.28393       3.340241        3.39637       3.452405       3.486576
+       3.533092       3.572578       3.572578
+
+type  = float-attribute
+name  = FDRCURVE_000006
+count = 103
+   0.0002667831     0.05724498      0.1181328      0.1309738      0.1408603
+      0.1526586      0.1653917      0.1802505      0.1932522      0.2080853
+      0.2240325      0.2396403       0.255333      0.2708231      0.2794527
+      0.2943893      0.3146952      0.3302848       0.350665       0.364959
+      0.3823479      0.3989489      0.4153032      0.4347798      0.4536737
+       0.470397      0.4874255      0.5054109      0.5282772      0.5422003
+      0.5604411       0.579847       0.599256      0.6213357       0.648523
+      0.6869953      0.6978639      0.7202165      0.7462589       0.780892
+       0.794296       0.830162      0.8598764      0.8726968      0.8932863
+      0.9196721      0.9404613      0.9655327        0.99655       1.034057
+       1.058706       1.059885       1.074133        1.11413       1.145338
+       1.152306       1.152869       1.152869       1.161789       1.171527
+       1.171694       1.183101       1.187353         1.1961       1.229429
+       1.239822       1.287857       1.337089       1.433366       1.529643
+       1.611079       1.692314       1.749155       1.835332       1.924346
+       2.014431       2.104516         2.1946       2.284686        2.37477
+       2.458223       2.538583       2.618943       2.699303       2.779663
+       2.860023        2.93527       3.007733       3.080195        3.15112
+       3.218915       3.286709       3.351544       3.415959       3.452228
+         3.4866       3.549155       3.611709       3.639213       3.678662
+       3.730651       3.782641       3.846694
+
+type  = float-attribute
+name  = FDRCURVE_000008
+count = 103
+   0.0002331954     0.05063987      0.2566071      0.2714091      0.2865508
+      0.3015013      0.3185601       0.334816      0.3514929      0.3690874
+       0.388041       0.406496      0.4277511      0.4479968      0.4668005
+      0.4856349      0.5067733      0.5264733      0.5451545      0.5680721
+      0.5875931      0.6097103       0.631628      0.6533218      0.6717495
+      0.6911206      0.7093806      0.7276512       0.746134      0.7653798
+      0.7827619      0.7968178      0.8093528      0.8242021       0.836772
+      0.8524606      0.8627434      0.8727847      0.8820596      0.8905016
+      0.9018802      0.9225556      0.9271202      0.9279399      0.9347955
+      0.9384183      0.9393833      0.9535196      0.9619457      0.9776354
+      0.9953864      0.9968304      0.9968303       1.019119       1.037066
+       1.056494       1.072648       1.072648       1.072648         1.0748
+       1.099862        1.10267       1.120469       1.122543       1.126949
+       1.141092       1.157924       1.162425       1.167251       1.177507
+       1.202767       1.236857       1.285719        1.34787       1.433463
+       1.477627       1.529264       1.587609       1.658564       1.734379
+       1.795569       1.873115       1.936482       1.989587       2.055767
+       2.121998       2.190253       2.259358       2.330898       2.402437
+       2.473978       2.526256       2.565211       2.598309       2.648357
+       2.698406       2.748454       2.819627       2.858255       2.896883
+       2.928773       2.950536       2.978487
+
+type  = float-attribute
+name  = MDFCURVE_000000
+count = 32
+      -6.215733      0.2024878      0.9992523      0.9979808      0.9947606
+      0.9944364      0.9941122      0.9929731      0.9920259      0.9893073
+      0.9888207      0.9882472      0.9874471      0.9866852      0.9854333
+      0.9854333      0.9854333      0.9854333      0.9832686      0.9820398
+      0.9791902      0.9693897      0.9490335      0.9167573      0.8676426
+      0.8034797      0.7049167      0.6089307      0.4538635      0.3159831
+      0.1254864              0
+
+type  = float-attribute
+name  = MDFCURVE_000002
+count = 39
+      -7.709084      0.2016223      0.9990094      0.9979409      0.9976307
+      0.9972694      0.9968942      0.9967039      0.9959134      0.9954923
+      0.9949521      0.9948179      0.9947182      0.9946902      0.9946623
+      0.9946343      0.9946063      0.9945782      0.9943976      0.9936442
+      0.9931557      0.9927851      0.9922122      0.9917878      0.9888619
+      0.9850127      0.9760002      0.9620386      0.9409726      0.9092861
+      0.8753475      0.8149276       0.745427      0.6475738      0.5474914
+      0.3867099       0.214961     0.07012486              0
+
+type  = float-attribute
+name  = MDFCURVE_000004
+count = 35
+      -7.033251      0.2039952      0.9990018      0.9968498      0.9961466
+      0.9956155      0.9953017      0.9950283      0.9931376      0.9927436
+      0.9924212      0.9921197      0.9919702      0.9918466      0.9916921
+      0.9913932      0.9913724      0.9908015      0.9899424      0.9897175
+      0.9895381      0.9841524      0.9718713      0.9539239      0.9256873
+      0.9005589      0.8571534      0.8036907      0.7309639      0.6398863
+      0.5471193      0.4324983      0.2732782      0.1035132              0
+
+type  = float-attribute
+name  = MDFCURVE_000006
+count = 38
+      -7.570526      0.2034743      0.9994168      0.9964819        0.99621
+      0.9959382      0.9946076      0.9942423      0.9924839      0.9919568
+      0.9915249      0.9911507      0.9908441      0.9906303      0.9904907
+       0.990351      0.9902589      0.9902487      0.9902385      0.9900911
+      0.9888451      0.9883411      0.9876142      0.9826922      0.9751016
+       0.961646      0.9418386      0.9052567      0.8757064      0.8188332
+      0.7630026      0.6821998      0.5860207      0.4786519      0.3671221
+        0.19976     0.05830899              0
+
+type  = float-attribute
+name  = MDFCURVE_000008
+count = 30
+      -6.022722      0.2038324      0.9990269      0.9978955      0.9972851
+      0.9968582      0.9962348      0.9954193      0.9948314      0.9946708
+      0.9943672      0.9938992      0.9932337      0.9927627      0.9922053
+       0.990905      0.9893243      0.9854277      0.9769895      0.9651062
+      0.9505625      0.9230767      0.8912624      0.8381789      0.7687227
+      0.6399703      0.4902328      0.3060793       0.116993              0
+
+type = string-attribute
+name = TEMPLATE_SPACE
+count = 5
+'ORIG~
+
+type = integer-attribute
+name = INT_CMAP
+count = 1
+ 0
+
+type = string-attribute
+name = BYTEORDER_STRING
+count = 10
+'LSB_FIRST~

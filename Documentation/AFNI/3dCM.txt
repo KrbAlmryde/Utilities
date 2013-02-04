@@ -1,0 +1,14 @@
+Usage: 3dCM [options] dset
+Output = center of mass of dataset, to stdout.
+  -mask mset   Means to use the dataset 'mset' as a mask:
+                 Only voxels with nonzero values in 'mset'
+                 will be averaged from 'dataset'.  Note
+                 that the mask dataset and the input dataset
+                 must have the same number of voxels.
+  -automask    Generate the mask automatically.
+  -set x y z   After computing the CM of the dataset, set the
+                 origin fields in the header so that the CM
+                 will be at (x,y,z) in DICOM coords.
+
+++ Compile date = Jul  5 2011
+

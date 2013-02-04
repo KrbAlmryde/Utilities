@@ -1,0 +1,213 @@
+
+type = string-attribute
+name = HISTORY_NOTE
+count = 499
+'[kerryw@careless.convert.slhs.arizona.edu: Thu Apr  2 11:19:29 2009] to3d -spgr -prefix S31_spgr e5111s5i001 e5111s5i002 e5111s5i003 ... e5111s5i127 e5111s5i128\n[kylealmryde@mbb-techs-power-mac-g5.local: Fri May  6 13:59:59 2011] Drawing plugin COPY: Fill->Zero Type->Func\n[kylealmryde@mbb-techs-power-mac-g5.local: Fri May  6 14:00:37 2011] Drawing plugin COPY: Fill->Data\n[kylealmryde@mbb-techs-power-mac-g5.local: Fri May  6 14:01:20 2011] adwarp.c -apar S31_spgr+tlrc -dpar vACC+orig -dxyz 3~
+
+type = string-attribute
+name = TYPESTRING
+count = 15
+'3DIM_HEAD_FUNC~
+
+type = string-attribute
+name = IDCODE_STRING
+count = 27
+'XYZ_48dMTCfwlmuNKsoImnjwhA~
+
+type = string-attribute
+name = IDCODE_DATE
+count = 25
+'Fri May  6 14:01:20 2011~
+
+type = string-attribute
+name = IDCODE_ANAT_PARENT
+count = 27
+'XYZ_slxR08FX-Qbp2_200QjG9g~
+
+type = string-attribute
+name = IDCODE_WARP_PARENT
+count = 27
+'XYZ_QEhloWDFG7EDszNw1DLlPg~
+
+type = integer-attribute
+name = SCENE_DATA
+count = 8
+ 2 0 1 -999 -999
+ -999 -999 -999
+
+type = string-attribute
+name = LABEL_1
+count = 15
+'CCOPY_S31_spgr~
+
+type = string-attribute
+name = LABEL_2
+count = 5
+'zyxt~
+
+type = string-attribute
+name = DATASET_NAME
+count = 20
+'zyxt@Talairach View~
+
+type = string-attribute
+name = WARP_PARENTNAME
+count = 5
+'zyxt~
+
+type = string-attribute
+name = ANATOMY_PARENTNAME
+count = 31
+'./S31_spgr+orig@Talairach View~
+
+type = integer-attribute
+name = ORIENT_SPECIFIC
+count = 3
+ 0 3 4
+
+type  = float-attribute
+name  = ORIGIN
+count = 3
+          -79.5          -79.5          -63.5
+
+type  = float-attribute
+name  = DELTA
+count = 3
+              3              3              3
+
+type  = float-attribute
+name  = IJK_TO_DICOM
+count = 12
+              3              0              0          -79.5              0
+              3              0          -79.5              0              0
+              3          -63.5
+
+type  = float-attribute
+name  = IJK_TO_DICOM_REAL
+count = 12
+              3              0              0          -79.5              0
+              3              0          -79.5              0              0
+              3          -63.5
+
+type = integer-attribute
+name = WARP_TYPE
+count = 8
+ 1 0 -999 -999 -999
+ -999 -999 -999
+
+type  = float-attribute
+name  = WARP_DATA
+count = 360
+              1              0              0              0       1.076283
+     0.03711322              0    -0.03591843       1.041634              1
+             -0              0             -0      0.9280202    -0.03306518
+             -0     0.03200071        0.95889           0.75      -12.35169
+      -20.54091          -0.75       10.78343       20.09174          -9999
+          -9999              0              0              0         9999.9
+              1              0              0              0       1.076283
+     0.03711322              0    -0.03591843       1.041634              1
+             -0              0             -0      0.9280202    -0.03306518
+             -0     0.03200071        0.95889           0.75      -12.35169
+      -20.54091          -0.75       10.78343       20.09174              0
+          -9999              0         9999.9              0         9999.9
+              1              0              0              0       0.907483
+     0.03129252              0    -0.03591843       1.041634              1
+             -0              0             -0        1.10064    -0.03306518
+             -0     0.03795313        0.95889           0.75      -10.41449
+      -20.54091          -0.75       10.78342       20.09174          -9999
+              0              0              0             23         9999.9
+              1              0              0              0       0.907483
+     0.03129252              0    -0.03591843       1.041634              1
+             -0              0             -0        1.10064    -0.03306518
+             -0     0.03795313        0.95889           0.75      -10.41449
+      -20.54091          -0.75       10.78342       20.09174              0
+              0              0         9999.9             23         9999.9
+              1              0              0              0       1.086457
+     0.03746403              0    -0.03591843       1.041634              1
+             -0              0             -0      0.9193299    -0.03306517
+             -0     0.03170105        0.95889           0.75      -7.932379
+      -20.54091          -0.75       6.613284       19.94794          -9999
+             23              0              0           9999         9999.9
+              1              0              0              0       1.086457
+     0.03746403              0    -0.03591843       1.041634              1
+             -0              0             -0      0.9193299    -0.03306517
+             -0     0.03170105        0.95889           0.75      -7.932379
+      -20.54091          -0.75       6.613284       19.94794              0
+             23              0         9999.9           9999         9999.9
+              1              0              0              0       1.076283
+     0.03711322              0    -0.03711322       1.076283              1
+             -0              0             -0      0.9280203    -0.03200071
+             -0     0.03200071      0.9280203           0.75      -12.35169
+      -21.22418          -0.75       10.78343       20.09173          -9999
+          -9999          -9999              0              0              0
+              1              0              0              0       1.076283
+     0.03711322              0    -0.03711322       1.076283              1
+             -0              0             -0      0.9280203    -0.03200071
+             -0     0.03200071      0.9280203           0.75      -12.35169
+      -21.22418          -0.75       10.78343       20.09173              0
+          -9999          -9999         9999.9              0              0
+              1              0              0              0       0.907483
+     0.03129252              0    -0.03711322       1.076283              1
+             -0              0             -0        1.10064     -0.0320007
+             -0     0.03795313      0.9280202           0.75      -10.41449
+      -21.22418          -0.75       10.78342       20.09173          -9999
+              0          -9999              0             23              0
+              1              0              0              0       0.907483
+     0.03129252              0    -0.03711322       1.076283              1
+             -0              0             -0        1.10064     -0.0320007
+             -0     0.03795313      0.9280202           0.75      -10.41449
+      -21.22418          -0.75       10.78342       20.09173              0
+              0          -9999         9999.9             23              0
+              1              0              0              0       1.086457
+     0.03746403              0    -0.03711322       1.076283              1
+             -0              0             -0      0.9193299    -0.03200069
+             -0     0.03170104      0.9280202           0.75      -7.932379
+      -21.22418          -0.75       6.613284       19.94793          -9999
+             23          -9999              0           9999              0
+              1              0              0              0       1.086457
+     0.03746403              0    -0.03711322       1.076283              1
+             -0              0             -0      0.9193299    -0.03200069
+             -0     0.03170104      0.9280202           0.75      -7.932379
+      -21.22418          -0.75       6.613284       19.94793              0
+             23          -9999         9999.9           9999              0
+
+type  = float-attribute
+name  = BRICK_STATS
+count = 2
+              0              1
+
+type = integer-attribute
+name = DATASET_RANK
+count = 8
+ 3 1 0 0 0
+ 0 0 0
+
+type = integer-attribute
+name = DATASET_DIMENSIONS
+count = 5
+ 54 64 50 0 0
+
+type = integer-attribute
+name = BRICK_TYPES
+count = 1
+ 1
+
+type  = float-attribute
+name  = BRICK_FLOAT_FACS
+count = 1
+              0
+
+type = string-attribute
+name = BRICK_LABS
+count = 3
+'#0~
+
+type = string-attribute
+name = BRICK_KEYWORDS
+count = 1
+'~
+
+type = string-attribute
+name = BYTEORDER_STRING
+count = 10
+'MSB_FIRST~

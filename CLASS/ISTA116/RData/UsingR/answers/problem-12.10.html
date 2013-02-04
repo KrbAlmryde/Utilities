@@ -1,0 +1,39 @@
+
+
+
+
+
+
+
+
+<title> problem-12.10</title>
+    
+<h1 align="center">problem-12.10 </h1>
+<b>problem-12.10</b>&nbsp;
+E.10&nbsp;(p. 408) 
+  This is easier to do with regular expressions, but if you don't know
+  these you can split by <b>" "</b> and then throw out words of
+  length 0. This  can be done using the String class methods. For example:
+  
+<pre>
+String$defineMethod("strip",function() {
+  lengthx = function(x) {
+    x = String$new(x)
+    if(x$length() &#62; 0)
+      TRUE
+    else
+      FALSE
+  }
+  y = split(" ")
+  aword = sapply(y, lengthx)
+  words = y[aword]
+  ## join with a space
+  paste(words,collapse=" ")
+})
+  
+</pre>
+  This would have been easier if the output of <b>split()</b> were a
+  vector of type String, but this isn't possible. Instead, the
+  function <b>sapply()</b> is used to apply the function
+  <b>lengthx()</b>, which calculates the length of the string to each
+  element in the output of <b>split()</b>.

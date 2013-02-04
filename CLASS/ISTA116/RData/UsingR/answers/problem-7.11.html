@@ -1,0 +1,68 @@
+
+
+
+
+
+
+
+
+<title> problem-7.11</title>
+    
+<h1 align="center">problem-7.11 </h1>
+<b>problem-7.11</b>&nbsp;
+    We have z<sup>*</sup> \SE(\phat)  <font face="symbol">£</font
+> 0.01. We know z<sup>*</sup> as <font face="symbol">a</font
+> is
+    given, so we have
+    
+<br clear="all" /><table border="0" width="100%"><tr><td>
+<table align="center" cellspacing="0"  cellpadding="2"><tr><td nowrap="nowrap" align="center">
+ </td><td align="left" class="cl"><br /><font face="symbol"><font size="+2">Ö</font><br /></font>
+<div class="comb">&nbsp;</div>
+</td><td nowrap="nowrap" align="center">
+
+<div class="hrcomp"><hr noshade="noshade" size="1"/></div>
+<div class="norm">\frac\phat(1<font face="symbol">-</font
+>\phat)n<br /></div>
+<div class="comb">&nbsp;</div>
+</td><td nowrap="nowrap" align="center">
+ <font face="symbol">£</font
+> \frac0.01z<sup>*</sup>. </td></tr></table>
+</td></tr></table>
+
+
+    Solving for n we get
+    
+<br clear="all" /><table border="0" width="100%"><tr><td>
+<table align="center" cellspacing="0"  cellpadding="2"><tr><td nowrap="nowrap" align="center">
+ (\fracz<sup>*</sup>0.01)<sup>2</sup> \phat(1<font face="symbol">-</font
+>\phat)  <font face="symbol">£</font
+> n. </td></tr></table>
+</td></tr></table>
+
+
+    No matter what \phat is, the expression \phat(1<font face="symbol">-</font
+>\phat) is
+    largest when \phat =  1/2, so we have n is large enough if
+    
+<br clear="all" /><table border="0" width="100%"><tr><td>
+<table align="center" cellspacing="0"  cellpadding="2"><tr><td nowrap="nowrap" align="center">
+ (\fracz<sup>*</sup>0.01)<sup>2</sup> \frac12(1 <font face="symbol">-</font
+> \frac12)  <font face="symbol">£</font
+> n. </td></tr></table>
+</td></tr></table>
+
+
+    For our example, we have
+    
+<pre>
+## for 90% confidence
+&#62; alpha = 0.1; zstar = qnorm(1 - alpha/2)
+&#62; (zstar/0.01)^2/4
+[1] 6764
+## for 80% confidence
+&#62; alpha = 0.2; zstar = qnorm(1 - alpha/2)
+&#62; (zstar/0.01)^2/4
+[1] 4106
+    
+</pre>

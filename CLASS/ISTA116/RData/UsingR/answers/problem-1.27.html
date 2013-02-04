@@ -1,0 +1,50 @@
+
+
+
+
+
+
+
+
+<title> problem-1.27</title>
+    
+<h1 align="center">problem-1.27 </h1>
+<b>problem-1.27</b>&nbsp;
+    We first  add names to <b>uspop</b>.
+    
+<pre>
+&#62; names(uspop) = seq(1790, 1970, by=10)
+&#62; uspop
+&#62; uspop                         # uspop is a time series
+Time Series:
+Start = 1790
+End = 1970
+...
+&#62; d = diff(uspop)
+&#62; names(d) = seq(1800, 1960, by=10) # add names
+&#62; d
+...
+ 1800  1810  1820  1830  1840  1850  1860  1870  1880  1890
+ 1.38  1.93  2.40  3.26  4.20  6.10  8.20  8.40 10.40 12.70
+ 1900  1910  1920  1930  1940  1950  1960  1970
+13.10 16.00 13.70 17.10  8.90 19.60 28.00 23.90
+    
+</pre>
+Scanning across we see that 1960 had the largest increase. To see if
+the numbers are always increasing we can call <b>diff()</b> again:
+
+<pre>
+&#62; d2 = diff(d)
+&#62; names(d2) = seq(1810, 1970, by=10)
+&#62; d2
+...
+ 1810  1820  1830  1840  1850  1860  1870  1880  1890  1900
+ 0.55  0.47  0.86  0.94  1.90  2.10  0.20  2.00  2.30  0.40
+ 1910  1920  1930  1940  1950  1960  1970
+ 2.90 -2.30  3.40 -8.20 10.70  8.40 -4.10
+
+</pre>
+The drop in population increase occurred during the times of World War
+I, the Great Depression, and the Vietnam War.
+
+<div class="p"><!----></div>

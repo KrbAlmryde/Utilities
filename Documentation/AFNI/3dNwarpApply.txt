@@ -1,0 +1,37 @@
+Usage: 3dNwarpApply [options] sourcedataset
+
+Program to apply a nonlinear warp saved from 3dAllineate -nwarp_save
+to a dataset, to produce a warped version of the source dataset.
+
+OPTIONS:
+--------
+ -nwarp  www  = 'www' is the name of the 3D warp dataset
+ -wfac   fff  = Scale the warp by factor 'fff' [default=1.0]
+ -source sss  = 'sss' is the name of the source dataset
+                ++ That is, the dataset to be warped
+ -master mmm  = 'mmm  is the name of the master dataset
+                ++ Defines the output grid.
+                ++ If '-master' is not used, then output
+                   grid is the same as the source dataset grid.
+ -newgrid dd  = 'dd' is the new grid spacing (in mm)
+                ++ This lets you resize the grid without
+                   needing to use '-master'.
+ -interp iii  = 'iii' is the interpolation mode
+                ++ Default interpolation mode is 'wsinc5' (slowest, bestest)
+                ++ Available modes are the same as in 3dAllineate:
+                     NN  linear  cubic  quintic  wsinc5
+                ++ The same interpolation mode is used for the warp
+                   itself (if needed) and then for the data being warped.
+ -prefix ppp  = 'ppp' is the name of the new output dataset
+ -quiet       = Don't be verbose :-(
+ -verb        = Be extra verbose :-)
+
+NOTES:
+------
+* At present, this program doesn't work with 2D warps, only with 3D.
+* At present, the output is always in float format, no matter what
+   absurd data type is in the input.
+* Program 3dNwarpCalc could be used to operate on 3D warps:
+  ++ Catenate them; invert them; pre- or post-apply an affine warp.
+  ++ Alas!  3dNwarpCalc has yet to be written.  If AFNI survives the
+     coming budget cuts, then it will be forthcoming later in 2011.

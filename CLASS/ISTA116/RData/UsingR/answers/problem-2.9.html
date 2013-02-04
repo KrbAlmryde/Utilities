@@ -1,0 +1,27 @@
+
+
+
+
+
+
+
+
+<title> problem-2.9</title>
+    
+<h1 align="center">problem-2.9 </h1>
+<b>problem-2.9</b>&nbsp;
+    This shows the number of doctors with that many awards. The
+    great majority involve just one award
+    
+<pre>
+&#62; table(table(npdb$ID))
+
+   1    2    3    4    5    6    8   11   15   22   73
+6105  235   12    4    7    1    1    1    1    1    1
+&#62; tmp = table(table(npdb$ID))
+&#62; sum(tmp[-1])/sum(tmp)         # percent 2 or more
+[1] 0.04145
+    
+</pre>
+
+<div class="p"><!----></div>

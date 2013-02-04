@@ -1,0 +1,28 @@
+
+
+
+
+
+
+
+
+<title> problem-10.11</title>
+    
+<h1 align="center">problem-10.11 </h1>
+<b>problem-10.11</b>&nbsp;
+    The predicted value can be found with <b>predict()</b>. Though
+    you may not want to believe it, as the model has some issues.  The
+    simple plot of the residuals shows values that are scattered
+    around 0, with nothing unusual. However, the second plot using the
+    1970 values on the x-axis instead of the index, shows that the
+    variance increases with the price of the house.
+    
+<pre>
+&#62; res = lm(y2000 ~ y1970, data=homedata)
+&#62; pred(res, newdata=dataframe(y1970=80000))
+&#62; predict(res, newdata=data.frame(y1970=80000))
+[1] 321185
+&#62; plot(resid(res))              # simple plot
+&#62; plot(homedata$y1970,resid(res)) # shows spread
+
+</pre>

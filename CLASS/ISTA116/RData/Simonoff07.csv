@@ -1,0 +1,3 @@
+Nation,Capacity.shortage,Crime.or.Outside,Demand.System.protection,Equipment.failure,Fire,Natural.disaster,Weather,Human.Oper.error,Unknown
+United.States,15,15,11,111,12,6,190,26,10
+Canada,1,7,2,39,0,0,31,16,2

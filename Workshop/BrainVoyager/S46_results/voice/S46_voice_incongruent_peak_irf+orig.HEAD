@@ -1,0 +1,116 @@
+
+type = string-attribute
+name = HISTORY_NOTE
+count = 4255
+'[kylealmryde@hagar.local: Mon Jun 20 17:02:07 2011] ===================================\n[kylealmryde@hagar.local: Mon Jun 20 17:02:07 2011] === History of inputs to 3dcalc ===\n[kylealmryde@hagar.local: Mon Jun 20 17:02:07 2011] === Input a:\n[kylealmryde@hagar.local: Mon Jun 20 17:02:07 2011] [kylealmryde@hagar.local: Mon Jun 20 17:01:58 2011] 3dTcat -prefix S46_voice_tcat '/Volumes/Data/Stroop/S46/run_voice/S46_voice_epan+orig[4..$]'\n[kylealmryde@hagar.local: Mon Jun 20 17:01:59 2011] 3dTshift -tzero 0 -rlt+ -quintic -prefix S46_voice_tshift S46_voice_tcat+orig\n[kylealmryde@hagar.local: Mon Jun 20 17:02:02 2011] 3dvolreg -verbose -zpad 1 -base 'S46_voice_tshift+orig[78]' -1Dfile dfile_S46_voice.1D -prefix S46_voice_volreg -cubic S46_voice_tshift+orig\n[kylealmryde@hagar.local: Mon Jun 20 17:02:06 2011] 3dmerge -1blur_fwhm 6.0 -doall -prefix S46_voice_blur S46_voice_volreg+orig\n[kylealmryde@hagar.local: Mon Jun 20 17:02:07 2011] === Input b:\n[kylealmryde@hagar.local: Mon Jun 20 17:02:07 2011] [kylealmryde@hagar.local: Mon Jun 20 17:01:58 2011] 3dTcat -prefix S46_voice_tcat '/Volumes/Data/Stroop/S46/run_voice/S46_voice_epan+orig[4..$]'\n[kylealmryde@hagar.local: Mon Jun 20 17:01:59 2011] 3dTshift -tzero 0 -rlt+ -quintic -prefix S46_voice_tshift S46_voice_tcat+orig\n[kylealmryde@hagar.local: Mon Jun 20 17:02:02 2011] 3dvolreg -verbose -zpad 1 -base 'S46_voice_tshift+orig[78]' -1Dfile dfile_S46_voice.1D -prefix S46_voice_volreg -cubic S46_voice_tshift+orig\n[kylealmryde@hagar.local: Mon Jun 20 17:02:06 2011] 3dmerge -1blur_fwhm 6.0 -doall -prefix S46_voice_blur S46_voice_volreg+orig\n[kylealmryde@hagar.local: Mon Jun 20 17:02:07 2011] 3dTstat -prefix S46_voice_mean S46_voice_blur+orig\n[kylealmryde@hagar.local: Mon Jun 20 17:02:07 2011] === Input c:\n[kylealmryde@hagar.local: Mon Jun 20 17:02:07 2011] [kylealmryde@hagar.local: Mon Jun 20 17:01:58 2011] 3dTcat -prefix S46_voice_tcat '/Volumes/Data/Stroop/S46/run_voice/S46_voice_epan+orig[4..$]'\n[kylealmryde@hagar.local: Mon Jun 20 17:01:59 2011] 3dTshift -tzero 0 -rlt+ -quintic -prefix S46_voice_tshift S46_voice_tcat+orig\n[kylealmryde@hagar.local: Mon Jun 20 17:02:02 2011] 3dvolreg -verbose -zpad 1 -base 'S46_voice_tshift+orig[78]' -1Dfile dfile_S46_voice.1D -prefix S46_voice_volreg -cubic S46_voice_tshift+orig\n[kylealmryde@hagar.local: Mon Jun 20 17:02:06 2011] 3dmerge -1blur_fwhm 6.0 -doall -prefix S46_voice_blur S46_voice_volreg+orig\n[kylealmryde@hagar.local: Mon Jun 20 17:02:07 2011] 3dAutomask -prefix S46_voice_automask S46_voice_blur+orig\n[kylealmryde@hagar.local: Mon Jun 20 17:02:07 2011] ===================================\n[kylealmryde@hagar.local: Mon Jun 20 17:02:07 2011] 3dcalc -a S46_voice_blur+orig -b S46_voice_mean+orig -c S46_voice_automask+orig -expr 'c * min(200, a/b*100)' -prefix S46_voice_norm\n[kylealmryde@hagar.local: Mon Jun 20 17:02:13 2011] 3dDeconvolve -input S46_voice_norm+orig -polort 5 -mask S46_voice_automask+orig -num_stimts 10 -local_times -stim_times 1 /Volumes/Data/Stroop/Utilities/voice_congruent.txt GAM -stim_label 1 S46_voice_congruent -stim_times 2 /Volumes/Data/Stroop/Utilities/voice_incongruent.txt GAM -stim_label 2 S46_voice_incongruent -stim_times 3 /Volumes/Data/Stroop/Utilities/voice_neutral.txt GAM -stim_label 3 S46_voice_neutral -stim_times 4 /Volumes/Data/Stroop/Utilities/voice_null.txt GAM -stim_label 4 S46_voice_null -stim_file 5 'dfile_S46_voice.1D[0]' -stim_base 5 -stim_label 5 roll -stim_file 6 'dfile_S46_voice.1D[1]' -stim_base 6 -stim_label 6 pitch -stim_file 7 'dfile_S46_voice.1D[2]' -stim_base 7 -stim_label 7 yaw -stim_file 8 'dfile_S46_voice.1D[3]' -stim_base 8 -stim_label 8 dS -stim_file 9 'dfile_S46_voice.1D[4]' -stim_base 9 -stim_label 9 dL -stim_file 10 'dfile_S46_voice.1D[5]' -stim_base 10 -stim_label 10 dP -iresp 1 S46_voice_congruent_irf -TR_times 0.575 -iresp 2 S46_voice_incongruent_irf -TR_times 0.575 -iresp 3 S46_voice_neutral_irf -TR_times 0.575 -iresp 4 S46_voice_null_irf -TR_times 0.575 -tout -x1D voice_X_matrix.1D -xjpeg voice_X_matrix.jpg -bucket S46_voice_bucket ; Impulse response: S46_voice_incongruent_irf\n[kylealmryde@hagar.local: Mon Jun 20 17:02:14 2011] 3dbucket -prefix S46_voice_incongruent_peak_irf -fbuc 'S46_voice_incongruent_irf+orig[8]'~
+
+type = string-attribute
+name = TYPESTRING
+count = 15
+'3DIM_HEAD_FUNC~
+
+type = string-attribute
+name = IDCODE_STRING
+count = 27
+'XYZ_whntleksRktq8IjufN5FDg~
+
+type = string-attribute
+name = IDCODE_DATE
+count = 25
+'Mon Jun 20 17:02:14 2011~
+
+type = integer-attribute
+name = SCENE_DATA
+count = 8
+ 0 11 1 -999 -999
+ -999 -999 -999
+
+type = string-attribute
+name = LABEL_1
+count = 5
+'zyxt~
+
+type = string-attribute
+name = LABEL_2
+count = 5
+'zyxt~
+
+type = string-attribute
+name = DATASET_NAME
+count = 5
+'zyxt~
+
+type = integer-attribute
+name = ORIENT_SPECIFIC
+count = 3
+ 0 3 4
+
+type  = float-attribute
+name  = ORIGIN
+count = 3
+       -118.125       -118.125          -62.5
+
+type  = float-attribute
+name  = DELTA
+count = 3
+           3.75           3.75              5
+
+type  = float-attribute
+name  = IJK_TO_DICOM
+count = 12
+           3.75              0              0       -118.125              0
+           3.75              0       -118.125              0              0
+              5          -62.5
+
+type  = float-attribute
+name  = IJK_TO_DICOM_REAL
+count = 12
+           3.75              0              0       -118.125              0
+           3.75              0       -118.125              0              0
+              5          -62.5
+
+type  = float-attribute
+name  = BRICK_STATS
+count = 2
+      -11.51927       69.83528
+
+type = integer-attribute
+name = DATASET_RANK
+count = 8
+ 3 1 0 0 0
+ 0 0 0
+
+type = integer-attribute
+name = DATASET_DIMENSIONS
+count = 5
+ 64 64 26 0 0
+
+type = integer-attribute
+name = BRICK_TYPES
+count = 1
+ 3
+
+type  = float-attribute
+name  = BRICK_FLOAT_FACS
+count = 1
+              0
+
+type = string-attribute
+name = BRICK_LABS
+count = 3
+'#8~
+
+type = string-attribute
+name = TEMPLATE_SPACE
+count = 5
+'ORIG~
+
+type = integer-attribute
+name = INT_CMAP
+count = 1
+ 0
+
+type = string-attribute
+name = BYTEORDER_STRING
+count = 10
+'LSB_FIRST~

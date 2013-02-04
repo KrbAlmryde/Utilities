@@ -1,0 +1,34 @@
+
+
+
+
+
+
+
+
+<title> problem-2.34</title>
+    
+<h1 align="center">problem-2.34 </h1>
+<b>problem-2.34</b>&nbsp;
+    The graphics can be produced with these commands:
+    
+<pre>
+&#62; data(DDT, package="MASS")     # load from MASS package
+&#62; hist(DDT)
+&#62; boxplot(DDT)
+    
+</pre>
+    The histogram shows the data to be roughly symmetric, with one
+    outlying value, so the mean and median should be similar and the
+    standard deviation about three-quarters the IQR. The median and
+    IQR can be identified on the boxplot giving estimates of 3.2 for
+    the mean and a standard deviation a little less than 0.5. We can
+    check with this command:
+    
+<pre>
+&#62; c(mean(DDT), sd(DDT))
+[1] 3.3280 0.4372
+    
+</pre>
+
+<div class="p"><!----></div>

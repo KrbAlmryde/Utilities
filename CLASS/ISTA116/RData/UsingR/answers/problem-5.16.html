@@ -1,0 +1,35 @@
+
+
+
+
+
+
+
+
+<title> problem-5.16</title>
+    
+<h1 align="center">problem-5.16 </h1>
+<b>problem-5.16</b>&nbsp;
+    We assume that the scores are normally distributed. A student picked
+    at random has a score that is
+    assumed to be normally distributed with mean 20.6 and   5.5.
+    We compute \PROB(X  &gt;  22) with
+    
+<pre>
+&#62; 1 - pnorm(22,20.6,5.5)
+[1] 0.3995
+    
+</pre>
+    Thus, about 40% of the students passed the exam.
+
+<div class="p"><!----></div>
+    How many more would be expected to fail if the mark were moved? We multiply the
+    probability times  the sample size to get
+    
+<pre>
+&#62; 1000000 * diff(pnorm(c(22,23), mean=20.6, sd=5.5))
+[1] 68251
+    
+</pre>
+
+<div class="p"><!----></div>

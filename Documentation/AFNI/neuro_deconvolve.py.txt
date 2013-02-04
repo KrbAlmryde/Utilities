@@ -1,0 +1,86 @@
+
+===========================================================================
+neuro_deconvolve.py:
+
+Generate a script that would apply 3dTfitter to deconvolve an MRI signal
+(BOLD response curve) into a neuro response curve.
+
+Required parameters include an input dataset, a script name and an output
+prefix.
+
+----------------------------------------------------------------------
+examples:
+
+    1. 3d+time example
+
+        neuro_deconvolve.py                     \
+                -input run1+orig                \
+                -script script.neuro            \
+                -mask_dset automask+orig        \
+                -prefix neuro_resp
+
+    2. 1D example
+
+        neuro_deconvolve.py             \
+                -input epi_data.1D      \
+                -tr 2.0                 \
+                -script script.1d       \
+                -prefix neuro.1D
+
+
+----------------------------------------------------------------------
+informational arguments:
+
+    -help                       : display this help
+    -hist                       : display the modification history
+    -show_valid_opts            : display all valid options (short format)
+    -ver                        : display the version number
+
+----------------------------------------
+required arguments:
+
+    -input INPUT_DATASET        : set the data to deconvolve
+
+        e.g. -input epi_data.1D
+
+    -prefix PREFIX              : set the prefix for output filenames
+
+        e.g. -prefix neuro_resp
+
+                --> might create: neuro_resp+orig.HEAD/.BRIK
+
+    -script SCRIPT              : specify the name of the output script
+
+        e.g. -script neuro.script
+
+----------------------------------------
+optional arguments:
+
+
+    -kernel KERNEL              : set the response kernel
+
+        default: -kernel GAM
+
+    -kernel_file FILENAME       : set the filename to store the kernel in
+
+        default: -kernel_file resp_kernel.1D
+
+    -mask_dset DSET             : set a mask dataset for 3dTfitter to use
+
+        e.g. -mask_dset automask+orig
+
+    -tr TR                      : set the scanner TR
+
+        e.g. -tr 2.5
+
+        The TR is needed for 1D formatted input files.  It is not needed
+        for AFNI 3d+time datasets, since the TR is in the file.
+
+    -verb LEVEL                 : set the verbose level
+
+        e.g. -verb 2
+
+
+- R Reynolds  June 12, 2008
+===========================================================================
+

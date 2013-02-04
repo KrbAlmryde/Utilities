@@ -1,0 +1,3 @@
+Usage: Xphace im1 [im2]
+Interactive image mergerizing via FFTs.
+Image files are in PGM or JPEG format.
