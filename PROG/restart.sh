@@ -3,7 +3,7 @@
 echo "------------------------------- restart.sh --------------------------------"
 echo "-------------------------------- ${2} ------------------------------"
 ####################################################################################################
-# Usage `call restart <experiment_tag> <block_option>
+# Usage call restart <experiment_tag> <block_option>
 #Be very careful with this option, it will restart everything!
 ####################################################################################################
 if [ "${2}" = "preprocess" ]; then
@@ -52,13 +52,17 @@ if [ "${2}" = "preprocess" ]; then
 		rm ${subrun}.automask.nii*
 		rm ${subrun}.mean.nii*
 		rm ${subrun}.scale.nii*
-####################################################################################################
+###################################################################################################
 elif [ "${2}" = "glm" ]; then
 	################################################################################################
 	cd ${glm_dir}
+		rm log.*
+		rm ideal.*
+		rm *.FWHMx.txt
+		rm *.detrend.1D
+		rm 3dDeconvolve.err
 		rm ${subj}.REML_cmd
 		rm log.${subrun}.deconvolve.txt
-		rm log.*
 	################################################################################################
 	cd ${glm_dir}/etc
 		rm ${submod}.RegressofInterest.jpg
@@ -67,24 +71,25 @@ elif [ "${2}" = "glm" ]; then
 		rm ${subrun}.automask.nii
 		rm ${subrun}.dfile.1D
 		rm ${subrun}.scale.nii*
+		rm ${run}.FWHMx.txt
 		rm motion.${subrun}_censor.1D
 ################################################################################################
 	cd ${glm_dir}/FUNC
-		rm ${submod}.errts.*
-		rm ${submod}.fitts.*
-		rm ${submod}.stats.*
-		rm ${submod}.Fstat*
+		rm ${submod}.errts*
+		rm ${submod}.fitts*
+		rm ${submod}.stats*
+		rm ${submod}.Full*
 		rm ${subrun}.scale.nii*
 	################################################################################################
 	cd ${glm_dir}/IRESP
-		rm ${subcond1}.irf.nii
-		rm ${subcond1}.sirf.nii
-		rm ${subcond2}.irf.nii
-		rm ${subcond2}.sirf.nii
-		rm ${subcond3}.irf.nii
-		rm ${subcond3}.sirf.nii
-		rm ${subcond4}.irf.nii
-		rm ${subcond4}.sirf.nii
+		rm ${subcond1}.irf*
+		rm ${subcond1}.sirf*
+		rm ${subcond2}.irf*
+		rm ${subcond2}.sirf*
+		rm ${subcond3}.irf*
+		rm ${subcond3}.sirf*
+		rm ${subcond4}.irf*
+		rm ${subcond4}.sirf*
 		rm ${subrun}.scale.nii*
 	################################################################################################
 	cd ${glm_dir}/MODEL
@@ -95,24 +100,42 @@ elif [ "${2}" = "glm" ]; then
 		rm ideal.${subcond4}.1D
 	################################################################################################
 	cd ${glm_dir}/REML
-		rm ${submod}.errts.REML.*
-		rm ${submod}.fitts.REML.*
-		rm ${submod}.stats.REML.*
-		rm ${submod}.stats.REMLvar.*
+		rm *REML*
+		rm ${submod}.errts.REML*
+		rm ${submod}.fitts.REML*
+		rm ${submod}.stats.REML*
+		rm ${submod}.stats.REMLvar*
 		rm ${subrun}.scale.nii*
+		rm ${subcond1}.Fstat+tlrc.*
+		rm ${subcond2}.Fstat+tlrc.*
+		rm ${subcond3}.Fstat+tlrc.*
+		rm ${subcond4}.Fstat+tlrc.*
 	################################################################################################
 	cd ${prep_dir}
 		cp ${subrun}.scale.nii.gz ${glm_dir}
+		cp ${subrun}.automask.nii ${glm_dir}
 		cp etc/${subrun}.dfile.1D ${glm_dir}
 		cp etc/motion.${subrun}_censor.1D ${glm_dir}
 ####################################################################################################
 elif [ "${2}" = "GLM" ]; then
 	################################################################################################
-	cd ${GLM_dir}/FUNC/${run}
+	cd ${GLM_dir}/FUNC
 		rm ${subcond1}.FUNC+tlrc.*
 		rm ${subcond2}.FUNC+tlrc.*
 		rm ${subcond3}.FUNC+tlrc.*
 		rm ${subcond4}.FUNC+tlrc.*
+	################################################################################################
+	cd ${GLM_dir}/FUNC/Fstat
+		rm ${subcond1}.Fstat+tlrc.*
+		rm ${subcond2}.Fstat+tlrc.*
+		rm ${subcond3}.Fstat+tlrc.*
+		rm ${subcond4}.Fstat+tlrc.*
+	################################################################################################
+	cd ${GLM_dir}/REML
+		rm ${subcond1}.REML+tlrc.*
+		rm ${subcond2}.REML+tlrc.*
+		rm ${subcond3}.REML+tlrc.*
+		rm ${subcond4}.REML+tlrc.*
 	################################################################################################
 	cd ${GLM_dir}/IRESP/${run}
 		rm ${subcond1}.peak*+tlrc.*
@@ -154,11 +177,30 @@ elif [ "${2}" = "register" ]; then
 		rm ${subrun}.automask.nii*
 		rm ${subrun}.mean.nii*
 		rm ${subrun}.scale*
+		rm ${subrun}.outs*
 		rm *motion.${subrun}*
+		rm log.${subrun}.register.txt
+		rm log.${subrun}.reconstruct.txt
+		rm log.${subrun}.restart.txt
 	cd ${prep_dir}/etc
 		rm ${subrun}.dfile.1D
-		rm log.${subrun}.register.txt
-		rm log.${subrun}.register.txt
+		rm ${subrun}.outliers.txt
+		rm ${subrun}.tcat_outs.txt
+		rm ${subrun}.tshift_outs.txt
+		rm ${subrun}.despike_outs.txt
+		rm ${subrun}.volreg_outs.txt
+		rm ${subrun}.scale.txt
+		rm ${subrun}.outliers.jpg
+		rm ${subrun}.tcat_outs.jpg
+		rm ${subrun}.tshift_outs.jpg
+		rm ${subrun}.despike_outs.jpg
+		rm ${subrun}.outs.jpg
+		rm ${subrun}.scale.jpg
+		rm ${subrun}.volreg.jpg
+		rm ${subrun}.volreg_outs.jpg
+		rm motion.${subrun}_CENSORTR.txt
+		rm motion.${subrun}_censor.1D
+		rm motion.${subrun}_enorm.1D
 ####################################################################################################
 # This section is for Group related block restarts
 ####################################################################################################
@@ -207,5 +249,22 @@ elif [ "${2}" = "anat" ]; then
 	cd ${orig_dir}
 		mv e[0-9][0-9][0-9][0-9]s[2789]i* ../Struc
 ####################################################################################################
+elif [ "${2}" = "reg" ]; then
+	################################################################################################
+	# Remove functional .nii files
+		cd ${func_dir}/
+		rm -r ${runsub}.reg
+		rm ${runsub}.*.nii
+		rm ${runsub}*scale*
+		rm ${runsub}_*.nii
+		rm ${runsub}.*.txt
+		rm ${runsub}_*.txt
+		rm ${runsub}.*.jpeg
+		rm ${runsub}_*.jpeg
+		rm ${runsub}.*.jpg
+		rm ${runsub}_*.jpg
+		rm ${runsub}_*.1D
+		rm motion*
+
 fi
 

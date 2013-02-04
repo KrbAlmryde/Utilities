@@ -1,8 +1,8 @@
 #!/bin/sh
 # define path variables that can be called by my scripts
-source /usr/local/ref/subject_profile
+source /usr/local/ref/subject_profile.sh
 
-# Redundant, but should eventually go only here (not in subject_profile).
+# Redundant, but should eventually go only here (not in subject_profile.sh).
 export EPRIME=${FUNC}/Eprime
 export MR_NUM=`cat MRNUM.txt`
 export IJN=${FUNC}/IJN

@@ -3,11 +3,11 @@
 # This list specifies variables specifc to the STLD study
 ####################################################################################################
 #
-# Sourcing the exp_profile so our variables get passed to the shell properly
+# Sourcing the exp_profile.sh so our variables get passed to the shell properly
 
-. $DRIVR/exp_profile
+. $DRIVR/exp_profile.sh
 
-echo "STLD_profile has been sourced"
+echo "STLD_profile.sh has been sourced"
 ####################################################################################################
 #
 # These are path variables that will be specified in the individual program scripts

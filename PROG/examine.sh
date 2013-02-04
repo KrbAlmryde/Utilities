@@ -15,4 +15,15 @@ echo "the ${1} imaging experiment. It will match resposes, average results, then
 echo "various items from the Test-Phase to the corresponding Study-Phase"
 echo "-------------------------------- ${subrun} --------------------------------"
 echo ""
-###################################################################################################
+####################################################################################################
+# Pass the contents of Report.${subrun}.txt to awk
+####################################################################################################
+
+cat Report.${subrun}.txt 
+
+if [ "${run}" = "TP1" ] 
+#truepos=CA falsepos=IA trueneg=CR falsenega=IR 
+#"Old = 1" CA
+#"Old = 0" IR
+#"New = 1" CR
+#"New = 0" IA

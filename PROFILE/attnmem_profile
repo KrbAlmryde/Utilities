@@ -1,8 +1,8 @@
 #This list specifies variables specifc to the ATTNMEM study
-# Sourcing the exp_profile so our variables get passed to the shell properly
-. $DRIVR/exp_profile
+# Sourcing the exp_profile.sh so our variables get passed to the shell properly
+. $DRIVR/exp_profile.sh
 
-echo "attnmem_profile has been sourced"
+echo "attnmem_profile.sh has been sourced"
 
 # Paths to be specified in BLK scripts
 subj_dir=${ATTNMEM}/${subj}

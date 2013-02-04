@@ -1,0 +1,193 @@
+#!/bin/tcsh
+
+# This script is meant to help review single subject results.
+#
+# It should be run from a '.results' directory, produced by an
+# afni_proc.py processing script.
+# 
+# It will not use variables, so that commands are very clear to users
+# who read the script.  Hopefully the only "ugly" things will be the
+# prompt_user commands, which need to pass text to the prompt program.
+#
+# Some AFNI commands have extra options supplied to make them more
+# clear when executing.  Users need not bother with such worries when
+# running similar commands on their own.
+#
+# at each step:
+#    - a "review" command is executed
+#    - a prompt explains to the user what to do or look at
+#    - when ready to proceed, the user clicks OK in the prompt window
+
+# ------------------------------------------------------------
+# if the expected "basic" script is here, run it
+
+if ( -f @ss_review_basic ) then
+   echo ------------------- @ss_review_basic --------------------
+   tcsh -ef @ss_review_basic
+   echo ---------------------------------------------------------
+
+   prompt_user -pause "                      \
+      review output from @ss_review_basic    \
+      (in terminal window) for anything that \
+      looks unreasonable                     \
+                                             \
+      --- click OK when finished ---         \
+      "
+   echo ""
+else
+   echo ""
+   echo "*** missing @ss_review_basic script ***"
+   echo ""
+endif
+
+# ------------------------------------------------------------
+# possibly consider running the @epi_review script here
+
+
+echo ------------------- outliers and motion --------------------
+
+1dplot -wintitle "motion, outliers" -ynames Mot OFrac \
+       -censor_RGB green -censor censor_TS004_combined_2.1D  \
+       -sepscl motion_TS004_enorm.1D outcount.rall.1D &
+1dplot -one -censor_RGB green -censor censor_TS004_combined_2.1D  \
+       outcount.rall.1D "1D: 150@0.1" &
+1dplot -one -censor_RGB green -censor censor_TS004_combined_2.1D  \
+       motion_TS004_enorm.1D "1D: 150@1" &
+
+prompt_user -pause "                              \
+   review plots (colored TRs are censored):       \
+     - outliers and motion (plotted together)     \
+     - outliers with limit 0.1                    \
+     - motion with limit 1                      \
+                                                  \
+   --- close plots and click OK when finished --- \
+   "
+echo ""
+
+
+echo ----------------- anat/EPI alignment check -----------------
+
+# start afni with anat and volreg datasets only
+afni anat_final.TS004+tlrc.HEAD pb02.TS004.r01.volreg+tlrc.HEAD &
+
+
+prompt_user -pause "                                     \
+   review: check alignment between anat and EPI          \
+      - set underlay to anat                             \
+      - set overlay to EPI                               \
+      - look at gross alignment, maybe with thresholding \
+      - turn off 'See Overlay'                           \
+      - use 'u' key in image windows to toggle underlay  \
+        dataset between anat and EPI                     \
+          - CSF should be dark in anat and bright in EPI \
+      - follow ventricles and gyral patterns             \
+                                                         \
+   --- close afni and click OK when finished ---         \
+   "
+
+
+echo -------------------- regession warnings --------------------
+
+# if 3dDeconvolve made an error/warnings file, show it
+if ( -f 3dDeconvolve.err ) then
+   echo ------------- 3dDeconvolve.err -------------
+   cat 3dDeconvolve.err
+   echo --------------------------------------------
+else
+   echo --- no 3dDeconvolve.err warnings file ---   
+endif
+
+echo ""
+
+# show any timing_tool.py warnings about TENTs        
+if ( -f out.TENT_warn.txt ) then
+   echo ------------ out.TENT_warn.txt -------------
+   cat out.TENT_warn.txt
+   echo --------------------------------------------
+else
+   echo --- no out.TENT_warn.txt warnings file ---  
+endif
+
+echo ""
+
+# show any pairwise correlation warnings from X-matrix
+echo ----------- correlation warnings -----------
+1d_tool.py -show_cormat_warnings -infile X.xmat.1D
+echo --------------------------------------------
+
+# if there are any pre-steady state warnings, show them
+if ( -f out.pre_ss_warn.txt && ! -z out.pre_ss_warn.txt ) then
+   echo --------- pre-steady state warnings --------
+   cat out.pre_ss_warn.txt
+   echo --------------------------------------------
+endif
+
+
+prompt_user -pause "                                 \
+   review: check for regression warnings             \
+      - review any warnings from 3dDeconvolve        \
+      - review any TENT warnings from timing_tool.py \
+      - review any X-matrix warnings from 1d_tool.py \
+                                                     \
+   --- click OK when finished ---                    \
+   "
+
+
+echo ------------------------- X-matrix -------------------------
+
+# plot X-matrix, but without baseline and motion
+if ( -f X.stim.xmat.1D ) then
+   1dplot -sepscl X.stim.xmat.1D &
+else
+   echo --- no file X.stim.xmat.1D ---   
+endif
+
+# also plot the sum of those same regressors
+if ( -f sum_ideal.1D ) then
+   1dplot sum_ideal.1D &
+else
+   echo --- no file sum_ideal.1D ---   
+endif
+
+
+prompt_user -pause "                                 \
+   review: non-baseline regressors in X-matrix       \
+      - X.stim.xmat.1D shows non-baseline regressors \
+      - sum_ideal.1D shows their sum                 \
+                                                     \
+   --- close plots and click OK when finished ---    \
+   "
+
+
+echo -------------------- view stats results --------------------
+
+# get 90 percentile for thresholding in afni GUI
+set pp = ( `3dBrickStat -slow -percentile 90 1 90 \
+            -mask full_mask.TS004+tlrc stats.TS004+tlrc"[0]"` )
+set thresh = $pp[2]
+echo -- thresholding F-stat at $thresh
+
+# locate peak coords of biggest cluster and jump there
+set maxcoords = ( `3dclust -1thresh $thresh -dxyz=1 1 2 \
+    stats.TS004+tlrc"[0]" | & awk '/^ / {print $14, $15, $16}' | head -n 1` )
+echo -- jumping to max coords: $maxcoords
+
+# start afni with stats thresholding at peak location
+afni -com "OPEN_WINDOW A.axialimage"     \
+     -com "OPEN_WINDOW A.sagittalimage"  \
+     -com "SWITCH_UNDERLAY anat_final.TS004" \
+     -com "SWITCH_OVERLAY stats.TS004"   \
+     -com "SET_SUBBRICKS A 0 0 0"        \
+     -com "SET_THRESHNEW A $thresh"      \
+     -com "SET_DICOM_XYZ A $maxcoords"
+
+
+prompt_user -pause "                                 \
+   review: peruse statistical retsults               \
+      - thresholding Full-F at masked 90 percentile  \
+        (thresh = $thresh)                           \
+                                                     \
+   --- close afni and click OK when finished ---     \
+   "
+
+

@@ -1,0 +1,64 @@
+# Finds the first instance of the pattern, does not look for lowest possible
+awk '/   [ 1][0-9]$/ {print NR-1;exit}' run1_sub003.outliers.txt
+
+
+
+
+
+awk '{
+	if(max < $1){ max=$1}
+	if(max > $1){ min=$1}
+	if(min < $1){ min=$1}
+	{print NR-1;exit}
+}' run1_sub003.outliers.txt
+
+
+# This finds the min value, but I dont know how to restrict the amount of output
+# to just one 
+awk '{ if($1>=100){ max=$1}; if(max < $1){ max=$1}; if($1<=10){ min=$1}; if(min > $1){ min=$1}; {print min}}' run1_sub003.outliers.txt
+
+
+# This finds the max fine
+awk '{max=(max>$1)?max:$1}END{print max}' run1_sub003.outliers.txt
+
+# This is matching a newline and/or whitespace...
+awk '{min=(min<$1)?min:$1}END{print min}' run1_sub003.outliers.txt
+
+# The max works, but not the min, and the pattern isnt getting expanded
+pattern=`awk '{max=(max>$1)?max:$1}END{print min}' run1_sub003.outliers.txt` 
+line=`grep -n '*(`echo $min`$)' run1_sub003.outliers.txt`
+
+
+
+# This has potential, the awk command works, and the min variable can expand variables within it
+min=`sort -nk 2 < run1_sub003.outliers.txt | head -1`
+grep -n '`echo $min`' run1_sub003.outliers.txt
+awk '/`echo $min`/ {print NR-1;exit}' run1_sub003.outliers.txt
+
+awk '/`echo $min`/ {print NR-1;exit}' run1_sub003.outliers.txt
+
+
+	# This works well if we know what the explicit pattern is. In this case we want a " 1" at the end of the line
+	# which we pass to awk to print the first field (which is the number line) -1
+	egrep -n ' 1$' run1_sub003.outliers.txt | awk '{print $1-1}' 
+
+
+min=`sort -nk 2 < run1_sub003.outliers.txt | head -1`
+
+echo $1
+
+
+
+
+egrep -n ' `echo ${min}`$' run1_sub003.outliers.txt | awk '{print $1-1}'
+
+cat -n run1_sub003.outliers.txt | sort -k2,2n | head -1
+
+# This actually does the trick... fuckin A
+cat -n run1_sub003.outliers.txt | sort -k2,2n | head -1 | awk '{print $1-1}'
+
+
+
+
+
+cat -n TS001.SP1.outliers.txt | sort -k2,2n | head -1 | awk '{print $1-1}'

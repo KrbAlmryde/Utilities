@@ -1,6 +1,6 @@
 #!/bin/sh
 # define path variables that can be called by my scripts
-source /usr/local/ref/img_profile
+source /usr/local/ref/img_profile.sh
 
 #Defined: IJN=/Exps/Data/IJN
 # This is the subject directory

@@ -1,0 +1,1010 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"new",
+				"newjava	newjava"
+			],
+			[
+				"di",
+				"displayComponents"
+			],
+			[
+				"I",
+				"Images"
+			],
+			[
+				"Mer",
+				"Merged"
+			],
+			[
+				"E",
+				"Etc"
+			],
+			[
+				"s",
+				"strippedComponents"
+			],
+			[
+				"M",
+				"Merged"
+			],
+			[
+				"for",
+				"forin	for … in … done"
+			],
+			[
+				"char",
+				"chars"
+			],
+			[
+				"c",
+				"char"
+			],
+			[
+				"fo",
+				"fore	Loop"
+			],
+			[
+				"pr",
+				"print"
+			],
+			[
+				"f",
+				"fname"
+			],
+			[
+				"in",
+				"infile"
+			],
+			[
+				"user",
+				"username"
+			],
+			[
+				"shf",
+				"shifts"
+			],
+			[
+				"num",
+				"numShifts"
+			],
+			[
+				"b",
+				"b"
+			],
+			[
+				"even",
+				"evenpos"
+			],
+			[
+				"tmp",
+				"tmpArray"
+			],
+			[
+				"el",
+				"elif	else if"
+			],
+			[
+				"to",
+				"total"
+			],
+			[
+				"str",
+				"strs"
+			],
+			[
+				"a",
+				"array"
+			],
+			[
+				"rever",
+				"revers"
+			],
+			[
+				"as",
+				"assertTrue"
+			],
+			[
+				"mmm",
+				"mmOmm"
+			],
+			[
+				"L",
+				"LoopsAndArrays"
+			],
+			[
+				"tT-",
+				"tT-Stdev"
+			],
+			[
+				"th",
+				"thresh"
+			],
+			[
+				"subj",
+				"subj_noNeg"
+			],
+			[
+				"cond",
+				"condition"
+			],
+			[
+				"tt",
+				"ttest"
+			],
+			[
+				"e",
+				"e"
+			],
+			[
+				"Com",
+				"COMBO"
+			],
+			[
+				"ME",
+				"MEAN"
+			],
+			[
+				"i",
+				"i"
+			],
+			[
+				"Ten",
+				"TenMethods"
+			],
+			[
+				"later",
+				"laterTime"
+			],
+			[
+				"earl",
+				"earlyTime"
+			],
+			[
+				"d",
+				"difference"
+			],
+			[
+				"ear",
+				"earlyTime"
+			],
+			[
+				"p",
+				"public"
+			],
+			[
+				"Te",
+				"TenMethods"
+			],
+			[
+				"T",
+				"Test"
+			],
+			[
+				"im",
+				"imt	import junit.framework.TestCase;"
+			],
+			[
+				"cs",
+				"csLatin"
+			],
+			[
+				"an",
+				"anitMatter"
+			],
+			[
+				"mi",
+				"mid1"
+			],
+			[
+				"re",
+				"return"
+			],
+			[
+				"oper",
+				"operations"
+			],
+			[
+				"case",
+				"case	case … esac"
+			],
+			[
+				"3d",
+				"3dbucket"
+			],
+			[
+				"de",
+				"defs	Method"
+			],
+			[
+				"hell",
+				"Hello"
+			],
+			[
+				"hel",
+				"Hello"
+			],
+			[
+				"main",
+				"MAIN"
+			],
+			[
+				"command",
+				"command-line"
+			],
+			[
+				"learn",
+				"learn"
+			],
+			[
+				"input",
+				"input"
+			],
+			[
+				"Commandline",
+				"command-line"
+			],
+			[
+				"_",
+				"_"
+			],
+			[
+				"S",
+				"STATS"
+			],
+			[
+				"regress",
+				"regress_convolve"
+			],
+			[
+				"sent",
+				"sent_block"
+			],
+			[
+				"set",
+				"setup_subjdir"
+			],
+			[
+				"run",
+				"runsub"
+			],
+			[
+				"File",
+				"file"
+			],
+			[
+				"W",
+				"WordBoundary1"
+			],
+			[
+				"ton",
+				"tone_block"
+			],
+			[
+				"sen",
+				"sent_block"
+			],
+			[
+				"r",
+				"roll_deriv"
+			],
+			[
+				"usage",
+				"usage"
+			],
+			[
+				"reg",
+				"regress_convolve"
+			],
+			[
+				"regre",
+				"regress_censor"
+			],
+			[
+				"F",
+				"FUNC"
+			],
+			[
+				"w",
+				"wordCount"
+			],
+			[
+				"if",
+				"ife	if … else … end"
+			],
+			[
+				"Target",
+				"TargetPos"
+			],
+			[
+				"j",
+				"j"
+			],
+			[
+				"n",
+				"n"
+			],
+			[
+				"dog",
+				"dogpos"
+			],
+			[
+				"stimuli",
+				"stimuli_framed"
+			],
+			[
+				"O",
+				"OCROP"
+			],
+			[
+				"fa",
+				"faRate"
+			],
+			[
+				"hit",
+				"hitRate"
+			],
+			[
+				"k",
+				"Kyle"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 227.0,
+		"selected_items":
+		[
+			[
+				"bas",
+				"Set Syntax: Shell Script (Bash)"
+			],
+			[
+				"She",
+				"Set Syntax: Shell Script (Bash)"
+			],
+			[
+				"Pare",
+				"Package Control: Remove Package"
+			],
+			[
+				"syjava",
+				"Set Syntax: Java"
+			],
+			[
+				"SynP",
+				"Set Syntax: Python"
+			],
+			[
+				"py",
+				"SublimeREPL: Python"
+			],
+			[
+				"SMart",
+				"SMART Snippets: Create New SMART Snippet"
+			],
+			[
+				"replsh",
+				"SublimeREPL: Shell"
+			],
+			[
+				"Pack",
+				"Package Control: Install Package"
+			],
+			[
+				"Pac",
+				"Package Control: Enable Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"Add Re",
+				"Package Control: Add Repository"
+			],
+			[
+				"repl",
+				"SublimeREPL: Python"
+			],
+			[
+				"Inst",
+				"Package Control: Install Package"
+			],
+			[
+				"sy perl",
+				"Set Syntax: Perl"
+			],
+			[
+				"synper",
+				"Set Syntax: Perl"
+			],
+			[
+				"sy per",
+				"Set Syntax: Perl"
+			],
+			[
+				"set sy per",
+				"Set Syntax: Perl"
+			],
+			[
+				"con",
+				"Indentation: Convert to Spaces"
+			],
+			[
+				"to",
+				"View: Toggle Side Bar"
+			],
+			[
+				"conversp",
+				"Indentation: Convert to Spaces"
+			],
+			[
+				"synpy",
+				"Set Syntax: Python"
+			],
+			[
+				"vi",
+				"View: Toggle Side Bar"
+			],
+			[
+				"gitco",
+				"Git: Commit"
+			],
+			[
+				"giad",
+				"Git: Add Current File"
+			],
+			[
+				"sp",
+				"Indentation: Convert to Spaces"
+			],
+			[
+				"space",
+				"Indentation: Convert to Spaces"
+			],
+			[
+				"set sysh",
+				"Set Syntax: Shell Script (Bash)"
+			],
+			[
+				"set jav",
+				"Set Syntax: Java"
+			],
+			[
+				"sy ja",
+				"Set Syntax: Java"
+			],
+			[
+				"Set S sh",
+				"Set Syntax: Shell Script (Bash)"
+			],
+			[
+				"set sy ja",
+				"Set Syntax: Java"
+			],
+			[
+				"Set Sy J",
+				"Set Syntax: Java"
+			],
+			[
+				"Set S Pl",
+				"Set Syntax: Plain Text"
+			],
+			[
+				"Pi",
+				"Package Control: Install Package"
+			],
+			[
+				"SN",
+				"Snippet: newbash"
+			],
+			[
+				"Git:Add",
+				"Git: Add..."
+			],
+			[
+				"Snippet: ",
+				"Snippet: #!/usr/bin/env"
+			],
+			[
+				"set syn bas",
+				"Set Syntax: Shell Script (Bash)"
+			],
+			[
+				"",
+				"File: New View into File"
+			],
+			[
+				"Install",
+				"Package Control: Install Package"
+			],
+			[
+				"Insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Control",
+				"Package Control: Add Repository"
+			],
+			[
+				"Install ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 593.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Exps/Analysis/WB1/Readme.txt",
+		"/Exps/Analysis/WB1/GiftAnalysis/Learnable/Readme_KA.txt",
+		"/Users/kylealmryde/Dropbox/Scripts/PasswordGenerator.py",
+		"/Exps/Analysis/WB1/GiftAnalysis/Atlas_analysis/Readme.txt",
+		"/usr/local/utilities/wb1.gift.sh",
+		"/Exps/Analysis/WB1/GiftAnalysis/Readme_KA.txt",
+		"/Users/kylealmryde/Library/Application Support/Sublime Text 2/Packages/User/updateRM.sublime-snippet",
+		"/Users/kylealmryde/Library/Application Support/Sublime Text 2/Packages/User/newReadme.sublime-snippet",
+		"/Users/kylealmryde/Library/Application Support/Sublime Text 2/Packages/User/newReadme.sublime.snippet",
+		"/Users/kylealmryde/.bash_profile",
+		"/Users/kylealmryde/Library/Application Support/Sublime Text 2/Packages/SMART_Snippets/Snippets/today.smart_snippet",
+		"/Users/kylealmryde/Library/Application Support/Sublime Text 2/Packages/SMART_Snippets/Snippets/date.smart_snippet",
+		"/Users/kylealmryde/Library/Application Support/Sublime Text 2/Packages/SMART_Snippets/Snippets/smart_template.smart_snippet",
+		"/Users/kylealmryde/Library/Application Support/Sublime Text 2/Packages/SMART_Snippets/Snippets/qp.smart_snippet",
+		"/Users/kylealmryde/Library/Application Support/Sublime Text 2/Packages/SMART_Snippets/Snippets/if.smart_snippet",
+		"/Users/kylealmryde/Library/Application Support/Sublime Text 2/Packages/SMART_Snippets/Snippets/ac.smart_snippet",
+		"/Users/kylealmryde/Library/Application Support/Sublime Text 2/Packages/SMART_Snippets/Snippets/tabstop.smart_snippet",
+		"/Users/kylealmryde/Library/Application Support/Sublime Text 2/Packages/SMART_Snippets/Snippets/something.smart_snippet",
+		"/usr/local/utilities/color.py",
+		"/usr/local/utilities/wb1.grp.sh",
+		"/Users/kylealmryde/today.smart_snippet",
+		"/Exps/Analysis/WB1/GiftAnalysis/log.gift.txt",
+		"/usr/local/utilities/study_functions.sh",
+		"/usr/Python-2.6.7/ipython-0.13/build/scripts-2.7/pycolor",
+		"/Users/kylealmryde/Downloads/ipython-0.13/docs/README.txt",
+		"/Users/kylealmryde/Downloads/ipython-0.13/MANIFEST.in",
+		"/Users/kylealmryde/Downloads/ipython-0.13/setup.cfg",
+		"/Users/kylealmryde/Downloads/ipython-0.13/README.rst",
+		"/Users/kylealmryde/Downloads/ipython-0.13/ipython.py",
+		"/Users/kylealmryde/Downloads/ipython-0.13/setup.py",
+		"/usr/local/utilities/PERL/five.pl",
+		"/usr/local/utilities/PERL/words.pl",
+		"/usr/local/utilities/PERL/linenums.pl",
+		"/usr/local/utilities/PERL/emerald.txt",
+		"/usr/local/utilities/PERL/name.pl",
+		"/usr/local/utilities/PERL/hello.pl",
+		"/Users/kylealmryde/Library/Application Support/Sublime Text 2/Packages/User/newperl.sublime-snippet",
+		"/Users/kylealmryde/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/Users/kylealmryde/Library/Application Support/Sublime Text 2/Packages/Git/Git.sublime-settings",
+		"/Volumes/Data/Iceword/Run3_ver1.txt",
+		"/Volumes/Data/Iceword/Run3_ver5.txt",
+		"/Volumes/Data/Iceword/Run3_ver3.txt",
+		"/Volumes/Data/Iceword/Run3_ver4.txt",
+		"/Volumes/Data/Iceword/Run3_ver2.txt",
+		"/Volumes/Data/Iceword/Plan of attack.txt",
+		"/Volumes/Data/Iceword/examine.py",
+		"/Volumes/Data/Iceword/untitled.py",
+		"/Volumes/Data/Iceword/Run4_ver1.txt",
+		"/Users/kylealmryde/Dropbox/Scripts/Password_Gen/PasswordGen.rb",
+		"/Volumes/Data/Iceword/Report_Run3.txt",
+		"/Volumes/Data/Iceword/Run2_ver3.txt",
+		"/Volumes/Data/Iceword/Run2_ver4.txt",
+		"/Volumes/Data/Iceword/Report_Run2.txt",
+		"/Volumes/Data/Iceword/Run2_ver2.txt",
+		"/Volumes/Data/Iceword/Run2_ver1.txt",
+		"/Volumes/Data/Iceword/Run1_ver6.txt",
+		"/Volumes/Data/Iceword/Run1_ver5.txy",
+		"/Volumes/Data/Iceword/Run1_ver4.txt",
+		"/Volumes/Data/Iceword/Run1_ver3.txt",
+		"/Volumes/Data/Iceword/Run1_ver2.txt",
+		"/Volumes/Data/Iceword/Run1_ver1.txt",
+		"/Volumes/Data/Iceword/Report_Run1.txt",
+		"/Users/kylealmryde/Dropbox/DirectRT/N-Back/imageCrop.sh",
+		"/Users/kylealmryde/Dropbox/DirectRT/N-Back/continue.txt",
+		"/Users/kylealmryde/Dropbox/Scripts/Password_Gen/.git/COMMIT_EDITMSG",
+		"/Users/kylealmryde/Dropbox/Scripts/PasswordGen.1.1.rb",
+		"/Users/kylealmryde/Dropbox/CLASS/cs227/LoopsAndArrays/LoopsAndArrays.java",
+		"/Users/kylealmryde/Dropbox/CLASS/cs227/loopPractice.java",
+		"/Users/kylealmryde/Dropbox/CLASS/cs227/LoopsAndArrays/LoopsAndArraysTest.java",
+		"/Users/kylealmryde/Dropbox/CLASS/cs227/LoopsAndArrays/LoopsAndArrays.sh",
+		"/Users/kylealmryde/Dropbox/CLASS/.git/COMMIT_EDITMSG",
+		"/Users/kylealmryde/Dropbox/CLASS/cs227/TenMethods/TenMethods.java",
+		"/Users/kylealmryde/Dropbox/CLASS/cs227/ThreeMainMethods/Crypto.java",
+		"/Users/kylealmryde/Dropbox/CLASS/cs227/TenMethods/TenMethodsTest.java",
+		"/Users/kylealmryde/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Users/kylealmryde/Dropbox/Scripts/UnPw.txt",
+		"/Users/kylealmryde/Dropbox/CLASS/cs227/LoopsAndArrays/LoopsAndArrays.class",
+		"/usr/local/tools/REF/PROFILES/subject_profile.sh",
+		"/usr/local/tools/REF/PROFILES/img_profile.sh",
+		"/usr/local/tools/PROJECTS/PLANTE/FUNC/prepf2.sh",
+		"/usr/local/tools/REF/PROFILES/plante_profile.sh",
+		"/Volumes/Data/WordBoundary1/Readme.txt",
+		"/Volumes/Data/ICEWORD/readme.corrections",
+		"/Volumes/Data/ICEWORD/readme.michelle",
+		"/Volumes/Data/ICEWORD/readme.E4429",
+		"/Volumes/Data/ICEWORD/S1/combos/readme.S1",
+		"/Volumes/Data/ICEWORD/progs/resp4.prog",
+		"/Volumes/Data/ICEWORD/progs/cleanup.prog",
+		"/Volumes/Data/ICEWORD/anova_list/anova_list.prog",
+		"/usr/local/utilities/wb1.rpt.sh",
+		"//Volumes/Data/WB1/ANOVA/Report/Run1/Run1.learnable.Complete_Report.1D",
+		"//Volumes/Data/WB1/ANOVA/Report/Run2/Run2.learnable.Complete_Report.1D",
+		"//Volumes/Data/WB1/ANOVA/Report/Run3/Run3.learnable.Complete_Report.1D",
+		"//Volumes/Data/WB1/ANOVA/Report/Run1/Run1.learnable.GroupReport.1D",
+		"//Volumes/Data/WB1/ANOVA/Report/Run1/Run1.learnable.Subject_Report.1D",
+		"//Volumes/Data/WB1/ANOVA/Report/Run2/Run2.learnable.GroupReport.1D",
+		"//Volumes/Data/WB1/ANOVA/Report/Run2/Run2.learnable.Subject_Report.1D",
+		"//Volumes/Data/WB1/ANOVA/Report/Run3/Run3.learnable.GroupReport.1D",
+		"//Volumes/Data/WB1/ANOVA/Report/Run3/Run3.learnable.Subject_Report.1D",
+		"/Volumes/Data/WB1/ANOVA/Report/Run2/Run2.learnable.GroupReport.1D",
+		"/Volumes/Data/WB1/ANOVA/Report/Run3/Run3.learnable.Complete_Report.1D",
+		"/Volumes/Data/WB1/ANOVA/Report/Run3/Run3.learnable.GroupReport.1D",
+		"/Volumes/Data/WB1/ANOVA/Report/Run3/Run3.learnable.Subject_Report.1D",
+		"/Volumes/Data/WB1/ANOVA/Report/Run2/Run2.learnable.Subject_Report.1D",
+		"/Volumes/Data/WB1/ANOVA/Report/Run2/Run2.learnable.Complete_Report.1D",
+		"/Volumes/Data/WB1/ANOVA/Report/Run1/Run1.learnable.Complete_Report.1D",
+		"/Volumes/Data/WB1/ANOVA/Report/Run1/Run1.learnable.Subject_Report.1D",
+		"/Volumes/Data/WB1/ANOVA/Report/Run1/Run1.learnable.GroupReport.1D",
+		"/usr/local/utilities/eprime_functions.sh",
+		"/usr/local/utilities/DRIVR.zip",
+		"/usr/local/utilities/PROG/images.sh",
+		"/usr/local/utilities/<--- report needs --->",
+		"/usr/local/utilities/wb1.reg.sh",
+		"/usr/local/utilities/anova_functions.sh",
+		"/usr/local/utilities/analysis_functions.sh",
+		"/usr/local/utilities/wb1.glm.sh",
+		"/usr/local/utilities/Analysis notes",
+		"/usr/local/utilities/Shop/wisdom",
+		"/Users/kylealmryde/Dropbox/CLASS/cs227/Practice.java",
+		"/usr/local/utilities/CLASS/cs227/Prog2b.java",
+		"/Users/kylealmryde/Dropbox/CLASS/cs227/ThreeMainMethods/TimeDifference.java",
+		"/Users/kylealmryde/Downloads/TenMethodsTest.java",
+		"/Users/kylealmryde/Dropbox/CLASS/cs227/csc227.sublime-workspace",
+		"/Users/kylealmryde/Dropbox/Scripts/Password_Gen/pwrdgenNotes.rb",
+		"/Users/kylealmryde/Dropbox/CLASS/cs227/SeveralMethodsTest.java",
+		"/Users/kylealmryde/Downloads/suma_tlrc/Readme",
+		"/Users/kylealmryde/Dropbox/CLASS/cs227/Assignments/FirstProgramInEclipse/Welcome.java",
+		"/Users/kylealmryde/Dropbox/CLASS/cs227/FirstProgramInEclipse/Welcome.java"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"<open files>",
+			"/Volumes/Data/WB1/ANOVA/Report/",
+			"*.learnable.*.1D",
+			"",
+			"lastNameLast",
+			"learnable_list.txt",
+			"unlearnable_list.txt",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"compNums",
+			"strippedComponents",
+			"strippedcomps",
+			"components",
+			"Components",
+			"components",
+			"Components",
+			"components",
+			"Components",
+			"components",
+			"Components",
+			"components",
+			"Components",
+			"components",
+			"Components",
+			"components",
+			"Components",
+			"components",
+			"Components",
+			"components",
+			"Components",
+			"components",
+			"Components",
+			"components",
+			"Components",
+			"components",
+			"Components",
+			"components",
+			"Components",
+			"components",
+			"Components",
+			"components",
+			"Components",
+			"components",
+			"Components",
+			"components",
+			"Components",
+			"components",
+			"Components",
+			"components",
+			"Components",
+			"components",
+			"Components",
+			"components",
+			"condition",
+			"operation",
+			"figure",
+			"singlesub",
+			"figure",
+			"singlesub",
+			"Gift",
+			"scope",
+			"-#",
+			"git",
+			" ",
+			"Volumes",
+			"fatal",
+			"Image",
+			"${Merged}/${mergedComponents}_${tstat}.nii",
+			"Gift",
+			".tlrc",
+			"${Merged}/${mergedComponents}_${tstat}.nii",
+			"# This is",
+			"${mergedComponents}",
+			"thresh_zstat",
+			"t${tstat}",
+			"+neg",
+			"${mergedComponents",
+			"Merged}/",
+			"Merged",
+			"================",
+			"${mergedComponents}_Neg",
+			"_Neg",
+			"_Neg_Comp",
+			"mergedComponents}_Comp${components[i]}_t${tstat}",
+			"Gift",
+			"Merged}",
+			"Merged",
+			"Etc",
+			"${strippedComponents}.nii",
+			"${rawComponents}.nii",
+			"Comp${components[i]}_",
+			"Neg_",
+			"clust",
+			"1.753",
+			"${tstat}",
+			"print",
+			"Project",
+			"Right-to-Left",
+			"fhand",
+			"Data Axes Orientation:\n  first  (x) = Left-to-Right\n  second (y) = Anterior-to-Posterior\n  third  (z) = Inferior-to-Superior   [-orient LAI]\nR-to-L extent:  -108.281 [R] -to-   108.281 [L] -step-     3.438 mm [ 64 voxels]\nA-to-P extent:  -108.281 [A] -to-   108.281 [P] -step-     3.438 mm [ 64 voxels]\nI-to-S extent:   -63.000 [I] -to-    63.000 [S] -step-     6.000 mm [ 22 voxels]\nNumber of time steps = 218  Time step = 2400.00000ms  Origin = 0.00000ms  Number time-offset slices = 22  Thickness = 6.000\n",
+			"Template Space:  ORIG\nDataset Type:    Echo Planar (-epan)\nByte Order:      MSB_FIRST [this CPU native = LSB_FIRST]\nStorage Mode:    BRIK\nStorage Space:   39,288,832 (39 million) bytes\nData Axes Tilt:  Unspecified, assumed plumb\nData Axes Orientation:\n  first  (x) = Right-to-Left\n  second (y) = Anterior-to-Posterior\n  third  (z) = Inferior-to-Superior   [-orient RAI]\nR-to-L extent:  -108.281 [R] -to-   108.281 [L] -step-     3.438 mm [ 64 voxels]\nA-to-P extent:  -108.281 [A] -to-   108.281 [P] -step-     3.438 mm [ 64 voxels]\nI-to-S extent:   -63.000 [I] -to-    63.000 [S] -step-     6.000 mm [ 22 voxels]\nNumber of time steps = 218  Time step = 2400.00000ms  Origin = 0.00000ms  Number time-offset slices = 22  Thickness = 6.000\n",
+			"Template Space:  ORIG\nDataset Type:    Echo Planar (-epan)\nByte Order:      MSB_FIRST [this CPU native = LSB_FIRST]\nStorage Mode:    BRIK\nStorage Space:   39,288,832 (39 million) bytes\nData Axes Tilt:  Unspecified, assumed plumb\nData Axes Orientation:\n  first  (x) = Right-to-Left\n  second (y) = Anterior-to-Posterior\n  third  (z) = Superior-to-Inferior   [-orient RAS]\nR-to-L extent:  -108.281 [R] -to-   108.281 [L] -step-     3.438 mm [ 64 voxels]\nA-to-P extent:  -108.281 [A] -to-   108.281 [P] -step-     3.438 mm [ 64 voxels]\nI-to-S extent:   -63.000 [I] -to-    63.000 [S] -step-     6.000 mm [ 22 voxels]\nNumber of time steps = 218  Time step = 3000.00000ms  Origin = 0.00000ms  Number time-offset slices = 22  Thickness = 6.000",
+			"Template Space:  ORIG\nDataset Type:    Echo Planar (-epan)\nByte Order:      MSB_FIRST [this CPU native = LSB_FIRST]\nStorage Mode:    BRIK\nStorage Space:   39,288,832 (39 million) bytes\nData Axes Tilt:  Unspecified, assumed plumb\nData Axes Orientation:\n  first  (x) = Right-to-Left\n  second (y) = Anterior-to-Posterior\n  third  (z) = Superior-to-Inferior   [-orient RAS]\nR-to-L extent:  -108.281 [R] -to-   108.281 [L] -step-     3.438 mm [ 64 voxels]\nA-to-P extent:  -108.281 [A] -to-   108.281 [P] -step-     3.438 mm [ 64 voxels]\nI-to-S extent:   -63.000 [I] -to-    63.000 [S] -step-     6.000 mm [ 22 voxels]\nNumber of time steps = 218  Time step = 2400.00000ms  Origin = 0.00000ms  Number time-offset slices = 22  Thickness = 6.000\n",
+			"Template Space:  ORIG\nDataset Type:    Echo Planar (-epan)\nByte Order:      MSB_FIRST [this CPU native = LSB_FIRST]\nStorage Mode:    BRIK\nStorage Space:   38,567,936 (39 million) bytes\nData Axes Tilt:  Unspecified, assumed plumb\nData Axes Orientation:\n  first  (x) = Right-to-Left\n  second (y) = Anterior-to-Posterior\n  third  (z) = Superior-to-Inferior   [-orient RAS]\nR-to-L extent:  -108.281 [R] -to-   108.281 [L] -step-     3.438 mm [ 64 voxels]\nA-to-P extent:  -108.281 [A] -to-   108.281 [P] -step-     3.438 mm [ 64 voxels]\nI-to-S extent:   -63.000 [I] -to-    63.000 [S] -step-     6.000 mm [ 22 voxels]\nNumber of time steps = 214  Time step = 2400.00000ms  Origin = 0.00000ms  Number time-offset slices = 22  Thickness = 6.000",
+			"Template Space:  ORIG\nDataset Type:    Echo Planar (-epan)\nByte Order:      MSB_FIRST [this CPU native = LSB_FIRST]\nStorage Mode:    BRIK\nStorage Space:   39,288,832 (39 million) bytes\nData Axes Tilt:  Unspecified, assumed plumb\nData Axes Orientation:\n  first  (x) = Right-to-Left\n  second (y) = Anterior-to-Posterior\n  third  (z) = Inferior-to-Superior   [-orient RAI]\nR-to-L extent:  -108.281 [R] -to-   108.281 [L] -step-     3.438 mm [ 64 voxels]\nA-to-P extent:  -108.281 [A] -to-   108.281 [P] -step-     3.438 mm [ 64 voxels]\nI-to-S extent:   -63.000 [I] -to-    63.000 [S] -step-     6.000 mm [ 22 voxels]\nNumber of time steps = 218  Time step = 2400.00000ms  Origin = 0.00000ms  Number time-offset slices = 22  Thickness = 6.000",
+			"Template Space:  ORIG\nDataset Type:    Echo Planar (-epan)\nByte Order:      MSB_FIRST [this CPU native = LSB_FIRST]\nStorage Mode:    BRIK\nStorage Space:   39,288,832 (39 million) bytes\nData Axes Tilt:  Unspecified, assumed plumb\nData Axes Orientation:\n  first  (x) = Right-to-Left\n  second (y) = Anterior-to-Posterior\n  third  (z) = Superior-to-Inferior   [-orient RAS]\nR-to-L extent:  -108.281 [R] -to-   108.281 [L] -step-     3.438 mm [ 64 voxels]\nA-to-P extent:  -108.281 [A] -to-   108.281 [P] -step-     3.438 mm [ 64 voxels]\nI-to-S extent:   -63.000 [I] -to-    63.000 [S] -step-     6.000 mm [ 22 voxels]\nNumber of time steps = 218  Time step = 2400.00000ms  Origin = 0.00000ms  Number time-offset slices = 22  Thickness = 6.000\n",
+			"Template Space:  ORIG\nDataset Type:    Echo Planar (-epan)\nByte Order:      MSB_FIRST [this CPU native = LSB_FIRST]\nStorage Mode:    BRIK\nStorage Space:   38,567,936 (39 million) bytes\nData Axes Tilt:  Unspecified, assumed plumb\nData Axes Orientation:\n  first  (x) = Right-to-Left\n  second (y) = Anterior-to-Posterior\n  third  (z) = Superior-to-Inferior   [-orient RAS]\nR-to-L extent:  -108.281 [R] -to-   108.281 [L] -step-     3.438 mm [ 64 voxels]\nA-to-P extent:  -108.281 [A] -to-   108.281 [P] -step-     3.438 mm [ 64 voxels]\nI-to-S extent:   -63.000 [I] -to-    63.000 [S] -step-     6.000 mm [ 22 voxels]\nNumber of time steps = 214  Time step = 2400.00000ms  Origin = 0.00000ms  Number time-offset slices = 22  Thickness = 6.000",
+			"Template Space:  ORIG\nDataset Type:    Echo Planar (-epan)\nByte Order:      MSB_FIRST [this CPU native = LSB_FIRST]\nStorage Mode:    BRIK\nStorage Space:   39,288,832 (39 million) bytes\nData Axes Tilt:  Unspecified, assumed plumb\nData Axes Orientation:\n  first  (x) = Left-to-Right\n  second (y) = Anterior-to-Posterior\n  third  (z) = Inferior-to-Superior   [-orient LAI]\nR-to-L extent:  -108.281 [R] -to-   108.281 [L] -step-     3.438 mm [ 64 voxels]\nA-to-P extent:  -108.281 [A] -to-   108.281 [P] -step-     3.438 mm [ 64 voxels]\nI-to-S extent:   -63.000 [I] -to-    63.000 [S] -step-     6.000 mm [ 22 voxels]\nNumber of time steps = 218  Time step = 2400.00000ms  Origin = 0.00000ms  Number time-offset slices = 22  Thickness = 6.000",
+			"Data Axes Tilt:  Unspecified, assumed plumb\nData Axes Orientation:\n  first  (x) = Right-to-Left\n  second (y) = Anterior-to-Posterior\n  third  (z) = Superior-to-Inferior   [-orient RAS]\nR-to-L extent:  -108.281 [R] -to-   108.281 [L] -step-     3.438 mm [ 64 voxels]\nA-to-P extent:  -108.281 [A] -to-   108.281 [P] -step-     3.438 mm [ 64 voxels]\nI-to-S extent:   -63.000 [I] -to-    63.000 [S] -step-     6.000 mm [ 22 voxels]\nNumber of time steps = 218  Time step = 2300.00000ms  Origin = 0.00000ms  Number time-offset slices = 22  Thickness = 6.000",
+			"Template Space:  ORIG\nDataset Type:    Echo Planar (-epan)\nByte Order:      MSB_FIRST [this CPU native = LSB_FIRST]\nStorage Mode:    BRIK\nStorage Space:   39,288,832 (39 million) bytes\nData Axes Tilt:  Unspecified, assumed plumb\nData Axes Orientation:\n  first  (x) = Right-to-Left\n  second (y) = Anterior-to-Posterior\n  third  (z) = Superior-to-Inferior   [-orient RAS]\nR-to-L extent:  -108.281 [R] -to-   108.281 [L] -step-     3.438 mm [ 64 voxels]\nA-to-P extent:  -108.281 [A] -to-   108.281 [P] -step-     3.438 mm [ 64 voxels]\nI-to-S extent:   -63.000 [I] -to-    63.000 [S] -step-     6.000 mm [ 22 voxels]\nNumber of time steps = 218  Time step = 2300.00000ms  Origin = 0.00000ms  Number time-offset slices = 22  Thickness = 6.000",
+			"Template Space:  ORIG\nDataset Type:    Echo Planar (-epan)\nByte Order:      MSB_FIRST [this CPU native = LSB_FIRST]\nStorage Mode:    BRIK\nStorage Space:   39,288,832 (39 million) bytes\nData Axes Tilt:  Unspecified, assumed plumb\nData Axes Orientation:\n  first  (x) = Right-to-Left\n  second (y) = Anterior-to-Posterior\n  third  (z) = Inferior-to-Superior   [-orient RAI]\nR-to-L extent:  -108.281 [R] -to-   108.281 [L] -step-     3.438 mm [ 64 voxels]\nA-to-P extent:  -108.281 [A] -to-   108.281 [P] -step-     3.438 mm [ 64 voxels]\nI-to-S extent:   -63.000 [I] -to-    63.000 [S] -step-     6.000 mm [ 22 voxels]\nNumber of time steps = 218  Time step = 2400.00000ms  Origin = 0.00000ms  Number time-offset slices = 22  Thickness = 6.000\n",
+			"Template Space:  ORIG\nDataset Type:    Echo Planar (-epan)\nByte Order:      MSB_FIRST [this CPU native = LSB_FIRST]\nStorage Mode:    BRIK\nStorage Space:   39,288,832 (39 million) bytes\nData Axes Tilt:  Unspecified, assumed plumb\nData Axes Orientation:\n  first  (x) = Right-to-Left\n  second (y) = Anterior-to-Posterior\n  third  (z) = Superior-to-Inferior   [-orient RAS]\nR-to-L extent:  -108.281 [R] -to-   108.281 [L] -step-     3.438 mm [ 64 voxels]\nA-to-P extent:  -108.281 [A] -to-   108.281 [P] -step-     3.438 mm [ 64 voxels]\nI-to-S extent:   -63.000 [I] -to-    63.000 [S] -step-     6.000 mm [ 22 voxels]\nNumber of time steps = 218  Time step = 3000.00000ms  Origin = 0.00000ms  Number time-offset slices = 22  Thickness = 6.000\n",
+			"Template Space:  ORIG\nDataset Type:    Echo Planar (-epan)\nByte Order:      MSB_FIRST [this CPU native = LSB_FIRST]\nStorage Mode:    BRIK\nStorage Space:   39,288,832 (39 million) bytes\nData Axes Tilt:  Unspecified, assumed plumb\nData Axes Orientation:\n  first  (x) = Right-to-Left\n  second (y) = Anterior-to-Posterior\n  third  (z) = Superior-to-Inferior   [-orient RAS]\nR-to-L extent:  -108.281 [R] -to-   108.281 [L] -step-     3.438 mm [ 64 voxels]\nA-to-P extent:  -108.281 [A] -to-   108.281 [P] -step-     3.438 mm [ 64 voxels]\nI-to-S extent:   -63.000 [I] -to-    63.000 [S] -step-     6.000 mm [ 22 voxels]\nNumber of time steps = 218  Time step = 2400.00000ms  Origin = 0.00000ms  Number time-offset slices = 22  Thickness = 6.000\n",
+			"Template Space:  ORIG\nDataset Type:    Echo Planar (-epan)\nByte Order:      MSB_FIRST [this CPU native = LSB_FIRST]\nStorage Mode:    BRIK\nStorage Space:   38,567,936 (39 million) bytes\nData Axes Tilt:  Unspecified, assumed plumb\nData Axes Orientation:\n  first  (x) = Right-to-Left\n  second (y) = Anterior-to-Posterior\n  third  (z) = Superior-to-Inferior   [-orient RAS]\nR-to-L extent:  -108.281 [R] -to-   108.281 [L] -step-     3.438 mm [ 64 voxels]\nA-to-P extent:  -108.281 [A] -to-   108.281 [P] -step-     3.438 mm [ 64 voxels]\nI-to-S extent:   -63.000 [I] -to-    63.000 [S] -step-     6.000 mm [ 22 voxels]\nNumber of time steps = 214  Time step = 2400.00000ms  Origin = 0.00000ms  Number time-offset slices = 22  Thickness = 6.000\n  ",
+			"Data Axes Orientation:\n  first  (x) = Right-to-Left\n  second (y) = Anterior-to-Posterior\n  third  (z) = Superior-to-Inferior   [-orient RAS]\nR-to-L extent:  -108.281 [R] -to-   108.281 [L] -step-     3.438 mm [ 64 voxels]\nA-to-P extent:  -108.281 [A] -to-   108.281 [P] -step-     3.438 mm [ 64 voxels]\nI-to-S extent:   -63.000 [I] -to-    63.000 [S] -step-     6.000 mm [ 22 voxels]\nNumber of time steps = 214  Time step = 2400.00000ms  Origin = 0.00000ms  Number time-offset slices = 22  Thickness = 6.000\n",
+			"R-to-L extent:  -108.281 [R] -to-   108.281 [L] -step-     3.438 mm [ 64 voxels]\nA-to-P extent:  -108.281 [A] -to-   108.281 [P] -step-     3.438 mm [ 64 voxels]\nI-to-S extent:   -63.000 [I] -to-    63.000 [S] -step-     6.000 mm [ 22 voxels]\nNumber of time steps = 214  Time step = 2400.00000ms  Origin = 0.00000ms  Number ",
+			"Data Axes Orientation:\n  first  (x) = Right-to-Left\n  second (y) = Anterior-to-Posterior\n  third  (z) = Superior-to-Inferior   [-orient RAS]\nR-to-L extent:  -108.281 [R] -to-   108.281 [L] -step-     3.438 mm [ 64 voxels]\nA-to-P extent:  -108.281 [A] -to-   108.281 [P] -step-     3.438 mm [ 64 voxels]\nI-to-S extent:   -63.000 [I] -to-    63.000 [S] -step-     6.000 mm [ 22 voxels]\nNumber of time steps = 214  Time step = 2400.00000ms  Origin = 0.00000ms  Number time-offset slices = 22  Thickness = 6.000\n  -- At sub-brick #0 '#0' datum type is short:            0 to          3525\n  -- At sub-brick #1 '#1' datum type is short:            0 to          3624\n  -- At sub-brick #2 '#2' datum type is short:            0 to          3677\n",
+			"container",
+			"//",
+			"a",
+			"y",
+			"x",
+			"assertTrue(x",
+			"j]",
+			"result2",
+			"scanner2",
+			"class",
+			"hasNextDouble",
+			"\"",
+			"c2",
+			"i",
+			"ch",
+			"umberOfPairs(",
+			"\" }",
+			"}",
+			"{ ",
+			"assertEquals"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"_sent",
+			" ",
+			"\", tm.",
+			"tm.",
+			"tm = new TenMethods",
+			"lastNameLast",
+			"#                ",
+			"${runsubj}",
+			"	",
+			"\\t",
+			"PREP=/Exps/Data/WordBoundary1/${subj}/Func/${run}",
+			"GLM=/Exps/Analysis/WordBoundary1/GLM/${subj}/${run}",
+			"PREP=/Exps/Data/WordBoundary1/${subj}/Func/${run}/",
+			"",
+			"\\n",
+			"",
+			"\\n",
+			"",
+			" \\n ",
+			" ",
+			"",
+			"\\t\\t\"Audio\\",
+			"\\t\\t\"",
+			".wav\"",
+			"\\t\\t\"",
+			"^\\t\\t\"",
+			".wav",
+			"dogposition",
+			"dogPos",
+			"dogPos\"",
+			".bmp\"",
+			"\"1-back",
+			"\"2-back",
+			"_C:\\Users\\Kyle\\Dropbox\\DirectRT\\N-Back\\Animations\\Dog_position",
+			"2",
+			"1",
+			"framed",
+			"dogposition",
+			"_dogPos",
+			"framed.bmp",
+			"_dogPos",
+			"dogPos"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": false
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		},
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 30.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.492132075108,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.git":
+	{
+		"height": 100.0
+	},
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"wb1",
+				"utilities/wb1.gift.sh"
+			],
+			[
+				"toda",
+				"SMART_Snippets/Snippets/today.smart_snippet"
+			],
+			[
+				"todat",
+				"SMART_Snippets/Snippets/today.smart_snippet"
+			],
+			[
+				"",
+				"utilities/wb1.gift.sh"
+			],
+			[
+				"doc",
+				"Documentation/AFNI/docmaker.sh"
+			],
+			[
+				"do",
+				"ETC/Projects/Documents.fsf"
+			],
+			[
+				"3dca",
+				"Documentation/AFNI/3dcalc.txt"
+			],
+			[
+				"a",
+				"Documentation/alignment stuff"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 186.0,
+	"status_bar_visible": true
+}

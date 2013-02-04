@@ -1,0 +1,15 @@
+#!/usr/bin/env tcsh
+echo "Follow this command line format: Rename"
+# --------------------------------------------------
+# Script Setup
+set images_home = /Volumes/Data/MRI-AttnMem/Anova
+echo "images_home = $images_home"
+
+foreach gam (1 2 3 4 5 6 7)
+"each gam = $gam"
+
+set contrast = $1
+set new = $2
+
+3drename Compare/contr_GAM${gam}_${contrast}+tlrc Compare/contr_GAM${gam}_${new}+tlrc 
+end

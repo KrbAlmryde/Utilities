@@ -1,0 +1,53 @@
+Participants:
+We recruited 14 right-handed, healthy volunteers (6 males, mean age = xx) from the Tucson community.  All were paid for their participation after giving informed consent.  Exclusion criteria were a history of speech, language, or other neurological disorders.  All volunteers reported good general health with no contraindications for MRI scanning.  All protocols were approved by the University of Arizona Institutional Review board.
+
+Materials:
+The study involved 120 concrete nouns: 60 were names of foods (F), and 60 were names of animals (A). Half of the words in each list were spoken by a male voice (m), and half by a female voice (f).  Each word therefore fell into one of four distinct categories that combined a specific semantic and sensory (voice) assignment: Fm, Ff, Am, or Af items.
+
+Procedure:
+Each scanning session consisted of two study phases, followed by two test phases for recognition memory based on the “know/remember” procedure (Tulving, 1985; Wheeler & Buckner, 2004). All phases used an event-related design, and listeners were instructed to respond as quickly as possible without compromising accuracy.
+
+For Study Phase 1, listeners had to make a semantic decision by pressing one
+	button for food words (30 Fm and 30 Ff words intermixed), and a second
+	button in the opposite hand for animal words (30 Am and 30 Af words
+	intermixed). These 120 words were presented pseudo-randomly with 30 nulls,
+	resulting in 150 items presented over eight minutes in the scanner.
+
+For Study Phase 2, listeners made a perceptual decision by pressing one button
+	for words spoken in a male voice (30 Am and 30 Fm words), and the other
+	button for words spoken in a female voice (30 Af and 30 Ff words).
+
+For Test Phase 1 (the “know” or familiarity test), listeners had to make a
+	decision by pressing the “YES” button if they had heard the word earlier
+	during the two study phases (generating an “OLD” response), and the “NO”
+	button in the opposite hand if they had not heard the word (a “NEW”
+	response). The run contained a total of 150 trials: 120 test items, with a
+	1:1 ratio of studied (OLD) and non-studied (NEW) words, pseudo-randomized
+	with 30 null trials.
+
+	For each condition (OLD or NEW), there were 15 items presented in each of
+	the four stimulus categories (Fm, Ff, Am, and Af). Based upon their test
+	performance, study trials were separated into items:
+
+		correctly identified as OLD (hits),
+		incorrectly identified as OLD (false alarms),
+		correctly identified as NEW (correct rejections), and
+		incorrectly identified as NEW (misses).
+
+
+For Test Phase 2 (the “remember” or recollection test), a source memory task was
+	used in which the 120-word list consisted entirely of OLD items spoken in a
+	third unfamiliar voice.  Listeners had to make a recognition decision by
+	pressing the “YES” button if the OLD word was spoken in one voice at
+	encoding (e.g., 30 Am and 30 Fm words), and the “NO” button if the word was
+	spoken in the other voice (30 Af and 30 Ff words).
+
+	Based upon their test performance, study trials were separated into items:
+
+		correctly identified as previously spoken by the target voice(hits),
+		incorrectly identified as such (false alarms)
+		correctly identified as previously spoken by the other voice (correct
+		rejections)
+		incorrectly identified as such (misses).
+
+The statistic d’ was calculated according to Signal Detection Theory.

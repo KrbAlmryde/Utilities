@@ -1,0 +1,126 @@
+I would like to learn Perl to perform the transcription coding that Elena and Becky are having
+all the pretty undergrad girls do by hand. 
+
+I suspect if they are looking for specific patterns, then it should be relatively simple to create a 
+regex that can isolate that pattern, and mark it in whatever notation they want.
+
+Here is an example using sed
+
+string="The dog likED to jump, everyday he jumpS"
+
+sed 's/*ED/*ED-PT/g' -e 's/*S[. ]/*S-plural/g'
+
+
+
+# These would go in the .bash_profile
+
+function newpl ()
+{
+
+if [[ $# = * ]]; then
+
+	echo usage message
+	exit
+else
+
+	# can contain path in name
+	new_script_name=$1
+	
+
+cat \
+<<HEADER--
+#!/bin/perl
+
+#################
+#
+#   Program name: ${new_script_name}.pl
+#    	  Author: Kyle Reese Almryde
+# 	Date created: date "+%m +%d +%Y"
+#		   etc...
+#
+##################
+
+use feature ':5.10';
+
+
+HEADER- > ${new_script_name}.pl
+
+choc ${new_script_name}.pl
+
+fi
+}
+
+
+function newpy ()
+{
+
+if [[ $# = * ]]; then
+
+	echo usage message
+	exit
+else
+
+	# can contain path in name
+	new_script_name=$1
+	
+
+cat \
+<<HEADER--
+#!/bin/python
+
+#################
+#
+#   Program name: ${new_script_name}.py
+#    	  Author: Kyle Reese Almryde
+# 	Date created: date "+%m +%d +%Y"
+#		   etc...
+#
+##################
+
+import os
+
+
+HEADER- > ${new_script_name}.py
+
+choc ${new_script_name}.py
+
+fi
+}
+
+
+
+
+function newbash()
+{
+if [[ $# = * ]]; then
+
+	echo usage message
+	exit
+else
+
+	# can contain path in name
+	new_script_name=$1
+	
+
+cat \
+<<HEADER--
+#!/bin/bash
+
+#################
+#
+#   Program name: ${new_script_name}.bash
+#    	  Author: Kyle Reese Almryde
+# 	Date created: date "+%m +%d +%Y"
+#		   etc...
+#
+##################
+
+
+
+
+HEADER- > ${new_script_name}.bash
+
+choc ${new_script_name}.bash
+
+fi
+}

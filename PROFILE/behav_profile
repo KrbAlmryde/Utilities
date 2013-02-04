@@ -1,11 +1,11 @@
 ####################################################################################################
 # This list specifies variables specifc to the Behavioral Stroop study
 ####################################################################################################
-# Sourcing the exp_profile so our variables get passed to the shell properly
+# Sourcing the exp_profile.sh so our variables get passed to the shell properly
 
-. $DRIVR/exp_profile
+. $DRIVR/exp_profile.sh
 
-echo "behav_profile has been sourced"
+echo "behav_profile.sh has been sourced"
 ####################################################################################################
 #
 # These are path variables that will be specified in the individual program scripts

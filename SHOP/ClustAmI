@@ -1,0 +1,37 @@
+#!/usr/bin/env tcsh
+echo "Follow this command line format: ./AnovaGam"
+# --------------------------------------------------
+# Script Setup
+set images_home = /Volumes/Data/MRI-AttnMem/Anova
+#set type = Group/Female/Male
+
+foreach value (1 2 3 4 5 6 7)
+
+set results_dir = $images_home/Combined
+
+echo "Enter results directory"
+#change directory to results
+cd $results_dir
+# --------------------------------------------------
+3dclust -1noneg 1 1640 0.05/mean_GAM${value}_ff-mf-nf_0.05+tlrc > 0.05/Cluster_GAM${value}_ff-mf-nf_0.05.txt 
+3dclust -1noneg 1 1709 0.04/mean_GAM${value}_ff-mf-nf_0.04+tlrc > 0.04/Cluster_GAM${value}_ff-mf-nf_0.04.txt 
+3dclust -1noneg 1 1759 0.03/mean_GAM${value}_ff-mf-nf_0.03+tlrc > 0.03/Cluster_GAM${value}_ff-mf-nf_0.03.txt 
+3dclust -1noneg 1 1875 0.02/mean_GAM${value}_ff-mf-nf_0.02+tlrc > 0.02/Cluster_GAM${value}_ff-mf-nf_0.02.txt 
+3dclust -1noneg 1 2044 0.01/mean_GAM${value}_ff-mf-nf_0.01+tlrc > 0.01/Cluster_GAM${value}_ff-mf-nf_0.01.txt 
+3dclust -1noneg 1 2324 0.005/mean_GAM${value}_ff-mf-nf_0.005+tlrc > 0.005/Cluster_GAM${value}_ff-mf-nf_0.005.txt 
+3dclust -1noneg 1 2890 0.001/mean_GAM${value}_ff-mf-nf_0.001+tlrc > 0.001/Cluster_GAM${value}_ff-mf-nf_0.001.txt 
+whereami -tab -atlas TT_Daemon -coord_file 0.05/Cluster_GAM${value}_ff-mf-nf_0.05.txt'[1,2,3]' > 0.05/WhereIam_GAM${value}_ff-mf-nf_cMASS_0.05.txt 
+whereami -tab -atlas TT_Daemon -coord_file 0.04/Cluster_GAM${value}_ff-mf-nf_0.04.txt'[1,2,3]' > 0.04/WhereIam_GAM${value}_ff-mf-nf_cMASS_0.04.txt 
+whereami -tab -atlas TT_Daemon -coord_file 0.03/Cluster_GAM${value}_ff-mf-nf_0.03.txt'[1,2,3]' > 0.03/WhereIam_GAM${value}_ff-mf-nf_cMASS_0.03.txt 
+whereami -tab -atlas TT_Daemon -coord_file 0.02/Cluster_GAM${value}_ff-mf-nf_0.02.txt'[1,2,3]' > 0.02/WhereIam_GAM${value}_ff-mf-nf_cMASS_0.02.txt 
+whereami -tab -atlas TT_Daemon -coord_file 0.01/Cluster_GAM${value}_ff-mf-nf_0.01.txt'[1,2,3]' > 0.01/WhereIam_GAM${value}_ff-mf-nf_cMASS_0.01.txt 
+whereami -tab -atlas TT_Daemon -coord_file 0.005/Cluster_GAM${value}_ff-mf-nf_0.005.txt'[1,2,3]' > 0.005/WhereIam_GAM${value}_ff-mf-nf_cMASS_0.005.txt 
+whereami -tab -atlas TT_Daemon -coord_file 0.001/Cluster_GAM${value}_ff-mf-nf_0.001.txt'[1,2,3]' > 0.001/WhereIam_GAM${value}_ff-mf-nf_cMASS_0.001.txt 
+whereami -tab -atlas TT_Daemon -coord_file 0.05/Cluster_GAM${value}_ff-mf-nf_0.05.txt'[13,14,15]' > 0.05/WhereIam_GAM${value}_ff-mf-nf_INT_0.05.txt 
+whereami -tab -atlas TT_Daemon -coord_file 0.04/Cluster_GAM${value}_ff-mf-nf_0.04.txt'[13,14,15]' > 0.04/WhereIam_GAM${value}_ff-mf-nf_INT_0.04.txt 
+whereami -tab -atlas TT_Daemon -coord_file 0.03/Cluster_GAM${value}_ff-mf-nf_0.03.txt'[13,14,15]' > 0.03/WhereIam_GAM${value}_ff-mf-nf_INT_0.03.txt 
+whereami -tab -atlas TT_Daemon -coord_file 0.02/Cluster_GAM${value}_ff-mf-nf_0.02.txt'[13,14,15]' > 0.02/WhereIam_GAM${value}_ff-mf-nf_INT_0.02.txt 
+whereami -tab -atlas TT_Daemon -coord_file 0.01/Cluster_GAM${value}_ff-mf-nf_0.01.txt'[13,14,15]' > 0.01/WhereIam_GAM${value}_ff-mf-nf_INT_0.01.txt 
+whereami -tab -atlas TT_Daemon -coord_file 0.005/Cluster_GAM${value}_ff-mf-nf_0.005.txt'[13,14,15]' > 0.005/WhereIam_GAM${value}_ff-mf-nf_INT_0.005.txt 
+whereami -tab -atlas TT_Daemon -coord_file 0.001/Cluster_GAM${value}_ff-mf-nf_0.001.txt'[13,14,15]' > 0.001/WhereIam_GAM${value}_ff-mf-nf_INT_0.001.txt 
+end
