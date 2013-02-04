@@ -39,34 +39,46 @@ BLOCK="/usr/local/Utilities/BLK"
 source ${PROFILE}/${context}.profile.sh
 
 
-# First check to see if there is a context specific operation, do this for a specific program
-if [[ -e ${PROG}/${context}.${operation}.sh ]]; then
-    cmd="${PROG}/${context}.${operation}.sh"
+context=${1}
+operation=${2}
+shift
+shift
 
-# Next check to see if there is a context specific operation, do this for a specific Pipeline
-elif [[ -e ${BLOCK}/${context}.${operation}.sh ]]; then
-    cmd="${BLOCK}/${context}.${operation}.sh"
-
-# If both of those options fail, check for a default program by that identifier
-elif [[ -e ${PROG}/${operation}.sh ]]; then
-    cmd="${PROG}/${operation}.sh"
-
-# Then check for a default Pipeline under that name.
-elif [[ -e ${BLOCK}/${operation}.sh ]]; then
-    cmd="${BLOCK}/${operation}.sh"
-
-# Otherwise, display this usage message and exit the program.
-else
-    usageMessage()
-fi
+while getopts ":s:" Option; do
+    case $Option in
+        s | S )
+                scan=run${OPTARG#*-}
+                subj=`printf "sub%02d" ${OPTARG%-*}`
+                ;;
+            * )
+                usageMessage() ;;
+    esac
 
 
-# If there is an optional
-if [[ $# -eq 4 ]]; then
-	subset=sub${3}
-fi
+    # First check to see if there is a context specific operation, do this for a specific program
+    if [[ -e ${PROG}/${context}.${operation}.sh ]]; then
+        cmd="${PROG}/${context}.${operation}.sh ${subj} ${scan}"
 
-. ${cmd} `echo ${subset}` 2>&1 | tee -a ${CONTEXT}/log.${context}.${operation}.txt
+    # Next check to see if there is a context specific operation, do this for a specific Pipeline
+    elif [[ -e ${BLOCK}/${context}.${operation}.sh ]]; then
+        cmd="${BLOCK}/${context}.${operation}.sh ${subj} ${scan}"
+
+    # If both of those options fail, check for a default program by that identifier
+    elif [[ -e ${PROG}/${operation}.sh ]]; then
+        cmd="${PROG}/${operation}.sh ${subj} ${scan}"
+
+    # Then check for a default Pipeline under that name.
+    elif [[ -e ${BLOCK}/${operation}.sh ]]; then
+        cmd="${BLOCK}/${operation}.sh ${subj} ${scan}"
+
+    # Otherwise, display this usage message and exit the program.
+    else
+        usageMessage()
+    fi
+
+
+    . ${cmd} 2>&1 | tee -a ${CONTEXT}/log.${context}.${operation}.txt
+done
 
 #================================================================================
 #                                  END OF MAIN

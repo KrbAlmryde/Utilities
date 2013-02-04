@@ -5,7 +5,7 @@
 #     shift
 # done
 
-<<doc
+<<idea
 -- A note about Profiles...
    This ->
          foo=(`echo sub0{1..9}` `echo sub{10..20}`)
@@ -69,45 +69,59 @@ case 3: call ice Regression -s {1..19} -r {2..4}
 
 getopts s:xh:x
 
-doc
-
-echo "<In While LOOP>"
-while getopts ":hs:r:" Option; do
-    case $Option in
-        s | S )
-                subj=`printf "sub%03d" ${OPTARG%-*}`
-                scan=run${OPTARG#*-}
-                orig=${OPTARG} ;;
-        r | R ) scan=run$OPTARG ;;
-        h | H ) echo "This is a help message!" ;;
-            * ) shift ;;
-    esac
-    echo -e "Orig: $orig    Subj: ${subj}    Scan: ${scan}"
-done
-shift $(($OPTIND - 1))
-echo "<Out of While LOOP> ${subj}_${scan}"
+idea
 
 
-# subj=`printf "sub%02d" $var`
-
-
-
+<<possible1
 # For a commandline that follows
 # The the pattern below will parse variables to look like --> sub1 run1
 #
 # [hagar]$ bash call tap Preprocess -ssub{1..20}run{1..4}
 
-# while getopts ":s:r:" Option; do
-#     case $Option in
-#         s | S )
-#                 subj=${OPTARG%run[1-4]}  # This is saying anything with 'run*$' in the parameter gets
-#                                          # sliced off, leaving only the prefix portion --> sub1
-#                 scan=run${OPTARG#sub*[0-9]run}  # This is saying anything with the pattern 'sub*run'
-#                                                 # in the name, slice off everything save the very tail and
-#                                                 # prefix it with a 'run' --> run1
-#             * ) shift ;;
-#     esac
-# done
-# shift $(($OPTIND - 1))
+while getopts ":s:r:" Option; do
+    case $Option in
+        s | S )
+                subj=${OPTARG%run[1-4]}  # This is saying anything with 'run*$' in the parameter gets
+                                         # sliced off, leaving only the prefix portion --> sub1
+                scan=run${OPTARG#sub*[0-9]run}  # This is saying anything with the pattern 'sub*run'
+                                                # in the name, slice off everything save the very tail and
+                                                # prefix it with a 'run' --> run1
+            * ) shift ;;
+    esac
+done
+shift $(($OPTIND - 1))
+possible1
 
+
+
+
+<<this
+# For a command-line that looks like the following:
+# bash call_system_build_notes.sh ice GLM -s{1..10}-{A..D}
+#
+# The way to handle the non-options is to assign them away, then shift them off the Parameter Line!
+this
+
+context=${1}
+operation=${2}
+shift
+shift
+
+
+echo -e "\t<In While LOOP>"
+while getopts ":s:" Option; do
+    case $Option in
+        s | S )
+                scan=run${OPTARG#*-}
+                subj=`printf "sub%02d" ${OPTARG%-*}`
+                ;;
+            * ) shift ;;
+    esac
+    echo -en "Subj: ${subj}    Scan: ${scan}\n"
+
+    # echo -e "Orig: $orig    Subj: ${subj}    Scan: ${scan}"
+done
+
+# shift $(($OPTIND - 1))
+# echo "<Out of While LOOP> ${subj}_${scan}"
 
