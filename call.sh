@@ -55,15 +55,15 @@ elif [[ -e ${PROG}/${operation}.sh ]]; then
 elif [[ -e ${BLOCK}/${operation}.sh ]]; then
     cmd="${BLOCK}/${operation}.sh"
 
-# Otherwise, display this error message and exit the program.
+# Otherwise, display this usage message and exit the program.
 else
-    errorMessage()
+    usageMessage()
 fi
 
 
 # If there is an optional
 if [[ $# -eq 4 ]]; then
-	subset=`echo ${3}`
+	subset=sub${3}
 fi
 
 . ${cmd} `echo ${subset}` 2>&1 | tee -a ${CONTEXT}/log.${context}.${operation}.txt
