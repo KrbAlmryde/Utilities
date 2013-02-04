@@ -1,2 +1,0 @@
-load("/Users/kylealmryde/Desktop/UsingR/data/nym.2002.rda")
-names(nym.2002)
