@@ -26,10 +26,10 @@ operation=${2}  # Can be either a <Pipeline>, or it can be a <function> both
                 # <<case-sensitive>> Both must exist, whether as a default
                 # Pipleine/Function, or a context specific Pipeline/Function
 
-CONTEXT=/Volumes/Data/${context}
-PROFILE=/usr/local/Utilities/PROFILE
-PROG=/usr/local/Utilities/PROG
-BLOCK=/usr/local/Utilities/BLK
+CONTEXT="/Volumes/Data/${context}"
+PROFILE="/usr/local/Utilities/PROFILE"
+PROG="/usr/local/Utilities/PROG"
+BLOCK="/usr/local/Utilities/BLK"
 
 #================================================================================
 #                                 START OF MAIN
@@ -41,24 +41,32 @@ source ${PROFILE}/${context}.profile.sh
 
 # First check to see if there is a context specific operation, do this for a specific program
 if [[ -e ${PROG}/${context}.${operation}.sh ]]; then
-    . ${PROG}/${context}.${operation}.sh 2>&1 | tee -a ${CONTEXT}/log.${context}.${operation}.txt
+    cmd="${PROG}/${context}.${operation}.sh"
 
 # Next check to see if there is a context specific operation, do this for a specific Pipeline
 elif [[ -e ${BLOCK}/${context}.${operation}.sh ]]; then
-    . ${BLOCK}/${context}.${operation}.sh 2>&1 | tee -a ${CONTEXT}/log.${context}.${operation}.txt
+    cmd="${BLOCK}/${context}.${operation}.sh"
 
 # If both of those options fail, check for a default program by that identifier
 elif [[ -e ${PROG}/${operation}.sh ]]; then
-    . ${PROG}/${operation}.sh 2>&1 | tee -a ${CONTEXT}/log.default.${operation}.txt
+    cmd="${PROG}/${operation}.sh"
 
 # Then check for a default Pipeline under that name.
 elif [[ -e ${BLOCK}/${operation}.sh ]]; then
-    . ${BLOCK}/${operation}.sh 2>&1 | tee -a ${CONTEXT}/log.default.${operation}.txt
+    cmd="${BLOCK}/${operation}.sh"
 
 # Otherwise, display this error message and exit the program.
 else
     errorMessage()
 fi
+
+
+# If there is an optional
+if [[ $# -eq 4 ]]; then
+	subset=`echo ${3}`
+fi
+
+. ${cmd} `echo ${subset}` 2>&1 | tee -a ${CONTEXT}/log.${context}.${operation}.txt
 
 #================================================================================
 #                                  END OF MAIN
