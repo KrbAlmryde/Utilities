@@ -2,18 +2,18 @@
 #================================================================================
 #	Program Name: Single_Subject.tap
 #		  Author: Kyle Almryde
-#			Date: 
+#			Date:
 #
 #	 Description: This script performs each step involved in the Single Subject
-#                 analysis for the TAP study. The 
+#                 analysis for the TAP study. The
 #                 steps are described below:
 #                           3dANOVA3
 #                               3dbucket
 #                               3drefit
-#				  
+#
 #    Conventions: String variables (names) are always Lowercase
 #                 Variables denoting Path names are always Uppercase
-#                 Functions are denoted as _name: 
+#                 Functions are denoted as _name:
 #                 Script notes are formated as #===
 #                 Analysis block notes are formated as a single #+++
 #                 Function notes are formated as a double #+++ line
@@ -22,8 +22,8 @@
 #      Debugging: Each block of code has an echo at its head and foot announcing
 #                 the name of the block and when that block has been completed.
 #                 In this way, if an error does occur, it can be more easily
-#                 tracked. In addition, an error log is created each time this 
-#                 script is executed to assist in locating errors and bugs. 
+#                 tracked. In addition, an error log is created each time this
+#                 script is executed to assist in locating errors and bugs.
 #===============================================================================
 #							  START OF MAIN
 #===============================================================================
@@ -38,8 +38,8 @@ TAP=/Volumes/Data/TAP
 ICA=/Volumes/Data/TAP/ICA
 STIM=/Volumes/Data/TAP/STIM
 
-	
-	
+
+
 
 
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -69,12 +69,12 @@ echo "${subj} folder is ready to be filled"
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #					Anatomical Image Processing
-# 
+#
 # The following code block performs Anatomical Image processing. Steps include:
 #
-# 			-Renaming anatomical e-files 
-#			-Reconstructing Fast-Spin-Echo (FSE) 
-#			-Reconstructing Spoiled-GRASS (SPGR) 
+# 			-Renaming anatomical e-files
+#			-Reconstructing Fast-Spin-Echo (FSE)
+#			-Reconstructing Spoiled-GRASS (SPGR)
 #			-Co-register SPGR to FSE
 #			-Warp SPGR image to Standard Space
 #			-Building group anatomical image
@@ -93,26 +93,26 @@ STRUC=/Volumes/Data/TAP/${subj}/Struc
 	#	Description:  Renaming anatomical e-files
 	#
 	#		Purpose:  The following code segment zero padds the anatomical
-	#                 e-files to ensure AFNI's to3d program will correctly  
-	#                 reconstruct the anatomical images. 
+	#                 e-files to ensure AFNI's to3d program will correctly
+	#                 reconstruct the anatomical images.
 	#
 	#		  Input:  Input is an e-file taking the form e1234s5i6.
-	#				  "e1234" denotes the session "s5" denotes the series, 
+	#				  "e1234" denotes the session "s5" denotes the series,
 	#				  and "i6" denotes the image number. This program is
-	#				  capable of determing this information on its own. 
-	#				  There should be a total of 190 e-files. Depending on 
+	#				  capable of determing this information on its own.
+	#				  There should be a total of 190 e-files. Depending on
 	#				  the series number, there will be 26 e-files for the FSE
 	#				  and 164 e-files for the SPGR
-	#  
-	#		  Notes:  It is imperitive that the directory 
+	#
+	#		  Notes:  It is imperitive that the directory
 	#				  /Volumes/Data/TAP/${subj}/Orig contains 190 (26 & 164)
 	#				  unpacked e-files, otherwise a usage message will appear
 	#				  and the program will exit.
 	#
 	#		 Output:  Zero padded e-files of the form e1234s5i006
 	#
-	#	  Variables:  j (an integer value that control the renaming), 
-	#				  series (denoting the image series, takes the form s#), 
+	#	  Variables:  j (an integer value that control the renaming),
+	#				  series (denoting the image series, takes the form s#),
 	#				  session (denoting the session, takes the form e####),
 	#				  efile (denotes the e-file name),
 	#				  fname (pre zero-padded filename),
@@ -120,62 +120,62 @@ STRUC=/Volumes/Data/TAP/${subj}/Struc
 	#------------------------------------------------------------------------
 
 	for series in s2 s7 s8; do
-	
+
 		j=1
 		session=$(basename $(ls ${ORIG}/e* ) | grep -m 1 'e*' | cut -d s -f1)
 		efile=${session}${series}
-	
+
 		while [ $j -le 99 ]; do
-	
+
 			fname="${efile}i${j}"
-	
+
 			if [[ ! -f $fname ]]; then
 				echo "${ORIG} Missing efiles! Are you sure you unpacked them?"
 				echo "efiles take the form e1234s5i6"
 				echo "exiting program, make sure files have been unpacked"
 				exit 0
 			fi
-	
+
 			echo "renaming image $j"
-	
+
 			if [[ $j -le 9 ]]; then
 				mv $fname "${efile}i00${j}"
 			else
 				mv $fname "${efile}i0${j}"
 			fi
-	
+
 			((j++))
-	
+
 		done
-	
+
 	done
 
 
 	#------------------------------------------------------------------------
 	#
 	#	Description: a
-	#				  
+	#
 	#		Purpose: a
-	#				  
+	#
 	#		  Input: a
-	#				  
-	#		 Output: a  
-	#				   
+	#
+	#		 Output: a
+	#
 	#	  Variables: fSLICE (26) number of slices for functional and FSE images
-	#				 fTHICK (5) Z-slice thickness for functional and FSE				 
-	#				 fFOV (125.00) half the Field of View for functional and FSE 
+	#				 fTHICK (5) Z-slice thickness for functional and FSE
+	#				 fFOV (125.00) half the Field of View for functional and FSE
 	#				 			   (240/2 = 125.00)
-	#				 fZ (62.50) Size of z dimension in functional and FSE image 
+	#				 fZ (62.50) Size of z dimension in functional and FSE image
 	#				 	 		evaluated as Slices-1 * thickness divided by 2
 	#				 fZ1 (I) Inferior Z-Slice dimmension of FSE
 	#				 fZ2 (S) Superior Z-Slice dimmension of FSE
-	#				 
+	#
 	#------------------------------------------------------------------------
-	
-	fZ1=I; fZ2=S; fTHICK=5; fSLICE=26 	
+
+	fZ1=I; fZ2=S; fTHICK=5; fSLICE=26
 	fFOV=$(echo "scale=2; 240/2"| bc)
 	fZ=$(echo "scale=2; ((fSLICE=$fSLICE-1) * ${fTHICK})/2" | bc)
-	
+
 	to3d \
 		-fse \
 		-prefix ${subj}.fse \
@@ -184,30 +184,30 @@ STRUC=/Volumes/Data/TAP/${subj}/Struc
 		-yFOV ${fFOV}A-P \
 		-zSLAB ${fZ}${fZ1}-${fZ}${fZ2} \
 		${ORIG}/${efile}[23]i*
-		
+
 
 	#------------------------------------------------------------------------
 	#
 	#	Description: a
-	#				  
+	#
 	#		Purpose: a
-	#				  
+	#
 	#		  Input: a
-	#				  
-	#		 Output: a  
-	#				  
+	#
+	#		 Output: a
+	#
 	#	  Variables: aSLICE (164) number of slices for anatomial SPGR image
 	#				 aTHICK (1) Z-slice thickness for anatomial SPGR image
-	#				 aFOV (128.00) half the Field of View for anatomial SPGR 
+	#				 aFOV (128.00) half the Field of View for anatomial SPGR
 	#				 			   (240/2 = 125.00)
-	#				 aZ (81.50) Size of z dimension in anatomial SPGR image 
+	#				 aZ (81.50) Size of z dimension in anatomial SPGR image
 	#				 	 		evaluated as Slices-1 * thickness divided by 2
 	#				 aZ1 (L) Left Z-Slice dimmension of SPGR
 	#				 aZ2 (R) Right Z-Slice dimmension of SPGR
-	#				 
+	#
 	#------------------------------------------------------------------------
-	
-	aZ1=L; aZ2=R; aSLICE=164; aTHICK=1 	
+
+	aZ1=L; aZ2=R; aSLICE=164; aTHICK=1
 	aFOV=$(echo "scale=2; 256/2"| bc)
 	aZ=$(echo "scale=2; ((aSLICE=$aSLICE-1) * ${aTHICK})/2"| bc)
 
@@ -219,22 +219,22 @@ STRUC=/Volumes/Data/TAP/${subj}/Struc
 		-yFOV ${aFOV}S-I \
 		-zSLAB ${aZ}${aZ1}-${aZ}${aZ2} \
 		${ORIG}/${efile}[789]i*
-	
+
 
 	#------------------------------------------------------------------------
 	#
 	#	Description: a
-	#				  
+	#
 	#		Purpose: a
-	#				  
+	#
 	#		  Input: a
-	#				  
-	#		 Output: a  
-	#				  
+	#
+	#		 Output: a
+	#
 	#	  Variables: a
-	#				  
+	#
 	#------------------------------------------------------------------------
-	
+
 	align_epi_anat.py \
 		-dset1to2 -cmass cmass \
 		-dset1 ${STRUC}/${subj}.spgr+orig \
@@ -251,49 +251,49 @@ STRUC=/Volumes/Data/TAP/${subj}/Struc
 		-input ${STRUC}/${subj}.spgr.standard+orig
 
 	3drefit -anat ${STRUC}/${subj}.spgr.standard+tlrc
-	
-	
-	
+
+
+
 	#------------------------------------------------------------------------
 	#
 	#	Description: a
-	#				  
+	#
 	#		Purpose: a
-	#				  
+	#
 	#		  Input: a
-	#				  
-	#		 Output: a  
-	#				  
+	#
+	#		 Output: a
+	#
 	#	  Variables: a
-	#				  
+	#
 	#------------------------------------------------------------------------
-	
+
 	for (( i = 0; i < ${#subj_list[*]}; i++ )); do
-		
+
 		3dbucket \
 			-aglueto ${ANAT}/TT_tap17.anat.stand+tlrc \
 			${STRUC}/${subj}.spgr.standard+tlrc
-	
+
 		3drefit \
 			-sublabel $i ${subj} \
 			${ANAT}/TT_tap17.anat.stand+tlrc
-	
-	
+
+
 		3dbucket \
 			-aglueto ${ANAT}/TT_tap17.anat.fse+orig \
 			${STRUC}/${subj}.fse+orig
-	
+
 		3drefit \
 			-sublabel $i ${subj} \
 			${ANAT}/TT_tap17.anat.fse+orig
-	
+
 	done
-	
+
 	3dTstat \
 		-mean -median -stdev \
 		-prefix ${ANAT}/TT_tap.anat.stats \
 		${ANAT}/TT_tap17.anat.stand+tlrc
-	
+
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #					Functional Image Preprocessing
@@ -306,11 +306,11 @@ STRUC=/Volumes/Data/TAP/${subj}/Struc
 for ((r=0; r<${#run[*]}; r++)) do
 
 	run=${run[$r]}
-	
+
 	PREP=/Volumes/Data/TAP/${subj}/Prep/${run}
 	GLM=/Volumes/Data/TAP/${subj}/GLM/${run}
 	IRESP=/Volumes/Data/TAP/${subj}/GLM/${run}/IRESP
-	
+
 	#############################################################################
 	#		Function:  _base:
 	#
@@ -335,15 +335,15 @@ for ((r=0; r<${#run[*]}; r++)) do
 	#				   volume in the dataset, which will act as the base
 	#				   volume during registration.
 	#############################################################################
-		
+
 	function _base: ()
 	{
 		 cat -n ${PREP}/${subj}.${run}.tshift.outs.1D \
 		 	| sort -k2,2n | head -1 | awk '{print $1-1}'
 	}
-	
-	
-	
+
+
+
 	#############################################################################
 	#		Function:  _outplot:
 	#
@@ -360,15 +360,15 @@ for ((r=0; r<${#run[*]}; r++)) do
 	#	  Variables:   step
 	#
 	#############################################################################
-		
+
 	function _outplot: ()
 	{
 		local step=$1
-	
+
 		3dToutcount \
 			${PREP}/${subj}.${run}.${step}+orig \
 			> ${PREP}/${subj}.${run}.${step}.outs.txt
-	
+
 		1dplot \
 			-jpeg ${PREP}/${subj}.${run}.${step}.outs \
 			${PREP}/${subj}.${run}.${step}.outs.txt
@@ -377,43 +377,43 @@ for ((r=0; r<${#run[*]}; r++)) do
 
 
 	#------------------------------------------------------------------------
-	# 
+	#
 	#	Description: a
 	#
 	#		Purpose: a
 	#
 	#		  Input: a
 	#
-	#		 Output: a  
+	#		 Output: a
 	#
 	#	  Variables: tr (3500) repetition time in miliseconds
-	#				 ntp (154 | 160) Number of time-points. Subjects 1-14 have 
+	#				 ntp (154 | 160) Number of time-points. Subjects 1-14 have
 	#				 				 150 while subjects 15-18 have 160
 	#
 	#	       NOTE: fZ1, fZ2, fZ, fTHICK, fSLICE, and fFOV have been defined
 	#				 elsewhere
-	#				 
+	#
 	#------------------------------------------------------------------------
 
-	tr=3500; 	
-	
-	case $subj in 
+	tr=3500;
+
+	case $subj in
 		TS00[1-9] )
-		
+
 			ntp=154
 			;;
-	
+
 		TS01[0-4] )
-		 
+
 			ntp=154
 			;;
-	
+
 		TS01[5-8] )
-		
+
 			ntp=160
-			;; 
+			;;
 	esac
-	
+
 	to3d \
 		-epan \
 		-prefix ${subj}.${run}.epan \
@@ -427,31 +427,31 @@ for ((r=0; r<${#run[*]}; r++)) do
 		-time:tz ${ntp} ${fSLICE} ${tr} \
 		@${STIM}/offsets.1D \
 		${ORIG}/${run}.*
-	
+
 	_outplot: epan
-		
+
 
 
 	#------------------------------------------------------------------------
 	#
 	#	Description: a
-	#				  
+	#
 	#		Purpose: a
-	#				  
+	#
 	#		  Input: a
-	#				  
-	#		 Output: a  
-	#				  
+	#
+	#		 Output: a
+	#
 	#	  Variables: trunc (4 | 10 ) represents the number of timepoints to be
 	#				  		removed from the function image
 	#------------------------------------------------------------------------
-	
+
 	if [[ $npt = 154 ]]; then
 		trunc=4
 	else
 		trunc=10
 	fi
-	
+
 	3dTcat \
 		-verb \
 		-prefix ${PREP}/${subj}.${run}.tcat \
@@ -465,15 +465,15 @@ for ((r=0; r<${#run[*]}; r++)) do
 	#------------------------------------------------------------------------
 	#
 	#	Description: 3dDespike
-	#				  
+	#
 	#		Purpose: a
-	#				  
+	#
 	#		  Input: a
-	#				  
-	#		 Output: a  
-	#				  
+	#
+	#		 Output: a
+	#
 	#	  Variables: a
-	#				  
+	#
 	#------------------------------------------------------------------------
 
 	3dDespike \
@@ -486,15 +486,15 @@ for ((r=0; r<${#run[*]}; r++)) do
 	#------------------------------------------------------------------------
 	#
 	#	Description: a
-	#				  
+	#
 	#		Purpose: a
-	#				  
+	#
 	#		  Input: a
-	#				  
-	#		 Output: a  
-	#				  
+	#
+	#		 Output: a
+	#
 	#	  Variables: a
-	#				  
+	#
 	#------------------------------------------------------------------------
 
 	3dTshift \
@@ -510,20 +510,20 @@ for ((r=0; r<${#run[*]}; r++)) do
 	#------------------------------------------------------------------------
 	#
 	#	Description: a
-	#				  
+	#
 	#		Purpose: a
-	#				  
+	#
 	#		  Input: a
-	#				  
-	#		 Output: a  
-	#				  
+	#
+	#		 Output: a
+	#
 	#	  Variables: a
-	#				  
+	#
 	#------------------------------------------------------------------------
 
 	cd ${PREP}
 
-	
+
 	echo "volume registered to = $( _base: ) " >> ${subj}.${run}.log.txt
 
 	align_epi_anat.py \
@@ -556,25 +556,25 @@ for ((r=0; r<${#run[*]}; r++)) do
 
 
 	_outplot: vr.reg
-	
+
 
 
 	#------------------------------------------------------------------------
 	#
 	#	Description: Smoothing
-	#				  
+	#
 	#		Purpose: a
-	#				  
+	#
 	#		  Input: a
-	#				  
-	#		 Output: a  
-	#				  
+	#
+	#		 Output: a
+	#
 	#	  Variables: a
-	#				  
+	#
 	#------------------------------------------------------------------------
-	
+
 	filter=4.0
-	
+
 	3dBlurInMask \
 		-preserve \
 		-FWHM ${filter} \
@@ -593,7 +593,7 @@ for ((r=0; r<${#run[*]}; r++)) do
 	#
 	#		  Input: a
 	#
-	#		 Output: a  
+	#		 Output: a
 	#
 	#	  Variables: a
 	#
@@ -641,7 +641,7 @@ for ((r=0; r<${#run[*]}; r++)) do
 	#
 	#		  Input: a
 	#
-	#		 Output: a  
+	#		 Output: a
 	#
 	#	  Variables: a
 	#

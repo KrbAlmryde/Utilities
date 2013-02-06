@@ -44,7 +44,7 @@ afni -ver
 
 afni_history -check_date $(date +"%d %B %Y")
 
-if [[ $status ]]; then
+if [[ $? -ne 0 ]]; then
 	echo "** this script requires newer AFNI binaries (than "$(date +"%B %d %Y")
 	@update.afni.binaries -defaults
 fi

@@ -125,3 +125,101 @@ done
 # shift $(($OPTIND - 1))
 # echo "<Out of While LOOP> ${subj}_${scan}"
 
+
+<<wrap
+Wrap the program if statment into a couple seperate functions that check which scripts
+should be run based on the type of option the user reqested.
+
+ie if the user supplies -R argument
+    >> bash call ice ANOVA -r{1..3}
+
+    The -R flag will call the scanDirectedPrograms() function, which searches only those
+    scripts and programs which take just the scan as a parameter.
+
+    This way, we never run into the problem of calling a script without the correct arguments
+wrap
+
+
+
+function check_execute_A() {
+    #------------------------------------------------------------------------
+    #
+    #  Purpose: Will check those programs and scripts which take a subject
+    #           and scan id as parameters for execution.
+    #
+    #    Input: subj, scan -- The subject and scan Ids respectively
+    #
+    #   Output:
+    #
+    #------------------------------------------------------------------------
+    sub=$3
+    scan=$4
+
+    # First check to see that there are the correct number of arguments,
+    # if not display this usage message and exit the program.
+    if [[ $# -lt 2 ]]; then
+        usageMessage2()
+
+    # Otherwise check to see if there is a context specific operation, do this for a specific program
+    elif [[ -e ${PROG}/${context}.${operation}.sh ]]; then
+        cmd="${PROG}/${context}.${operation}.sh ${sub} ${scan}"
+
+    # Next check to see if there is a context specific operation, do this for a specific Pipeline
+    elif [[ -e ${BLOCK}/${context}.${operation}.sh ]]; then
+        cmd="${BLOCK}/${context}.${operation}.sh ${sub} ${scan}"
+
+    # If both of those options fail, check for a default program by that identifier
+    elif [[ -e ${PROG}/${operation}.sh ]]; then
+        cmd="${PROG}/${operation}.sh ${sub} ${scan}"
+
+    # Then check for a default Pipeline under that name.
+    elif [[ -e ${BLOCK}/${operation}.sh ]]; then
+        cmd="${BLOCK}/${operation}.sh ${sub} ${scan}"
+
+    fi
+
+    . ${cmd} 2>&1 | tee -a ${CONTEXT}/log.${context}.${operation}.txt
+
+} # End of check_execute_A()
+
+
+
+function check_execute_B() {
+    #------------------------------------------------------------------------
+    #
+    #  Purpose: Will check those programs and scripts which take a subject
+    #           and scan id as parameters for execution.
+    #
+    #    Input: scan -- The scan Ids respectively
+    #
+    #   Output:
+    #
+    #------------------------------------------------------------------------
+    scan=$3
+
+    # First check to see that there are the correct number of arguments,
+    # if not display this usage message and exit the program.
+    if [[ $# -lt 2 ]]; then
+        usageMessage2()
+
+    # Otherwise check to see if there is a context specific operation, do this for a specific program
+    elif [[ -e ${PROG}/${context}.${operation}.sh ]]; then
+        cmd="${PROG}/${context}.${operation}.sh ${scan}"
+
+    # Next check to see if there is a context specific operation, do this for a specific Pipeline
+    elif [[ -e ${BLOCK}/${context}.${operation}.sh ]]; then
+        cmd="${BLOCK}/${context}.${operation}.sh ${scan}"
+
+    # If both of those options fail, check for a default program by that identifier
+    elif [[ -e ${PROG}/${operation}.sh ]]; then
+        cmd="${PROG}/${operation}.sh ${scan}"
+
+    # Then check for a default Pipeline under that name.
+    elif [[ -e ${BLOCK}/${operation}.sh ]]; then
+        cmd="${BLOCK}/${operation}.sh ${scan}"
+
+    fi
+
+    . ${cmd} 2>&1 | tee -a ${CONTEXT}/log.${context}.${operation}.txt
+
+} # End of check_execute_A()

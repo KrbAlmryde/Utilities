@@ -44,30 +44,40 @@ CLUST=$LST/lst_clust_${1}.txt
 #
 #===============================================================================
 
-if [ "${1}" = "attnmem" ]; then
-	study_dir=$ATTNMEM
+case $context in
+    "attnmem" )
+            study_dir=$ATTNMEM
+            ;;
 
-elif [ "${1}" = "behav" ]; then
-	study_dir=$BEHAV
+    "behav" )
+            study_dir=$BEHAV
+            ;;
 
-elif [ "${1}" = "stroop" ]; then
-	study_dir=$STROOP
+    "stroop" )
+            study_dir=$STROOP
+            ;;
 
-elif [ "${1}" = "tap" ]; then
-	study_dir=$TAP
+    "tap" )
+            study_dir=$TAP
+            ;;
 
-elif [ "${1}" = "dich" ]; then
-	study_dir=$DICHOTIC
+    "dich" )
+            study_dir=$DICHOTIC
+            ;;
 
-elif [ "${1}" = "rat" ]; then
-	study_dir=$RAT
+    "rat" )
+            study_dir=$RAT
+            ;;
 
-elif [ "${1}" = "sld" ]; then
-	study_dir=$STROOPLD
+    "sld" )
+            study_dir=$STROOPLD
+            ;;
 
-elif [ "${1}" = "nwy" ]; then
-	study_dir=WORDBOUNDARY
-fi
+    "wb1" )
+            study_dir=$WORDBOUNDARY
+            ;;
+esac
+
 #===============================================================================
 								########### Functions ############
 #===============================================================================
