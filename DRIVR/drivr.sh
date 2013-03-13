@@ -202,9 +202,9 @@ case $analysis in
 						Reconstruct_spgr \
 						Coreg_spgr2fse \
 						Coreg_spgr2tlrc
-					
+
 					Loop_SubjRun \
-						Reconstruct_epan 
+						Reconstruct_epan
 			;;
 		#----------------------------------
 		#      	  Pre-Processing
@@ -218,7 +218,7 @@ case $analysis in
 #						Preproc_volreg2stand \
 #						"Preproc_smoothing 6.0" \
 #						Preproc_masking \
-#						Preproc_scale 
+#						Preproc_scale
 			;;
 		#----------------------------------
 		#        Regression Analysis
@@ -231,7 +231,7 @@ case $analysis in
 #						"Regress_${study} Basic" \
 
 #						"Regress_Plot Basic" \
-#						"Regress_FWHMx Dprime" 
+#						"Regress_FWHMx Dprime"
 
 
 #						"Regress_REML Basic" \
@@ -242,7 +242,7 @@ case $analysis in
 
 			;;
 		#----------------------------------
-		#        Coregistration 
+		#        Coregistration
 		#----------------------------------
 			4 | coreg )
 					Loop_Subj \
@@ -252,7 +252,7 @@ case $analysis in
 					Loop_SubjRun \
 						"Coreg__WarpFUNC Basic" \
 						"Coreg__WarpIRF Basic" \
-						"Coreg__WarpREML Basic" 
+						"Coreg__WarpREML Basic"
 #						"Coreg__WarpFUNC Dprime" \
 #						"Coreg__WarpIRF Dprime" \
 #						"Coreg__WarpREML Dprime" \
@@ -260,10 +260,10 @@ case $analysis in
 #						"Coreg__CleanUp Dprime"
 
 #						"Coreg__WarpBucketStats Basic" \
-#						"Coreg__WarpBucketStats Dprime" 
+#						"Coreg__WarpBucketStats Dprime"
 			;;
 		#----------------------------------
-		#        Low-Level Restart 
+		#        Low-Level Restart
 		#----------------------------------
 			5 | restart )
 					Loop_SubjRun \
@@ -306,13 +306,13 @@ case $analysis in
 						ICA_ica
 			;;
 		#----------------------------------
-		#        High-Level Restart 
+		#        High-Level Restart
 		#----------------------------------
 			3 | restart )
 					Loop_SubjRun \
 						Restart_Anova
 			;;
-			
+
 		esac 2>&1 | tee -a $HOME_dir/log.High.${step}.txt
 	;;
 #++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -332,7 +332,7 @@ case $analysis in
 			2 | preproc )
 					Loop_SubjRun \
 						Test_tshif \
-						
+
 			;;
 		esac
 	;;

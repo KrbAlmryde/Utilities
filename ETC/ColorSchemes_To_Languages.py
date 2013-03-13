@@ -5,7 +5,7 @@ langToscheme = {'Java': ['Darkside', 'Frontier', 'Monokai Soda',
                            'Phix Dark', 'SunBurst', 'Tomorrow-Night Bright'
                           ],
                 'Bash': ['Dobdark', 'EspressoLibre', 'LastNight',
-                          'Phix Dark', 'SunBurst'
+                          'Phix Dark', 'SunBurst', 'Tomorrow-Night Bright'
                         ]
                 }
 

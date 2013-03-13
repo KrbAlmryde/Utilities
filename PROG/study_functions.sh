@@ -38,15 +38,15 @@
 #================================================================================
 
 # take note of the AFNI version
-afni -ver
+date=$(echo `afni -ver` | awk '{print $6,$7,$8}' | sed 's/]//g')
 
 # check that the current AFNI version is recent enough
 
-afni_history -check_date $(date +"%d %B %Y")
+afni_history -check_date ${date}
 
 if [[ $? -ne 0 ]]; then
 	echo "** this script requires newer AFNI binaries (than "$(date +"%B %d %Y")
-	@update.afni.binaries -defaults
+	sudo @update.afni.binaries -defaults
 fi
 
 

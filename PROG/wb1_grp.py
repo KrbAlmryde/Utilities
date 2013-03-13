@@ -8,7 +8,7 @@
               on the imaging data for the Word Boundary Laterality project. In
               addition to preforming the ttest analysis, this program extracts
               and reports regions of interest from the resultant neural
-              activation maps that hare deemed significant from the ttest.
+              activation maps that are deemed significant from the ttest.
 
 ==============================================================================
 """

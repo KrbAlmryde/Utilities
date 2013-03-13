@@ -1,9 +1,15 @@
 # -- call system notes --
 
-# while (($#)); do
-#     echo $# sub$1
-#     shift
-# done
+# This is IT!!!
+while (($#)); do
+    sub=`printf "sub%03d" ${1%-*}`
+    run=run${1#*-}
+    rdir=Run${1#*-}
+    sunbrun=${sub}_${run}
+
+    echo $# $sub $run $subrun $cond $rdir/
+    shift
+done
 
 <<idea
 -- A note about Profiles...
@@ -100,7 +106,7 @@ possible1
 # bash call_system_build_notes.sh ice GLM -s{1..10}-{A..D}
 #
 # The way to handle the non-options is to assign them away, then shift them off the Parameter Line!
-this
+
 
 context=${1}
 operation=${2}
@@ -124,7 +130,7 @@ done
 
 # shift $(($OPTIND - 1))
 # echo "<Out of While LOOP> ${subj}_${scan}"
-
+this
 
 <<wrap
 Wrap the program if statment into a couple seperate functions that check which scripts
@@ -137,7 +143,7 @@ ie if the user supplies -R argument
     scripts and programs which take just the scan as a parameter.
 
     This way, we never run into the problem of calling a script without the correct arguments
-wrap
+
 
 
 
@@ -223,3 +229,44 @@ function check_execute_B() {
     . ${cmd} 2>&1 | tee -a ${CONTEXT}/log.${context}.${operation}.txt
 
 } # End of check_execute_A()
+wrap
+
+
+
+call ice volReg 18-4
+
+    Base.profile.sh:
+        BASE="/Volumes/Data/Iceword"
+        UTL="/usr/local/Utilities"      #
+        DVR="${UTL}/DRIVR"              #
+        PFL="${UTL}/PROFILE"            #
+        LST="${UTL}/LST"                #
+        BLK="${UTL}/BLK"                #
+        PRG="${UTL}/PROG"               #
+        STM="${UTL}/STIM"               #
+
+        HelpMessage() {
+            echo 'Your doing it wrong'
+        }
+
+        check_status() {
+            echo 'Its up to date!'
+        }
+
+        check_execute() {
+            # check the input, source the profile
+        }
+    ------------------------------------
+    sub=sub0{18}
+    scan=run{4}
+    SDIR=Run{4}
+
+    ${PFL}/{ice}.profile:
+        runsub=${run}_${sub}
+        FUNC="/Volumes/Data/Iceword/${sub}/Func"
+        RD="/Volumes/Data/Iceword/${sub}/Func/${SDI}/RealignDetails"
+
+
+        volReg():
+            3dVolReg ... ${RD}/$runsub.nii.gz
+

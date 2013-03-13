@@ -22,14 +22,14 @@ context=$1
 #=================================
 # Experiment Path Variables
 #=================================
-ATTNMEM=/Volumes/Data/ATTNMEM
-BEHAV=/Volumes/Data/BEHAV
-STROOP=/Volumes/Data/STROOP
-TAP=/Volumes/Data/TAP
-RAT=/Volumes/Data/RAT
-WORDBOUNDARY=/Volumes/Data/WordBoundary1
-WB1=/Volumes/Data/WB1
-ICE=/Volumes/Data/Iceword
+ATTNMEM="/Volumes/Data/ATTNMEM"
+BEHAV="/Volumes/Data/BEHAV"
+STROOP="/Volumes/Data/STROOP"
+TAP="/Volumes/Data/TAP"
+RAT="/Volumes/Data/RAT"
+WORDBOUNDARY="/Volumes/Data/WordBoundary1"
+WB1="/Volumes/Data/WB1"
+ICE="/Volumes/Data/Iceword"
 
 #===========================
 # Script Path Variables
@@ -45,7 +45,6 @@ STM="${UTL}/STIM"               #
 #===============================================================================
 # Define a general experimental variables, specifically subject, run, and conditions
 #===============================================================================
-condition=(`echo {A..D}`)
 
 #===============================================================================
 # Define Hemodynamic Response Model types into an array
@@ -60,39 +59,39 @@ model[2]='SPMG'
 
 case $context in
     "attnmem" )
-            CTX=$ATTNMEM
+            BASE=$ATTNMEM
             ;;
 
     "behav" )
-            CTX=$BEHAV
+            BASE=$BEHAV
             ;;
 
     "stroop" )
-            CTX=$STROOP
+            BASE=$STROOP
             ;;
 
     "tap" )
-            CTX=$TAP
+            BASE=$TAP
             ;;
 
     "dich" )
-            CTX=$DICHOTIC
+            BASE=$DICHOTIC
             ;;
 
     "rat" )
-            CTX=$RAT
+            BASE=$RAT
             ;;
 
     "sld" )
-            CTX=$STROOPLD
+            BASE=$STROOPLD
             ;;
 
     "word" )
-            CTX=$WORDBOUNDARY
+            BASE=$WORDBOUNDARY
             ;;
 
     "wb1" )
-            CTX=$WORDBOUNDARY
+            BASE=$WORDBOUNDARY
             ;;
 esac
 
@@ -118,7 +117,7 @@ function check_status() {
     #   Output: None
     #
     #------------------------------------------------------------------------
-    date=$(echo `afni -ver` | awk '{print $6,$7,$8}' | sed 's/]//g')
+    date=$(echo `afni -ver` | awk "{print $6,$7,$8}" | sed 's/]//g')
 
     echo -n "AFNI version "
     afni_history -check_date $date   # $(date +"%d %B %Y")
@@ -133,6 +132,37 @@ function check_status() {
     fi
 
 } # End of check_status
+
+
+function each() {
+    #------------------------------------------------------------------------
+    #
+    #  Purpose: Will iterate over each subject and run based on the context
+    #           profile information provided. Subjects and Runs are defined
+    #           within Context.
+    #
+    #    Input: A function, which will be context dependent in that the name
+    #           of the function called must be defined within the context's
+    #           namespace.
+    #
+    #   Output: Varies, dependant on the function called.
+    #
+    #------------------------------------------------------------------------
+
+    local calledFunction=$1
+    local SUBJECTS=$SUBJECTS
+    local RUNS=$RUNS
+
+    echo -e "Executing $calledFunction for each subject and run....\n"
+
+    for subj in ${SUBJECTS[*]}; do
+        for run in ${RUNS[*]}; do
+            $calledFunction subj scan
+        done
+    done
+
+
+} # End of each
 
 
 
@@ -159,29 +189,29 @@ function HelpMessage() {
     #------------------------------------------------------------------------
 
     echo "-----------------------------------------------------------------------"
-    echo "+                 +++ No arguments provided! +++                      +"
+    echo "+            +++ Missing 1 or more required Arguments +++             +"
     echo "+                                                                     +"
-    echo "+             This program requires at least 1 arguments.             +"
+    echo "+             This program requires at least 3 arguments              +"
     echo "+                                                                     +"
-    echo "+       NOTE: [words] in square brackets represent possible input.    +"
-    echo "+             See below for available options.                        +"
+    echo "+      NOTE: [words] in square brackets represent possible input      +"
+    echo "+                   See below for available options                   +"
     echo "+                                                                     +"
     echo "-----------------------------------------------------------------------"
     echo "   +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
     echo "   +                Experimental condition                       +"
     echo "   +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
     echo "   +                                                             +"
-    echo "   +  [learn]   or  [learnable]    For the Learnable Condtion    +"
-    echo "   +  [unlearn] or  [unlearnable]  For the Unlearnable Condtion  +"
+    echo "   +  [Ice]   or  [Iceword]    For the Learnable Condtion    +"
+    echo "   +  [wb1] or  [WordBoundary]  For the Unlearnable Condtion  +"
     echo "   +  [debug]   or  [test]         For testing purposes only     +"
     echo "   +                                                             +"
     echo "   +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
     echo "-----------------------------------------------------------------------"
-    echo "+                Example command-line execution:                      +"
+    echo "+                   Example command-line execution:                   +"
     echo "+                                                                     +"
-    echo "+                    bash wb1.glm.sh learn                            +"
+    echo "+                 call Ice Preprocess {1..19}-{1..4}                  +"
     echo "+                                                                     +"
-    echo "+                  +++ Please try again +++                           +"
+    echo "+                       +++ Please try again +++                      +"
     echo "-----------------------------------------------------------------------"
 
     exit 1
@@ -223,7 +253,11 @@ function usageMessage2() {
 } # End of usageMessage2
 
 
-function check_execute_A() {
+
+
+
+
+function check_execute {
     #------------------------------------------------------------------------
     #
     #  Purpose: Will check those programs and scripts which take a subject
@@ -234,9 +268,9 @@ function check_execute_A() {
     #   Output:
     #
     #------------------------------------------------------------------------
-    sub=$1
-    scan=$2
     local cmd
+
+    source ${PFL}/${context}.profile.sh
 
     # First check to see that there are the correct number of arguments,
     # if not display this usage message and exit the program.
@@ -259,6 +293,8 @@ function check_execute_A() {
     elif [[ -e ${BLOCK}/${operation}.sh ]]; then
         cmd="${BLOCK}/${operation}.sh ${sub} ${scan}"
 
+    else
+        cmd="${operation} ${sub} ${scan}"
     fi
 
     . ${cmd} 2>&1 | tee -a ${CONTEXT}/log.${context}.${operation}.txt

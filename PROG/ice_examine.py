@@ -34,23 +34,20 @@ def getOutName(inputImg, addName=None, addDir='', altPath=''):
     if len(image.split('-')) < 3:
         subj = image.split('-')[0]
         scan = image.split('-')[1].split('.')[0]
-        print subj, scan
     elif len(image.split('-')) > 3:
         subj, scan = image.split('-')[:2]
         body = image.split('-')[2:-1]
         tail = image.split('-')[-1].split('.')[0]
-        print subj, scan, body, tail
     else:
         subj, scan = image.split('-')[:2]
         tail = image.split('-')[-1].split('.')[0]
-        print subj, scan, tail
 
     outName = [subj, scan]
 
     if body:
         outName.extend(body)
 
-    if tail and 'OLD' not in tail:
+    if tail and 'RAW' not in tail:
         outName.append(tail)
     else:
         pass
@@ -58,7 +55,7 @@ def getOutName(inputImg, addName=None, addDir='', altPath=''):
     if addName:
         outName.append(addName)
 
-    outName = '-'.join(outName) + '.nii'
+    outName = '-'.join(outName) + '.nii.gz'
 
     if altPath:
         outImg = os.path.join(altPath, addDir, outName)
@@ -223,10 +220,10 @@ def writeReport(subjDict):
     title = "{:<11}{:<8}{:<10}{:<15}{:<17}{:<13}{:<20}{:<21}{:<23}{:<20}\n"
     header = ['Subject', 'Scan', 'MRInum', 'Orientation', 'Dimensions', 'Thickness', 'TR/FOV', 'Reps/R-extent', 'Slices/A-extent', 'Origin/I-extent']
 
-    fout = open('/Volumes/Data/Iceword/README.txt', 'a+')
+    fout = open('/Volumes/Data/IcewordNEW/README.txt', 'a+')
     fout.write(title.format(*header))
 
-    for subscan in [(sub, scan) for sub in subjDict for scan in subjDict[sub] if scan not in ('MRInum', 'OldID')]:
+    for subscan in [(sub, scan) for sub in sorted(subjDict) for scan in sorted(subjDict[sub]) if scan not in ('MRInum', 'OldID')]:
         subj = subscan[0]
         scan = subscan[1]
         if scan in ('Run1', 'Run2', 'Run3', 'Run4'):
@@ -299,15 +296,15 @@ def main():
         #       Directory Pointers        #
         #---------------------------------#
         # OldICE = '/Volumes/Data/ETC/ICEWORD/' + enum + '/combos/prelim'
-        OldICE = '/Volumes/Data/ETC/ICEWORD/' + subID + '/combos/prelim'
-        ICEmorph = '/Volumes/Data/Iceword/' + subj + '/Morph'
-        OldStruct = '/Volumes/Data/ETC/ICEWORD/' + enum + '/struct'
+        OldICE = '/Volumes/Data/IcewordOLD/' + subID + '/combos/prelim'
+        ICEmorph = '/Volumes/Data/IcewordNEW/' + subj + '/Morph'
+        OldStruct = '/Volumes/Data/IcewordOLD/' + enum + '/struct'
 
         #---------------------------------#
         #       Functional Images         #
         #---------------------------------#
         if scan not in ('SPGR', 'FSE'):
-            ICE = '/Volumes/Data/Iceword/' + subj + '/Func/' + scan
+            ICE = '/Volumes/Data/IcewordNEW/' + subj + '/Func/' + scan
 
             #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             # Executing checkPath(path1, imgFile1, imgFile2):
@@ -320,7 +317,7 @@ def main():
             oldImg = checkPath(OldICE,
                                '-'.join([subID, 'reg', scan.lower() + '+orig']),
                                '-'.join([subID, scan.lower(), 'reg+orig']))
-            newImg = os.path.join(ICE, '-'.join([subj, scan.lower(), 'OLD.nii']))
+            newImg = os.path.join(ICE, '-'.join([subj, scan.lower(), 'RAW.nii.gz']))
 
         #---------------------------------#
         #       Structural Images         #
@@ -338,7 +335,7 @@ def main():
             oldImg = checkPath(OldICE,
                                 os.path.join(OldStruct, scan.lower() + '/'),
                                 '-'.join([subID, scan.lower() + '+orig']))
-            newImg = os.path.join(ICEmorph, '-'.join([subj, scan.lower(), 'OLD.nii']))
+            newImg = os.path.join(ICEmorph, '-'.join([subj, scan.lower(), 'RAW.nii.gz']))
 
         #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         # Executing getImgData():

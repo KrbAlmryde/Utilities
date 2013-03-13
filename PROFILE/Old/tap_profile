@@ -2,8 +2,8 @@
 ####################################################################################################
 								########### START OF MAIN ############
 ####################################################################################################
-# This list specifies variables specifc to the TAP study. Sections include those designated for 
-# directory specific path variables, 
+# This list specifies variables specifc to the TAP study. Sections include those designated for
+# directory specific path variables,
 # These are path variables that will be specified in the individual program scripts
 ####################################################################################################
 #
@@ -22,9 +22,16 @@ test_dir=${subj_dir}/Test
 # Condition name decision maker
 ####################################################################################################
 #
-if [ "${run}" = "SP1" ]; then cond1=animal cond2=food
-elif [ "${run}" = "TP1" ]; then cond1=old cond2=new
-else cond1=male cond2=female; fi
+if [ "${run}" = "SP1" ]; then
+    cond1=animal
+    cond2=food
+elif [ "${run}" = "TP1" ]; then
+    cond1=old
+    cond2=new
+else
+    cond1=male
+    cond2=female
+fi
 
 alevel1=$cond1
 alevel2=$cond2
@@ -34,10 +41,13 @@ alevel2=$cond2
 # For the default WAV and GAM models
 
 mod=GAM
-if [ "${hrm}" = "WAV" ]; then 	mod=WAV
-elif [ "${hrm}" = "GAM" ]; then mod=GAM; fi
+if [ "${hrm}" = "WAV" ]; then
+    mod=WAV
+elif [ "${hrm}" = "GAM" ]; then
+    mod=GAM
+fi
 ####################################################################################################
-# 
+#
 # Names for files. Naming hierachy should follow this pattern: subj, run, mod, cond, brik
 # Indentation is for readability
 ####################################################################################################
@@ -58,24 +68,24 @@ subcond2=${submod}.${cond2}
 runmean=${runmod}.mean
 runbase=${runmod}.base
 rundiff=${runmod}.diff
-runcontr=${runmod}.contr	
+runcontr=${runmod}.contr
 	cond1v2=${cond1}.vs.${cond2}
 	cond2v1=${cond2}.vs.${cond1}
 
 
-if [ "${clust}" = "1640" ]; then 
+if [ "${clust}" = "1640" ]; then
 	plvl=05; thr=2.160
-elif [ "${clust}" = "1709" ]; then 
+elif [ "${clust}" = "1709" ]; then
 	plvl=04; thr=2.281
-elif [ "${clust}" = "1759" ]; then 
+elif [ "${clust}" = "1759" ]; then
 	plvl=03; thr=2.435
-elif [ "${clust}" = "1875" ]; then 
+elif [ "${clust}" = "1875" ]; then
 	plvl=02; thr=2.651
-elif [ "${clust}" = "2044" ]; then 
+elif [ "${clust}" = "2044" ]; then
 	plvl=01; thr=3.014
-elif [ "${clust}" = "2324" ]; then 
+elif [ "${clust}" = "2324" ]; then
 	plvl=005; thr=3.374
-elif [ "${clust}" = "2890" ]; then 
+elif [ "${clust}" = "2890" ]; then
 	plvl=001; thr=4.214
 fi
 

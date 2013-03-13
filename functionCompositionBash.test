@@ -1,0 +1,27 @@
+#!/bin/bash
+
+function log_execute () {
+    #------------------------------------------------------------------------
+    #
+    #  Purpose: This function logs the execution output (stdout/stderr) of
+    #           the command prefixed to this function
+    #
+    #    Input:
+    #
+    #   Output:
+    #
+    #------------------------------------------------------------------------
+
+    outdir=$1
+
+
+}
+
+
+function echoStuff () {
+    echo 'HEY!' $0 $1 $2 $3 >> log.TEST.txt
+}
+
+
+
+echoStuff

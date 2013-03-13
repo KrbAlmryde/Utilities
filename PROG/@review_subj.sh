@@ -27,8 +27,8 @@
 #================================================================================
 
 sub=$1
-RD="/Volumes/Data/Iceword/${sub}/Func/Run1/RealignDetails/"
-MORPH="/Volumes/Data/Iceword/${sub}/Morph/"
+RD="/Volumes/Data/Iceword/${sub}/Func/Run1/RealignDetails"
+MORPH="/Volumes/Data/Iceword/${sub}/Morph"
 subj=${RD}/${sub}
 
 dsets=(`ls ${subj}-*.nii`)
@@ -57,11 +57,12 @@ sleep 2    # give afni time to open the windows
 
 for dset in ${dsets[*]}; do
     plugout_drive                        \
+        -skip_afnirc                               \
         -com "SWITCH_UNDERLAY $dset"     \
         -com "OPEN_WINDOW sagittalgraph  \
                           keypress=a     \
                           keypress=v"    \
-        -quit
+    -quit
 
     sleep 2    # wait for plugout_drive output
 

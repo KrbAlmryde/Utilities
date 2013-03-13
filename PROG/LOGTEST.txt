@@ -1,0 +1,4764 @@
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+============================ Begin Testing============================
+Subject == sub005
+Scan == 
+RUNDIR == Run1
+Subject = sub005 
+runsub = run1_sub005
+condition = 
+RUN = Run1 
+1D array Size = 4
+
+============================ File Names ============================
+
+censor.cue_stim.1D
+stim.listen_block.1D 
+stim.control_block.1D
+stim.response_block.1D 
+
+============================ Path Names  ============================
+
+Func dir = /Volumes/Data/Iceword/sub005/Func/Run1
+GLM dir = /Volumes/Data/ICE/GLM/sub005/Run1
+STIM dir = /Volumes/Data/ICE/GLM/STIM
+ID dir = /Volumes/Data/ICE/GLM/sub005/Run1/1D
+
+============================ Variable Names  ============================
+
+delay = 0
+model = WAV(18.2,0,4,6,0.2,2)
+input4d = run1_sub005_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub005_tshift_volreg_despike_mni_7mm_214tr_0sec
+
+============================ Variable Names  ============================
+
+delay = 1
+model = WAV(18.2,1,4,6,0.2,2)
+input4d = run1_sub005_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub005_tshift_volreg_despike_mni_7mm_214tr_1sec
+
+============================ Variable Names  ============================
+
+delay = 2
+model = WAV(18.2,2,4,6,0.2,2)
+input4d = run1_sub005_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub005_tshift_volreg_despike_mni_7mm_214tr_2sec
+
+============================ Variable Names  ============================
+
+delay = 3
+model = WAV(18.2,3,4,6,0.2,2)
+input4d = run1_sub005_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub005_tshift_volreg_despike_mni_7mm_214tr_3sec
+
+============================ Variable Names  ============================
+
+delay = 4
+model = WAV(18.2,4,4,6,0.2,2)
+input4d = run1_sub005_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub005_tshift_volreg_despike_mni_7mm_214tr_4sec
+
+============================ Variable Names  ============================
+
+delay = 5
+model = WAV(18.2,5,4,6,0.2,2)
+input4d = run1_sub005_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub005_tshift_volreg_despike_mni_7mm_214tr_5sec
+
+============================ Variable Names  ============================
+
+delay = 6
+model = WAV(18.2,6,4,6,0.2,2)
+input4d = run1_sub005_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub005_tshift_volreg_despike_mni_7mm_214tr_6sec
+
+============================ Variable Names  ============================
+
+delay = 7
+model = WAV(18.2,7,4,6,0.2,2)
+input4d = run1_sub005_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub005_tshift_volreg_despike_mni_7mm_214tr_7sec
+
+================================ End Testing ================================
+
+********************* Hooray For Test Driven Development **********************
+
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+============================ Begin Testing============================
+Subject == sub005
+Scan == 
+RUNDIR == Run2
+Subject = sub005 
+runsub = run2_sub005
+condition = 
+RUN = Run2 
+1D array Size = 4
+
+============================ File Names ============================
+
+censor.cue_stim.1D
+stim.listen_block.1D 
+stim.control_block.1D
+stim.response_block.1D 
+
+============================ Path Names  ============================
+
+Func dir = /Volumes/Data/Iceword/sub005/Func/Run2
+GLM dir = /Volumes/Data/ICE/GLM/sub005/Run2
+STIM dir = /Volumes/Data/ICE/GLM/STIM
+ID dir = /Volumes/Data/ICE/GLM/sub005/Run2/1D
+
+============================ Variable Names  ============================
+
+delay = 0
+model = WAV(18.2,0,4,6,0.2,2)
+input4d = run2_sub005_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub005_tshift_volreg_despike_mni_7mm_214tr_0sec
+
+============================ Variable Names  ============================
+
+delay = 1
+model = WAV(18.2,1,4,6,0.2,2)
+input4d = run2_sub005_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub005_tshift_volreg_despike_mni_7mm_214tr_1sec
+
+============================ Variable Names  ============================
+
+delay = 2
+model = WAV(18.2,2,4,6,0.2,2)
+input4d = run2_sub005_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub005_tshift_volreg_despike_mni_7mm_214tr_2sec
+
+============================ Variable Names  ============================
+
+delay = 3
+model = WAV(18.2,3,4,6,0.2,2)
+input4d = run2_sub005_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub005_tshift_volreg_despike_mni_7mm_214tr_3sec
+
+============================ Variable Names  ============================
+
+delay = 4
+model = WAV(18.2,4,4,6,0.2,2)
+input4d = run2_sub005_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub005_tshift_volreg_despike_mni_7mm_214tr_4sec
+
+============================ Variable Names  ============================
+
+delay = 5
+model = WAV(18.2,5,4,6,0.2,2)
+input4d = run2_sub005_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub005_tshift_volreg_despike_mni_7mm_214tr_5sec
+
+============================ Variable Names  ============================
+
+delay = 6
+model = WAV(18.2,6,4,6,0.2,2)
+input4d = run2_sub005_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub005_tshift_volreg_despike_mni_7mm_214tr_6sec
+
+============================ Variable Names  ============================
+
+delay = 7
+model = WAV(18.2,7,4,6,0.2,2)
+input4d = run2_sub005_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub005_tshift_volreg_despike_mni_7mm_214tr_7sec
+
+================================ End Testing ================================
+
+********************* Hooray For Test Driven Development **********************
+
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+============================ Begin Testing============================
+Subject == sub005
+Scan == 
+RUNDIR == Run3
+Subject = sub005 
+runsub = run3_sub005
+condition = 
+RUN = Run3 
+1D array Size = 4
+
+============================ File Names ============================
+
+censor.cue_stim.1D
+stim.listen_block.1D 
+stim.control_block.1D
+stim.response_block.1D 
+
+============================ Path Names  ============================
+
+Func dir = /Volumes/Data/Iceword/sub005/Func/Run3
+GLM dir = /Volumes/Data/ICE/GLM/sub005/Run3
+STIM dir = /Volumes/Data/ICE/GLM/STIM
+ID dir = /Volumes/Data/ICE/GLM/sub005/Run3/1D
+
+============================ Variable Names  ============================
+
+delay = 0
+model = WAV(18.2,0,4,6,0.2,2)
+input4d = run3_sub005_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub005_tshift_volreg_despike_mni_7mm_214tr_0sec
+
+============================ Variable Names  ============================
+
+delay = 1
+model = WAV(18.2,1,4,6,0.2,2)
+input4d = run3_sub005_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub005_tshift_volreg_despike_mni_7mm_214tr_1sec
+
+============================ Variable Names  ============================
+
+delay = 2
+model = WAV(18.2,2,4,6,0.2,2)
+input4d = run3_sub005_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub005_tshift_volreg_despike_mni_7mm_214tr_2sec
+
+============================ Variable Names  ============================
+
+delay = 3
+model = WAV(18.2,3,4,6,0.2,2)
+input4d = run3_sub005_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub005_tshift_volreg_despike_mni_7mm_214tr_3sec
+
+============================ Variable Names  ============================
+
+delay = 4
+model = WAV(18.2,4,4,6,0.2,2)
+input4d = run3_sub005_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub005_tshift_volreg_despike_mni_7mm_214tr_4sec
+
+============================ Variable Names  ============================
+
+delay = 5
+model = WAV(18.2,5,4,6,0.2,2)
+input4d = run3_sub005_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub005_tshift_volreg_despike_mni_7mm_214tr_5sec
+
+============================ Variable Names  ============================
+
+delay = 6
+model = WAV(18.2,6,4,6,0.2,2)
+input4d = run3_sub005_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub005_tshift_volreg_despike_mni_7mm_214tr_6sec
+
+============================ Variable Names  ============================
+
+delay = 7
+model = WAV(18.2,7,4,6,0.2,2)
+input4d = run3_sub005_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub005_tshift_volreg_despike_mni_7mm_214tr_7sec
+
+================================ End Testing ================================
+
+********************* Hooray For Test Driven Development **********************
+
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+============================ Begin Testing============================
+Subject == sub005
+Scan == 
+RUNDIR == Run4
+Subject = sub005 
+runsub = run4_sub005
+condition = 
+RUN = Run4 
+1D array Size = 4
+
+============================ File Names ============================
+
+censor.cue_stim.1D
+stim.listen_block.1D 
+stim.control_block.1D
+stim.response_block.1D 
+
+============================ Path Names  ============================
+
+Func dir = /Volumes/Data/Iceword/sub005/Func/Run4
+GLM dir = /Volumes/Data/ICE/GLM/sub005/Run4
+STIM dir = /Volumes/Data/ICE/GLM/STIM
+ID dir = /Volumes/Data/ICE/GLM/sub005/Run4/1D
+
+============================ Variable Names  ============================
+
+delay = 0
+model = WAV(18.2,0,4,6,0.2,2)
+input4d = run4_sub005_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub005_tshift_volreg_despike_mni_7mm_214tr_0sec
+
+============================ Variable Names  ============================
+
+delay = 1
+model = WAV(18.2,1,4,6,0.2,2)
+input4d = run4_sub005_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub005_tshift_volreg_despike_mni_7mm_214tr_1sec
+
+============================ Variable Names  ============================
+
+delay = 2
+model = WAV(18.2,2,4,6,0.2,2)
+input4d = run4_sub005_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub005_tshift_volreg_despike_mni_7mm_214tr_2sec
+
+============================ Variable Names  ============================
+
+delay = 3
+model = WAV(18.2,3,4,6,0.2,2)
+input4d = run4_sub005_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub005_tshift_volreg_despike_mni_7mm_214tr_3sec
+
+============================ Variable Names  ============================
+
+delay = 4
+model = WAV(18.2,4,4,6,0.2,2)
+input4d = run4_sub005_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub005_tshift_volreg_despike_mni_7mm_214tr_4sec
+
+============================ Variable Names  ============================
+
+delay = 5
+model = WAV(18.2,5,4,6,0.2,2)
+input4d = run4_sub005_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub005_tshift_volreg_despike_mni_7mm_214tr_5sec
+
+============================ Variable Names  ============================
+
+delay = 6
+model = WAV(18.2,6,4,6,0.2,2)
+input4d = run4_sub005_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub005_tshift_volreg_despike_mni_7mm_214tr_6sec
+
+============================ Variable Names  ============================
+
+delay = 7
+model = WAV(18.2,7,4,6,0.2,2)
+input4d = run4_sub005_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub005_tshift_volreg_despike_mni_7mm_214tr_7sec
+
+================================ End Testing ================================
+
+********************* Hooray For Test Driven Development **********************
+
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+============================ Begin Testing============================
+Subject == sub006
+Scan == 
+RUNDIR == Run1
+Subject = sub006 
+runsub = run1_sub006
+condition = 
+RUN = Run1 
+1D array Size = 4
+
+============================ File Names ============================
+
+censor.cue_stim.1D
+stim.listen_block.1D 
+stim.control_block.1D
+stim.response_block.1D 
+
+============================ Path Names  ============================
+
+Func dir = /Volumes/Data/Iceword/sub006/Func/Run1
+GLM dir = /Volumes/Data/ICE/GLM/sub006/Run1
+STIM dir = /Volumes/Data/ICE/GLM/STIM
+ID dir = /Volumes/Data/ICE/GLM/sub006/Run1/1D
+
+============================ Variable Names  ============================
+
+delay = 0
+model = WAV(18.2,0,4,6,0.2,2)
+input4d = run1_sub006_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub006_tshift_volreg_despike_mni_7mm_214tr_0sec
+
+============================ Variable Names  ============================
+
+delay = 1
+model = WAV(18.2,1,4,6,0.2,2)
+input4d = run1_sub006_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub006_tshift_volreg_despike_mni_7mm_214tr_1sec
+
+============================ Variable Names  ============================
+
+delay = 2
+model = WAV(18.2,2,4,6,0.2,2)
+input4d = run1_sub006_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub006_tshift_volreg_despike_mni_7mm_214tr_2sec
+
+============================ Variable Names  ============================
+
+delay = 3
+model = WAV(18.2,3,4,6,0.2,2)
+input4d = run1_sub006_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub006_tshift_volreg_despike_mni_7mm_214tr_3sec
+
+============================ Variable Names  ============================
+
+delay = 4
+model = WAV(18.2,4,4,6,0.2,2)
+input4d = run1_sub006_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub006_tshift_volreg_despike_mni_7mm_214tr_4sec
+
+============================ Variable Names  ============================
+
+delay = 5
+model = WAV(18.2,5,4,6,0.2,2)
+input4d = run1_sub006_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub006_tshift_volreg_despike_mni_7mm_214tr_5sec
+
+============================ Variable Names  ============================
+
+delay = 6
+model = WAV(18.2,6,4,6,0.2,2)
+input4d = run1_sub006_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub006_tshift_volreg_despike_mni_7mm_214tr_6sec
+
+============================ Variable Names  ============================
+
+delay = 7
+model = WAV(18.2,7,4,6,0.2,2)
+input4d = run1_sub006_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub006_tshift_volreg_despike_mni_7mm_214tr_7sec
+
+================================ End Testing ================================
+
+********************* Hooray For Test Driven Development **********************
+
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+============================ Begin Testing============================
+Subject == sub006
+Scan == 
+RUNDIR == Run2
+Subject = sub006 
+runsub = run2_sub006
+condition = 
+RUN = Run2 
+1D array Size = 4
+
+============================ File Names ============================
+
+censor.cue_stim.1D
+stim.listen_block.1D 
+stim.control_block.1D
+stim.response_block.1D 
+
+============================ Path Names  ============================
+
+Func dir = /Volumes/Data/Iceword/sub006/Func/Run2
+GLM dir = /Volumes/Data/ICE/GLM/sub006/Run2
+STIM dir = /Volumes/Data/ICE/GLM/STIM
+ID dir = /Volumes/Data/ICE/GLM/sub006/Run2/1D
+
+============================ Variable Names  ============================
+
+delay = 0
+model = WAV(18.2,0,4,6,0.2,2)
+input4d = run2_sub006_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub006_tshift_volreg_despike_mni_7mm_214tr_0sec
+
+============================ Variable Names  ============================
+
+delay = 1
+model = WAV(18.2,1,4,6,0.2,2)
+input4d = run2_sub006_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub006_tshift_volreg_despike_mni_7mm_214tr_1sec
+
+============================ Variable Names  ============================
+
+delay = 2
+model = WAV(18.2,2,4,6,0.2,2)
+input4d = run2_sub006_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub006_tshift_volreg_despike_mni_7mm_214tr_2sec
+
+============================ Variable Names  ============================
+
+delay = 3
+model = WAV(18.2,3,4,6,0.2,2)
+input4d = run2_sub006_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub006_tshift_volreg_despike_mni_7mm_214tr_3sec
+
+============================ Variable Names  ============================
+
+delay = 4
+model = WAV(18.2,4,4,6,0.2,2)
+input4d = run2_sub006_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub006_tshift_volreg_despike_mni_7mm_214tr_4sec
+
+============================ Variable Names  ============================
+
+delay = 5
+model = WAV(18.2,5,4,6,0.2,2)
+input4d = run2_sub006_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub006_tshift_volreg_despike_mni_7mm_214tr_5sec
+
+============================ Variable Names  ============================
+
+delay = 6
+model = WAV(18.2,6,4,6,0.2,2)
+input4d = run2_sub006_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub006_tshift_volreg_despike_mni_7mm_214tr_6sec
+
+============================ Variable Names  ============================
+
+delay = 7
+model = WAV(18.2,7,4,6,0.2,2)
+input4d = run2_sub006_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub006_tshift_volreg_despike_mni_7mm_214tr_7sec
+
+================================ End Testing ================================
+
+********************* Hooray For Test Driven Development **********************
+
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+============================ Begin Testing============================
+Subject == sub006
+Scan == 
+RUNDIR == Run3
+Subject = sub006 
+runsub = run3_sub006
+condition = 
+RUN = Run3 
+1D array Size = 4
+
+============================ File Names ============================
+
+censor.cue_stim.1D
+stim.listen_block.1D 
+stim.control_block.1D
+stim.response_block.1D 
+
+============================ Path Names  ============================
+
+Func dir = /Volumes/Data/Iceword/sub006/Func/Run3
+GLM dir = /Volumes/Data/ICE/GLM/sub006/Run3
+STIM dir = /Volumes/Data/ICE/GLM/STIM
+ID dir = /Volumes/Data/ICE/GLM/sub006/Run3/1D
+
+============================ Variable Names  ============================
+
+delay = 0
+model = WAV(18.2,0,4,6,0.2,2)
+input4d = run3_sub006_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub006_tshift_volreg_despike_mni_7mm_214tr_0sec
+
+============================ Variable Names  ============================
+
+delay = 1
+model = WAV(18.2,1,4,6,0.2,2)
+input4d = run3_sub006_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub006_tshift_volreg_despike_mni_7mm_214tr_1sec
+
+============================ Variable Names  ============================
+
+delay = 2
+model = WAV(18.2,2,4,6,0.2,2)
+input4d = run3_sub006_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub006_tshift_volreg_despike_mni_7mm_214tr_2sec
+
+============================ Variable Names  ============================
+
+delay = 3
+model = WAV(18.2,3,4,6,0.2,2)
+input4d = run3_sub006_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub006_tshift_volreg_despike_mni_7mm_214tr_3sec
+
+============================ Variable Names  ============================
+
+delay = 4
+model = WAV(18.2,4,4,6,0.2,2)
+input4d = run3_sub006_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub006_tshift_volreg_despike_mni_7mm_214tr_4sec
+
+============================ Variable Names  ============================
+
+delay = 5
+model = WAV(18.2,5,4,6,0.2,2)
+input4d = run3_sub006_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub006_tshift_volreg_despike_mni_7mm_214tr_5sec
+
+============================ Variable Names  ============================
+
+delay = 6
+model = WAV(18.2,6,4,6,0.2,2)
+input4d = run3_sub006_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub006_tshift_volreg_despike_mni_7mm_214tr_6sec
+
+============================ Variable Names  ============================
+
+delay = 7
+model = WAV(18.2,7,4,6,0.2,2)
+input4d = run3_sub006_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub006_tshift_volreg_despike_mni_7mm_214tr_7sec
+
+================================ End Testing ================================
+
+********************* Hooray For Test Driven Development **********************
+
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+============================ Begin Testing============================
+Subject == sub006
+Scan == 
+RUNDIR == Run4
+Subject = sub006 
+runsub = run4_sub006
+condition = 
+RUN = Run4 
+1D array Size = 4
+
+============================ File Names ============================
+
+censor.cue_stim.1D
+stim.listen_block.1D 
+stim.control_block.1D
+stim.response_block.1D 
+
+============================ Path Names  ============================
+
+Func dir = /Volumes/Data/Iceword/sub006/Func/Run4
+GLM dir = /Volumes/Data/ICE/GLM/sub006/Run4
+STIM dir = /Volumes/Data/ICE/GLM/STIM
+ID dir = /Volumes/Data/ICE/GLM/sub006/Run4/1D
+
+============================ Variable Names  ============================
+
+delay = 0
+model = WAV(18.2,0,4,6,0.2,2)
+input4d = run4_sub006_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub006_tshift_volreg_despike_mni_7mm_214tr_0sec
+
+============================ Variable Names  ============================
+
+delay = 1
+model = WAV(18.2,1,4,6,0.2,2)
+input4d = run4_sub006_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub006_tshift_volreg_despike_mni_7mm_214tr_1sec
+
+============================ Variable Names  ============================
+
+delay = 2
+model = WAV(18.2,2,4,6,0.2,2)
+input4d = run4_sub006_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub006_tshift_volreg_despike_mni_7mm_214tr_2sec
+
+============================ Variable Names  ============================
+
+delay = 3
+model = WAV(18.2,3,4,6,0.2,2)
+input4d = run4_sub006_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub006_tshift_volreg_despike_mni_7mm_214tr_3sec
+
+============================ Variable Names  ============================
+
+delay = 4
+model = WAV(18.2,4,4,6,0.2,2)
+input4d = run4_sub006_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub006_tshift_volreg_despike_mni_7mm_214tr_4sec
+
+============================ Variable Names  ============================
+
+delay = 5
+model = WAV(18.2,5,4,6,0.2,2)
+input4d = run4_sub006_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub006_tshift_volreg_despike_mni_7mm_214tr_5sec
+
+============================ Variable Names  ============================
+
+delay = 6
+model = WAV(18.2,6,4,6,0.2,2)
+input4d = run4_sub006_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub006_tshift_volreg_despike_mni_7mm_214tr_6sec
+
+============================ Variable Names  ============================
+
+delay = 7
+model = WAV(18.2,7,4,6,0.2,2)
+input4d = run4_sub006_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub006_tshift_volreg_despike_mni_7mm_214tr_7sec
+
+================================ End Testing ================================
+
+********************* Hooray For Test Driven Development **********************
+
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+============================ Begin Testing============================
+Subject == sub007
+Scan == 
+RUNDIR == Run1
+Subject = sub007 
+runsub = run1_sub007
+condition = 
+RUN = Run1 
+1D array Size = 4
+
+============================ File Names ============================
+
+censor.cue_stim.1D
+stim.listen_block.1D 
+stim.control_block.1D
+stim.response_block.1D 
+
+============================ Path Names  ============================
+
+Func dir = /Volumes/Data/Iceword/sub007/Func/Run1
+GLM dir = /Volumes/Data/ICE/GLM/sub007/Run1
+STIM dir = /Volumes/Data/ICE/GLM/STIM
+ID dir = /Volumes/Data/ICE/GLM/sub007/Run1/1D
+
+============================ Variable Names  ============================
+
+delay = 0
+model = WAV(18.2,0,4,6,0.2,2)
+input4d = run1_sub007_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub007_tshift_volreg_despike_mni_7mm_214tr_0sec
+
+============================ Variable Names  ============================
+
+delay = 1
+model = WAV(18.2,1,4,6,0.2,2)
+input4d = run1_sub007_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub007_tshift_volreg_despike_mni_7mm_214tr_1sec
+
+============================ Variable Names  ============================
+
+delay = 2
+model = WAV(18.2,2,4,6,0.2,2)
+input4d = run1_sub007_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub007_tshift_volreg_despike_mni_7mm_214tr_2sec
+
+============================ Variable Names  ============================
+
+delay = 3
+model = WAV(18.2,3,4,6,0.2,2)
+input4d = run1_sub007_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub007_tshift_volreg_despike_mni_7mm_214tr_3sec
+
+============================ Variable Names  ============================
+
+delay = 4
+model = WAV(18.2,4,4,6,0.2,2)
+input4d = run1_sub007_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub007_tshift_volreg_despike_mni_7mm_214tr_4sec
+
+============================ Variable Names  ============================
+
+delay = 5
+model = WAV(18.2,5,4,6,0.2,2)
+input4d = run1_sub007_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub007_tshift_volreg_despike_mni_7mm_214tr_5sec
+
+============================ Variable Names  ============================
+
+delay = 6
+model = WAV(18.2,6,4,6,0.2,2)
+input4d = run1_sub007_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub007_tshift_volreg_despike_mni_7mm_214tr_6sec
+
+============================ Variable Names  ============================
+
+delay = 7
+model = WAV(18.2,7,4,6,0.2,2)
+input4d = run1_sub007_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub007_tshift_volreg_despike_mni_7mm_214tr_7sec
+
+================================ End Testing ================================
+
+********************* Hooray For Test Driven Development **********************
+
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+============================ Begin Testing============================
+Subject == sub007
+Scan == 
+RUNDIR == Run2
+Subject = sub007 
+runsub = run2_sub007
+condition = 
+RUN = Run2 
+1D array Size = 4
+
+============================ File Names ============================
+
+censor.cue_stim.1D
+stim.listen_block.1D 
+stim.control_block.1D
+stim.response_block.1D 
+
+============================ Path Names  ============================
+
+Func dir = /Volumes/Data/Iceword/sub007/Func/Run2
+GLM dir = /Volumes/Data/ICE/GLM/sub007/Run2
+STIM dir = /Volumes/Data/ICE/GLM/STIM
+ID dir = /Volumes/Data/ICE/GLM/sub007/Run2/1D
+
+============================ Variable Names  ============================
+
+delay = 0
+model = WAV(18.2,0,4,6,0.2,2)
+input4d = run2_sub007_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub007_tshift_volreg_despike_mni_7mm_214tr_0sec
+
+============================ Variable Names  ============================
+
+delay = 1
+model = WAV(18.2,1,4,6,0.2,2)
+input4d = run2_sub007_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub007_tshift_volreg_despike_mni_7mm_214tr_1sec
+
+============================ Variable Names  ============================
+
+delay = 2
+model = WAV(18.2,2,4,6,0.2,2)
+input4d = run2_sub007_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub007_tshift_volreg_despike_mni_7mm_214tr_2sec
+
+============================ Variable Names  ============================
+
+delay = 3
+model = WAV(18.2,3,4,6,0.2,2)
+input4d = run2_sub007_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub007_tshift_volreg_despike_mni_7mm_214tr_3sec
+
+============================ Variable Names  ============================
+
+delay = 4
+model = WAV(18.2,4,4,6,0.2,2)
+input4d = run2_sub007_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub007_tshift_volreg_despike_mni_7mm_214tr_4sec
+
+============================ Variable Names  ============================
+
+delay = 5
+model = WAV(18.2,5,4,6,0.2,2)
+input4d = run2_sub007_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub007_tshift_volreg_despike_mni_7mm_214tr_5sec
+
+============================ Variable Names  ============================
+
+delay = 6
+model = WAV(18.2,6,4,6,0.2,2)
+input4d = run2_sub007_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub007_tshift_volreg_despike_mni_7mm_214tr_6sec
+
+============================ Variable Names  ============================
+
+delay = 7
+model = WAV(18.2,7,4,6,0.2,2)
+input4d = run2_sub007_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub007_tshift_volreg_despike_mni_7mm_214tr_7sec
+
+================================ End Testing ================================
+
+********************* Hooray For Test Driven Development **********************
+
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+============================ Begin Testing============================
+Subject == sub007
+Scan == 
+RUNDIR == Run3
+Subject = sub007 
+runsub = run3_sub007
+condition = 
+RUN = Run3 
+1D array Size = 4
+
+============================ File Names ============================
+
+censor.cue_stim.1D
+stim.listen_block.1D 
+stim.control_block.1D
+stim.response_block.1D 
+
+============================ Path Names  ============================
+
+Func dir = /Volumes/Data/Iceword/sub007/Func/Run3
+GLM dir = /Volumes/Data/ICE/GLM/sub007/Run3
+STIM dir = /Volumes/Data/ICE/GLM/STIM
+ID dir = /Volumes/Data/ICE/GLM/sub007/Run3/1D
+
+============================ Variable Names  ============================
+
+delay = 0
+model = WAV(18.2,0,4,6,0.2,2)
+input4d = run3_sub007_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub007_tshift_volreg_despike_mni_7mm_214tr_0sec
+
+============================ Variable Names  ============================
+
+delay = 1
+model = WAV(18.2,1,4,6,0.2,2)
+input4d = run3_sub007_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub007_tshift_volreg_despike_mni_7mm_214tr_1sec
+
+============================ Variable Names  ============================
+
+delay = 2
+model = WAV(18.2,2,4,6,0.2,2)
+input4d = run3_sub007_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub007_tshift_volreg_despike_mni_7mm_214tr_2sec
+
+============================ Variable Names  ============================
+
+delay = 3
+model = WAV(18.2,3,4,6,0.2,2)
+input4d = run3_sub007_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub007_tshift_volreg_despike_mni_7mm_214tr_3sec
+
+============================ Variable Names  ============================
+
+delay = 4
+model = WAV(18.2,4,4,6,0.2,2)
+input4d = run3_sub007_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub007_tshift_volreg_despike_mni_7mm_214tr_4sec
+
+============================ Variable Names  ============================
+
+delay = 5
+model = WAV(18.2,5,4,6,0.2,2)
+input4d = run3_sub007_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub007_tshift_volreg_despike_mni_7mm_214tr_5sec
+
+============================ Variable Names  ============================
+
+delay = 6
+model = WAV(18.2,6,4,6,0.2,2)
+input4d = run3_sub007_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub007_tshift_volreg_despike_mni_7mm_214tr_6sec
+
+============================ Variable Names  ============================
+
+delay = 7
+model = WAV(18.2,7,4,6,0.2,2)
+input4d = run3_sub007_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub007_tshift_volreg_despike_mni_7mm_214tr_7sec
+
+================================ End Testing ================================
+
+********************* Hooray For Test Driven Development **********************
+
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+============================ Begin Testing============================
+Subject == sub007
+Scan == 
+RUNDIR == Run4
+Subject = sub007 
+runsub = run4_sub007
+condition = 
+RUN = Run4 
+1D array Size = 4
+
+============================ File Names ============================
+
+censor.cue_stim.1D
+stim.listen_block.1D 
+stim.control_block.1D
+stim.response_block.1D 
+
+============================ Path Names  ============================
+
+Func dir = /Volumes/Data/Iceword/sub007/Func/Run4
+GLM dir = /Volumes/Data/ICE/GLM/sub007/Run4
+STIM dir = /Volumes/Data/ICE/GLM/STIM
+ID dir = /Volumes/Data/ICE/GLM/sub007/Run4/1D
+
+============================ Variable Names  ============================
+
+delay = 0
+model = WAV(18.2,0,4,6,0.2,2)
+input4d = run4_sub007_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub007_tshift_volreg_despike_mni_7mm_214tr_0sec
+
+============================ Variable Names  ============================
+
+delay = 1
+model = WAV(18.2,1,4,6,0.2,2)
+input4d = run4_sub007_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub007_tshift_volreg_despike_mni_7mm_214tr_1sec
+
+============================ Variable Names  ============================
+
+delay = 2
+model = WAV(18.2,2,4,6,0.2,2)
+input4d = run4_sub007_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub007_tshift_volreg_despike_mni_7mm_214tr_2sec
+
+============================ Variable Names  ============================
+
+delay = 3
+model = WAV(18.2,3,4,6,0.2,2)
+input4d = run4_sub007_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub007_tshift_volreg_despike_mni_7mm_214tr_3sec
+
+============================ Variable Names  ============================
+
+delay = 4
+model = WAV(18.2,4,4,6,0.2,2)
+input4d = run4_sub007_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub007_tshift_volreg_despike_mni_7mm_214tr_4sec
+
+============================ Variable Names  ============================
+
+delay = 5
+model = WAV(18.2,5,4,6,0.2,2)
+input4d = run4_sub007_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub007_tshift_volreg_despike_mni_7mm_214tr_5sec
+
+============================ Variable Names  ============================
+
+delay = 6
+model = WAV(18.2,6,4,6,0.2,2)
+input4d = run4_sub007_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub007_tshift_volreg_despike_mni_7mm_214tr_6sec
+
+============================ Variable Names  ============================
+
+delay = 7
+model = WAV(18.2,7,4,6,0.2,2)
+input4d = run4_sub007_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub007_tshift_volreg_despike_mni_7mm_214tr_7sec
+
+================================ End Testing ================================
+
+********************* Hooray For Test Driven Development **********************
+
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+============================ Begin Testing============================
+Subject == sub008
+Scan == 
+RUNDIR == Run1
+Subject = sub008 
+runsub = run1_sub008
+condition = 
+RUN = Run1 
+1D array Size = 4
+
+============================ File Names ============================
+
+censor.cue_stim.1D
+stim.listen_block.1D 
+stim.control_block.1D
+stim.response_block.1D 
+
+============================ Path Names  ============================
+
+Func dir = /Volumes/Data/Iceword/sub008/Func/Run1
+GLM dir = /Volumes/Data/ICE/GLM/sub008/Run1
+STIM dir = /Volumes/Data/ICE/GLM/STIM
+ID dir = /Volumes/Data/ICE/GLM/sub008/Run1/1D
+
+============================ Variable Names  ============================
+
+delay = 0
+model = WAV(18.2,0,4,6,0.2,2)
+input4d = run1_sub008_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub008_tshift_volreg_despike_mni_7mm_214tr_0sec
+
+============================ Variable Names  ============================
+
+delay = 1
+model = WAV(18.2,1,4,6,0.2,2)
+input4d = run1_sub008_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub008_tshift_volreg_despike_mni_7mm_214tr_1sec
+
+============================ Variable Names  ============================
+
+delay = 2
+model = WAV(18.2,2,4,6,0.2,2)
+input4d = run1_sub008_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub008_tshift_volreg_despike_mni_7mm_214tr_2sec
+
+============================ Variable Names  ============================
+
+delay = 3
+model = WAV(18.2,3,4,6,0.2,2)
+input4d = run1_sub008_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub008_tshift_volreg_despike_mni_7mm_214tr_3sec
+
+============================ Variable Names  ============================
+
+delay = 4
+model = WAV(18.2,4,4,6,0.2,2)
+input4d = run1_sub008_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub008_tshift_volreg_despike_mni_7mm_214tr_4sec
+
+============================ Variable Names  ============================
+
+delay = 5
+model = WAV(18.2,5,4,6,0.2,2)
+input4d = run1_sub008_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub008_tshift_volreg_despike_mni_7mm_214tr_5sec
+
+============================ Variable Names  ============================
+
+delay = 6
+model = WAV(18.2,6,4,6,0.2,2)
+input4d = run1_sub008_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub008_tshift_volreg_despike_mni_7mm_214tr_6sec
+
+============================ Variable Names  ============================
+
+delay = 7
+model = WAV(18.2,7,4,6,0.2,2)
+input4d = run1_sub008_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub008_tshift_volreg_despike_mni_7mm_214tr_7sec
+
+================================ End Testing ================================
+
+********************* Hooray For Test Driven Development **********************
+
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+============================ Begin Testing============================
+Subject == sub008
+Scan == 
+RUNDIR == Run2
+Subject = sub008 
+runsub = run2_sub008
+condition = 
+RUN = Run2 
+1D array Size = 4
+
+============================ File Names ============================
+
+censor.cue_stim.1D
+stim.listen_block.1D 
+stim.control_block.1D
+stim.response_block.1D 
+
+============================ Path Names  ============================
+
+Func dir = /Volumes/Data/Iceword/sub008/Func/Run2
+GLM dir = /Volumes/Data/ICE/GLM/sub008/Run2
+STIM dir = /Volumes/Data/ICE/GLM/STIM
+ID dir = /Volumes/Data/ICE/GLM/sub008/Run2/1D
+
+============================ Variable Names  ============================
+
+delay = 0
+model = WAV(18.2,0,4,6,0.2,2)
+input4d = run2_sub008_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub008_tshift_volreg_despike_mni_7mm_214tr_0sec
+
+============================ Variable Names  ============================
+
+delay = 1
+model = WAV(18.2,1,4,6,0.2,2)
+input4d = run2_sub008_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub008_tshift_volreg_despike_mni_7mm_214tr_1sec
+
+============================ Variable Names  ============================
+
+delay = 2
+model = WAV(18.2,2,4,6,0.2,2)
+input4d = run2_sub008_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub008_tshift_volreg_despike_mni_7mm_214tr_2sec
+
+============================ Variable Names  ============================
+
+delay = 3
+model = WAV(18.2,3,4,6,0.2,2)
+input4d = run2_sub008_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub008_tshift_volreg_despike_mni_7mm_214tr_3sec
+
+============================ Variable Names  ============================
+
+delay = 4
+model = WAV(18.2,4,4,6,0.2,2)
+input4d = run2_sub008_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub008_tshift_volreg_despike_mni_7mm_214tr_4sec
+
+============================ Variable Names  ============================
+
+delay = 5
+model = WAV(18.2,5,4,6,0.2,2)
+input4d = run2_sub008_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub008_tshift_volreg_despike_mni_7mm_214tr_5sec
+
+============================ Variable Names  ============================
+
+delay = 6
+model = WAV(18.2,6,4,6,0.2,2)
+input4d = run2_sub008_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub008_tshift_volreg_despike_mni_7mm_214tr_6sec
+
+============================ Variable Names  ============================
+
+delay = 7
+model = WAV(18.2,7,4,6,0.2,2)
+input4d = run2_sub008_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub008_tshift_volreg_despike_mni_7mm_214tr_7sec
+
+================================ End Testing ================================
+
+********************* Hooray For Test Driven Development **********************
+
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+============================ Begin Testing============================
+Subject == sub008
+Scan == 
+RUNDIR == Run3
+Subject = sub008 
+runsub = run3_sub008
+condition = 
+RUN = Run3 
+1D array Size = 4
+
+============================ File Names ============================
+
+censor.cue_stim.1D
+stim.listen_block.1D 
+stim.control_block.1D
+stim.response_block.1D 
+
+============================ Path Names  ============================
+
+Func dir = /Volumes/Data/Iceword/sub008/Func/Run3
+GLM dir = /Volumes/Data/ICE/GLM/sub008/Run3
+STIM dir = /Volumes/Data/ICE/GLM/STIM
+ID dir = /Volumes/Data/ICE/GLM/sub008/Run3/1D
+
+============================ Variable Names  ============================
+
+delay = 0
+model = WAV(18.2,0,4,6,0.2,2)
+input4d = run3_sub008_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub008_tshift_volreg_despike_mni_7mm_214tr_0sec
+
+============================ Variable Names  ============================
+
+delay = 1
+model = WAV(18.2,1,4,6,0.2,2)
+input4d = run3_sub008_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub008_tshift_volreg_despike_mni_7mm_214tr_1sec
+
+============================ Variable Names  ============================
+
+delay = 2
+model = WAV(18.2,2,4,6,0.2,2)
+input4d = run3_sub008_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub008_tshift_volreg_despike_mni_7mm_214tr_2sec
+
+============================ Variable Names  ============================
+
+delay = 3
+model = WAV(18.2,3,4,6,0.2,2)
+input4d = run3_sub008_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub008_tshift_volreg_despike_mni_7mm_214tr_3sec
+
+============================ Variable Names  ============================
+
+delay = 4
+model = WAV(18.2,4,4,6,0.2,2)
+input4d = run3_sub008_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub008_tshift_volreg_despike_mni_7mm_214tr_4sec
+
+============================ Variable Names  ============================
+
+delay = 5
+model = WAV(18.2,5,4,6,0.2,2)
+input4d = run3_sub008_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub008_tshift_volreg_despike_mni_7mm_214tr_5sec
+
+============================ Variable Names  ============================
+
+delay = 6
+model = WAV(18.2,6,4,6,0.2,2)
+input4d = run3_sub008_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub008_tshift_volreg_despike_mni_7mm_214tr_6sec
+
+============================ Variable Names  ============================
+
+delay = 7
+model = WAV(18.2,7,4,6,0.2,2)
+input4d = run3_sub008_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub008_tshift_volreg_despike_mni_7mm_214tr_7sec
+
+================================ End Testing ================================
+
+********************* Hooray For Test Driven Development **********************
+
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+============================ Begin Testing============================
+Subject == sub008
+Scan == 
+RUNDIR == Run4
+Subject = sub008 
+runsub = run4_sub008
+condition = 
+RUN = Run4 
+1D array Size = 4
+
+============================ File Names ============================
+
+censor.cue_stim.1D
+stim.listen_block.1D 
+stim.control_block.1D
+stim.response_block.1D 
+
+============================ Path Names  ============================
+
+Func dir = /Volumes/Data/Iceword/sub008/Func/Run4
+GLM dir = /Volumes/Data/ICE/GLM/sub008/Run4
+STIM dir = /Volumes/Data/ICE/GLM/STIM
+ID dir = /Volumes/Data/ICE/GLM/sub008/Run4/1D
+
+============================ Variable Names  ============================
+
+delay = 0
+model = WAV(18.2,0,4,6,0.2,2)
+input4d = run4_sub008_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub008_tshift_volreg_despike_mni_7mm_214tr_0sec
+
+============================ Variable Names  ============================
+
+delay = 1
+model = WAV(18.2,1,4,6,0.2,2)
+input4d = run4_sub008_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub008_tshift_volreg_despike_mni_7mm_214tr_1sec
+
+============================ Variable Names  ============================
+
+delay = 2
+model = WAV(18.2,2,4,6,0.2,2)
+input4d = run4_sub008_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub008_tshift_volreg_despike_mni_7mm_214tr_2sec
+
+============================ Variable Names  ============================
+
+delay = 3
+model = WAV(18.2,3,4,6,0.2,2)
+input4d = run4_sub008_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub008_tshift_volreg_despike_mni_7mm_214tr_3sec
+
+============================ Variable Names  ============================
+
+delay = 4
+model = WAV(18.2,4,4,6,0.2,2)
+input4d = run4_sub008_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub008_tshift_volreg_despike_mni_7mm_214tr_4sec
+
+============================ Variable Names  ============================
+
+delay = 5
+model = WAV(18.2,5,4,6,0.2,2)
+input4d = run4_sub008_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub008_tshift_volreg_despike_mni_7mm_214tr_5sec
+
+============================ Variable Names  ============================
+
+delay = 6
+model = WAV(18.2,6,4,6,0.2,2)
+input4d = run4_sub008_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub008_tshift_volreg_despike_mni_7mm_214tr_6sec
+
+============================ Variable Names  ============================
+
+delay = 7
+model = WAV(18.2,7,4,6,0.2,2)
+input4d = run4_sub008_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub008_tshift_volreg_despike_mni_7mm_214tr_7sec
+
+================================ End Testing ================================
+
+********************* Hooray For Test Driven Development **********************
+
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+============================ Begin Testing============================
+Subject == sub009
+Scan == 
+RUNDIR == Run1
+Subject = sub009 
+runsub = run1_sub009
+condition = 
+RUN = Run1 
+1D array Size = 4
+
+============================ File Names ============================
+
+censor.cue_stim.1D
+stim.listen_block.1D 
+stim.control_block.1D
+stim.response_block.1D 
+
+============================ Path Names  ============================
+
+Func dir = /Volumes/Data/Iceword/sub009/Func/Run1
+GLM dir = /Volumes/Data/ICE/GLM/sub009/Run1
+STIM dir = /Volumes/Data/ICE/GLM/STIM
+ID dir = /Volumes/Data/ICE/GLM/sub009/Run1/1D
+
+============================ Variable Names  ============================
+
+delay = 0
+model = WAV(18.2,0,4,6,0.2,2)
+input4d = run1_sub009_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub009_tshift_volreg_despike_mni_7mm_214tr_0sec
+
+============================ Variable Names  ============================
+
+delay = 1
+model = WAV(18.2,1,4,6,0.2,2)
+input4d = run1_sub009_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub009_tshift_volreg_despike_mni_7mm_214tr_1sec
+
+============================ Variable Names  ============================
+
+delay = 2
+model = WAV(18.2,2,4,6,0.2,2)
+input4d = run1_sub009_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub009_tshift_volreg_despike_mni_7mm_214tr_2sec
+
+============================ Variable Names  ============================
+
+delay = 3
+model = WAV(18.2,3,4,6,0.2,2)
+input4d = run1_sub009_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub009_tshift_volreg_despike_mni_7mm_214tr_3sec
+
+============================ Variable Names  ============================
+
+delay = 4
+model = WAV(18.2,4,4,6,0.2,2)
+input4d = run1_sub009_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub009_tshift_volreg_despike_mni_7mm_214tr_4sec
+
+============================ Variable Names  ============================
+
+delay = 5
+model = WAV(18.2,5,4,6,0.2,2)
+input4d = run1_sub009_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub009_tshift_volreg_despike_mni_7mm_214tr_5sec
+
+============================ Variable Names  ============================
+
+delay = 6
+model = WAV(18.2,6,4,6,0.2,2)
+input4d = run1_sub009_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub009_tshift_volreg_despike_mni_7mm_214tr_6sec
+
+============================ Variable Names  ============================
+
+delay = 7
+model = WAV(18.2,7,4,6,0.2,2)
+input4d = run1_sub009_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub009_tshift_volreg_despike_mni_7mm_214tr_7sec
+
+================================ End Testing ================================
+
+********************* Hooray For Test Driven Development **********************
+
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+============================ Begin Testing============================
+Subject == sub009
+Scan == 
+RUNDIR == Run2
+Subject = sub009 
+runsub = run2_sub009
+condition = 
+RUN = Run2 
+1D array Size = 4
+
+============================ File Names ============================
+
+censor.cue_stim.1D
+stim.listen_block.1D 
+stim.control_block.1D
+stim.response_block.1D 
+
+============================ Path Names  ============================
+
+Func dir = /Volumes/Data/Iceword/sub009/Func/Run2
+GLM dir = /Volumes/Data/ICE/GLM/sub009/Run2
+STIM dir = /Volumes/Data/ICE/GLM/STIM
+ID dir = /Volumes/Data/ICE/GLM/sub009/Run2/1D
+
+============================ Variable Names  ============================
+
+delay = 0
+model = WAV(18.2,0,4,6,0.2,2)
+input4d = run2_sub009_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub009_tshift_volreg_despike_mni_7mm_214tr_0sec
+
+============================ Variable Names  ============================
+
+delay = 1
+model = WAV(18.2,1,4,6,0.2,2)
+input4d = run2_sub009_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub009_tshift_volreg_despike_mni_7mm_214tr_1sec
+
+============================ Variable Names  ============================
+
+delay = 2
+model = WAV(18.2,2,4,6,0.2,2)
+input4d = run2_sub009_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub009_tshift_volreg_despike_mni_7mm_214tr_2sec
+
+============================ Variable Names  ============================
+
+delay = 3
+model = WAV(18.2,3,4,6,0.2,2)
+input4d = run2_sub009_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub009_tshift_volreg_despike_mni_7mm_214tr_3sec
+
+============================ Variable Names  ============================
+
+delay = 4
+model = WAV(18.2,4,4,6,0.2,2)
+input4d = run2_sub009_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub009_tshift_volreg_despike_mni_7mm_214tr_4sec
+
+============================ Variable Names  ============================
+
+delay = 5
+model = WAV(18.2,5,4,6,0.2,2)
+input4d = run2_sub009_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub009_tshift_volreg_despike_mni_7mm_214tr_5sec
+
+============================ Variable Names  ============================
+
+delay = 6
+model = WAV(18.2,6,4,6,0.2,2)
+input4d = run2_sub009_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub009_tshift_volreg_despike_mni_7mm_214tr_6sec
+
+============================ Variable Names  ============================
+
+delay = 7
+model = WAV(18.2,7,4,6,0.2,2)
+input4d = run2_sub009_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub009_tshift_volreg_despike_mni_7mm_214tr_7sec
+
+================================ End Testing ================================
+
+********************* Hooray For Test Driven Development **********************
+
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+============================ Begin Testing============================
+Subject == sub009
+Scan == 
+RUNDIR == Run3
+Subject = sub009 
+runsub = run3_sub009
+condition = 
+RUN = Run3 
+1D array Size = 4
+
+============================ File Names ============================
+
+censor.cue_stim.1D
+stim.listen_block.1D 
+stim.control_block.1D
+stim.response_block.1D 
+
+============================ Path Names  ============================
+
+Func dir = /Volumes/Data/Iceword/sub009/Func/Run3
+GLM dir = /Volumes/Data/ICE/GLM/sub009/Run3
+STIM dir = /Volumes/Data/ICE/GLM/STIM
+ID dir = /Volumes/Data/ICE/GLM/sub009/Run3/1D
+
+============================ Variable Names  ============================
+
+delay = 0
+model = WAV(18.2,0,4,6,0.2,2)
+input4d = run3_sub009_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub009_tshift_volreg_despike_mni_7mm_214tr_0sec
+
+============================ Variable Names  ============================
+
+delay = 1
+model = WAV(18.2,1,4,6,0.2,2)
+input4d = run3_sub009_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub009_tshift_volreg_despike_mni_7mm_214tr_1sec
+
+============================ Variable Names  ============================
+
+delay = 2
+model = WAV(18.2,2,4,6,0.2,2)
+input4d = run3_sub009_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub009_tshift_volreg_despike_mni_7mm_214tr_2sec
+
+============================ Variable Names  ============================
+
+delay = 3
+model = WAV(18.2,3,4,6,0.2,2)
+input4d = run3_sub009_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub009_tshift_volreg_despike_mni_7mm_214tr_3sec
+
+============================ Variable Names  ============================
+
+delay = 4
+model = WAV(18.2,4,4,6,0.2,2)
+input4d = run3_sub009_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub009_tshift_volreg_despike_mni_7mm_214tr_4sec
+
+============================ Variable Names  ============================
+
+delay = 5
+model = WAV(18.2,5,4,6,0.2,2)
+input4d = run3_sub009_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub009_tshift_volreg_despike_mni_7mm_214tr_5sec
+
+============================ Variable Names  ============================
+
+delay = 6
+model = WAV(18.2,6,4,6,0.2,2)
+input4d = run3_sub009_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub009_tshift_volreg_despike_mni_7mm_214tr_6sec
+
+============================ Variable Names  ============================
+
+delay = 7
+model = WAV(18.2,7,4,6,0.2,2)
+input4d = run3_sub009_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub009_tshift_volreg_despike_mni_7mm_214tr_7sec
+
+================================ End Testing ================================
+
+********************* Hooray For Test Driven Development **********************
+
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+============================ Begin Testing============================
+Subject == sub009
+Scan == 
+RUNDIR == Run4
+Subject = sub009 
+runsub = run4_sub009
+condition = 
+RUN = Run4 
+1D array Size = 4
+
+============================ File Names ============================
+
+censor.cue_stim.1D
+stim.listen_block.1D 
+stim.control_block.1D
+stim.response_block.1D 
+
+============================ Path Names  ============================
+
+Func dir = /Volumes/Data/Iceword/sub009/Func/Run4
+GLM dir = /Volumes/Data/ICE/GLM/sub009/Run4
+STIM dir = /Volumes/Data/ICE/GLM/STIM
+ID dir = /Volumes/Data/ICE/GLM/sub009/Run4/1D
+
+============================ Variable Names  ============================
+
+delay = 0
+model = WAV(18.2,0,4,6,0.2,2)
+input4d = run4_sub009_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub009_tshift_volreg_despike_mni_7mm_214tr_0sec
+
+============================ Variable Names  ============================
+
+delay = 1
+model = WAV(18.2,1,4,6,0.2,2)
+input4d = run4_sub009_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub009_tshift_volreg_despike_mni_7mm_214tr_1sec
+
+============================ Variable Names  ============================
+
+delay = 2
+model = WAV(18.2,2,4,6,0.2,2)
+input4d = run4_sub009_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub009_tshift_volreg_despike_mni_7mm_214tr_2sec
+
+============================ Variable Names  ============================
+
+delay = 3
+model = WAV(18.2,3,4,6,0.2,2)
+input4d = run4_sub009_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub009_tshift_volreg_despike_mni_7mm_214tr_3sec
+
+============================ Variable Names  ============================
+
+delay = 4
+model = WAV(18.2,4,4,6,0.2,2)
+input4d = run4_sub009_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub009_tshift_volreg_despike_mni_7mm_214tr_4sec
+
+============================ Variable Names  ============================
+
+delay = 5
+model = WAV(18.2,5,4,6,0.2,2)
+input4d = run4_sub009_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub009_tshift_volreg_despike_mni_7mm_214tr_5sec
+
+============================ Variable Names  ============================
+
+delay = 6
+model = WAV(18.2,6,4,6,0.2,2)
+input4d = run4_sub009_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub009_tshift_volreg_despike_mni_7mm_214tr_6sec
+
+============================ Variable Names  ============================
+
+delay = 7
+model = WAV(18.2,7,4,6,0.2,2)
+input4d = run4_sub009_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub009_tshift_volreg_despike_mni_7mm_214tr_7sec
+
+================================ End Testing ================================
+
+********************* Hooray For Test Driven Development **********************
+
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+============================ Begin Testing============================
+Subject == sub010
+Scan == 
+RUNDIR == Run1
+Subject = sub010 
+runsub = run1_sub010
+condition = 
+RUN = Run1 
+1D array Size = 4
+
+============================ File Names ============================
+
+censor.cue_stim.1D
+stim.listen_block.1D 
+stim.control_block.1D
+stim.response_block.1D 
+
+============================ Path Names  ============================
+
+Func dir = /Volumes/Data/Iceword/sub010/Func/Run1
+GLM dir = /Volumes/Data/ICE/GLM/sub010/Run1
+STIM dir = /Volumes/Data/ICE/GLM/STIM
+ID dir = /Volumes/Data/ICE/GLM/sub010/Run1/1D
+
+============================ Variable Names  ============================
+
+delay = 0
+model = WAV(18.2,0,4,6,0.2,2)
+input4d = run1_sub010_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub010_tshift_volreg_despike_mni_7mm_214tr_0sec
+
+============================ Variable Names  ============================
+
+delay = 1
+model = WAV(18.2,1,4,6,0.2,2)
+input4d = run1_sub010_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub010_tshift_volreg_despike_mni_7mm_214tr_1sec
+
+============================ Variable Names  ============================
+
+delay = 2
+model = WAV(18.2,2,4,6,0.2,2)
+input4d = run1_sub010_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub010_tshift_volreg_despike_mni_7mm_214tr_2sec
+
+============================ Variable Names  ============================
+
+delay = 3
+model = WAV(18.2,3,4,6,0.2,2)
+input4d = run1_sub010_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub010_tshift_volreg_despike_mni_7mm_214tr_3sec
+
+============================ Variable Names  ============================
+
+delay = 4
+model = WAV(18.2,4,4,6,0.2,2)
+input4d = run1_sub010_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub010_tshift_volreg_despike_mni_7mm_214tr_4sec
+
+============================ Variable Names  ============================
+
+delay = 5
+model = WAV(18.2,5,4,6,0.2,2)
+input4d = run1_sub010_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub010_tshift_volreg_despike_mni_7mm_214tr_5sec
+
+============================ Variable Names  ============================
+
+delay = 6
+model = WAV(18.2,6,4,6,0.2,2)
+input4d = run1_sub010_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub010_tshift_volreg_despike_mni_7mm_214tr_6sec
+
+============================ Variable Names  ============================
+
+delay = 7
+model = WAV(18.2,7,4,6,0.2,2)
+input4d = run1_sub010_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub010_tshift_volreg_despike_mni_7mm_214tr_7sec
+
+================================ End Testing ================================
+
+********************* Hooray For Test Driven Development **********************
+
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+============================ Begin Testing============================
+Subject == sub010
+Scan == 
+RUNDIR == Run2
+Subject = sub010 
+runsub = run2_sub010
+condition = 
+RUN = Run2 
+1D array Size = 4
+
+============================ File Names ============================
+
+censor.cue_stim.1D
+stim.listen_block.1D 
+stim.control_block.1D
+stim.response_block.1D 
+
+============================ Path Names  ============================
+
+Func dir = /Volumes/Data/Iceword/sub010/Func/Run2
+GLM dir = /Volumes/Data/ICE/GLM/sub010/Run2
+STIM dir = /Volumes/Data/ICE/GLM/STIM
+ID dir = /Volumes/Data/ICE/GLM/sub010/Run2/1D
+
+============================ Variable Names  ============================
+
+delay = 0
+model = WAV(18.2,0,4,6,0.2,2)
+input4d = run2_sub010_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub010_tshift_volreg_despike_mni_7mm_214tr_0sec
+
+============================ Variable Names  ============================
+
+delay = 1
+model = WAV(18.2,1,4,6,0.2,2)
+input4d = run2_sub010_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub010_tshift_volreg_despike_mni_7mm_214tr_1sec
+
+============================ Variable Names  ============================
+
+delay = 2
+model = WAV(18.2,2,4,6,0.2,2)
+input4d = run2_sub010_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub010_tshift_volreg_despike_mni_7mm_214tr_2sec
+
+============================ Variable Names  ============================
+
+delay = 3
+model = WAV(18.2,3,4,6,0.2,2)
+input4d = run2_sub010_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub010_tshift_volreg_despike_mni_7mm_214tr_3sec
+
+============================ Variable Names  ============================
+
+delay = 4
+model = WAV(18.2,4,4,6,0.2,2)
+input4d = run2_sub010_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub010_tshift_volreg_despike_mni_7mm_214tr_4sec
+
+============================ Variable Names  ============================
+
+delay = 5
+model = WAV(18.2,5,4,6,0.2,2)
+input4d = run2_sub010_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub010_tshift_volreg_despike_mni_7mm_214tr_5sec
+
+============================ Variable Names  ============================
+
+delay = 6
+model = WAV(18.2,6,4,6,0.2,2)
+input4d = run2_sub010_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub010_tshift_volreg_despike_mni_7mm_214tr_6sec
+
+============================ Variable Names  ============================
+
+delay = 7
+model = WAV(18.2,7,4,6,0.2,2)
+input4d = run2_sub010_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub010_tshift_volreg_despike_mni_7mm_214tr_7sec
+
+================================ End Testing ================================
+
+********************* Hooray For Test Driven Development **********************
+
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+============================ Begin Testing============================
+Subject == sub010
+Scan == 
+RUNDIR == Run3
+Subject = sub010 
+runsub = run3_sub010
+condition = 
+RUN = Run3 
+1D array Size = 4
+
+============================ File Names ============================
+
+censor.cue_stim.1D
+stim.listen_block.1D 
+stim.control_block.1D
+stim.response_block.1D 
+
+============================ Path Names  ============================
+
+Func dir = /Volumes/Data/Iceword/sub010/Func/Run3
+GLM dir = /Volumes/Data/ICE/GLM/sub010/Run3
+STIM dir = /Volumes/Data/ICE/GLM/STIM
+ID dir = /Volumes/Data/ICE/GLM/sub010/Run3/1D
+
+============================ Variable Names  ============================
+
+delay = 0
+model = WAV(18.2,0,4,6,0.2,2)
+input4d = run3_sub010_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub010_tshift_volreg_despike_mni_7mm_214tr_0sec
+
+============================ Variable Names  ============================
+
+delay = 1
+model = WAV(18.2,1,4,6,0.2,2)
+input4d = run3_sub010_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub010_tshift_volreg_despike_mni_7mm_214tr_1sec
+
+============================ Variable Names  ============================
+
+delay = 2
+model = WAV(18.2,2,4,6,0.2,2)
+input4d = run3_sub010_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub010_tshift_volreg_despike_mni_7mm_214tr_2sec
+
+============================ Variable Names  ============================
+
+delay = 3
+model = WAV(18.2,3,4,6,0.2,2)
+input4d = run3_sub010_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub010_tshift_volreg_despike_mni_7mm_214tr_3sec
+
+============================ Variable Names  ============================
+
+delay = 4
+model = WAV(18.2,4,4,6,0.2,2)
+input4d = run3_sub010_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub010_tshift_volreg_despike_mni_7mm_214tr_4sec
+
+============================ Variable Names  ============================
+
+delay = 5
+model = WAV(18.2,5,4,6,0.2,2)
+input4d = run3_sub010_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub010_tshift_volreg_despike_mni_7mm_214tr_5sec
+
+============================ Variable Names  ============================
+
+delay = 6
+model = WAV(18.2,6,4,6,0.2,2)
+input4d = run3_sub010_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub010_tshift_volreg_despike_mni_7mm_214tr_6sec
+
+============================ Variable Names  ============================
+
+delay = 7
+model = WAV(18.2,7,4,6,0.2,2)
+input4d = run3_sub010_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub010_tshift_volreg_despike_mni_7mm_214tr_7sec
+
+================================ End Testing ================================
+
+********************* Hooray For Test Driven Development **********************
+
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+============================ Begin Testing============================
+Subject == sub010
+Scan == 
+RUNDIR == Run4
+Subject = sub010 
+runsub = run4_sub010
+condition = 
+RUN = Run4 
+1D array Size = 4
+
+============================ File Names ============================
+
+censor.cue_stim.1D
+stim.listen_block.1D 
+stim.control_block.1D
+stim.response_block.1D 
+
+============================ Path Names  ============================
+
+Func dir = /Volumes/Data/Iceword/sub010/Func/Run4
+GLM dir = /Volumes/Data/ICE/GLM/sub010/Run4
+STIM dir = /Volumes/Data/ICE/GLM/STIM
+ID dir = /Volumes/Data/ICE/GLM/sub010/Run4/1D
+
+============================ Variable Names  ============================
+
+delay = 0
+model = WAV(18.2,0,4,6,0.2,2)
+input4d = run4_sub010_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub010_tshift_volreg_despike_mni_7mm_214tr_0sec
+
+============================ Variable Names  ============================
+
+delay = 1
+model = WAV(18.2,1,4,6,0.2,2)
+input4d = run4_sub010_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub010_tshift_volreg_despike_mni_7mm_214tr_1sec
+
+============================ Variable Names  ============================
+
+delay = 2
+model = WAV(18.2,2,4,6,0.2,2)
+input4d = run4_sub010_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub010_tshift_volreg_despike_mni_7mm_214tr_2sec
+
+============================ Variable Names  ============================
+
+delay = 3
+model = WAV(18.2,3,4,6,0.2,2)
+input4d = run4_sub010_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub010_tshift_volreg_despike_mni_7mm_214tr_3sec
+
+============================ Variable Names  ============================
+
+delay = 4
+model = WAV(18.2,4,4,6,0.2,2)
+input4d = run4_sub010_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub010_tshift_volreg_despike_mni_7mm_214tr_4sec
+
+============================ Variable Names  ============================
+
+delay = 5
+model = WAV(18.2,5,4,6,0.2,2)
+input4d = run4_sub010_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub010_tshift_volreg_despike_mni_7mm_214tr_5sec
+
+============================ Variable Names  ============================
+
+delay = 6
+model = WAV(18.2,6,4,6,0.2,2)
+input4d = run4_sub010_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub010_tshift_volreg_despike_mni_7mm_214tr_6sec
+
+============================ Variable Names  ============================
+
+delay = 7
+model = WAV(18.2,7,4,6,0.2,2)
+input4d = run4_sub010_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub010_tshift_volreg_despike_mni_7mm_214tr_7sec
+
+================================ End Testing ================================
+
+********************* Hooray For Test Driven Development **********************
+
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+============================ Begin Testing============================
+Subject == sub011
+Scan == 
+RUNDIR == Run1
+Subject = sub011 
+runsub = run1_sub011
+condition = 
+RUN = Run1 
+1D array Size = 4
+
+============================ File Names ============================
+
+censor.cue_stim.1D
+stim.listen_block.1D 
+stim.control_block.1D
+stim.response_block.1D 
+
+============================ Path Names  ============================
+
+Func dir = /Volumes/Data/Iceword/sub011/Func/Run1
+GLM dir = /Volumes/Data/ICE/GLM/sub011/Run1
+STIM dir = /Volumes/Data/ICE/GLM/STIM
+ID dir = /Volumes/Data/ICE/GLM/sub011/Run1/1D
+
+============================ Variable Names  ============================
+
+delay = 0
+model = WAV(18.2,0,4,6,0.2,2)
+input4d = run1_sub011_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub011_tshift_volreg_despike_mni_7mm_214tr_0sec
+
+============================ Variable Names  ============================
+
+delay = 1
+model = WAV(18.2,1,4,6,0.2,2)
+input4d = run1_sub011_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub011_tshift_volreg_despike_mni_7mm_214tr_1sec
+
+============================ Variable Names  ============================
+
+delay = 2
+model = WAV(18.2,2,4,6,0.2,2)
+input4d = run1_sub011_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub011_tshift_volreg_despike_mni_7mm_214tr_2sec
+
+============================ Variable Names  ============================
+
+delay = 3
+model = WAV(18.2,3,4,6,0.2,2)
+input4d = run1_sub011_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub011_tshift_volreg_despike_mni_7mm_214tr_3sec
+
+============================ Variable Names  ============================
+
+delay = 4
+model = WAV(18.2,4,4,6,0.2,2)
+input4d = run1_sub011_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub011_tshift_volreg_despike_mni_7mm_214tr_4sec
+
+============================ Variable Names  ============================
+
+delay = 5
+model = WAV(18.2,5,4,6,0.2,2)
+input4d = run1_sub011_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub011_tshift_volreg_despike_mni_7mm_214tr_5sec
+
+============================ Variable Names  ============================
+
+delay = 6
+model = WAV(18.2,6,4,6,0.2,2)
+input4d = run1_sub011_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub011_tshift_volreg_despike_mni_7mm_214tr_6sec
+
+============================ Variable Names  ============================
+
+delay = 7
+model = WAV(18.2,7,4,6,0.2,2)
+input4d = run1_sub011_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub011_tshift_volreg_despike_mni_7mm_214tr_7sec
+
+================================ End Testing ================================
+
+********************* Hooray For Test Driven Development **********************
+
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+============================ Begin Testing============================
+Subject == sub011
+Scan == 
+RUNDIR == Run2
+Subject = sub011 
+runsub = run2_sub011
+condition = 
+RUN = Run2 
+1D array Size = 4
+
+============================ File Names ============================
+
+censor.cue_stim.1D
+stim.listen_block.1D 
+stim.control_block.1D
+stim.response_block.1D 
+
+============================ Path Names  ============================
+
+Func dir = /Volumes/Data/Iceword/sub011/Func/Run2
+GLM dir = /Volumes/Data/ICE/GLM/sub011/Run2
+STIM dir = /Volumes/Data/ICE/GLM/STIM
+ID dir = /Volumes/Data/ICE/GLM/sub011/Run2/1D
+
+============================ Variable Names  ============================
+
+delay = 0
+model = WAV(18.2,0,4,6,0.2,2)
+input4d = run2_sub011_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub011_tshift_volreg_despike_mni_7mm_214tr_0sec
+
+============================ Variable Names  ============================
+
+delay = 1
+model = WAV(18.2,1,4,6,0.2,2)
+input4d = run2_sub011_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub011_tshift_volreg_despike_mni_7mm_214tr_1sec
+
+============================ Variable Names  ============================
+
+delay = 2
+model = WAV(18.2,2,4,6,0.2,2)
+input4d = run2_sub011_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub011_tshift_volreg_despike_mni_7mm_214tr_2sec
+
+============================ Variable Names  ============================
+
+delay = 3
+model = WAV(18.2,3,4,6,0.2,2)
+input4d = run2_sub011_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub011_tshift_volreg_despike_mni_7mm_214tr_3sec
+
+============================ Variable Names  ============================
+
+delay = 4
+model = WAV(18.2,4,4,6,0.2,2)
+input4d = run2_sub011_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub011_tshift_volreg_despike_mni_7mm_214tr_4sec
+
+============================ Variable Names  ============================
+
+delay = 5
+model = WAV(18.2,5,4,6,0.2,2)
+input4d = run2_sub011_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub011_tshift_volreg_despike_mni_7mm_214tr_5sec
+
+============================ Variable Names  ============================
+
+delay = 6
+model = WAV(18.2,6,4,6,0.2,2)
+input4d = run2_sub011_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub011_tshift_volreg_despike_mni_7mm_214tr_6sec
+
+============================ Variable Names  ============================
+
+delay = 7
+model = WAV(18.2,7,4,6,0.2,2)
+input4d = run2_sub011_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub011_tshift_volreg_despike_mni_7mm_214tr_7sec
+
+================================ End Testing ================================
+
+********************* Hooray For Test Driven Development **********************
+
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+============================ Begin Testing============================
+Subject == sub011
+Scan == 
+RUNDIR == Run3
+Subject = sub011 
+runsub = run3_sub011
+condition = 
+RUN = Run3 
+1D array Size = 4
+
+============================ File Names ============================
+
+censor.cue_stim.1D
+stim.listen_block.1D 
+stim.control_block.1D
+stim.response_block.1D 
+
+============================ Path Names  ============================
+
+Func dir = /Volumes/Data/Iceword/sub011/Func/Run3
+GLM dir = /Volumes/Data/ICE/GLM/sub011/Run3
+STIM dir = /Volumes/Data/ICE/GLM/STIM
+ID dir = /Volumes/Data/ICE/GLM/sub011/Run3/1D
+
+============================ Variable Names  ============================
+
+delay = 0
+model = WAV(18.2,0,4,6,0.2,2)
+input4d = run3_sub011_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub011_tshift_volreg_despike_mni_7mm_214tr_0sec
+
+============================ Variable Names  ============================
+
+delay = 1
+model = WAV(18.2,1,4,6,0.2,2)
+input4d = run3_sub011_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub011_tshift_volreg_despike_mni_7mm_214tr_1sec
+
+============================ Variable Names  ============================
+
+delay = 2
+model = WAV(18.2,2,4,6,0.2,2)
+input4d = run3_sub011_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub011_tshift_volreg_despike_mni_7mm_214tr_2sec
+
+============================ Variable Names  ============================
+
+delay = 3
+model = WAV(18.2,3,4,6,0.2,2)
+input4d = run3_sub011_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub011_tshift_volreg_despike_mni_7mm_214tr_3sec
+
+============================ Variable Names  ============================
+
+delay = 4
+model = WAV(18.2,4,4,6,0.2,2)
+input4d = run3_sub011_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub011_tshift_volreg_despike_mni_7mm_214tr_4sec
+
+============================ Variable Names  ============================
+
+delay = 5
+model = WAV(18.2,5,4,6,0.2,2)
+input4d = run3_sub011_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub011_tshift_volreg_despike_mni_7mm_214tr_5sec
+
+============================ Variable Names  ============================
+
+delay = 6
+model = WAV(18.2,6,4,6,0.2,2)
+input4d = run3_sub011_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub011_tshift_volreg_despike_mni_7mm_214tr_6sec
+
+============================ Variable Names  ============================
+
+delay = 7
+model = WAV(18.2,7,4,6,0.2,2)
+input4d = run3_sub011_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub011_tshift_volreg_despike_mni_7mm_214tr_7sec
+
+================================ End Testing ================================
+
+********************* Hooray For Test Driven Development **********************
+
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+============================ Begin Testing============================
+Subject == sub011
+Scan == 
+RUNDIR == Run4
+Subject = sub011 
+runsub = run4_sub011
+condition = 
+RUN = Run4 
+1D array Size = 4
+
+============================ File Names ============================
+
+censor.cue_stim.1D
+stim.listen_block.1D 
+stim.control_block.1D
+stim.response_block.1D 
+
+============================ Path Names  ============================
+
+Func dir = /Volumes/Data/Iceword/sub011/Func/Run4
+GLM dir = /Volumes/Data/ICE/GLM/sub011/Run4
+STIM dir = /Volumes/Data/ICE/GLM/STIM
+ID dir = /Volumes/Data/ICE/GLM/sub011/Run4/1D
+
+============================ Variable Names  ============================
+
+delay = 0
+model = WAV(18.2,0,4,6,0.2,2)
+input4d = run4_sub011_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub011_tshift_volreg_despike_mni_7mm_214tr_0sec
+
+============================ Variable Names  ============================
+
+delay = 1
+model = WAV(18.2,1,4,6,0.2,2)
+input4d = run4_sub011_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub011_tshift_volreg_despike_mni_7mm_214tr_1sec
+
+============================ Variable Names  ============================
+
+delay = 2
+model = WAV(18.2,2,4,6,0.2,2)
+input4d = run4_sub011_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub011_tshift_volreg_despike_mni_7mm_214tr_2sec
+
+============================ Variable Names  ============================
+
+delay = 3
+model = WAV(18.2,3,4,6,0.2,2)
+input4d = run4_sub011_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub011_tshift_volreg_despike_mni_7mm_214tr_3sec
+
+============================ Variable Names  ============================
+
+delay = 4
+model = WAV(18.2,4,4,6,0.2,2)
+input4d = run4_sub011_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub011_tshift_volreg_despike_mni_7mm_214tr_4sec
+
+============================ Variable Names  ============================
+
+delay = 5
+model = WAV(18.2,5,4,6,0.2,2)
+input4d = run4_sub011_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub011_tshift_volreg_despike_mni_7mm_214tr_5sec
+
+============================ Variable Names  ============================
+
+delay = 6
+model = WAV(18.2,6,4,6,0.2,2)
+input4d = run4_sub011_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub011_tshift_volreg_despike_mni_7mm_214tr_6sec
+
+============================ Variable Names  ============================
+
+delay = 7
+model = WAV(18.2,7,4,6,0.2,2)
+input4d = run4_sub011_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub011_tshift_volreg_despike_mni_7mm_214tr_7sec
+
+================================ End Testing ================================
+
+********************* Hooray For Test Driven Development **********************
+
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+============================ Begin Testing============================
+Subject == sub012
+Scan == 
+RUNDIR == Run1
+Subject = sub012 
+runsub = run1_sub012
+condition = 
+RUN = Run1 
+1D array Size = 4
+
+============================ File Names ============================
+
+censor.cue_stim.1D
+stim.listen_block.1D 
+stim.control_block.1D
+stim.response_block.1D 
+
+============================ Path Names  ============================
+
+Func dir = /Volumes/Data/Iceword/sub012/Func/Run1
+GLM dir = /Volumes/Data/ICE/GLM/sub012/Run1
+STIM dir = /Volumes/Data/ICE/GLM/STIM
+ID dir = /Volumes/Data/ICE/GLM/sub012/Run1/1D
+
+============================ Variable Names  ============================
+
+delay = 0
+model = WAV(18.2,0,4,6,0.2,2)
+input4d = run1_sub012_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub012_tshift_volreg_despike_mni_7mm_214tr_0sec
+
+============================ Variable Names  ============================
+
+delay = 1
+model = WAV(18.2,1,4,6,0.2,2)
+input4d = run1_sub012_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub012_tshift_volreg_despike_mni_7mm_214tr_1sec
+
+============================ Variable Names  ============================
+
+delay = 2
+model = WAV(18.2,2,4,6,0.2,2)
+input4d = run1_sub012_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub012_tshift_volreg_despike_mni_7mm_214tr_2sec
+
+============================ Variable Names  ============================
+
+delay = 3
+model = WAV(18.2,3,4,6,0.2,2)
+input4d = run1_sub012_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub012_tshift_volreg_despike_mni_7mm_214tr_3sec
+
+============================ Variable Names  ============================
+
+delay = 4
+model = WAV(18.2,4,4,6,0.2,2)
+input4d = run1_sub012_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub012_tshift_volreg_despike_mni_7mm_214tr_4sec
+
+============================ Variable Names  ============================
+
+delay = 5
+model = WAV(18.2,5,4,6,0.2,2)
+input4d = run1_sub012_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub012_tshift_volreg_despike_mni_7mm_214tr_5sec
+
+============================ Variable Names  ============================
+
+delay = 6
+model = WAV(18.2,6,4,6,0.2,2)
+input4d = run1_sub012_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub012_tshift_volreg_despike_mni_7mm_214tr_6sec
+
+============================ Variable Names  ============================
+
+delay = 7
+model = WAV(18.2,7,4,6,0.2,2)
+input4d = run1_sub012_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub012_tshift_volreg_despike_mni_7mm_214tr_7sec
+
+================================ End Testing ================================
+
+********************* Hooray For Test Driven Development **********************
+
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+============================ Begin Testing============================
+Subject == sub012
+Scan == 
+RUNDIR == Run2
+Subject = sub012 
+runsub = run2_sub012
+condition = 
+RUN = Run2 
+1D array Size = 4
+
+============================ File Names ============================
+
+censor.cue_stim.1D
+stim.listen_block.1D 
+stim.control_block.1D
+stim.response_block.1D 
+
+============================ Path Names  ============================
+
+Func dir = /Volumes/Data/Iceword/sub012/Func/Run2
+GLM dir = /Volumes/Data/ICE/GLM/sub012/Run2
+STIM dir = /Volumes/Data/ICE/GLM/STIM
+ID dir = /Volumes/Data/ICE/GLM/sub012/Run2/1D
+
+============================ Variable Names  ============================
+
+delay = 0
+model = WAV(18.2,0,4,6,0.2,2)
+input4d = run2_sub012_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub012_tshift_volreg_despike_mni_7mm_214tr_0sec
+
+============================ Variable Names  ============================
+
+delay = 1
+model = WAV(18.2,1,4,6,0.2,2)
+input4d = run2_sub012_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub012_tshift_volreg_despike_mni_7mm_214tr_1sec
+
+============================ Variable Names  ============================
+
+delay = 2
+model = WAV(18.2,2,4,6,0.2,2)
+input4d = run2_sub012_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub012_tshift_volreg_despike_mni_7mm_214tr_2sec
+
+============================ Variable Names  ============================
+
+delay = 3
+model = WAV(18.2,3,4,6,0.2,2)
+input4d = run2_sub012_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub012_tshift_volreg_despike_mni_7mm_214tr_3sec
+
+============================ Variable Names  ============================
+
+delay = 4
+model = WAV(18.2,4,4,6,0.2,2)
+input4d = run2_sub012_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub012_tshift_volreg_despike_mni_7mm_214tr_4sec
+
+============================ Variable Names  ============================
+
+delay = 5
+model = WAV(18.2,5,4,6,0.2,2)
+input4d = run2_sub012_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub012_tshift_volreg_despike_mni_7mm_214tr_5sec
+
+============================ Variable Names  ============================
+
+delay = 6
+model = WAV(18.2,6,4,6,0.2,2)
+input4d = run2_sub012_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub012_tshift_volreg_despike_mni_7mm_214tr_6sec
+
+============================ Variable Names  ============================
+
+delay = 7
+model = WAV(18.2,7,4,6,0.2,2)
+input4d = run2_sub012_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub012_tshift_volreg_despike_mni_7mm_214tr_7sec
+
+================================ End Testing ================================
+
+********************* Hooray For Test Driven Development **********************
+
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+============================ Begin Testing============================
+Subject == sub012
+Scan == 
+RUNDIR == Run3
+Subject = sub012 
+runsub = run3_sub012
+condition = 
+RUN = Run3 
+1D array Size = 4
+
+============================ File Names ============================
+
+censor.cue_stim.1D
+stim.listen_block.1D 
+stim.control_block.1D
+stim.response_block.1D 
+
+============================ Path Names  ============================
+
+Func dir = /Volumes/Data/Iceword/sub012/Func/Run3
+GLM dir = /Volumes/Data/ICE/GLM/sub012/Run3
+STIM dir = /Volumes/Data/ICE/GLM/STIM
+ID dir = /Volumes/Data/ICE/GLM/sub012/Run3/1D
+
+============================ Variable Names  ============================
+
+delay = 0
+model = WAV(18.2,0,4,6,0.2,2)
+input4d = run3_sub012_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub012_tshift_volreg_despike_mni_7mm_214tr_0sec
+
+============================ Variable Names  ============================
+
+delay = 1
+model = WAV(18.2,1,4,6,0.2,2)
+input4d = run3_sub012_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub012_tshift_volreg_despike_mni_7mm_214tr_1sec
+
+============================ Variable Names  ============================
+
+delay = 2
+model = WAV(18.2,2,4,6,0.2,2)
+input4d = run3_sub012_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub012_tshift_volreg_despike_mni_7mm_214tr_2sec
+
+============================ Variable Names  ============================
+
+delay = 3
+model = WAV(18.2,3,4,6,0.2,2)
+input4d = run3_sub012_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub012_tshift_volreg_despike_mni_7mm_214tr_3sec
+
+============================ Variable Names  ============================
+
+delay = 4
+model = WAV(18.2,4,4,6,0.2,2)
+input4d = run3_sub012_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub012_tshift_volreg_despike_mni_7mm_214tr_4sec
+
+============================ Variable Names  ============================
+
+delay = 5
+model = WAV(18.2,5,4,6,0.2,2)
+input4d = run3_sub012_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub012_tshift_volreg_despike_mni_7mm_214tr_5sec
+
+============================ Variable Names  ============================
+
+delay = 6
+model = WAV(18.2,6,4,6,0.2,2)
+input4d = run3_sub012_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub012_tshift_volreg_despike_mni_7mm_214tr_6sec
+
+============================ Variable Names  ============================
+
+delay = 7
+model = WAV(18.2,7,4,6,0.2,2)
+input4d = run3_sub012_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub012_tshift_volreg_despike_mni_7mm_214tr_7sec
+
+================================ End Testing ================================
+
+********************* Hooray For Test Driven Development **********************
+
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+============================ Begin Testing============================
+Subject == sub012
+Scan == 
+RUNDIR == Run4
+Subject = sub012 
+runsub = run4_sub012
+condition = 
+RUN = Run4 
+1D array Size = 4
+
+============================ File Names ============================
+
+censor.cue_stim.1D
+stim.listen_block.1D 
+stim.control_block.1D
+stim.response_block.1D 
+
+============================ Path Names  ============================
+
+Func dir = /Volumes/Data/Iceword/sub012/Func/Run4
+GLM dir = /Volumes/Data/ICE/GLM/sub012/Run4
+STIM dir = /Volumes/Data/ICE/GLM/STIM
+ID dir = /Volumes/Data/ICE/GLM/sub012/Run4/1D
+
+============================ Variable Names  ============================
+
+delay = 0
+model = WAV(18.2,0,4,6,0.2,2)
+input4d = run4_sub012_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub012_tshift_volreg_despike_mni_7mm_214tr_0sec
+
+============================ Variable Names  ============================
+
+delay = 1
+model = WAV(18.2,1,4,6,0.2,2)
+input4d = run4_sub012_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub012_tshift_volreg_despike_mni_7mm_214tr_1sec
+
+============================ Variable Names  ============================
+
+delay = 2
+model = WAV(18.2,2,4,6,0.2,2)
+input4d = run4_sub012_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub012_tshift_volreg_despike_mni_7mm_214tr_2sec
+
+============================ Variable Names  ============================
+
+delay = 3
+model = WAV(18.2,3,4,6,0.2,2)
+input4d = run4_sub012_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub012_tshift_volreg_despike_mni_7mm_214tr_3sec
+
+============================ Variable Names  ============================
+
+delay = 4
+model = WAV(18.2,4,4,6,0.2,2)
+input4d = run4_sub012_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub012_tshift_volreg_despike_mni_7mm_214tr_4sec
+
+============================ Variable Names  ============================
+
+delay = 5
+model = WAV(18.2,5,4,6,0.2,2)
+input4d = run4_sub012_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub012_tshift_volreg_despike_mni_7mm_214tr_5sec
+
+============================ Variable Names  ============================
+
+delay = 6
+model = WAV(18.2,6,4,6,0.2,2)
+input4d = run4_sub012_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub012_tshift_volreg_despike_mni_7mm_214tr_6sec
+
+============================ Variable Names  ============================
+
+delay = 7
+model = WAV(18.2,7,4,6,0.2,2)
+input4d = run4_sub012_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub012_tshift_volreg_despike_mni_7mm_214tr_7sec
+
+================================ End Testing ================================
+
+********************* Hooray For Test Driven Development **********************
+
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+============================ Begin Testing============================
+Subject == sub013
+Scan == 
+RUNDIR == Run1
+Subject = sub013 
+runsub = run1_sub013
+condition = 
+RUN = Run1 
+1D array Size = 4
+
+============================ File Names ============================
+
+censor.cue_stim.1D
+stim.listen_block.1D 
+stim.control_block.1D
+stim.response_block.1D 
+
+============================ Path Names  ============================
+
+Func dir = /Volumes/Data/Iceword/sub013/Func/Run1
+GLM dir = /Volumes/Data/ICE/GLM/sub013/Run1
+STIM dir = /Volumes/Data/ICE/GLM/STIM
+ID dir = /Volumes/Data/ICE/GLM/sub013/Run1/1D
+
+============================ Variable Names  ============================
+
+delay = 0
+model = WAV(18.2,0,4,6,0.2,2)
+input4d = run1_sub013_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub013_tshift_volreg_despike_mni_7mm_214tr_0sec
+
+============================ Variable Names  ============================
+
+delay = 1
+model = WAV(18.2,1,4,6,0.2,2)
+input4d = run1_sub013_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub013_tshift_volreg_despike_mni_7mm_214tr_1sec
+
+============================ Variable Names  ============================
+
+delay = 2
+model = WAV(18.2,2,4,6,0.2,2)
+input4d = run1_sub013_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub013_tshift_volreg_despike_mni_7mm_214tr_2sec
+
+============================ Variable Names  ============================
+
+delay = 3
+model = WAV(18.2,3,4,6,0.2,2)
+input4d = run1_sub013_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub013_tshift_volreg_despike_mni_7mm_214tr_3sec
+
+============================ Variable Names  ============================
+
+delay = 4
+model = WAV(18.2,4,4,6,0.2,2)
+input4d = run1_sub013_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub013_tshift_volreg_despike_mni_7mm_214tr_4sec
+
+============================ Variable Names  ============================
+
+delay = 5
+model = WAV(18.2,5,4,6,0.2,2)
+input4d = run1_sub013_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub013_tshift_volreg_despike_mni_7mm_214tr_5sec
+
+============================ Variable Names  ============================
+
+delay = 6
+model = WAV(18.2,6,4,6,0.2,2)
+input4d = run1_sub013_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub013_tshift_volreg_despike_mni_7mm_214tr_6sec
+
+============================ Variable Names  ============================
+
+delay = 7
+model = WAV(18.2,7,4,6,0.2,2)
+input4d = run1_sub013_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub013_tshift_volreg_despike_mni_7mm_214tr_7sec
+
+================================ End Testing ================================
+
+********************* Hooray For Test Driven Development **********************
+
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+============================ Begin Testing============================
+Subject == sub013
+Scan == 
+RUNDIR == Run2
+Subject = sub013 
+runsub = run2_sub013
+condition = 
+RUN = Run2 
+1D array Size = 4
+
+============================ File Names ============================
+
+censor.cue_stim.1D
+stim.listen_block.1D 
+stim.control_block.1D
+stim.response_block.1D 
+
+============================ Path Names  ============================
+
+Func dir = /Volumes/Data/Iceword/sub013/Func/Run2
+GLM dir = /Volumes/Data/ICE/GLM/sub013/Run2
+STIM dir = /Volumes/Data/ICE/GLM/STIM
+ID dir = /Volumes/Data/ICE/GLM/sub013/Run2/1D
+
+============================ Variable Names  ============================
+
+delay = 0
+model = WAV(18.2,0,4,6,0.2,2)
+input4d = run2_sub013_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub013_tshift_volreg_despike_mni_7mm_214tr_0sec
+
+============================ Variable Names  ============================
+
+delay = 1
+model = WAV(18.2,1,4,6,0.2,2)
+input4d = run2_sub013_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub013_tshift_volreg_despike_mni_7mm_214tr_1sec
+
+============================ Variable Names  ============================
+
+delay = 2
+model = WAV(18.2,2,4,6,0.2,2)
+input4d = run2_sub013_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub013_tshift_volreg_despike_mni_7mm_214tr_2sec
+
+============================ Variable Names  ============================
+
+delay = 3
+model = WAV(18.2,3,4,6,0.2,2)
+input4d = run2_sub013_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub013_tshift_volreg_despike_mni_7mm_214tr_3sec
+
+============================ Variable Names  ============================
+
+delay = 4
+model = WAV(18.2,4,4,6,0.2,2)
+input4d = run2_sub013_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub013_tshift_volreg_despike_mni_7mm_214tr_4sec
+
+============================ Variable Names  ============================
+
+delay = 5
+model = WAV(18.2,5,4,6,0.2,2)
+input4d = run2_sub013_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub013_tshift_volreg_despike_mni_7mm_214tr_5sec
+
+============================ Variable Names  ============================
+
+delay = 6
+model = WAV(18.2,6,4,6,0.2,2)
+input4d = run2_sub013_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub013_tshift_volreg_despike_mni_7mm_214tr_6sec
+
+============================ Variable Names  ============================
+
+delay = 7
+model = WAV(18.2,7,4,6,0.2,2)
+input4d = run2_sub013_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub013_tshift_volreg_despike_mni_7mm_214tr_7sec
+
+================================ End Testing ================================
+
+********************* Hooray For Test Driven Development **********************
+
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+============================ Begin Testing============================
+Subject == sub013
+Scan == 
+RUNDIR == Run3
+Subject = sub013 
+runsub = run3_sub013
+condition = 
+RUN = Run3 
+1D array Size = 4
+
+============================ File Names ============================
+
+censor.cue_stim.1D
+stim.listen_block.1D 
+stim.control_block.1D
+stim.response_block.1D 
+
+============================ Path Names  ============================
+
+Func dir = /Volumes/Data/Iceword/sub013/Func/Run3
+GLM dir = /Volumes/Data/ICE/GLM/sub013/Run3
+STIM dir = /Volumes/Data/ICE/GLM/STIM
+ID dir = /Volumes/Data/ICE/GLM/sub013/Run3/1D
+
+============================ Variable Names  ============================
+
+delay = 0
+model = WAV(18.2,0,4,6,0.2,2)
+input4d = run3_sub013_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub013_tshift_volreg_despike_mni_7mm_214tr_0sec
+
+============================ Variable Names  ============================
+
+delay = 1
+model = WAV(18.2,1,4,6,0.2,2)
+input4d = run3_sub013_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub013_tshift_volreg_despike_mni_7mm_214tr_1sec
+
+============================ Variable Names  ============================
+
+delay = 2
+model = WAV(18.2,2,4,6,0.2,2)
+input4d = run3_sub013_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub013_tshift_volreg_despike_mni_7mm_214tr_2sec
+
+============================ Variable Names  ============================
+
+delay = 3
+model = WAV(18.2,3,4,6,0.2,2)
+input4d = run3_sub013_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub013_tshift_volreg_despike_mni_7mm_214tr_3sec
+
+============================ Variable Names  ============================
+
+delay = 4
+model = WAV(18.2,4,4,6,0.2,2)
+input4d = run3_sub013_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub013_tshift_volreg_despike_mni_7mm_214tr_4sec
+
+============================ Variable Names  ============================
+
+delay = 5
+model = WAV(18.2,5,4,6,0.2,2)
+input4d = run3_sub013_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub013_tshift_volreg_despike_mni_7mm_214tr_5sec
+
+============================ Variable Names  ============================
+
+delay = 6
+model = WAV(18.2,6,4,6,0.2,2)
+input4d = run3_sub013_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub013_tshift_volreg_despike_mni_7mm_214tr_6sec
+
+============================ Variable Names  ============================
+
+delay = 7
+model = WAV(18.2,7,4,6,0.2,2)
+input4d = run3_sub013_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub013_tshift_volreg_despike_mni_7mm_214tr_7sec
+
+================================ End Testing ================================
+
+********************* Hooray For Test Driven Development **********************
+
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+============================ Begin Testing============================
+Subject == sub013
+Scan == 
+RUNDIR == Run4
+Subject = sub013 
+runsub = run4_sub013
+condition = 
+RUN = Run4 
+1D array Size = 4
+
+============================ File Names ============================
+
+censor.cue_stim.1D
+stim.listen_block.1D 
+stim.control_block.1D
+stim.response_block.1D 
+
+============================ Path Names  ============================
+
+Func dir = /Volumes/Data/Iceword/sub013/Func/Run4
+GLM dir = /Volumes/Data/ICE/GLM/sub013/Run4
+STIM dir = /Volumes/Data/ICE/GLM/STIM
+ID dir = /Volumes/Data/ICE/GLM/sub013/Run4/1D
+
+============================ Variable Names  ============================
+
+delay = 0
+model = WAV(18.2,0,4,6,0.2,2)
+input4d = run4_sub013_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub013_tshift_volreg_despike_mni_7mm_214tr_0sec
+
+============================ Variable Names  ============================
+
+delay = 1
+model = WAV(18.2,1,4,6,0.2,2)
+input4d = run4_sub013_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub013_tshift_volreg_despike_mni_7mm_214tr_1sec
+
+============================ Variable Names  ============================
+
+delay = 2
+model = WAV(18.2,2,4,6,0.2,2)
+input4d = run4_sub013_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub013_tshift_volreg_despike_mni_7mm_214tr_2sec
+
+============================ Variable Names  ============================
+
+delay = 3
+model = WAV(18.2,3,4,6,0.2,2)
+input4d = run4_sub013_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub013_tshift_volreg_despike_mni_7mm_214tr_3sec
+
+============================ Variable Names  ============================
+
+delay = 4
+model = WAV(18.2,4,4,6,0.2,2)
+input4d = run4_sub013_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub013_tshift_volreg_despike_mni_7mm_214tr_4sec
+
+============================ Variable Names  ============================
+
+delay = 5
+model = WAV(18.2,5,4,6,0.2,2)
+input4d = run4_sub013_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub013_tshift_volreg_despike_mni_7mm_214tr_5sec
+
+============================ Variable Names  ============================
+
+delay = 6
+model = WAV(18.2,6,4,6,0.2,2)
+input4d = run4_sub013_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub013_tshift_volreg_despike_mni_7mm_214tr_6sec
+
+============================ Variable Names  ============================
+
+delay = 7
+model = WAV(18.2,7,4,6,0.2,2)
+input4d = run4_sub013_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub013_tshift_volreg_despike_mni_7mm_214tr_7sec
+
+================================ End Testing ================================
+
+********************* Hooray For Test Driven Development **********************
+
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+============================ Begin Testing============================
+Subject == sub014
+Scan == 
+RUNDIR == Run1
+Subject = sub014 
+runsub = run1_sub014
+condition = 
+RUN = Run1 
+1D array Size = 4
+
+============================ File Names ============================
+
+censor.cue_stim.1D
+stim.listen_block.1D 
+stim.control_block.1D
+stim.response_block.1D 
+
+============================ Path Names  ============================
+
+Func dir = /Volumes/Data/Iceword/sub014/Func/Run1
+GLM dir = /Volumes/Data/ICE/GLM/sub014/Run1
+STIM dir = /Volumes/Data/ICE/GLM/STIM
+ID dir = /Volumes/Data/ICE/GLM/sub014/Run1/1D
+
+============================ Variable Names  ============================
+
+delay = 0
+model = WAV(18.2,0,4,6,0.2,2)
+input4d = run1_sub014_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub014_tshift_volreg_despike_mni_7mm_214tr_0sec
+
+============================ Variable Names  ============================
+
+delay = 1
+model = WAV(18.2,1,4,6,0.2,2)
+input4d = run1_sub014_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub014_tshift_volreg_despike_mni_7mm_214tr_1sec
+
+============================ Variable Names  ============================
+
+delay = 2
+model = WAV(18.2,2,4,6,0.2,2)
+input4d = run1_sub014_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub014_tshift_volreg_despike_mni_7mm_214tr_2sec
+
+============================ Variable Names  ============================
+
+delay = 3
+model = WAV(18.2,3,4,6,0.2,2)
+input4d = run1_sub014_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub014_tshift_volreg_despike_mni_7mm_214tr_3sec
+
+============================ Variable Names  ============================
+
+delay = 4
+model = WAV(18.2,4,4,6,0.2,2)
+input4d = run1_sub014_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub014_tshift_volreg_despike_mni_7mm_214tr_4sec
+
+============================ Variable Names  ============================
+
+delay = 5
+model = WAV(18.2,5,4,6,0.2,2)
+input4d = run1_sub014_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub014_tshift_volreg_despike_mni_7mm_214tr_5sec
+
+============================ Variable Names  ============================
+
+delay = 6
+model = WAV(18.2,6,4,6,0.2,2)
+input4d = run1_sub014_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub014_tshift_volreg_despike_mni_7mm_214tr_6sec
+
+============================ Variable Names  ============================
+
+delay = 7
+model = WAV(18.2,7,4,6,0.2,2)
+input4d = run1_sub014_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub014_tshift_volreg_despike_mni_7mm_214tr_7sec
+
+================================ End Testing ================================
+
+********************* Hooray For Test Driven Development **********************
+
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+============================ Begin Testing============================
+Subject == sub014
+Scan == 
+RUNDIR == Run2
+Subject = sub014 
+runsub = run2_sub014
+condition = 
+RUN = Run2 
+1D array Size = 4
+
+============================ File Names ============================
+
+censor.cue_stim.1D
+stim.listen_block.1D 
+stim.control_block.1D
+stim.response_block.1D 
+
+============================ Path Names  ============================
+
+Func dir = /Volumes/Data/Iceword/sub014/Func/Run2
+GLM dir = /Volumes/Data/ICE/GLM/sub014/Run2
+STIM dir = /Volumes/Data/ICE/GLM/STIM
+ID dir = /Volumes/Data/ICE/GLM/sub014/Run2/1D
+
+============================ Variable Names  ============================
+
+delay = 0
+model = WAV(18.2,0,4,6,0.2,2)
+input4d = run2_sub014_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub014_tshift_volreg_despike_mni_7mm_214tr_0sec
+
+============================ Variable Names  ============================
+
+delay = 1
+model = WAV(18.2,1,4,6,0.2,2)
+input4d = run2_sub014_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub014_tshift_volreg_despike_mni_7mm_214tr_1sec
+
+============================ Variable Names  ============================
+
+delay = 2
+model = WAV(18.2,2,4,6,0.2,2)
+input4d = run2_sub014_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub014_tshift_volreg_despike_mni_7mm_214tr_2sec
+
+============================ Variable Names  ============================
+
+delay = 3
+model = WAV(18.2,3,4,6,0.2,2)
+input4d = run2_sub014_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub014_tshift_volreg_despike_mni_7mm_214tr_3sec
+
+============================ Variable Names  ============================
+
+delay = 4
+model = WAV(18.2,4,4,6,0.2,2)
+input4d = run2_sub014_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub014_tshift_volreg_despike_mni_7mm_214tr_4sec
+
+============================ Variable Names  ============================
+
+delay = 5
+model = WAV(18.2,5,4,6,0.2,2)
+input4d = run2_sub014_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub014_tshift_volreg_despike_mni_7mm_214tr_5sec
+
+============================ Variable Names  ============================
+
+delay = 6
+model = WAV(18.2,6,4,6,0.2,2)
+input4d = run2_sub014_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub014_tshift_volreg_despike_mni_7mm_214tr_6sec
+
+============================ Variable Names  ============================
+
+delay = 7
+model = WAV(18.2,7,4,6,0.2,2)
+input4d = run2_sub014_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub014_tshift_volreg_despike_mni_7mm_214tr_7sec
+
+================================ End Testing ================================
+
+********************* Hooray For Test Driven Development **********************
+
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+============================ Begin Testing============================
+Subject == sub014
+Scan == 
+RUNDIR == Run3
+Subject = sub014 
+runsub = run3_sub014
+condition = 
+RUN = Run3 
+1D array Size = 4
+
+============================ File Names ============================
+
+censor.cue_stim.1D
+stim.listen_block.1D 
+stim.control_block.1D
+stim.response_block.1D 
+
+============================ Path Names  ============================
+
+Func dir = /Volumes/Data/Iceword/sub014/Func/Run3
+GLM dir = /Volumes/Data/ICE/GLM/sub014/Run3
+STIM dir = /Volumes/Data/ICE/GLM/STIM
+ID dir = /Volumes/Data/ICE/GLM/sub014/Run3/1D
+
+============================ Variable Names  ============================
+
+delay = 0
+model = WAV(18.2,0,4,6,0.2,2)
+input4d = run3_sub014_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub014_tshift_volreg_despike_mni_7mm_214tr_0sec
+
+============================ Variable Names  ============================
+
+delay = 1
+model = WAV(18.2,1,4,6,0.2,2)
+input4d = run3_sub014_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub014_tshift_volreg_despike_mni_7mm_214tr_1sec
+
+============================ Variable Names  ============================
+
+delay = 2
+model = WAV(18.2,2,4,6,0.2,2)
+input4d = run3_sub014_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub014_tshift_volreg_despike_mni_7mm_214tr_2sec
+
+============================ Variable Names  ============================
+
+delay = 3
+model = WAV(18.2,3,4,6,0.2,2)
+input4d = run3_sub014_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub014_tshift_volreg_despike_mni_7mm_214tr_3sec
+
+============================ Variable Names  ============================
+
+delay = 4
+model = WAV(18.2,4,4,6,0.2,2)
+input4d = run3_sub014_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub014_tshift_volreg_despike_mni_7mm_214tr_4sec
+
+============================ Variable Names  ============================
+
+delay = 5
+model = WAV(18.2,5,4,6,0.2,2)
+input4d = run3_sub014_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub014_tshift_volreg_despike_mni_7mm_214tr_5sec
+
+============================ Variable Names  ============================
+
+delay = 6
+model = WAV(18.2,6,4,6,0.2,2)
+input4d = run3_sub014_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub014_tshift_volreg_despike_mni_7mm_214tr_6sec
+
+============================ Variable Names  ============================
+
+delay = 7
+model = WAV(18.2,7,4,6,0.2,2)
+input4d = run3_sub014_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub014_tshift_volreg_despike_mni_7mm_214tr_7sec
+
+================================ End Testing ================================
+
+********************* Hooray For Test Driven Development **********************
+
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+============================ Begin Testing============================
+Subject == sub014
+Scan == 
+RUNDIR == Run4
+Subject = sub014 
+runsub = run4_sub014
+condition = 
+RUN = Run4 
+1D array Size = 4
+
+============================ File Names ============================
+
+censor.cue_stim.1D
+stim.listen_block.1D 
+stim.control_block.1D
+stim.response_block.1D 
+
+============================ Path Names  ============================
+
+Func dir = /Volumes/Data/Iceword/sub014/Func/Run4
+GLM dir = /Volumes/Data/ICE/GLM/sub014/Run4
+STIM dir = /Volumes/Data/ICE/GLM/STIM
+ID dir = /Volumes/Data/ICE/GLM/sub014/Run4/1D
+
+============================ Variable Names  ============================
+
+delay = 0
+model = WAV(18.2,0,4,6,0.2,2)
+input4d = run4_sub014_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub014_tshift_volreg_despike_mni_7mm_214tr_0sec
+
+============================ Variable Names  ============================
+
+delay = 1
+model = WAV(18.2,1,4,6,0.2,2)
+input4d = run4_sub014_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub014_tshift_volreg_despike_mni_7mm_214tr_1sec
+
+============================ Variable Names  ============================
+
+delay = 2
+model = WAV(18.2,2,4,6,0.2,2)
+input4d = run4_sub014_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub014_tshift_volreg_despike_mni_7mm_214tr_2sec
+
+============================ Variable Names  ============================
+
+delay = 3
+model = WAV(18.2,3,4,6,0.2,2)
+input4d = run4_sub014_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub014_tshift_volreg_despike_mni_7mm_214tr_3sec
+
+============================ Variable Names  ============================
+
+delay = 4
+model = WAV(18.2,4,4,6,0.2,2)
+input4d = run4_sub014_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub014_tshift_volreg_despike_mni_7mm_214tr_4sec
+
+============================ Variable Names  ============================
+
+delay = 5
+model = WAV(18.2,5,4,6,0.2,2)
+input4d = run4_sub014_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub014_tshift_volreg_despike_mni_7mm_214tr_5sec
+
+============================ Variable Names  ============================
+
+delay = 6
+model = WAV(18.2,6,4,6,0.2,2)
+input4d = run4_sub014_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub014_tshift_volreg_despike_mni_7mm_214tr_6sec
+
+============================ Variable Names  ============================
+
+delay = 7
+model = WAV(18.2,7,4,6,0.2,2)
+input4d = run4_sub014_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub014_tshift_volreg_despike_mni_7mm_214tr_7sec
+
+================================ End Testing ================================
+
+********************* Hooray For Test Driven Development **********************
+
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+============================ Begin Testing============================
+Subject == sub015
+Scan == 
+RUNDIR == Run1
+Subject = sub015 
+runsub = run1_sub015
+condition = 
+RUN = Run1 
+1D array Size = 4
+
+============================ File Names ============================
+
+censor.cue_stim.1D
+stim.listen_block.1D 
+stim.control_block.1D
+stim.response_block.1D 
+
+============================ Path Names  ============================
+
+Func dir = /Volumes/Data/Iceword/sub015/Func/Run1
+GLM dir = /Volumes/Data/ICE/GLM/sub015/Run1
+STIM dir = /Volumes/Data/ICE/GLM/STIM
+ID dir = /Volumes/Data/ICE/GLM/sub015/Run1/1D
+
+============================ Variable Names  ============================
+
+delay = 0
+model = WAV(18.2,0,4,6,0.2,2)
+input4d = run1_sub015_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub015_tshift_volreg_despike_mni_7mm_214tr_0sec
+
+============================ Variable Names  ============================
+
+delay = 1
+model = WAV(18.2,1,4,6,0.2,2)
+input4d = run1_sub015_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub015_tshift_volreg_despike_mni_7mm_214tr_1sec
+
+============================ Variable Names  ============================
+
+delay = 2
+model = WAV(18.2,2,4,6,0.2,2)
+input4d = run1_sub015_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub015_tshift_volreg_despike_mni_7mm_214tr_2sec
+
+============================ Variable Names  ============================
+
+delay = 3
+model = WAV(18.2,3,4,6,0.2,2)
+input4d = run1_sub015_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub015_tshift_volreg_despike_mni_7mm_214tr_3sec
+
+============================ Variable Names  ============================
+
+delay = 4
+model = WAV(18.2,4,4,6,0.2,2)
+input4d = run1_sub015_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub015_tshift_volreg_despike_mni_7mm_214tr_4sec
+
+============================ Variable Names  ============================
+
+delay = 5
+model = WAV(18.2,5,4,6,0.2,2)
+input4d = run1_sub015_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub015_tshift_volreg_despike_mni_7mm_214tr_5sec
+
+============================ Variable Names  ============================
+
+delay = 6
+model = WAV(18.2,6,4,6,0.2,2)
+input4d = run1_sub015_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub015_tshift_volreg_despike_mni_7mm_214tr_6sec
+
+============================ Variable Names  ============================
+
+delay = 7
+model = WAV(18.2,7,4,6,0.2,2)
+input4d = run1_sub015_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub015_tshift_volreg_despike_mni_7mm_214tr_7sec
+
+================================ End Testing ================================
+
+********************* Hooray For Test Driven Development **********************
+
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+============================ Begin Testing============================
+Subject == sub015
+Scan == 
+RUNDIR == Run2
+Subject = sub015 
+runsub = run2_sub015
+condition = 
+RUN = Run2 
+1D array Size = 4
+
+============================ File Names ============================
+
+censor.cue_stim.1D
+stim.listen_block.1D 
+stim.control_block.1D
+stim.response_block.1D 
+
+============================ Path Names  ============================
+
+Func dir = /Volumes/Data/Iceword/sub015/Func/Run2
+GLM dir = /Volumes/Data/ICE/GLM/sub015/Run2
+STIM dir = /Volumes/Data/ICE/GLM/STIM
+ID dir = /Volumes/Data/ICE/GLM/sub015/Run2/1D
+
+============================ Variable Names  ============================
+
+delay = 0
+model = WAV(18.2,0,4,6,0.2,2)
+input4d = run2_sub015_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub015_tshift_volreg_despike_mni_7mm_214tr_0sec
+
+============================ Variable Names  ============================
+
+delay = 1
+model = WAV(18.2,1,4,6,0.2,2)
+input4d = run2_sub015_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub015_tshift_volreg_despike_mni_7mm_214tr_1sec
+
+============================ Variable Names  ============================
+
+delay = 2
+model = WAV(18.2,2,4,6,0.2,2)
+input4d = run2_sub015_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub015_tshift_volreg_despike_mni_7mm_214tr_2sec
+
+============================ Variable Names  ============================
+
+delay = 3
+model = WAV(18.2,3,4,6,0.2,2)
+input4d = run2_sub015_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub015_tshift_volreg_despike_mni_7mm_214tr_3sec
+
+============================ Variable Names  ============================
+
+delay = 4
+model = WAV(18.2,4,4,6,0.2,2)
+input4d = run2_sub015_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub015_tshift_volreg_despike_mni_7mm_214tr_4sec
+
+============================ Variable Names  ============================
+
+delay = 5
+model = WAV(18.2,5,4,6,0.2,2)
+input4d = run2_sub015_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub015_tshift_volreg_despike_mni_7mm_214tr_5sec
+
+============================ Variable Names  ============================
+
+delay = 6
+model = WAV(18.2,6,4,6,0.2,2)
+input4d = run2_sub015_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub015_tshift_volreg_despike_mni_7mm_214tr_6sec
+
+============================ Variable Names  ============================
+
+delay = 7
+model = WAV(18.2,7,4,6,0.2,2)
+input4d = run2_sub015_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub015_tshift_volreg_despike_mni_7mm_214tr_7sec
+
+================================ End Testing ================================
+
+********************* Hooray For Test Driven Development **********************
+
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+============================ Begin Testing============================
+Subject == sub015
+Scan == 
+RUNDIR == Run3
+Subject = sub015 
+runsub = run3_sub015
+condition = 
+RUN = Run3 
+1D array Size = 4
+
+============================ File Names ============================
+
+censor.cue_stim.1D
+stim.listen_block.1D 
+stim.control_block.1D
+stim.response_block.1D 
+
+============================ Path Names  ============================
+
+Func dir = /Volumes/Data/Iceword/sub015/Func/Run3
+GLM dir = /Volumes/Data/ICE/GLM/sub015/Run3
+STIM dir = /Volumes/Data/ICE/GLM/STIM
+ID dir = /Volumes/Data/ICE/GLM/sub015/Run3/1D
+
+============================ Variable Names  ============================
+
+delay = 0
+model = WAV(18.2,0,4,6,0.2,2)
+input4d = run3_sub015_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub015_tshift_volreg_despike_mni_7mm_214tr_0sec
+
+============================ Variable Names  ============================
+
+delay = 1
+model = WAV(18.2,1,4,6,0.2,2)
+input4d = run3_sub015_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub015_tshift_volreg_despike_mni_7mm_214tr_1sec
+
+============================ Variable Names  ============================
+
+delay = 2
+model = WAV(18.2,2,4,6,0.2,2)
+input4d = run3_sub015_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub015_tshift_volreg_despike_mni_7mm_214tr_2sec
+
+============================ Variable Names  ============================
+
+delay = 3
+model = WAV(18.2,3,4,6,0.2,2)
+input4d = run3_sub015_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub015_tshift_volreg_despike_mni_7mm_214tr_3sec
+
+============================ Variable Names  ============================
+
+delay = 4
+model = WAV(18.2,4,4,6,0.2,2)
+input4d = run3_sub015_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub015_tshift_volreg_despike_mni_7mm_214tr_4sec
+
+============================ Variable Names  ============================
+
+delay = 5
+model = WAV(18.2,5,4,6,0.2,2)
+input4d = run3_sub015_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub015_tshift_volreg_despike_mni_7mm_214tr_5sec
+
+============================ Variable Names  ============================
+
+delay = 6
+model = WAV(18.2,6,4,6,0.2,2)
+input4d = run3_sub015_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub015_tshift_volreg_despike_mni_7mm_214tr_6sec
+
+============================ Variable Names  ============================
+
+delay = 7
+model = WAV(18.2,7,4,6,0.2,2)
+input4d = run3_sub015_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub015_tshift_volreg_despike_mni_7mm_214tr_7sec
+
+================================ End Testing ================================
+
+********************* Hooray For Test Driven Development **********************
+
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+============================ Begin Testing============================
+Subject == sub015
+Scan == 
+RUNDIR == Run4
+Subject = sub015 
+runsub = run4_sub015
+condition = 
+RUN = Run4 
+1D array Size = 4
+
+============================ File Names ============================
+
+censor.cue_stim.1D
+stim.listen_block.1D 
+stim.control_block.1D
+stim.response_block.1D 
+
+============================ Path Names  ============================
+
+Func dir = /Volumes/Data/Iceword/sub015/Func/Run4
+GLM dir = /Volumes/Data/ICE/GLM/sub015/Run4
+STIM dir = /Volumes/Data/ICE/GLM/STIM
+ID dir = /Volumes/Data/ICE/GLM/sub015/Run4/1D
+
+============================ Variable Names  ============================
+
+delay = 0
+model = WAV(18.2,0,4,6,0.2,2)
+input4d = run4_sub015_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub015_tshift_volreg_despike_mni_7mm_214tr_0sec
+
+============================ Variable Names  ============================
+
+delay = 1
+model = WAV(18.2,1,4,6,0.2,2)
+input4d = run4_sub015_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub015_tshift_volreg_despike_mni_7mm_214tr_1sec
+
+============================ Variable Names  ============================
+
+delay = 2
+model = WAV(18.2,2,4,6,0.2,2)
+input4d = run4_sub015_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub015_tshift_volreg_despike_mni_7mm_214tr_2sec
+
+============================ Variable Names  ============================
+
+delay = 3
+model = WAV(18.2,3,4,6,0.2,2)
+input4d = run4_sub015_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub015_tshift_volreg_despike_mni_7mm_214tr_3sec
+
+============================ Variable Names  ============================
+
+delay = 4
+model = WAV(18.2,4,4,6,0.2,2)
+input4d = run4_sub015_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub015_tshift_volreg_despike_mni_7mm_214tr_4sec
+
+============================ Variable Names  ============================
+
+delay = 5
+model = WAV(18.2,5,4,6,0.2,2)
+input4d = run4_sub015_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub015_tshift_volreg_despike_mni_7mm_214tr_5sec
+
+============================ Variable Names  ============================
+
+delay = 6
+model = WAV(18.2,6,4,6,0.2,2)
+input4d = run4_sub015_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub015_tshift_volreg_despike_mni_7mm_214tr_6sec
+
+============================ Variable Names  ============================
+
+delay = 7
+model = WAV(18.2,7,4,6,0.2,2)
+input4d = run4_sub015_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub015_tshift_volreg_despike_mni_7mm_214tr_7sec
+
+================================ End Testing ================================
+
+********************* Hooray For Test Driven Development **********************
+
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+============================ Begin Testing============================
+Subject == sub016
+Scan == 
+RUNDIR == Run1
+Subject = sub016 
+runsub = run1_sub016
+condition = 
+RUN = Run1 
+1D array Size = 4
+
+============================ File Names ============================
+
+censor.cue_stim.1D
+stim.listen_block.1D 
+stim.control_block.1D
+stim.response_block.1D 
+
+============================ Path Names  ============================
+
+Func dir = /Volumes/Data/Iceword/sub016/Func/Run1
+GLM dir = /Volumes/Data/ICE/GLM/sub016/Run1
+STIM dir = /Volumes/Data/ICE/GLM/STIM
+ID dir = /Volumes/Data/ICE/GLM/sub016/Run1/1D
+
+============================ Variable Names  ============================
+
+delay = 0
+model = WAV(18.2,0,4,6,0.2,2)
+input4d = run1_sub016_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub016_tshift_volreg_despike_mni_7mm_214tr_0sec
+
+============================ Variable Names  ============================
+
+delay = 1
+model = WAV(18.2,1,4,6,0.2,2)
+input4d = run1_sub016_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub016_tshift_volreg_despike_mni_7mm_214tr_1sec
+
+============================ Variable Names  ============================
+
+delay = 2
+model = WAV(18.2,2,4,6,0.2,2)
+input4d = run1_sub016_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub016_tshift_volreg_despike_mni_7mm_214tr_2sec
+
+============================ Variable Names  ============================
+
+delay = 3
+model = WAV(18.2,3,4,6,0.2,2)
+input4d = run1_sub016_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub016_tshift_volreg_despike_mni_7mm_214tr_3sec
+
+============================ Variable Names  ============================
+
+delay = 4
+model = WAV(18.2,4,4,6,0.2,2)
+input4d = run1_sub016_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub016_tshift_volreg_despike_mni_7mm_214tr_4sec
+
+============================ Variable Names  ============================
+
+delay = 5
+model = WAV(18.2,5,4,6,0.2,2)
+input4d = run1_sub016_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub016_tshift_volreg_despike_mni_7mm_214tr_5sec
+
+============================ Variable Names  ============================
+
+delay = 6
+model = WAV(18.2,6,4,6,0.2,2)
+input4d = run1_sub016_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub016_tshift_volreg_despike_mni_7mm_214tr_6sec
+
+============================ Variable Names  ============================
+
+delay = 7
+model = WAV(18.2,7,4,6,0.2,2)
+input4d = run1_sub016_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub016_tshift_volreg_despike_mni_7mm_214tr_7sec
+
+================================ End Testing ================================
+
+********************* Hooray For Test Driven Development **********************
+
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+============================ Begin Testing============================
+Subject == sub016
+Scan == 
+RUNDIR == Run2
+Subject = sub016 
+runsub = run2_sub016
+condition = 
+RUN = Run2 
+1D array Size = 4
+
+============================ File Names ============================
+
+censor.cue_stim.1D
+stim.listen_block.1D 
+stim.control_block.1D
+stim.response_block.1D 
+
+============================ Path Names  ============================
+
+Func dir = /Volumes/Data/Iceword/sub016/Func/Run2
+GLM dir = /Volumes/Data/ICE/GLM/sub016/Run2
+STIM dir = /Volumes/Data/ICE/GLM/STIM
+ID dir = /Volumes/Data/ICE/GLM/sub016/Run2/1D
+
+============================ Variable Names  ============================
+
+delay = 0
+model = WAV(18.2,0,4,6,0.2,2)
+input4d = run2_sub016_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub016_tshift_volreg_despike_mni_7mm_214tr_0sec
+
+============================ Variable Names  ============================
+
+delay = 1
+model = WAV(18.2,1,4,6,0.2,2)
+input4d = run2_sub016_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub016_tshift_volreg_despike_mni_7mm_214tr_1sec
+
+============================ Variable Names  ============================
+
+delay = 2
+model = WAV(18.2,2,4,6,0.2,2)
+input4d = run2_sub016_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub016_tshift_volreg_despike_mni_7mm_214tr_2sec
+
+============================ Variable Names  ============================
+
+delay = 3
+model = WAV(18.2,3,4,6,0.2,2)
+input4d = run2_sub016_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub016_tshift_volreg_despike_mni_7mm_214tr_3sec
+
+============================ Variable Names  ============================
+
+delay = 4
+model = WAV(18.2,4,4,6,0.2,2)
+input4d = run2_sub016_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub016_tshift_volreg_despike_mni_7mm_214tr_4sec
+
+============================ Variable Names  ============================
+
+delay = 5
+model = WAV(18.2,5,4,6,0.2,2)
+input4d = run2_sub016_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub016_tshift_volreg_despike_mni_7mm_214tr_5sec
+
+============================ Variable Names  ============================
+
+delay = 6
+model = WAV(18.2,6,4,6,0.2,2)
+input4d = run2_sub016_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub016_tshift_volreg_despike_mni_7mm_214tr_6sec
+
+============================ Variable Names  ============================
+
+delay = 7
+model = WAV(18.2,7,4,6,0.2,2)
+input4d = run2_sub016_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub016_tshift_volreg_despike_mni_7mm_214tr_7sec
+
+================================ End Testing ================================
+
+********************* Hooray For Test Driven Development **********************
+
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+============================ Begin Testing============================
+Subject == sub016
+Scan == 
+RUNDIR == Run3
+Subject = sub016 
+runsub = run3_sub016
+condition = 
+RUN = Run3 
+1D array Size = 4
+
+============================ File Names ============================
+
+censor.cue_stim.1D
+stim.listen_block.1D 
+stim.control_block.1D
+stim.response_block.1D 
+
+============================ Path Names  ============================
+
+Func dir = /Volumes/Data/Iceword/sub016/Func/Run3
+GLM dir = /Volumes/Data/ICE/GLM/sub016/Run3
+STIM dir = /Volumes/Data/ICE/GLM/STIM
+ID dir = /Volumes/Data/ICE/GLM/sub016/Run3/1D
+
+============================ Variable Names  ============================
+
+delay = 0
+model = WAV(18.2,0,4,6,0.2,2)
+input4d = run3_sub016_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub016_tshift_volreg_despike_mni_7mm_214tr_0sec
+
+============================ Variable Names  ============================
+
+delay = 1
+model = WAV(18.2,1,4,6,0.2,2)
+input4d = run3_sub016_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub016_tshift_volreg_despike_mni_7mm_214tr_1sec
+
+============================ Variable Names  ============================
+
+delay = 2
+model = WAV(18.2,2,4,6,0.2,2)
+input4d = run3_sub016_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub016_tshift_volreg_despike_mni_7mm_214tr_2sec
+
+============================ Variable Names  ============================
+
+delay = 3
+model = WAV(18.2,3,4,6,0.2,2)
+input4d = run3_sub016_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub016_tshift_volreg_despike_mni_7mm_214tr_3sec
+
+============================ Variable Names  ============================
+
+delay = 4
+model = WAV(18.2,4,4,6,0.2,2)
+input4d = run3_sub016_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub016_tshift_volreg_despike_mni_7mm_214tr_4sec
+
+============================ Variable Names  ============================
+
+delay = 5
+model = WAV(18.2,5,4,6,0.2,2)
+input4d = run3_sub016_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub016_tshift_volreg_despike_mni_7mm_214tr_5sec
+
+============================ Variable Names  ============================
+
+delay = 6
+model = WAV(18.2,6,4,6,0.2,2)
+input4d = run3_sub016_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub016_tshift_volreg_despike_mni_7mm_214tr_6sec
+
+============================ Variable Names  ============================
+
+delay = 7
+model = WAV(18.2,7,4,6,0.2,2)
+input4d = run3_sub016_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub016_tshift_volreg_despike_mni_7mm_214tr_7sec
+
+================================ End Testing ================================
+
+********************* Hooray For Test Driven Development **********************
+
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+============================ Begin Testing============================
+Subject == sub016
+Scan == 
+RUNDIR == Run4
+Subject = sub016 
+runsub = run4_sub016
+condition = 
+RUN = Run4 
+1D array Size = 4
+
+============================ File Names ============================
+
+censor.cue_stim.1D
+stim.listen_block.1D 
+stim.control_block.1D
+stim.response_block.1D 
+
+============================ Path Names  ============================
+
+Func dir = /Volumes/Data/Iceword/sub016/Func/Run4
+GLM dir = /Volumes/Data/ICE/GLM/sub016/Run4
+STIM dir = /Volumes/Data/ICE/GLM/STIM
+ID dir = /Volumes/Data/ICE/GLM/sub016/Run4/1D
+
+============================ Variable Names  ============================
+
+delay = 0
+model = WAV(18.2,0,4,6,0.2,2)
+input4d = run4_sub016_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub016_tshift_volreg_despike_mni_7mm_214tr_0sec
+
+============================ Variable Names  ============================
+
+delay = 1
+model = WAV(18.2,1,4,6,0.2,2)
+input4d = run4_sub016_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub016_tshift_volreg_despike_mni_7mm_214tr_1sec
+
+============================ Variable Names  ============================
+
+delay = 2
+model = WAV(18.2,2,4,6,0.2,2)
+input4d = run4_sub016_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub016_tshift_volreg_despike_mni_7mm_214tr_2sec
+
+============================ Variable Names  ============================
+
+delay = 3
+model = WAV(18.2,3,4,6,0.2,2)
+input4d = run4_sub016_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub016_tshift_volreg_despike_mni_7mm_214tr_3sec
+
+============================ Variable Names  ============================
+
+delay = 4
+model = WAV(18.2,4,4,6,0.2,2)
+input4d = run4_sub016_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub016_tshift_volreg_despike_mni_7mm_214tr_4sec
+
+============================ Variable Names  ============================
+
+delay = 5
+model = WAV(18.2,5,4,6,0.2,2)
+input4d = run4_sub016_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub016_tshift_volreg_despike_mni_7mm_214tr_5sec
+
+============================ Variable Names  ============================
+
+delay = 6
+model = WAV(18.2,6,4,6,0.2,2)
+input4d = run4_sub016_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub016_tshift_volreg_despike_mni_7mm_214tr_6sec
+
+============================ Variable Names  ============================
+
+delay = 7
+model = WAV(18.2,7,4,6,0.2,2)
+input4d = run4_sub016_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub016_tshift_volreg_despike_mni_7mm_214tr_7sec
+
+================================ End Testing ================================
+
+********************* Hooray For Test Driven Development **********************
+
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+============================ Begin Testing============================
+Subject == sub017
+Scan == 
+RUNDIR == Run1
+Subject = sub017 
+runsub = run1_sub017
+condition = 
+RUN = Run1 
+1D array Size = 4
+
+============================ File Names ============================
+
+censor.cue_stim.1D
+stim.listen_block.1D 
+stim.control_block.1D
+stim.response_block.1D 
+
+============================ Path Names  ============================
+
+Func dir = /Volumes/Data/Iceword/sub017/Func/Run1
+GLM dir = /Volumes/Data/ICE/GLM/sub017/Run1
+STIM dir = /Volumes/Data/ICE/GLM/STIM
+ID dir = /Volumes/Data/ICE/GLM/sub017/Run1/1D
+
+============================ Variable Names  ============================
+
+delay = 0
+model = WAV(18.2,0,4,6,0.2,2)
+input4d = run1_sub017_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub017_tshift_volreg_despike_mni_7mm_214tr_0sec
+
+============================ Variable Names  ============================
+
+delay = 1
+model = WAV(18.2,1,4,6,0.2,2)
+input4d = run1_sub017_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub017_tshift_volreg_despike_mni_7mm_214tr_1sec
+
+============================ Variable Names  ============================
+
+delay = 2
+model = WAV(18.2,2,4,6,0.2,2)
+input4d = run1_sub017_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub017_tshift_volreg_despike_mni_7mm_214tr_2sec
+
+============================ Variable Names  ============================
+
+delay = 3
+model = WAV(18.2,3,4,6,0.2,2)
+input4d = run1_sub017_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub017_tshift_volreg_despike_mni_7mm_214tr_3sec
+
+============================ Variable Names  ============================
+
+delay = 4
+model = WAV(18.2,4,4,6,0.2,2)
+input4d = run1_sub017_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub017_tshift_volreg_despike_mni_7mm_214tr_4sec
+
+============================ Variable Names  ============================
+
+delay = 5
+model = WAV(18.2,5,4,6,0.2,2)
+input4d = run1_sub017_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub017_tshift_volreg_despike_mni_7mm_214tr_5sec
+
+============================ Variable Names  ============================
+
+delay = 6
+model = WAV(18.2,6,4,6,0.2,2)
+input4d = run1_sub017_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub017_tshift_volreg_despike_mni_7mm_214tr_6sec
+
+============================ Variable Names  ============================
+
+delay = 7
+model = WAV(18.2,7,4,6,0.2,2)
+input4d = run1_sub017_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub017_tshift_volreg_despike_mni_7mm_214tr_7sec
+
+================================ End Testing ================================
+
+********************* Hooray For Test Driven Development **********************
+
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+============================ Begin Testing============================
+Subject == sub017
+Scan == 
+RUNDIR == Run2
+Subject = sub017 
+runsub = run2_sub017
+condition = 
+RUN = Run2 
+1D array Size = 4
+
+============================ File Names ============================
+
+censor.cue_stim.1D
+stim.listen_block.1D 
+stim.control_block.1D
+stim.response_block.1D 
+
+============================ Path Names  ============================
+
+Func dir = /Volumes/Data/Iceword/sub017/Func/Run2
+GLM dir = /Volumes/Data/ICE/GLM/sub017/Run2
+STIM dir = /Volumes/Data/ICE/GLM/STIM
+ID dir = /Volumes/Data/ICE/GLM/sub017/Run2/1D
+
+============================ Variable Names  ============================
+
+delay = 0
+model = WAV(18.2,0,4,6,0.2,2)
+input4d = run2_sub017_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub017_tshift_volreg_despike_mni_7mm_214tr_0sec
+
+============================ Variable Names  ============================
+
+delay = 1
+model = WAV(18.2,1,4,6,0.2,2)
+input4d = run2_sub017_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub017_tshift_volreg_despike_mni_7mm_214tr_1sec
+
+============================ Variable Names  ============================
+
+delay = 2
+model = WAV(18.2,2,4,6,0.2,2)
+input4d = run2_sub017_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub017_tshift_volreg_despike_mni_7mm_214tr_2sec
+
+============================ Variable Names  ============================
+
+delay = 3
+model = WAV(18.2,3,4,6,0.2,2)
+input4d = run2_sub017_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub017_tshift_volreg_despike_mni_7mm_214tr_3sec
+
+============================ Variable Names  ============================
+
+delay = 4
+model = WAV(18.2,4,4,6,0.2,2)
+input4d = run2_sub017_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub017_tshift_volreg_despike_mni_7mm_214tr_4sec
+
+============================ Variable Names  ============================
+
+delay = 5
+model = WAV(18.2,5,4,6,0.2,2)
+input4d = run2_sub017_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub017_tshift_volreg_despike_mni_7mm_214tr_5sec
+
+============================ Variable Names  ============================
+
+delay = 6
+model = WAV(18.2,6,4,6,0.2,2)
+input4d = run2_sub017_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub017_tshift_volreg_despike_mni_7mm_214tr_6sec
+
+============================ Variable Names  ============================
+
+delay = 7
+model = WAV(18.2,7,4,6,0.2,2)
+input4d = run2_sub017_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub017_tshift_volreg_despike_mni_7mm_214tr_7sec
+
+================================ End Testing ================================
+
+********************* Hooray For Test Driven Development **********************
+
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+============================ Begin Testing============================
+Subject == sub017
+Scan == 
+RUNDIR == Run3
+Subject = sub017 
+runsub = run3_sub017
+condition = 
+RUN = Run3 
+1D array Size = 4
+
+============================ File Names ============================
+
+censor.cue_stim.1D
+stim.listen_block.1D 
+stim.control_block.1D
+stim.response_block.1D 
+
+============================ Path Names  ============================
+
+Func dir = /Volumes/Data/Iceword/sub017/Func/Run3
+GLM dir = /Volumes/Data/ICE/GLM/sub017/Run3
+STIM dir = /Volumes/Data/ICE/GLM/STIM
+ID dir = /Volumes/Data/ICE/GLM/sub017/Run3/1D
+
+============================ Variable Names  ============================
+
+delay = 0
+model = WAV(18.2,0,4,6,0.2,2)
+input4d = run3_sub017_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub017_tshift_volreg_despike_mni_7mm_214tr_0sec
+
+============================ Variable Names  ============================
+
+delay = 1
+model = WAV(18.2,1,4,6,0.2,2)
+input4d = run3_sub017_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub017_tshift_volreg_despike_mni_7mm_214tr_1sec
+
+============================ Variable Names  ============================
+
+delay = 2
+model = WAV(18.2,2,4,6,0.2,2)
+input4d = run3_sub017_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub017_tshift_volreg_despike_mni_7mm_214tr_2sec
+
+============================ Variable Names  ============================
+
+delay = 3
+model = WAV(18.2,3,4,6,0.2,2)
+input4d = run3_sub017_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub017_tshift_volreg_despike_mni_7mm_214tr_3sec
+
+============================ Variable Names  ============================
+
+delay = 4
+model = WAV(18.2,4,4,6,0.2,2)
+input4d = run3_sub017_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub017_tshift_volreg_despike_mni_7mm_214tr_4sec
+
+============================ Variable Names  ============================
+
+delay = 5
+model = WAV(18.2,5,4,6,0.2,2)
+input4d = run3_sub017_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub017_tshift_volreg_despike_mni_7mm_214tr_5sec
+
+============================ Variable Names  ============================
+
+delay = 6
+model = WAV(18.2,6,4,6,0.2,2)
+input4d = run3_sub017_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub017_tshift_volreg_despike_mni_7mm_214tr_6sec
+
+============================ Variable Names  ============================
+
+delay = 7
+model = WAV(18.2,7,4,6,0.2,2)
+input4d = run3_sub017_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub017_tshift_volreg_despike_mni_7mm_214tr_7sec
+
+================================ End Testing ================================
+
+********************* Hooray For Test Driven Development **********************
+
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+============================ Begin Testing============================
+Subject == sub017
+Scan == 
+RUNDIR == Run4
+Subject = sub017 
+runsub = run4_sub017
+condition = 
+RUN = Run4 
+1D array Size = 4
+
+============================ File Names ============================
+
+censor.cue_stim.1D
+stim.listen_block.1D 
+stim.control_block.1D
+stim.response_block.1D 
+
+============================ Path Names  ============================
+
+Func dir = /Volumes/Data/Iceword/sub017/Func/Run4
+GLM dir = /Volumes/Data/ICE/GLM/sub017/Run4
+STIM dir = /Volumes/Data/ICE/GLM/STIM
+ID dir = /Volumes/Data/ICE/GLM/sub017/Run4/1D
+
+============================ Variable Names  ============================
+
+delay = 0
+model = WAV(18.2,0,4,6,0.2,2)
+input4d = run4_sub017_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub017_tshift_volreg_despike_mni_7mm_214tr_0sec
+
+============================ Variable Names  ============================
+
+delay = 1
+model = WAV(18.2,1,4,6,0.2,2)
+input4d = run4_sub017_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub017_tshift_volreg_despike_mni_7mm_214tr_1sec
+
+============================ Variable Names  ============================
+
+delay = 2
+model = WAV(18.2,2,4,6,0.2,2)
+input4d = run4_sub017_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub017_tshift_volreg_despike_mni_7mm_214tr_2sec
+
+============================ Variable Names  ============================
+
+delay = 3
+model = WAV(18.2,3,4,6,0.2,2)
+input4d = run4_sub017_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub017_tshift_volreg_despike_mni_7mm_214tr_3sec
+
+============================ Variable Names  ============================
+
+delay = 4
+model = WAV(18.2,4,4,6,0.2,2)
+input4d = run4_sub017_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub017_tshift_volreg_despike_mni_7mm_214tr_4sec
+
+============================ Variable Names  ============================
+
+delay = 5
+model = WAV(18.2,5,4,6,0.2,2)
+input4d = run4_sub017_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub017_tshift_volreg_despike_mni_7mm_214tr_5sec
+
+============================ Variable Names  ============================
+
+delay = 6
+model = WAV(18.2,6,4,6,0.2,2)
+input4d = run4_sub017_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub017_tshift_volreg_despike_mni_7mm_214tr_6sec
+
+============================ Variable Names  ============================
+
+delay = 7
+model = WAV(18.2,7,4,6,0.2,2)
+input4d = run4_sub017_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub017_tshift_volreg_despike_mni_7mm_214tr_7sec
+
+================================ End Testing ================================
+
+********************* Hooray For Test Driven Development **********************
+
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+============================ Begin Testing============================
+Subject == sub019
+Scan == 
+RUNDIR == Run1
+Subject = sub019 
+runsub = run1_sub019
+condition = 
+RUN = Run1 
+1D array Size = 4
+
+============================ File Names ============================
+
+censor.cue_stim.1D
+stim.listen_block.1D 
+stim.control_block.1D
+stim.response_block.1D 
+
+============================ Path Names  ============================
+
+Func dir = /Volumes/Data/Iceword/sub019/Func/Run1
+GLM dir = /Volumes/Data/ICE/GLM/sub019/Run1
+STIM dir = /Volumes/Data/ICE/GLM/STIM
+ID dir = /Volumes/Data/ICE/GLM/sub019/Run1/1D
+
+============================ Variable Names  ============================
+
+delay = 0
+model = WAV(18.2,0,4,6,0.2,2)
+input4d = run1_sub019_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub019_tshift_volreg_despike_mni_7mm_214tr_0sec
+
+============================ Variable Names  ============================
+
+delay = 1
+model = WAV(18.2,1,4,6,0.2,2)
+input4d = run1_sub019_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub019_tshift_volreg_despike_mni_7mm_214tr_1sec
+
+============================ Variable Names  ============================
+
+delay = 2
+model = WAV(18.2,2,4,6,0.2,2)
+input4d = run1_sub019_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub019_tshift_volreg_despike_mni_7mm_214tr_2sec
+
+============================ Variable Names  ============================
+
+delay = 3
+model = WAV(18.2,3,4,6,0.2,2)
+input4d = run1_sub019_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub019_tshift_volreg_despike_mni_7mm_214tr_3sec
+
+============================ Variable Names  ============================
+
+delay = 4
+model = WAV(18.2,4,4,6,0.2,2)
+input4d = run1_sub019_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub019_tshift_volreg_despike_mni_7mm_214tr_4sec
+
+============================ Variable Names  ============================
+
+delay = 5
+model = WAV(18.2,5,4,6,0.2,2)
+input4d = run1_sub019_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub019_tshift_volreg_despike_mni_7mm_214tr_5sec
+
+============================ Variable Names  ============================
+
+delay = 6
+model = WAV(18.2,6,4,6,0.2,2)
+input4d = run1_sub019_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub019_tshift_volreg_despike_mni_7mm_214tr_6sec
+
+============================ Variable Names  ============================
+
+delay = 7
+model = WAV(18.2,7,4,6,0.2,2)
+input4d = run1_sub019_tshift_volreg_despike_mni_7mm_214tr
+output4d = run1_sub019_tshift_volreg_despike_mni_7mm_214tr_7sec
+
+================================ End Testing ================================
+
+********************* Hooray For Test Driven Development **********************
+
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+============================ Begin Testing============================
+Subject == sub019
+Scan == 
+RUNDIR == Run2
+Subject = sub019 
+runsub = run2_sub019
+condition = 
+RUN = Run2 
+1D array Size = 4
+
+============================ File Names ============================
+
+censor.cue_stim.1D
+stim.listen_block.1D 
+stim.control_block.1D
+stim.response_block.1D 
+
+============================ Path Names  ============================
+
+Func dir = /Volumes/Data/Iceword/sub019/Func/Run2
+GLM dir = /Volumes/Data/ICE/GLM/sub019/Run2
+STIM dir = /Volumes/Data/ICE/GLM/STIM
+ID dir = /Volumes/Data/ICE/GLM/sub019/Run2/1D
+
+============================ Variable Names  ============================
+
+delay = 0
+model = WAV(18.2,0,4,6,0.2,2)
+input4d = run2_sub019_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub019_tshift_volreg_despike_mni_7mm_214tr_0sec
+
+============================ Variable Names  ============================
+
+delay = 1
+model = WAV(18.2,1,4,6,0.2,2)
+input4d = run2_sub019_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub019_tshift_volreg_despike_mni_7mm_214tr_1sec
+
+============================ Variable Names  ============================
+
+delay = 2
+model = WAV(18.2,2,4,6,0.2,2)
+input4d = run2_sub019_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub019_tshift_volreg_despike_mni_7mm_214tr_2sec
+
+============================ Variable Names  ============================
+
+delay = 3
+model = WAV(18.2,3,4,6,0.2,2)
+input4d = run2_sub019_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub019_tshift_volreg_despike_mni_7mm_214tr_3sec
+
+============================ Variable Names  ============================
+
+delay = 4
+model = WAV(18.2,4,4,6,0.2,2)
+input4d = run2_sub019_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub019_tshift_volreg_despike_mni_7mm_214tr_4sec
+
+============================ Variable Names  ============================
+
+delay = 5
+model = WAV(18.2,5,4,6,0.2,2)
+input4d = run2_sub019_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub019_tshift_volreg_despike_mni_7mm_214tr_5sec
+
+============================ Variable Names  ============================
+
+delay = 6
+model = WAV(18.2,6,4,6,0.2,2)
+input4d = run2_sub019_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub019_tshift_volreg_despike_mni_7mm_214tr_6sec
+
+============================ Variable Names  ============================
+
+delay = 7
+model = WAV(18.2,7,4,6,0.2,2)
+input4d = run2_sub019_tshift_volreg_despike_mni_7mm_214tr
+output4d = run2_sub019_tshift_volreg_despike_mni_7mm_214tr_7sec
+
+================================ End Testing ================================
+
+********************* Hooray For Test Driven Development **********************
+
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+============================ Begin Testing============================
+Subject == sub019
+Scan == 
+RUNDIR == Run3
+Subject = sub019 
+runsub = run3_sub019
+condition = 
+RUN = Run3 
+1D array Size = 4
+
+============================ File Names ============================
+
+censor.cue_stim.1D
+stim.listen_block.1D 
+stim.control_block.1D
+stim.response_block.1D 
+
+============================ Path Names  ============================
+
+Func dir = /Volumes/Data/Iceword/sub019/Func/Run3
+GLM dir = /Volumes/Data/ICE/GLM/sub019/Run3
+STIM dir = /Volumes/Data/ICE/GLM/STIM
+ID dir = /Volumes/Data/ICE/GLM/sub019/Run3/1D
+
+============================ Variable Names  ============================
+
+delay = 0
+model = WAV(18.2,0,4,6,0.2,2)
+input4d = run3_sub019_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub019_tshift_volreg_despike_mni_7mm_214tr_0sec
+
+============================ Variable Names  ============================
+
+delay = 1
+model = WAV(18.2,1,4,6,0.2,2)
+input4d = run3_sub019_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub019_tshift_volreg_despike_mni_7mm_214tr_1sec
+
+============================ Variable Names  ============================
+
+delay = 2
+model = WAV(18.2,2,4,6,0.2,2)
+input4d = run3_sub019_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub019_tshift_volreg_despike_mni_7mm_214tr_2sec
+
+============================ Variable Names  ============================
+
+delay = 3
+model = WAV(18.2,3,4,6,0.2,2)
+input4d = run3_sub019_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub019_tshift_volreg_despike_mni_7mm_214tr_3sec
+
+============================ Variable Names  ============================
+
+delay = 4
+model = WAV(18.2,4,4,6,0.2,2)
+input4d = run3_sub019_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub019_tshift_volreg_despike_mni_7mm_214tr_4sec
+
+============================ Variable Names  ============================
+
+delay = 5
+model = WAV(18.2,5,4,6,0.2,2)
+input4d = run3_sub019_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub019_tshift_volreg_despike_mni_7mm_214tr_5sec
+
+============================ Variable Names  ============================
+
+delay = 6
+model = WAV(18.2,6,4,6,0.2,2)
+input4d = run3_sub019_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub019_tshift_volreg_despike_mni_7mm_214tr_6sec
+
+============================ Variable Names  ============================
+
+delay = 7
+model = WAV(18.2,7,4,6,0.2,2)
+input4d = run3_sub019_tshift_volreg_despike_mni_7mm_214tr
+output4d = run3_sub019_tshift_volreg_despike_mni_7mm_214tr_7sec
+
+================================ End Testing ================================
+
+********************* Hooray For Test Driven Development **********************
+
+/usr/local/Utilities/PROG/ice.glm.sh: line 454: RD: command not found
+============================ Begin Testing============================
+Subject == sub019
+Scan == 
+RUNDIR == Run4
+Subject = sub019 
+runsub = run4_sub019
+condition = 
+RUN = Run4 
+1D array Size = 4
+
+============================ File Names ============================
+
+censor.cue_stim.1D
+stim.listen_block.1D 
+stim.control_block.1D
+stim.response_block.1D 
+
+============================ Path Names  ============================
+
+Func dir = /Volumes/Data/Iceword/sub019/Func/Run4
+GLM dir = /Volumes/Data/ICE/GLM/sub019/Run4
+STIM dir = /Volumes/Data/ICE/GLM/STIM
+ID dir = /Volumes/Data/ICE/GLM/sub019/Run4/1D
+
+============================ Variable Names  ============================
+
+delay = 0
+model = WAV(18.2,0,4,6,0.2,2)
+input4d = run4_sub019_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub019_tshift_volreg_despike_mni_7mm_214tr_0sec
+
+============================ Variable Names  ============================
+
+delay = 1
+model = WAV(18.2,1,4,6,0.2,2)
+input4d = run4_sub019_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub019_tshift_volreg_despike_mni_7mm_214tr_1sec
+
+============================ Variable Names  ============================
+
+delay = 2
+model = WAV(18.2,2,4,6,0.2,2)
+input4d = run4_sub019_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub019_tshift_volreg_despike_mni_7mm_214tr_2sec
+
+============================ Variable Names  ============================
+
+delay = 3
+model = WAV(18.2,3,4,6,0.2,2)
+input4d = run4_sub019_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub019_tshift_volreg_despike_mni_7mm_214tr_3sec
+
+============================ Variable Names  ============================
+
+delay = 4
+model = WAV(18.2,4,4,6,0.2,2)
+input4d = run4_sub019_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub019_tshift_volreg_despike_mni_7mm_214tr_4sec
+
+============================ Variable Names  ============================
+
+delay = 5
+model = WAV(18.2,5,4,6,0.2,2)
+input4d = run4_sub019_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub019_tshift_volreg_despike_mni_7mm_214tr_5sec
+
+============================ Variable Names  ============================
+
+delay = 6
+model = WAV(18.2,6,4,6,0.2,2)
+input4d = run4_sub019_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub019_tshift_volreg_despike_mni_7mm_214tr_6sec
+
+============================ Variable Names  ============================
+
+delay = 7
+model = WAV(18.2,7,4,6,0.2,2)
+input4d = run4_sub019_tshift_volreg_despike_mni_7mm_214tr
+output4d = run4_sub019_tshift_volreg_despike_mni_7mm_214tr_7sec
+
+================================ End Testing ================================
+
+********************* Hooray For Test Driven Development **********************
+

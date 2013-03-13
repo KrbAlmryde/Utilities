@@ -53,9 +53,9 @@ elif [ "${1}" = "analysis" ]; then
 			. ${BLK}/blk.${1}.sh $2	 2>&1 | tee -a ${study_dir}/log.${1}.${2}.txt
 	done <${RUNS}
 #################################################################################
-# restart.sh options, the $3 option will specify specifc processing blocks that 
+# restart.sh options, the $3 option will specify specifc processing blocks that
 # should be restarted ie the command line might look something like the following
-# call restart dich GLM, which would restart only those files created during in 
+# call restart dich GLM, which would restart only those files created during in
 # the GLM block. Be sure to see the restart.sh script for specific details
 
 elif [ "${1}" = "restart" ]; then
@@ -66,7 +66,7 @@ elif [ "${1}" = "restart" ]; then
 			done <${CLUST}
 		done <${RUNS}
 	done <${SUBJECTS}
-	
+
 elif [ "${1}" = "reg" ]; then
 	while read subj; do
 		 while read run; do

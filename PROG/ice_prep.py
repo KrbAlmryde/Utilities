@@ -20,9 +20,9 @@ Modified: 01/09/2013 @ 15:48:13 PM
 ==============================================================================
 """
 import os
-from ice_examine import getImgData, getFuncSpec
+from ice_examine import getOutName, getImgData, getFuncSpec
 
-ICEWORD = '/Volumes/Data/Iceword'
+ICEWORD = '/Volumes/Data/IcewordNEW'
 
 
 def getOutName(inputImg, addName=None, addDir='', altPath=''):
@@ -55,7 +55,7 @@ def getOutName(inputImg, addName=None, addDir='', altPath=''):
     if body:
         outName.extend(body)
 
-    if tail and 'OLD' not in tail:
+    if tail and 'RAW' not in tail:
         outName.append(tail)
     else:
         pass
@@ -63,7 +63,7 @@ def getOutName(inputImg, addName=None, addDir='', altPath=''):
     if addName:
         outName.append(addName)
 
-    outName = '-'.join(outName) + '.nii'
+    outName = '-'.join(outName) + '.nii.gz'
 
     if altPath:
         outImg = os.path.join(altPath, addDir, outName)
@@ -112,7 +112,7 @@ def plotImageStats(inputImg, dfile=None):
     """Plot input image using afni's 1dplot
 
     Params:
-        inputImg -- The image to be trimmed -> /PATH/TO/sub001-run1.nii
+        inputImg -- The image to be trimmed -> /PATH/TO/sub001-run1.nii.gz
         dfile -- a File containing the shifting information from the ouput of
                  volumeReg()
     """
@@ -133,14 +133,14 @@ def makeImageCorrections(inputImg):
     """Make various corrections to problematic images
 
     Params:
-        inputImg -- The image to be trimmed -> /PATH/TO/sub001-run1.nii
+        inputImg -- The image to be trimmed -> /PATH/TO/sub001-run1.nii.gz
 
     Returns:
-         String of output image name -> /PATH/TO/sub001-run1-213tr.nii
+         String of output image name -> /PATH/TO/sub001-run1-213tr.nii.gz
     """
-    masterFunc = '/Volumes/Data/Iceword/sub005/Func/Run1/sub005-run1-OLD.nii'
-    masterFSE = '/Volumes/Data/Iceword/sub005/Morph/sub005-fse-OLD.nii'
-    masterSPGR = '/Volumes/Data/Iceword/sub005/Morph/sub005-spgr-OLD.nii'
+    masterFunc = '/Volumes/Data/IcewordNEW/sub005/Func/Run1/sub005-run1-RAW.nii.gz'
+    masterFSE = '/Volumes/Data/IcewordNEW/sub005/Morph/sub005-fse-RAW.nii.gz'
+    masterSPGR = '/Volumes/Data/IcewordNEW/sub005/Morph/sub005-spgr-RAW.nii.gz'
     subj, scan, outImg = getOutName(inputImg)
 
     if scan in 'fse' and inputImg not in masterFSE:
@@ -191,10 +191,10 @@ def volumeTrim(inputImg, trim):
     """Remove first n volumes from image
 
     Params:
-        inputImg -- The image to be trimmed -> /PATH/TO/sub001-run1.nii
+        inputImg -- The image to be trimmed -> /PATH/TO/sub001-run1.nii.gz
 
     Returns:
-         String of output image name -> /PATH/TO/sub001-run1-213tr.nii
+         String of output image name -> /PATH/TO/sub001-run1-213tr.nii.gz
     """
     print '\n\tTrimming Volumes: ', trim
 
@@ -214,10 +214,10 @@ def sliceTiming(inputImg):
         which is slowest but the most accurate
 
     Params:
-        inputImg -- The image to be trimmed -> /PATH/TO/sub001-run1.nii
+        inputImg -- The image to be trimmed -> /PATH/TO/sub001-run1.nii.gz
 
     Returns:
-         String of output image name -> /PATH/TO/sub001-run1-213tr.nii
+         String of output image name -> /PATH/TO/sub001-run1-213tr.nii.gz
     """
     outImg = getOutName(inputImg, 'tshift')
     tshift = ' '.join(['3dTshift -tpattern seqminus -prefix', outImg[-1], inputImg])
@@ -256,15 +256,15 @@ def volumeReg(inputImg, baseVol='0'):
     """ One line description
 
     Params:
-        inputImg -- The image to be trimmed -> /PATH/TO/sub001-run1.nii
+        inputImg -- The image to be trimmed -> /PATH/TO/sub001-run1.nii.gz
 
     Returns:
-         String of output image name -> /PATH/TO/sub001-run1-213tr.nii
+         String of output image name -> /PATH/TO/sub001-run1-213tr.nii.gz
     """
     outImg = getOutName(inputImg, 'volreg')
     baseImg = inputImg + '[' + baseVol + ']'
-    dfile = '-'.join([outImg[-1].split('.')[0], 'dfile.1D'])
-    maxdisp = '-'.join([outImg[-1].split('.')[0], 'mm.1D'])
+    dfile = '_'.join([outImg[-1].split('.')[0], 'dfile.1D'])
+    maxdisp = '_'.join([outImg[-1].split('.')[0], 'mm.1D'])
     volreg = ' '.join(['3dvolreg -zpad 4 -base', baseImg,
                        '-1Dfile', dfile, '-maxdisp1D', maxdisp,
                        '-prefix', outImg[-1], '-Fourier', inputImg])
@@ -284,10 +284,10 @@ def despikeVolume(inputImg):
         should be done after volreg.
 
     Params:
-        inputImg -- The image to be trimmed -> /PATH/TO/sub001-run1.nii
+        inputImg -- The image to be trimmed -> /PATH/TO/sub001-run1.nii.gz
 
     Returns:
-         String of output image name -> /PATH/TO/sub001-run1-213tr.nii
+         String of output image name -> /PATH/TO/sub001-run1-213tr.nii.gz
     """
     outImg = getOutName(inputImg, 'despike')
     spikes = getOutName(inputImg, 'spikes')
@@ -303,11 +303,11 @@ def smoothVolume(inputImg, kernel='7.0'):
     """ Smooth image at fwhm using 7.0mm kernel.
 
     Params:
-        inputImg -- The image to be trimmed -> /PATH/TO/sub001-run1.nii
+        inputImg -- The image to be trimmed -> /PATH/TO/sub001-run1.nii.gz
         kernel -- The size of the gaussian kernel deisred. Default is 7mm
 
     Returns:
-         String of output image name -> /PATH/TO/sub001-run1-213tr.nii
+         String of output image name -> /PATH/TO/sub001-run1-213tr.nii.gz
     """
     outImg = getOutName(inputImg, '7mm')
     smooth = ' '.join(['3dmerge -1blur_fwhm', kernel, '-doall -prefix',
@@ -331,10 +331,10 @@ def writeReport(subjDict):
     title = "{:<11}{:<8}{:<15}{:<17}{:<13}{:<20}{:<21}{:<23}{:<20}\n"
     header = ['Subject', 'Scan', 'Orientation', 'Dimensions', 'Thickness', 'TR/FOV', 'Reps/R-extent', 'Slices/A-extent', 'Origin/I-extent']
 
-    fout = open('/Volumes/Data/Iceword/README.txt', 'a+')
+    fout = open('/Volumes/Data/IcewordNEW/README.txt', 'a+')
     fout.write(title.format(*header))
 
-    for subscan in [(sub, scan) for sub in subjDict for scan in subjDict[sub] if scan not in ('MRInum', 'OldID')]:
+    for subscan in [(sub, scan) for sub in sorted(subjDict) for scan in sorted(subjDict[sub]) if scan not in ('MRInum', 'OldID')]:
         subj = subscan[0]
         scan = subscan[1]
         if scan in ('Run1', 'Run2', 'Run3', 'Run4'):
@@ -360,14 +360,14 @@ def main():
         #---------------------------------#
         #       Directory Pointers        #
         #---------------------------------#
-        ICEWORD = '/Volumes/Data/Iceword'
+        ICEWORD = '/Volumes/Data/IcewordNEW'
         FUNC = os.path.join(ICEWORD, subj, 'Func')
         RD = os.path.join(FUNC, scan, 'RealignDetails')
 
         #---------------------------------#
         #       Functional Images         #
         #---------------------------------#
-        img = '-'.join([subj, scan.lower(), 'OLD.nii'])
+        img = '_'.join([subj, scan.lower(), 'RAW.nii'])
         imgFile = os.path.join(FUNC, scan, img)
 
         #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -451,6 +451,66 @@ def main():
     #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     writeReport(subjDict)
 
+
+def main2():
+    funcSpecs = {'Orient': '', 'Dimensions': '', 'Thickness': 0, 'Reps': 0, 'TR': 0, 'Origin': 0, 'Slices': 0}
+    subjDict = {'sub{:003d}'.format(s): {'Run{:d}'.format(i): dict(funcSpecs) for i in [4]} for s in [15]}
+    #-------------------#
+    #    Ready, Begin   #
+    #-------------------#
+    subj = 'sub015'
+    scan = 'Run4'
+    print '\n', subj, scan
+
+    #---------------------------------#
+    #       Directory Pointers        #
+    #---------------------------------#
+    ICEWORD = '/Volumes/Data/IcewordNEW'
+    FUNC = os.path.join(ICEWORD, subj, 'Func')
+    RD = os.path.join(FUNC, scan, 'RealignDetails')
+
+    #---------------------------------#
+    #       Functional Images         #
+    #---------------------------------#
+    img = '-'.join([subj, scan.lower() + '.nii.gz'])
+    imgFile = os.path.join(FUNC, scan, img)
+
+    #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    # Executing getFuncSpec():
+    #  ++
+    #       This will extract the specs of the imageFIle and update
+    #       the subjDict to reflect the information extracted.
+    #       Supplied variables are the image file in question, the
+    #       subject Dictionary, and the reference to subj and scan,
+    #       this is done as a control check to make sure the program is
+    #       outputting the correct information.
+    #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    print '\n\tpopulating header'
+    getFuncSpec(imgFile, subjDict[subj][scan])
+
+    #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    # Executing volumeTrim():
+    #  ++
+    #       This will trim the first X volumes from the image. If the
+    #       image has 214 TRs, then only 1 volume is removed, otherwise
+    #       5 volumes will be removed.
+    #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    if subjDict[subj][scan]['Reps'] == '214':
+        trim = '1'
+    else:
+        trim = '5'
+
+    imgFile = volumeTrim(imgFile, trim)
+    getFuncSpec(imgFile, subjDict[subj][scan])
+
+    #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    # Executing writeReport():
+    #  ++
+    #       sub4dImg -- input file
+    #       subStatsImg -- output file name
+    #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    writeReport(subjDict)
+
 if __name__ == '__main__':
-    main()
-    # main2()
+    # main()
+    main2()
