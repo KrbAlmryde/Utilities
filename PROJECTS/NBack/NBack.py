@@ -196,7 +196,7 @@ def makeImgArray(Targets, Distractors, posDict, tail=None, size=(3, 3)):
 
     print posDict[pos]
 
-    while posDict[pos] >= 5:  # if we end up with more than 4 target positions
+    while posDict[pos] > 4:  # if we end up with more than 4 target positions
         print "too many targets in that position!"
         random.shuffle(imgPool)  # shuffle the list
         pos = str(imgPool.index(tar) + 1)  # get the postion of the starting index, add one so were not zero-based, and make it a string
@@ -249,6 +249,7 @@ def AlphaOverlay(baseFile, inFile, position, outname=None, format="PNG"):
     """
     bottom = Image.open(baseFile)
     top = Image.open(inFile)
+    top.load()  # Sometimes PIL is lazy and forgets to load the image, so we do it explicitly
     r, g, b, a = top.split()
     top = Image.merge("RGB", (r, g, b))
     mask = Image.merge("L", (a,))
@@ -312,11 +313,11 @@ def main():
         print "our target count is...", pos_count
         outname = os.path.join(FRAMES, name)
         Overlay(frame, imgArray, imgPositions, outname)  # Paste those 6 images onto the array Frame
-        # dogPos = (int(pos) - 1)
-        # name = name.replace('Overlay.jpg', 'dogPos' + pos)
-        # infile = outname
-        # outname = os.path.join(DOGPOS, name)
-        # AlphaOverlay(infile, dog, dogPositions[dogPos], outname, "BMP")
+        dogPos = (int(pos) - 1)
+        name = name.replace('Overlay.jpg', 'dogPos' + pos + '.bmp')
+        infile = outname
+        outname = os.path.join(DOGPOS, name)
+        AlphaOverlay(infile, dog, dogPositions[dogPos], outname, "BMP")
 
 
 if __name__ == '__main__':
