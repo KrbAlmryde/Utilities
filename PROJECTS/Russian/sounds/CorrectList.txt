@@ -58,7 +58,6 @@ Female/C_feminine/stranistsaoj
 Female/C_feminine/tarelkau
 Female/C_feminine/telnjashkau
 Female/C_feminine/telnjashkoj
-Female/C_feminine/test
 Female/C_feminine/tselitelya
 Female/C_feminine/tysjachaoj
 Female/C_feminine/tysjachau
