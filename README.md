@@ -16,23 +16,23 @@ Directory layout
                         *     data collected. Currently on-going.
 * Iceword/              *  fMRI experiment examining language features. Scripts designed to process and analys
                         *     data collected. Currently on-going.
-* AttnMem/              *  *COMPLETE*
+* AttnMem/              *  __COMPLETE__
                         *     Scripts for a publish project investigating attention and memory
-* Stroop/               *  *COMPLETE*
+* Stroop/               *  __COMPLETE__
                         *     Scripts for a published project investigating the "Stroop Effect" in the auditor domain
 * etc/                  *  A place to put uncategorized projects
-* SustainedAttention/   *  *COMPLETE*
+* SustainedAttention/   *  __COMPLETE__
                         *     A project similar to the NBack, investigating Sustained Attention in 4yr olds.
                         *     Scripts for constructing the game and experiment.
-* Call/                 *  *DEPRECIATED*
+* Call/                 *  __DEPRECIATED__
                         *     Old command line project that attempted to speed up day to day analysis.
                         *     but ended up wasting more time than it saved. This got me into programming
                         *     however, and some of the scripts are still useful
-* Dichotic/             *  *DEPRECIATED*
+* Dichotic/             *  __DEPRECIATED__
                         *     Pilot study that never took off.
-* Drivr/                *  *DEPRECIATED*
+* Drivr/                *  __DEPRECIATED__
                         *     A project similar to Call, but encountered many of the same problems as before
-* Rat/                  *  *DEPRECIATED*
+* Rat/                  *  __DEPRECIATED__
                         *     A pilot project involving the analysis of rat brains
-* Tap/                  *  *DEPRECIATED*
+* Tap/                  *  __DEPRECIATED__
                         *     A project investigating Transfer-appropriate processing, rejected
