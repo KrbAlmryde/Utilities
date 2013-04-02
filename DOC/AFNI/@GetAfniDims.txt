@@ -1,3 +1,0 @@
-@GetAfniDims dset
-Return the dimensions of dset
-

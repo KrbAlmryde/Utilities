@@ -1,7 +1,0 @@
-** failed to load module: wx
-** python module not found: matplotlib
-
-     -- for details, consider xmat_tool -test_libs
-     -- also, many computations do not require the GUI
-        (e.g. 'xmat_tool -load_xmat X.xmat.1D -show_cormat_warnings')
-   

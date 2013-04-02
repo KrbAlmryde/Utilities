@@ -1,3 +1,0 @@
-Usage: 4swap [-q] file ...
--- Swaps byte quadruples on the files listed.
-   The -q option means to work quietly.

@@ -1,5 +1,0 @@
----------------------------------------------------------
-** python module not found: PyQt4
-
-     -> please see the output of "uber_subject.py -help_install"
-

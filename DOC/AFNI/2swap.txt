@@ -1,3 +1,0 @@
-Usage: 2swap [-q] file ...
--- Swaps byte pairs on the files listed.
-   The -q option means to work quietly.

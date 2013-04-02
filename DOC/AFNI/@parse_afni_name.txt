@@ -1,6 +1,0 @@
-Usage 1: A script to parse an AFNI name
-
-   @parse_afni_name <name>
-
-Outputs the path, prefix, view and sub-brick selection string.
-

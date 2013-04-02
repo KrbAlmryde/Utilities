@@ -1,4 +1,0 @@
-Usage: 3dEntropy dataset ...
-
-++ Compile date = Jul  5 2011
-

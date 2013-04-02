@@ -1,2 +1,0 @@
-@GetAfniID DSET
- Returns the unique identifier of a dataset.
