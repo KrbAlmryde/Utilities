@@ -261,7 +261,7 @@ def AlphaOverlay(baseFile, inFile, position, outname=None, format="PNG"):
         return None
 
 
-def reformat(infile, format="BMP"):
+def reformat(inFile, format="BMP"):
     """ One line description
 
     Params:
@@ -270,13 +270,18 @@ def reformat(infile, format="BMP"):
     Returns:
          Description of returns
     """
+    ext = inFile.split('.')[-1]
+    extNew = format.lower()
+    outfile = inFile.replace(ext, extNew)
     try:
-        img = Image.open(infile)
-    except Exception, e:
-        raise e
-
+        img = Image.open(inFile)
+        img.save(outfile, format)
+    except IOError:
+        print "cannot Reformat %s" % inFile
+        return None
 
 #=============================== START OF MAIN ===============================
+
 
 def main():
     if sys.platform == 'darwin':
@@ -328,8 +333,7 @@ def main():
     distractors = [rezImgs.pop() for _ in xrange(75)]  # Select the first 6 images
 
     for x in xrange(25):
-        imgArray, name, pos = makeImgArray(targets, distractors, pos_count, "Overlay.jpg")
-        print "our target count is...", pos_count
+        imgArray, name, pos = makeImgArray(targets, distractors, pos_count, "Overlay.bmp")
         outname = os.path.join(FRAMES, name)
         Overlay(frame, imgArray, imgPositions, outname)  # Paste those 6 images onto the array Frame
         dogPos = (int(pos) - 1)

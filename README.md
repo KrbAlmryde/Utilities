@@ -46,5 +46,6 @@ Directory layout
 
 - **Rat/** ___::DEPRECIATED::___
     > A pilot project involving the analysis of rat brains
+
 - **Tap/** ___::DEPRECIATED::___
     > A project investigating Transfer-appropriate processing, rejected
