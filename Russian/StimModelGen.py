@@ -140,7 +140,7 @@ def buildEvents(stimOrd, isiLst, tr=2.0, dur=0.8, delayDur=0.0):
     print "\n\n\n\n\nBUILDEVENT!!!"
     eventModel = []
     for i, ev in enumerate(stimOrd):
-        offset = i * 3  # Offset is the total time between the start of stim1 and stim2
+        offset = i * tr  # Offset is the total time between the start of stim1 and stim2
         if ev not in 'null':
             tm = isiLst.pop(0) + offset
             eventModel.append(tm)
@@ -181,7 +181,7 @@ def builtDirectRT(stimOrd, stimDict, isiModel):
     drtFile.close()
 
 
-def build3Deconvolve(stimList, prefix='3dd', ntp=150, tr=2.00, model='WAV'):
+def build3Deconvolve(stimOrd, designModel, ntp=150, tr=2.00, model='WAV'):
     """Construct an AFNI 3dDeconvolve command
 
     This function creates a 3dDeconvolve command to test the design
@@ -202,19 +202,32 @@ def build3Deconvolve(stimList, prefix='3dd', ntp=150, tr=2.00, model='WAV'):
         A string representation of the 3dDeconvolve command, which can
         then be run via Popen, or saved to a file.
     """
+    stimDict = {i: open(''.join(['russ_', i, '.1D']), 'w') for i in stimOrd}
+    stimOrderFile = open('StimOrder.txt', 'w')
+    for stim in stimOrd:
+        stimOrderFile.write(stim + '\n')
+        stimDict[stim].write(str(designModel.pop(0)) + " ")
+
+    # close the files
+    stimOrderFile.close()
+    {f.close() for f in stimDict.values()}
+
     cmd = ['3dDeconvolve',
            ' '.join(["-nodata", str(ntp), str(tr)]),
            '-polort A',
-           ' '.join(['-num_stimts', str(len(stimList))])]
+           ' '.join(['-num_stimts', str(len(stimDict) - 1)])]
 
-    for i, stim in enumerate(stimList):
+    for i, stim in enumerate(stimDict.keys()):
         i += 1
-        cmd.append(' '.join(['-stim_times', str(i), 'rus2_' + stim + '.1D', model]))
-        cmd.append(' '.join(['-stim_label', str(i), stim]))
+        if 'null' in stim:
+            pass
+        else:
+            cmd.append(' '.join(['-stim_times', str(i), ''.join(['russ_', stim, '.1D']), model]))
+            cmd.append(' '.join(['-stim_label', str(i), stim]))
 
-    cmd.append('-x1D rus2.xmat.1D')
-
-    return "  \\\n".join(cmd)
+    cmd.append('-x1D russ.xmat.1D')
+    oneDplot = "\n1dplot -thick -sepscl -xlabel Time russ.xmat.1D'[4..$]'"
+    return "  \\\n".join(cmd) + oneDplot
 
 
 def getWAVduration(fname):
@@ -233,7 +246,7 @@ def getWAVduration(fname):
     return duration
 
 
-def timingFiles():
+def timingFiles(stimList):
     for file in glob('rus2_*.1D'):
         if os.path.isfile(file):
             os.remove(file)
@@ -309,29 +322,34 @@ def directRTwordList():
 
 
 def main():
-    tr, dur, delay = 2.0, 0.8, 1.0
+    ntp, tr, dur, delay = 140, 3.0, 0.8, 1.0
     isiModel = []
-    # designModel = []
-    # stimOrderFile, sf1, sf2, sm1, sm2, null = timingFiles()
+    designModel = []
     drtWordDict = directRTwordList()
-    pprint.pprint(drtWordDict)
+    # stimOrderFile, sf1, sf2, sm1, sm2, null = timingFiles()
+
     #1) Generate 120 ISIs
     isiModel = randOnset(0.2, 135)
-    print len(isiModel)
+
     #2) Create Random Ordering of Stim events, including nulls
     stimList = ["Ff1", "Ff2", "Fm1", "Fm2", "Mm1", "Mm2", "Mf1", "Mf2"]
     stimOrd = eventOrdering(stimList, 15, 15)
-    print len(stimOrd)
 
     # 3) Build DirectRT File
-    builtDirectRT(stimOrd, drtWordDict, isiModel)
+    # builtDirectRT(stimOrd, drtWordDict, isiModel)
 
     #4) Flatten tModel
-    # designModel = buildEvents(stimOrd, isiModel, tr, dur, delay)
+    designModel = buildEvents(stimOrd, isiModel, tr, dur, delay)
+    print designModel
+    print len(designModel)
 
-    #5) Apply stim labels and write to file
+    #5) Build 3dDeconvolve file and test it.
+    deconvolveCMD = build3Deconvolve(stimOrd, designModel, ntp, tr)
+    print deconvolveCMD
+    # 6) Run that shit!
+    os.system(deconvolveCMD)
 
-
+# Apply stim labels and write to file
     # tempModel = designModel[:]
     # for stim in stimOrd:
     #     stimOrderFile.write(stim + '\n')
@@ -346,17 +364,15 @@ def main():
     #         sm2.write(str(tempModel.pop(0)) + " ")
     #     elif "null" in stim:
     #         null.write(str(tempModel.pop(0)) + " ")
-    #     # print len(tempModel), tempModel
+        # print len(tempModel), tempModel
 
-    # # sf1.close()
-    # # sf2.close()
-    # # sm1.close()
-    # # sm2.close()
-    # # null.close()
-    # # stimOrderFile.close()
+    # sf1.close()
+    # sf2.close()
+    # sm1.close()
+    # sm2.close()
+    # null.close()
+    # stimOrderFile.close()
 
-    # 6) Run that shit!
-    # os.system('bash rus2_3dd.sh')
 
 
 # def main_BlockDesign():
