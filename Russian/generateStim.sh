@@ -1,4 +1,4 @@
-b="==================="
+# b="==================="
 # TR = 2.6 secs
 # Stimulus duration = 0.5 secs
 # number of events = 8

@@ -16,8 +16,10 @@ Deficiencies: Presently, this program does NOT check for design efficiency,
 ==============================================================================
 """
 import os
+import wave
+import glob
 import random
-from glob import glob
+import pprint
 # from subprocess import Popen
 
 
@@ -123,7 +125,7 @@ def eventOrdering(stimList, nEvs=25, nNulls=5):
     return stimOrd
 
 
-def buildEvents(stimOrd, isiLst, tr=2.0, dur=0.8, sparseDur=0.0):
+def buildEvents(stimOrd, isiLst, tr=2.0, dur=0.8, delayDur=0.0):
     """Construct an Event related Model
 
     Takes a list of stimulus events, nulls included, and a list
@@ -138,7 +140,7 @@ def buildEvents(stimOrd, isiLst, tr=2.0, dur=0.8, sparseDur=0.0):
     print "\n\n\n\n\nBUILDEVENT!!!"
     eventModel = []
     for i, ev in enumerate(stimOrd):
-        offset = i * 3
+        offset = i * 3  # Offset is the total time between the start of stim1 and stim2
         if ev not in 'null':
             tm = isiLst.pop(0) + offset
             eventModel.append(tm)
@@ -149,7 +151,37 @@ def buildEvents(stimOrd, isiLst, tr=2.0, dur=0.8, sparseDur=0.0):
     return eventModel
 
 
-def dDeconvolve(stimList, prefix='3dd', ntp=150, tr=2.00, model='WAV'):
+def builtDirectRT(stimOrd, stimDict, isiModel):
+    """ One line description
+
+    Params:
+        stimOrd, stimDict, isiModel --
+
+    Returns:
+         Description of returns
+    """
+    drtCMD = []
+    nullTemplate = '-1,{0},{1},0,0,9,~{2},"0,0,0",rt:5,*'
+    stimTemplate = '-1,{0},{1},0,0,9,~{2},"0,0,0",{3},!{4},"0,0,0",rt:5,*'
+    drtCMD.append("block,trial,!item,bgr,wgr,style,stim,loc,time,stim,loc,time,*")
+    drtCMD.append('-1,1,Trigger,0,0,9,~Waiting for Scanner to Trigger experiment,"0,0,1",rt:5,*')
+    drtFile = open("RussianEvent.csv", "w")
+
+    for i, stim in enumerate(stimOrd):
+        j = str(i + 1)
+        if stim in 'null':
+            drtCMD.append(nullTemplate.format(j, stim, 'Null'))
+        else:
+            jitter = int((isiModel[i] * 1000) + 2000)    # for the individual stim files jitter
+            soundFile = stimDict[stim].pop()
+            word = os.path.split(soundFile)[-1]
+            notice = 'Acquisition...' + word
+            drtCMD.append(stimTemplate.format(j, stim, notice, jitter, soundFile))
+    drtFile.write('\n'.join(drtCMD))
+    drtFile.close()
+
+
+def build3Deconvolve(stimList, prefix='3dd', ntp=150, tr=2.00, model='WAV'):
     """Construct an AFNI 3dDeconvolve command
 
     This function creates a 3dDeconvolve command to test the design
@@ -170,22 +202,35 @@ def dDeconvolve(stimList, prefix='3dd', ntp=150, tr=2.00, model='WAV'):
         A string representation of the 3dDeconvolve command, which can
         then be run via Popen, or saved to a file.
     """
-    # cmd = []
-    # 3dDeconvolve                \
-    # -nodata 420 1.000                   \
-    # -polort A                           \
-    # -num_stimts 5                       \
-    # -stim_times 1 rus2_sF1.1D WAV    \
-    # -stim_label 1 sF1                   \
-    # -stim_times 2 rus2_sF2.1D WAV    \
-    # -stim_label 2 sF2                   \
-    # -stim_times 3 rus2_sM1.1D WAV    \
-    # -stim_label 3 sM1                   \
-    # -stim_times 4 rus2_sM2.1D WAV    \
-    # -stim_label 4 sM2                   \
-    # -stim_times 5 rus2_NULL.1D WAV    \
-    # -stim_label 5 null                   \
-    # -x1D rus2.xmat.1D
+    cmd = ['3dDeconvolve',
+           ' '.join(["-nodata", str(ntp), str(tr)]),
+           '-polort A',
+           ' '.join(['-num_stimts', str(len(stimList))])]
+
+    for i, stim in enumerate(stimList):
+        i += 1
+        cmd.append(' '.join(['-stim_times', str(i), 'rus2_' + stim + '.1D', model]))
+        cmd.append(' '.join(['-stim_label', str(i), stim]))
+
+    cmd.append('-x1D rus2.xmat.1D')
+
+    return "  \\\n".join(cmd)
+
+
+def getWAVduration(fname):
+    """ Determine the duration of a .WAV file
+
+    Params:
+        fname -- String: The WAV filename
+
+    Returns:
+         A Float representing the duration in milliseconds
+    """
+    f = wave.open(fname, 'r')
+    frames = f.getnframes()
+    rate = f.getframerate()
+    duration = frames/float(rate) * 1000
+    return duration
 
 
 def timingFiles():
@@ -205,48 +250,110 @@ def timingFiles():
 
     return stimOrder, sf1, sf2, sm1, sm2, null
 
+
+def directRTwordList():
+    SOUNDS = '/usr/local/Utilities/Russian/sounds'
+    os.chdir(SOUNDS)
+    wordList = glob.glob('*ale/*/*2.wav')
+    pprint.pprint(wordList)
+    random.shuffle(wordList)
+    stimList = {"Ff1": [], "Ff2": [], "Fm1": [], "Fm2": [], "Mm1": [], "Mm2": [], "Mf1": [], "Mf2": []}
+    os.chdir('../')
+
+    for word in wordList:
+        if word.startswith("Female/"):
+            # Masculine Double marking
+            if word.endswith('telya2.wav') or word.endswith('telyem2.wav'):
+                stimList["Fm2"].append(word)
+            # Masculine Single marking
+            elif word.endswith('ya2.wav') or word.endswith('yem2.wav'):
+                stimList["Fm1"].append(word)
+            # Feminine Double markings
+            elif word.endswith('kaoj2.wav') or word.endswith('koj2.wav'):
+                stimList["Ff2"].append(word)
+            elif word.endswith('kaoy2.wav') or word.endswith('koy2.wav'):
+                stimList["Ff2"].append(word)
+            elif word.endswith('kau2.wav') or word.endswith('ku2.wav'):
+                stimList["Ff2"].append(word)
+            # Feminine Single markings
+            elif word.endswith('aoj2.wav') or word.endswith('oj2.wav'):
+                stimList["Ff1"].append(word)
+            elif word.endswith('aoy2.wav') or word.endswith('oy2.wav'):
+                stimList["Ff1"].append(word)
+            elif word.endswith('au2.wav') or word.endswith('u2.wav'):
+                stimList["Ff1"].append(word)
+        else:
+            if word.endswith('telya2.wav') or word.endswith('telyem2.wav'):
+                stimList["Mm2"].append(word)
+            # Masculine Single marking
+            elif word.endswith('ya2.wav') or word.endswith('yem2.wav'):
+                stimList["Mm1"].append(word)
+            # Feminine Double markings
+            elif word.endswith('kaoj2.wav') or word.endswith('koj2.wav'):
+                stimList["Mf2"].append(word)
+            elif word.endswith('kaoy2.wav') or word.endswith('koy2.wav'):
+                stimList["Mf2"].append(word)
+            elif word.endswith('kau2.wav') or word.endswith('ku2.wav'):
+                stimList["Mf2"].append(word)
+            # Feminine Single markings
+            elif word.endswith('aoj2.wav') or word.endswith('oj2.wav'):
+                stimList["Mf1"].append(word)
+            elif word.endswith('aoy2.wav') or word.endswith('oy2.wav'):
+                stimList["Mf1"].append(word)
+            elif word.endswith('au2.wav') or word.endswith('u2.wav'):
+                stimList["Mf1"].append(word)
+    return stimList
+
+
 #=============================== START OF MAIN ===============================
 
 
 def main():
-    tr, dur, sparse = 2.0, 0.8, 1.0
+    tr, dur, delay = 2.0, 0.8, 1.0
     isiModel = []
-    designModel = []
-    stimOrder, sf1, sf2, sm1, sm2, null = timingFiles()
-
+    # designModel = []
+    # stimOrderFile, sf1, sf2, sm1, sm2, null = timingFiles()
+    drtWordDict = directRTwordList()
+    pprint.pprint(drtWordDict)
     #1) Generate 120 ISIs
-    isiModel = randOnset(0.2, 120)
-
+    isiModel = randOnset(0.2, 135)
+    print len(isiModel)
     #2) Create Random Ordering of Stim events, including nulls
-    stimList = ["f1", "f2", "f3", "f4", "m1", "m2", "m3", "m4"]
+    stimList = ["Ff1", "Ff2", "Fm1", "Fm2", "Mm1", "Mm2", "Mf1", "Mf2"]
     stimOrd = eventOrdering(stimList, 15, 15)
+    print len(stimOrd)
 
-    #3) Flatten tModel
-    designModel = buildEvents(stimOrd, isiModel, tr, dur, sparse)
+    # 3) Build DirectRT File
+    builtDirectRT(stimOrd, drtWordDict, isiModel)
 
-    # 5) Apply stim labels and write to file
-    tempModel = designModel[:]
-    for stim in stimOrd:
-        stimOrder.write(stim + '\n')
+    #4) Flatten tModel
+    # designModel = buildEvents(stimOrd, isiModel, tr, dur, delay)
 
-        if "f1" in stim:
-            sf1.write(str(tempModel.pop(0)) + " ")
-        elif "f2" in stim:
-            sf2.write(str(tempModel.pop(0)) + " ")
-        elif "m1" in stim:
-            sm1.write(str(tempModel.pop(0)) + " ")
-        elif "m2" in stim:
-            sm2.write(str(tempModel.pop(0)) + " ")
-        elif "null" in stim:
-            null.write(str(tempModel.pop(0)) + " ")
-        # print len(tempModel), tempModel
+    #5) Apply stim labels and write to file
 
-    sf1.close()
-    sf2.close()
-    sm1.close()
-    sm2.close()
-    null.close()
-    stimOrder.close()
+
+    # tempModel = designModel[:]
+    # for stim in stimOrd:
+    #     stimOrderFile.write(stim + '\n')
+
+    #     if "f1" in stim:
+    #         sf1.write(str(tempModel.pop(0)) + " ")
+    #     elif "f2" in stim:
+    #         sf2.write(str(tempModel.pop(0)) + " ")
+    #     elif "m1" in stim:
+    #         sm1.write(str(tempModel.pop(0)) + " ")
+    #     elif "m2" in stim:
+    #         sm2.write(str(tempModel.pop(0)) + " ")
+    #     elif "null" in stim:
+    #         null.write(str(tempModel.pop(0)) + " ")
+    #     # print len(tempModel), tempModel
+
+    # # sf1.close()
+    # # sf2.close()
+    # # sm1.close()
+    # # sm2.close()
+    # # null.close()
+    # # stimOrderFile.close()
 
     # 6) Run that shit!
     # os.system('bash rus2_3dd.sh')
@@ -310,15 +417,15 @@ def main():
 if __name__ == '__main__':
     main()
 
-    b = open("Stim_order.txt").readlines()
-    for i, v in enumerate(b):
-        if 'null' in v:
-            print "-censor_RGB purple -CENSORTR", str(i * 3) + "-" + str((i*3)+1), "\\"
-        elif 'f1' in v:
-            print "-censor_RGB \#000 -CENSORTR", str(i * 3) + "-" + str((i*3)+1), "\\"
-        elif 'f2' in v:
-            print "-censor_RGB red -CENSORTR", str(i * 3) + "-" + str((i*3)+1), "\\"
-        elif 'm1' in v:
-            print "-censor_RGB green -CENSORTR", str(i * 3) + "-" + str((i*3)+1), "\\"
-        elif 'm2' in v:
-            print "-censor_RGB blue -CENSORTR", str(i * 3) + "-" + str((i*3)+1), "\\"
+    # b = open("Stim_order.txt").readlines()
+    # for i, v in enumerate(b):
+    #     if 'null' in v:
+    #         print "-censor_RGB purple -CENSORTR", str(i * 3) + "-" + str((i*3)+1), "\\"
+    #     elif 'f1' in v:
+    #         print "-censor_RGB \#000 -CENSORTR", str(i * 3) + "-" + str((i*3)+1), "\\"
+    #     elif 'f2' in v:
+    #         print "-censor_RGB red -CENSORTR", str(i * 3) + "-" + str((i*3)+1), "\\"
+    #     elif 'm1' in v:
+    #         print "-censor_RGB green -CENSORTR", str(i * 3) + "-" + str((i*3)+1), "\\"
+    #     elif 'm2' in v:
+    #         print "-censor_RGB blue -CENSORTR", str(i * 3) + "-" + str((i*3)+1), "\\"
