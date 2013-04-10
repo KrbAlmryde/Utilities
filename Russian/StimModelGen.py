@@ -268,7 +268,7 @@ def directRTwordList():
     SOUNDS = '/usr/local/Utilities/Russian/sounds'
     os.chdir(SOUNDS)
     wordList = glob.glob('*ale/*/*2.wav')
-    pprint.pprint(wordList)
+    # pprint.pprint(wordList)
     random.shuffle(wordList)
     stimList = {"Ff1": [], "Ff2": [], "Fm1": [], "Fm2": [], "Mm1": [], "Mm2": [], "Mf1": [], "Mf2": []}
     os.chdir('../')
@@ -328,7 +328,7 @@ def main():
     drtWordDict = directRTwordList()
     # stimOrderFile, sf1, sf2, sm1, sm2, null = timingFiles()
 
-    #1) Generate 120 ISIs
+    #1) Generate 135 ISIs
     isiModel = randOnset(0.2, 135)
 
     #2) Create Random Ordering of Stim events, including nulls
@@ -346,6 +346,7 @@ def main():
     #5) Build 3dDeconvolve file and test it.
     deconvolveCMD = build3Deconvolve(stimOrd, designModel, ntp, tr)
     print deconvolveCMD
+
     # 6) Run that shit!
     os.system(deconvolveCMD)
 
