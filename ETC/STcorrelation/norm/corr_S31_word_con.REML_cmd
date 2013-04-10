@@ -1,4 +1,0 @@
-# 3dDeconvolve -input S31_word_norm+tlrc -polort A -num_stimts 2 -stim_file 1 Seed_ts.1D -stim_label 1 Seed -stim_file 2 inter_ts.1D -stim_label 2 word_con -rout -bucket corr_S31_word_con
-
-3dREMLfit -matrix corr_S31_word_con.xmat.1D -input S31_word_norm+tlrc \
- -rout -Rbuck corr_S31_word_con_REML -Rvar corr_S31_word_con_REMLvar -verb
