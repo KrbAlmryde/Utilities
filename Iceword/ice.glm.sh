@@ -42,43 +42,9 @@
 #------------------------------------------------------------------------
 
 function setup_subjdir () {
-    mkdir -p /Volumes/Data/ICE/GLM/${sub}/${RUN}/{1D,Images,Stats,Fitts}
-    mkdir -p /Volumes/Data/ICE/ANOVA/{RESULTS/${RUN},${sub}/${RUN}}
+    mkdir -p /Volumes/Data/Iceword/GLM/${sub}/${RUN}/{1D,Images,Stats,Fitts}
+    mkdir -p /Volumes/Data/Iceword/ANOVA/{RESULTS/${RUN},${sub}/${RUN}}
 }
-
-
-function group_bucket_stats () {
-    #------------------------------------------------------------------------
-    #
-    #  Purpose: Bucket the conditions of interest into their own dataset
-    #           This will result in 3 bucket files per subject, per run. Each
-    #           bucket file will contain three pieces of information:
-    #           The Fstat, Coef, and Tstat
-    #
-    #    Input: input1D -- the individual dataset in question.
-    #
-    #   Output: sub0##_delay#_ListenStats.nii.gz
-    #           sub0##_delay#_ResponseStats.nii.gz
-    #           sub0##_delay#_ControlStats.nii.gz
-    #------------------------------------------------------------------------
-    for delay in {0..7}; do
-        input1D=${1}_${delay}sec.stats
-        output1D=${1}_${delay}sec
-
-        3dBucket \
-            -prefix ${ANOVA}/${output1D}_ListenStats.nii.gz \
-            -fbuc ${STATS}/${input1D}.nii.gz'[11-13]'
-
-        3dBucket \
-            -prefix ${ANOVA}/${output1D}_ResponseStats.nii.gz \
-            -fbuc ${STATS}/${input1D}.nii.gz'[14-16]'
-
-        3dBucket \
-            -prefix ${ANOVA}/${output1D}_ControlStats.nii.gz \
-            -fbuc ${STATS}/${input1D}.nii.gz'[17-19]'
-    done
-
-} # End of group_bucket_stats
 
 
 #------------------------------------------------------------------------
@@ -384,81 +350,38 @@ function regress_alphcor () {
 }
 
 
-function log_execute () {
+function group_bucket_stats () {
     #------------------------------------------------------------------------
     #
-    #  Purpose: This function logs the execution output (stdout/stderr) of
-    #           the command prefixed to this function
+    #  Purpose: Bucket the conditions of interest into their own dataset
+    #           This will result in 3 bucket files per subject, per run. Each
+    #           bucket file will contain three pieces of information:
+    #           The Fstat, Coef, and Tstat
     #
-    #    Input:
+    #    Input: input1D -- the individual dataset in question.
     #
-    #   Output:
-    #
+    #   Output: sub0##_delay#_ListenStats.nii.gz
+    #           sub0##_delay#_ResponseStats.nii.gz
+    #           sub0##_delay#_ControlStats.nii.gz
     #------------------------------------------------------------------------
+    for delay in {0..7}; do
+        input1D=${1}_${delay}sec.stats
+        output1D=${1}_${delay}sec
 
-    outdir=${1}
+        3dBucket \
+            -prefix ${ANOVA}/${output1D}_ListenStats.nii.gz \
+            -fbuc ${STATS}/${input1D}.nii.gz'[11-13]'
 
-    2>&1 | tee -a ${outdir}/log.${1}.${2}.txt
+        3dBucket \
+            -prefix ${ANOVA}/${output1D}_ResponseStats.nii.gz \
+            -fbuc ${STATS}/${input1D}.nii.gz'[14-16]'
 
-} # End of log_execute
+        3dBucket \
+            -prefix ${ANOVA}/${output1D}_ControlStats.nii.gz \
+            -fbuc ${STATS}/${input1D}.nii.gz'[17-19]'
+    done
 
-
-#------------------------------------------------------------------------
-#
-#   Description: HelpMessage
-#
-#       Purpose: This function provides the user with the instruction for
-#                how to correctly execute this script. It will only be
-#                called in cases in which the user improperly executes the
-#                script. In such a situation, this function will display
-#                instruction on how to correctly execute this script as
-#                as well as what is considered acceptable input. It will
-#                then exit the script, at which time the user may try again.
-#
-#         Input: None
-#
-#        Output: A help message instructing the user on how to properly
-#                execute this script.
-#
-#     Variables: none
-#
-#------------------------------------------------------------------------
-
-function HelpMessage ()
-{
-   echo "-----------------------------------------------------------------------"
-   echo "+                 +++ No arguments provided! +++                      +"
-   echo "+                                                                     +"
-   echo "+             This program requires at least 1 arguments.             +"
-   echo "+                                                                     +"
-   echo "+       NOTE: [words] in square brackets represent optional input.    +"
-   echo "+             See below for available options.                        +"
-   echo "+                                                                     +"
-   echo "-----------------------------------------------------------------------"
-   echo "+                Example command-line execution:                      +"
-   echo "+                                                                     +"
-   echo "+                    bash ice.glm.sh [test]                           +"
-   echo "+                                                                     +"
-   echo "+                  +++ Please try again +++                           +"
-   echo "-----------------------------------------------------------------------"
-
-   exit 1
-}
-
-
-
-function check_outLog () {
-    #------------------------------------------------------------------------
-    #
-    #  Purpose: Check the log reports to make sure everything ran correctly
-    #
-    #------------------------------------------------------------------------
-
-    echo "================================ $sub, $run ================================"
-    grep "ERROR" ${GLM}/log.txt
-    echo
-
-} # End of
+} # End of group_bucket_stats
 
 
 
@@ -565,7 +488,81 @@ function regress_nodata() {
 } # End of regress_nodata
 
 
+function log_execute () {
+    #------------------------------------------------------------------------
+    #
+    #  Purpose: This function logs the execution output (stdout/stderr) of
+    #           the command prefixed to this function
+    #
+    #    Input:
+    #
+    #   Output:
+    #
+    #------------------------------------------------------------------------
 
+    outdir=${1}
+
+    2>&1 | tee -a ${outdir}/log.${1}.${2}.txt
+
+} # End of log_execute
+
+
+#------------------------------------------------------------------------
+#
+#   Description: HelpMessage
+#
+#       Purpose: This function provides the user with the instruction for
+#                how to correctly execute this script. It will only be
+#                called in cases in which the user improperly executes the
+#                script. In such a situation, this function will display
+#                instruction on how to correctly execute this script as
+#                as well as what is considered acceptable input. It will
+#                then exit the script, at which time the user may try again.
+#
+#         Input: None
+#
+#        Output: A help message instructing the user on how to properly
+#                execute this script.
+#
+#     Variables: none
+#
+#------------------------------------------------------------------------
+
+function HelpMessage ()
+{
+   echo "-----------------------------------------------------------------------"
+   echo "+                 +++ No arguments provided! +++                      +"
+   echo "+                                                                     +"
+   echo "+             This program requires at least 1 arguments.             +"
+   echo "+                                                                     +"
+   echo "+       NOTE: [words] in square brackets represent optional input.    +"
+   echo "+             See below for available options.                        +"
+   echo "+                                                                     +"
+   echo "-----------------------------------------------------------------------"
+   echo "+                Example command-line execution:                      +"
+   echo "+                                                                     +"
+   echo "+                    bash ice.glm.sh [test]                           +"
+   echo "+                                                                     +"
+   echo "+                  +++ Please try again +++                           +"
+   echo "-----------------------------------------------------------------------"
+
+   exit 1
+}
+
+
+
+function check_outLog () {
+    #------------------------------------------------------------------------
+    #
+    #  Purpose: Check the log reports to make sure everything ran correctly
+    #
+    #------------------------------------------------------------------------
+
+    echo "================================ $sub, $run ================================"
+    grep "ERROR" ${GLM}/log.txt
+    echo
+
+} # End of
 
 
 #------------------------------------------------------------------------
@@ -661,8 +658,8 @@ function Main ()
     # Initiate functions #
     #--------------------#
     setup_subjdir
-    # regress_convolve ${runsub}_tshift_volreg_despike_mni_7mm_214tr 2>&1 | tee -a ${GLM}/log.txt
-    # regress_plot ${runsub}_tshift_volreg_despike_mni_7mm_214tr 2>&1 | tee -a ${GLM}/log.txt
+    regress_convolve ${runsub}_tshift_volreg_despike_mni_7mm_214tr 2>&1 | tee -a ${GLM}/log.txt
+    regress_plot ${runsub}_tshift_volreg_despike_mni_7mm_214tr 2>&1 | tee -a ${GLM}/log.txt
     # regress_alphcor ${runsub}_tshift_volreg_despike_mni_7mm_214tr 2>&1 | tee ${GLM}/log.txt
     group_bucket_stats ${runsub}_tshift_volreg_despike_mni_7mm_214tr 2>&1 | tee ${ANOVA}/log.txt
 }
@@ -700,18 +697,18 @@ for i in {5..19}-{1..4}; do
     #---------------------------------#
     # Define pointers for GLM results #
     #---------------------------------#
-    BASE=/Volumes/Data/ICE/GLM
-    STIM=/Volumes/Data/ICE/GLM/STIM
-    GLM=/Volumes/Data/ICE/GLM/${sub}/${RUN}
-    ID=/Volumes/Data/ICE/GLM/${sub}/${RUN}/1D
-    IM=/Volumes/Data/ICE/GLM/${sub}/${RUN}/Images
-    STATS=/Volumes/Data/ICE/GLM/${sub}/${RUN}/Stats
-    FITTS=/Volumes/Data/ICE/GLM/${sub}/${RUN}/Fitts
+    BASE=/Volumes/Data/Iceword/GLM
+    STIM=/Volumes/Data/Iceword/GLM/STIM
+    GLM=/Volumes/Data/Iceword/GLM/${sub}/${RUN}
+    ID=/Volumes/Data/Iceword/GLM/${sub}/${RUN}/1D
+    IM=/Volumes/Data/Iceword/GLM/${sub}/${RUN}/Images
+    STATS=/Volumes/Data/Iceword/GLM/${sub}/${RUN}/Stats
+    FITTS=/Volumes/Data/Iceword/GLM/${sub}/${RUN}/Fitts
 
     #---------------------------------#
     # Define pointers for GLM results #
     #---------------------------------#
-    ANOVA=/Volumes/Data/ICE/ANOVA/${sub}/${RUN}
+    ANOVA=/Volumes/Data/Iceword/ANOVA/${sub}/${RUN}
 
     # We removed sub018 from the analysis, so dont perform any operations them.
     if [[ $sub != "sub018" ]]; then
@@ -746,9 +743,9 @@ between machines.
 On Hagar the path names are:
     FUNC=/Volumes/Data/Iceword/${sub}/Func/${RUN}
 
-    STIM=/Volumes/Data/ICE/GLM/STIM
-    GLM=/Volumes/Data/ICE/GLM/${sub}/Glm/${RUN}
-    ID=/Volumes/Data/ICE/GLM/${sub}/Glm/${RUN}/Ideal
+    STIM=/Volumes/Data/Iceword/GLM/STIM
+    GLM=/Volumes/Data/Iceword/GLM/${sub}/Glm/${RUN}
+    ID=/Volumes/Data/Iceword/GLM/${sub}/Glm/${RUN}/Ideal
 
 On Auk the path names are:
     FUNC=/Exps/Data/Iceword/${sub}/Func/${RUN}

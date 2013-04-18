@@ -23,9 +23,6 @@ Directory layout
 - **Iceword/**
     > fMRI experiment examining language features. Scripts designed to process and analysis data collected. Currently on-going.
 
-- **etc/**
-    > A place to put uncategorized projects
-
 - **AttnMem/** ___::COMPLETE::___
     > Scripts for a publish project investigating attention and memory
 
@@ -35,14 +32,8 @@ Directory layout
 - **SustainedAttention/** ___::COMPLETE::___
     > A project similar to the NBack, investigating Sustained Attention in 4yr olds. Scripts for constructing the game and experiment.
 
-- **Call/** ___::DEPRECIATED::___
-    > Old command line project that attempted to speed up day to day analysis. Ended up wasting more time than it saved. This got me into programming however, and some of the scripts are still useful
-
 - **Dichotic/** ___::DEPRECIATED::___
     > Pilot study that never took off.
-
-- **Drivr/** ___::DEPRECIATED::___
-    > A project similar to Call, but encountered many of the same problems as before
 
 - **Rat/** ___::DEPRECIATED::___
     > A pilot project involving the analysis of rat brains

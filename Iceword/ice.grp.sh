@@ -104,7 +104,7 @@ function Main () {
 
 opt=$1  # This is an optional command-line variable which should be supplied
         # in for testing purposes only. The only available operation should
-        # "test"
+        # be "test"
 
 
 
@@ -128,7 +128,7 @@ for i in {1..4}; do
     # We removed sub018 from the analysis, so dont perform any operations them.
     if [[ $sub != "sub018" ]]; then
 
-        # Check whether Test_Main should or Main should be run
+        # Check whether Test_Main or Main should be run
         case $opt in
             "test" )
                 Test_Main 2>&1 | tee ${BASE}/log.TEST.txt
