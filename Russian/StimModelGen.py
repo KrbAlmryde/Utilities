@@ -218,7 +218,7 @@ def build3Deconvolve(stimOrd, designModel, ntp=150, tr=2.00, model='WAV'):
            ' '.join(['-num_stimts', str(len(stimDict) - 1)])]
 
     for i, stim in enumerate(stimDict.keys()):
-        i += 1
+        i += 1  # by default i is 0-based, but Deconvolve is not, so we have to add 1
         if 'null' in stim:
             pass
         else:
