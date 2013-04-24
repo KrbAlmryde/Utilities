@@ -1,5 +1,6 @@
 from MRI import fMRI
 import os
+from subprocess import Popen
 
 
 class Iceword(fMRI):
@@ -169,3 +170,4 @@ class Iceword(fMRI):
                 dataTbl = "{0:<11}{1:<8}{2:<10}{Orient:<15}{Dimensions:<17}{Thickness:<13}{FOV:<20}{R-extent:<21}{A-extent:<23}{I-extent:<20}\n"
             fout.write(dataTbl.format(subj, scan, subjDict[subj]['MRInum'], **subjDict[subj][scan]))
         fout.close()
+            
