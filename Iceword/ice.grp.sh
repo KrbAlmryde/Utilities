@@ -19,14 +19,16 @@
 #================================================================================
 
 
-group_ANOVA () {
+function group_ANOVA () {
     #=========================================
     # alevels: 3 -- Listen, Response, Control
     # blevels: 14 -- Subjects
     #=========================================
-    cd ${RESULT}
-
     for delay in {0..7}; do
+
+        mkdir -p ${RESULT}/${delay}
+        cd ${RESULT}/${delay}
+
         listen_array=(`ls ${BASE}/sub0*/${RUN}/*_${delay}sec_ListenStats.nii.gz`)
         response_array=(`ls ${BASE}/sub0*/${RUN}/*_${delay}sec_ResponseStats.nii.gz`)
         control_array=(`ls ${BASE}/sub0*/${RUN}/*_${delay}sec_ControlStats.nii.gz`)
@@ -78,9 +80,9 @@ group_ANOVA () {
             -amean 1 mean_${run}_${delay}sec_Listen.nii.gz \
             -amean 2 mean_${run}_${delay}sec_Response.nii.gz \
             -amean 3 mean_${run}_${delay}sec_Control.nii.gz \
-            -acontr 1 0 -1 contrast_${run}_${delay}sec_Lsn-Ctr.nii.gz \
-            -acontr -1 1 0 contrast_${run}_${delay}sec_Rsp-Lsn.nii.gz \
-            -acontr 0 1 -1 contrast_${run}_${delay}sec_Rsp-Ctr.nii.gz
+            -acontr 1 0 -1 contrast_${run}_${delay}sec_Ln-Ct.nii.gz \
+            -acontr -1 1 0 contrast_${run}_${delay}sec_Rs-Ln.nii.gz \
+            -acontr 0 1 -1 contrast_${run}_${delay}sec_Rs-Ct.nii.gz
     done
 
 }
@@ -89,11 +91,30 @@ group_ANOVA () {
 function Main () {
     echo -e "\nMain has been called\n"
 
-    #--------------------#
-    # Initiate functions #
-    #--------------------#
-    group_ANOVA 2>&1 | tee -a ${RESULT}/log.txt
-    # regress_alphcor ${runsub}_tshift_volreg_despike_mni_7mm_214tr 2>&1 | tee ${GLM}/log.txt
+    # The {5..19}-{1..4} is brace notation which acts as a nested for-loop
+    # The '-' acts as a seperator which allows for easy substring operations when
+    # assiging the variable names for the rest of the program.
+
+    for i in {1..4}; do
+        #-----------------------------------#
+        # Define variable names for program #
+        #-----------------------------------#
+        run=run${i}
+        RUN=Run${i}
+
+        #---------------------------------#
+        # Define pointers for GLM results #
+        #---------------------------------#
+        BASE=/Volumes/Data/Iceword/ANOVA
+        RESULT=/Volumes/Data/Iceword/ANOVA/RESULTS/${RUN}
+
+        #--------------------#
+        # Initiate functions #
+        #--------------------#
+        group_ANOVA 2>&1 | tee -a ${RESULT}/log.txt
+
+    done
+
 }
 
 
@@ -107,46 +128,21 @@ opt=$1  # This is an optional command-line variable which should be supplied
         # be "test"
 
 
+# Check whether Test_Main or Main should be run
+case $opt in
+    "test" )
+        Test_Main 2>&1 | tee ${BASE}/log.TEST.txt
+        ;;
 
-# The {5..19}-{1..4} is brace notation which acts as a nested for-loop
-# The '-' acts as a seperator which allows for easy substring operations when
-# assiging the variable names for the rest of the program.
+    "check" )
+        check_outLog
+        ;;
 
-for i in {1..4}; do
-    #-----------------------------------#
-    # Define variable names for program #
-    #-----------------------------------#
-    run=run${i}
-    RUN=Run${i}
+      * )
+        Main 2>&1 | tee -a ${BASE}/log.txt
+        ;;
+esac
 
-    #---------------------------------#
-    # Define pointers for GLM results #
-    #---------------------------------#
-    BASE=/Volumes/Data/ICE/ANOVA
-    RESULT=/Volumes/Data/ICE/ANOVA/RESULTS/${RUN}
-
-    # We removed sub018 from the analysis, so dont perform any operations them.
-    if [[ $sub != "sub018" ]]; then
-
-        # Check whether Test_Main or Main should be run
-        case $opt in
-            "test" )
-                Test_Main 2>&1 | tee ${BASE}/log.TEST.txt
-                ;;
-
-            "check" )
-                check_outLog
-                ;;
-
-              * )
-                Main 2>&1 | tee -a ${BASE}/log.txt
-                ;;
-        esac
-    fi
-
-done
-
-# regress_nodata
 
 #================================================================================
 #                              END OF MAIN

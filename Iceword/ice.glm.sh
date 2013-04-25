@@ -349,15 +349,15 @@ function regress_plot () {
 
     1dcat \
         ${ID}/${input4d}.xmat.1D'[5]' \
-        > ${FITTS}/ideal.${input4d}.listen_block.1D
+        > ${ID}/ideal.${input4d}.listen_block.1D
 
     1dcat \
         ${ID}/${input4d}.xmat.1D'[6]' \
-        > ${FITTS}/ideal.${input4d}.response_block.1D
+        > ${ID}/ideal.${input4d}.response_block.1D
 
     1dcat \
         ${ID}/${input4d}.xmat.1D'[7]' \
-        > ${FITTS}/ideal.${input4d}.control_block.1D
+        > ${ID}/ideal.${input4d}.control_block.1D
 
 
     1dplot \
@@ -605,7 +605,7 @@ function Main ()
     # assiging the variable names for the rest of the program.
 
     # for i in {5..19}-{1..4}; do
-    for i in 5-{1..4}; do
+    for i in {6..19}-{1..4}; do
 
         #-----------------------------------#
         # Define variable names for program #
