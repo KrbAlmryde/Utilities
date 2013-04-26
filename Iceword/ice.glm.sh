@@ -245,62 +245,62 @@ function regress_convolve () {
         -num_stimts 15 \
             -censor ${STIM}/${input1D[0]} \
         -stim_times 1 \
-            ${STIM}/${input1D[1]} "${model}" \
-            -stim_label 1 ${input1D[1]} \
+                ${STIM}/${input1D[1]} "${model}" \
+                -stim_label 1 ${input1D[1]} \
         -stim_times 2 \
-            ${STIM}/${input1D[2]} "${model}" \
-            -stim_label 2 ${input1D[2]} \
+                ${STIM}/${input1D[2]} "${model}" \
+                -stim_label 2 ${input1D[2]} \
         -stim_times 3 \
-            ${STIM}/${input1D[3]} "${model}" \
-            -stim_label 3 ${input1D[3]} \
+                ${STIM}/${input1D[3]} "${model}" \
+                -stim_label 3 ${input1D[3]} \
         -stim_file 4 \
                 ${ID}/${input1D[4]} \
-                    -stim_base 4 \
-                    -stim_label 4 roll_demean    \
+                -stim_base 4 \
+                -stim_label 4 roll_demean    \
         -stim_file 5 \
                 ${ID}/${input1D[5]} \
-                    -stim_base 5 \
-                    -stim_label 5 pitch_demean  \
+                -stim_base 5 \
+                -stim_label 5 pitch_demean  \
         -stim_file 6 \
                 ${ID}/${input1D[6]} \
-                    -stim_base 6 \
-                    -stim_label 6 yaw_demean     \
+                -stim_base 6 \
+                -stim_label 6 yaw_demean     \
         -stim_file 7 \
                 ${ID}/${input1D[7]} \
-                    -stim_base 7 \
-                    -stim_label 7 dS_demean      \
+                -stim_base 7 \
+                -stim_label 7 dS_demean      \
         -stim_file 8 \
                 ${ID}/${input1D[8]} \
-                    -stim_base 8 \
-                    -stim_label 8 dL_demean      \
+                -stim_base 8 \
+                -stim_label 8 dL_demean      \
         -stim_file 9 \
                 ${ID}/${input1D[9]} \
-                    -stim_base 9 \
-                    -stim_label 9 dP_demean      \
+                -stim_base 9 \
+                -stim_label 9 dP_demean      \
         -stim_file 10 \
                 ${ID}/${input1D[10]} \
-                    -stim_base 10 \
-                    -stim_label 10 roll_deriv     \
+                -stim_base 10 \
+                -stim_label 10 roll_deriv     \
         -stim_file 11 \
                 ${ID}/${input1D[11]} \
-                    -stim_base 11 \
-                    -stim_label 11 pitch_deriv \
+                -stim_base 11 \
+                -stim_label 11 pitch_deriv \
         -stim_file 12 \
                 ${ID}/${input1D[12]} \
-                    -stim_base 12 \
-                    -stim_label 12 yaw_deriv   \
+                -stim_base 12 \
+                -stim_label 12 yaw_deriv   \
         -stim_file 13 \
                 ${ID}/${input1D[13]} \
-                    -stim_base 13 \
-                    -stim_label 13 dS_deriv    \
+                -stim_base 13 \
+                -stim_label 13 dS_deriv    \
         -stim_file 14 \
                 ${ID}/${input1D[14]} \
-                    -stim_base 14 \
-                    -stim_label 14 dL_deriv    \
+                -stim_base 14 \
+                -stim_label 14 dL_deriv    \
         -stim_file 15 \
                 ${ID}/${input1D[15]} \
-                    -stim_base 15 \
-                    -stim_label 15 dP_deriv    \
+                -stim_base 15 \
+                -stim_label 15 dP_deriv    \
         -xout \
             -x1D ${ID}/${output4d}.xmat.1D \
             -xjpeg ${IM}/${output4d}.xmat.jpg \
