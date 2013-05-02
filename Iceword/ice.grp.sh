@@ -30,39 +30,20 @@ function group_tTest () {
     #   Output:
     #
     #------------------------------------------------------------------------
-    for delay in {0..7}; do
+    for delay in {0..0}; do
 
-        mkdir -p ${TTEST}/${delay}
-        cd ${TTEST}/${delay}
+        # mkdir -p ${TTEST}/${delay}
+        cd ${TTEST}
 
         listen_array=(`ls ${BASE}/sub0*/${RUN}/*_${delay}sec_ListenStats.nii.gz`)
         response_array=(`ls ${BASE}/sub0*/${RUN}/*_${delay}sec_ResponseStats.nii.gz`)
         control_array=(`ls ${BASE}/sub0*/${RUN}/*_${delay}sec_ControlStats.nii.gz`)
 
 
-        # 3dttest++ \
-        #     -mask ${MASK}/MNI_2mm_mask.nii \
-        #     -prefix tTest_Control_${delay}sec.nii.gz \
-        #     -setA ${control_array[0]}'[0]' \
-        #           ${control_array[1]}'[0]' \
-        #           ${control_array[2]}'[0]' \
-        #           ${control_array[3]}'[0]' \
-        #           ${control_array[4]}'[0]' \
-        #           ${control_array[5]}'[0]' \
-        #           ${control_array[6]}'[0]' \
-        #           ${control_array[7]}'[0]' \
-        #           ${control_array[8]}'[0]' \
-        #           ${control_array[9]}'[0]' \
-        #           ${control_array[10]}'[0]' \
-        #           ${control_array[11]}'[0]' \
-        #           ${control_array[12]}'[0]' \
-        #           ${control_array[13]}'[0]'
-
-
         3dttest++ \
             -paired \
             -mask ${MASK}/MNI_2mm_mask.nii \
-            -prefix tTest_Listen-Control_${delay}sec.nii.gz \
+            -prefix tTest_${run}_Lsn-Ctr_${delay}sec.nii.gz \
             -setA ${listen_array[0]}'[0]' \
                   ${listen_array[1]}'[0]' \
                   ${listen_array[2]}'[0]' \
@@ -92,38 +73,38 @@ function group_tTest () {
                   ${control_array[12]}'[0]' \
                   ${control_array[13]}'[0]'
 
-        # 3dttest++ \
-        #     -paired \
-        #     -mask ${MASK}/MNI_2mm_mask.nii \
-        #     -prefix tTest_Response-Listen_${delay}sec.nii.gz \
-        #     -setA ${response_array[0]}'[0]' \
-        #           ${response_array[1]}'[0]' \
-        #           ${response_array[2]}'[0]' \
-        #           ${response_array[3]}'[0]' \
-        #           ${response_array[4]}'[0]' \
-        #           ${response_array[5]}'[0]' \
-        #           ${response_array[6]}'[0]' \
-        #           ${response_array[7]}'[0]' \
-        #           ${response_array[8]}'[0]' \
-        #           ${response_array[9]}'[0]' \
-        #           ${response_array[10]}'[0]' \
-        #           ${response_array[11]}'[0]' \
-        #           ${response_array[12]}'[0]' \
-        #           ${response_array[13]}'[0]' \
-        #     -setB ${listen_array[0]}'[0]' \
-        #           ${listen_array[1]}'[0]' \
-        #           ${listen_array[2]}'[0]' \
-        #           ${listen_array[3]}'[0]' \
-        #           ${listen_array[4]}'[0]' \
-        #           ${listen_array[5]}'[0]' \
-        #           ${listen_array[6]}'[0]' \
-        #           ${listen_array[7]}'[0]' \
-        #           ${listen_array[8]}'[0]' \
-        #           ${listen_array[9]}'[0]' \
-        #           ${listen_array[10]}'[0]' \
-        #           ${listen_array[11]}'[0]' \
-        #           ${listen_array[12]}'[0]' \
-        #           ${listen_array[13]}'[0]'
+        3dttest++ \
+            -paired \
+            -mask ${MASK}/MNI_2mm_mask.nii \
+            -prefix tTest_${run}_Rsp-Lsn_${delay}sec.nii.gz \
+            -setA ${response_array[0]}'[0]' \
+                  ${response_array[1]}'[0]' \
+                  ${response_array[2]}'[0]' \
+                  ${response_array[3]}'[0]' \
+                  ${response_array[4]}'[0]' \
+                  ${response_array[5]}'[0]' \
+                  ${response_array[6]}'[0]' \
+                  ${response_array[7]}'[0]' \
+                  ${response_array[8]}'[0]' \
+                  ${response_array[9]}'[0]' \
+                  ${response_array[10]}'[0]' \
+                  ${response_array[11]}'[0]' \
+                  ${response_array[12]}'[0]' \
+                  ${response_array[13]}'[0]' \
+            -setB ${listen_array[0]}'[0]' \
+                  ${listen_array[1]}'[0]' \
+                  ${listen_array[2]}'[0]' \
+                  ${listen_array[3]}'[0]' \
+                  ${listen_array[4]}'[0]' \
+                  ${listen_array[5]}'[0]' \
+                  ${listen_array[6]}'[0]' \
+                  ${listen_array[7]}'[0]' \
+                  ${listen_array[8]}'[0]' \
+                  ${listen_array[9]}'[0]' \
+                  ${listen_array[10]}'[0]' \
+                  ${listen_array[11]}'[0]' \
+                  ${listen_array[12]}'[0]' \
+                  ${listen_array[13]}'[0]'
 
     done
 } # End of group_tTest
@@ -199,6 +180,40 @@ function group_ANOVA () {
 }
 
 
+function group_MergePos () {
+    #------------------------------------------------------------------------
+    #
+    #  Purpose: Merge the data so only the positive activation remains
+    #
+    #
+    #    Input:
+    #
+    #   Output:
+    #
+    #------------------------------------------------------------------------
+
+    plvl=$1
+    input3d=$2
+    output3d=''
+
+    clust=$(awk 'match($1,'${plvl}'0000 ) {print $11}' \
+            ${ETC}/ClustSim.NN1.1D)
+
+    statpar=$(3dinfo ${TTEST}/${label[l]}.${type}+tlrc"[1]" \
+            | awk '/statcode = fitt/ {print $6}')
+
+    thresh=$(ccalc -expr "fitt_p2t(${plvl}0000,${statpar})")
+
+    3dmerge -dxyz=1 \
+        -1clust 2.01 ${clust} \
+        -1thresh ${thresh} \
+        -prefix ${THRESH}/merge.${type}.${label[l]} \
+        ${TTEST}/${label[l]}.${type}+tlrc[1]
+
+} # End of group_MergePos
+
+
+
 function Main () {
     echo -e "\nMain has been called\n"
 
@@ -226,7 +241,7 @@ function Main () {
         # Initiate functions #
         #--------------------#
         # group_ANOVA 2>&1 | tee -a ${ANOVA}/log_anova.txt
-        group_tTest 2>&1 | tee -a ${ANOVA}/log_ttest.txt
+        # group_tTest 2>&1 | tee -a ${ANOVA}/log_ttest.txt
 
     done
 
