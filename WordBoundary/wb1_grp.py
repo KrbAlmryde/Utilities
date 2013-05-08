@@ -116,9 +116,7 @@ def oneSample_tTest(imgList, maskFile, outImage, brik=''):
     else:
         imgFile = imgList + brik
 
-    os.system('3dttest++ -setA ' + imgFile
-               + ' -mask ' + maskFile
-               + ' -prefix ' + outImage)
+    os.system('3dttest++ -setA ' + imgFile + ' -mask ' + maskFile + ' -prefix ' + outImage)
 
 
 def getClusterStats_tTest(imgFile):   # This has potential to be very Modular, I just need to decide if I like it enough
@@ -168,8 +166,6 @@ def main():
         COMBO = ANOVA + 'Combo/' + scanDir
         MASK = ANOVA + 'Mask/' + scanDir
         MEAN = ANOVA + 'Mean/' + scanDir
-        MERG = ANOVA + 'Merge/' + scanDir
-        TTEST = ANOVA + 'tTest/' + scanDir
 
         subStatsImgList = []
         #--------------------#

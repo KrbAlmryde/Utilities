@@ -2,7 +2,7 @@
 #==============================================================================
 #   Program Name: wb1_unlearn_format.py
 #         Author: Kyle Reese Almryde
-#           Date: Today
+#           Date: 11/12/2012 @ 1:14 PM
 #    Description: This script formats the text file:
 #                 'tbl_clusters_unlearnable_manual+5p.txt' Elena gave me. Its
 #                 mainly used as an exercise in python for my own sake, but in
@@ -45,15 +45,21 @@ fin = open('tbl_clusters_unlearnable_manual+5p.txt')  # Input file, read in data
 fout = open('Wb1_unlearnable_clusters.txt', 'w')      # Output file, write out
 
 
-#-----------------------------------------
-# This function writes the header of the
-# output file. In addition to the supplied
-# information, it also adds the following
-# fields: component, scan, and hemisphere
-# to the header
-#-----------------------------------------
-
 def writeHeader(row):
+    '''
+    Write a header line to a file
+
+    This function writes the header of the
+    output file by reformatting the supplied
+    line. In addition to the information,
+    provided by the param row, it also adds
+    the following fields: component, scan,
+    and hemisphere to the header
+
+    Param: row -- String
+               The first line in a text file.
+    Returns: None
+    '''
     size = len(row)
     for col in range(size):
         if col == 0:
@@ -64,20 +70,19 @@ def writeHeader(row):
             fout.write(row[col] + '\t')
 
 
-#-----------------------------------------
-# This function organizes the contents of
-# the supplied row and prints them to the
-# desired output file. Additionally it
-# pulls the desired information from the
-# first 'field' and prints them in their
-# own field.
-#-----------------------------------------
-
 def organizeRow(row):
+    '''
+    This function organizes the contents of
+    the supplied row and prints them to the
+    desired output file. Additionally it
+    pulls the desired information from the
+    first 'field' and prints them in their
+    own field.
+    '''
     size = len(row)
     img = row[0].split('_')   # This is a list composed of the img field, split based on the '_' separator
-    scan = img[7][1:] + '\t'  # This is the scan #, with a tab character concatenated for easy printing
-    comp = img[8][2:] + '\t'  # This is the component #
+    scan = img[7][1:] + '\t'  # This is the scan number, with a tab character concatenated for easy printing
+    comp = img[8][2:] + '\t'  # This is the component number
     hemi = img[11] + '\t'     # This is the hemisphere
 
     for col in range(size):
