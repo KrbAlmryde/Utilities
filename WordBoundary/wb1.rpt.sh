@@ -1,35 +1,35 @@
 #!/bin/bash
 #================================================================================
-#	Program Name:  wb1.rpt. sh
+#	Program Name:  wb1.rpt.sh
 #		  Author: Kyle Reese Almryde
 #			Date: September 5th, 2012
 #
 #	 Description: Perform ANOVA on supplied data
-#                
-#                
-#                
-#	Deficiencies: 
-#                
-#                
-#                
-#                
+#
+#
+#
+#	Deficiencies:
+#
+#
+#
+#
 #
 #================================================================================
-#                            FUNCTION DEFINITIONS 
+#                            FUNCTION DEFINITIONS
 #===============================================================================
 
 #------------------------------------------------------------------------
 #
 #	Description: setup_reportDir
-#                 
+#
 #		Purpose: Builds local directory structure so we can place files
-#                
+#
 #		  Input: none
-#                 
-#		 Output: none  
-#                 
+#
+#		 Output: none
+#
 #	  Variables: $RUN - run1 run2 run3
-#                 
+#
 #------------------------------------------------------------------------
 
 function setup_reportDir ()
@@ -47,7 +47,7 @@ function setup_reportDir ()
 #------------------------------------------------------------------------
 #	grp_roiReport: Executes the subj_noNeg, tTest_clusterCoords, and whereamiReport
 #              functions under one umbrella. Supply list of ROIs to report
-#	usage: roiReport <ROIs[1,2]> 
+#	usage: roiReport <ROIs[1,2]>
 #------------------------------------------------------------------------
 
 
@@ -59,8 +59,8 @@ function setup_reportDir ()
 #	usage: tTest_clusterCoords ${input3dMask}
 #------------------------------------------------------------------------
 
-tTest_clusterCoords () 
-{	
+tTest_clusterCoords ()
+{
 	for (( m = 0; m < ${#input3dMask[*]}; m++ )); do
 		3dclust \
 			-orient RPI -1noneg -nosum \
@@ -70,7 +70,7 @@ tTest_clusterCoords ()
 		| tail +12 \
 		| awk -v OFS='\t' '{print "tTest", "'${RUN[r]}'", "'${condition}'", "'${event}'", "'${hemi[m]}'", "'${region[m]}'", $1, $11 }' \
 		| sed '/#\*\*/d'
-	
+
 	done
 }
 
@@ -79,15 +79,15 @@ tTest_clusterCoords ()
 #------------------------------------------------------------------------
 #
 #	Description: grp_roiReport
-#                
-#		Purpose: 
-#                
-#		  Input: 
-#                
-#		 Output:   
-#                
-#	  Variables: 
-#                
+#
+#		Purpose:
+#
+#		  Input:
+#
+#		 Output:
+#
+#	  Variables:
+#
 #------------------------------------------------------------------------
 
 function grp_roiReport ()
@@ -95,7 +95,7 @@ function grp_roiReport ()
 	echo -e "\n \t###### grp_roiReport ######\n"
 	# remove any existing files
 
-	# 3dclust -orient RPI -1noneg -nosum -1dindex 0 -1tindex 1 -1thresh 2.131 -1Dformat 2 0 
+	# 3dclust -orient RPI -1noneg -nosum -1dindex 0 -1tindex 1 -1thresh 2.131 -1Dformat 2 0
 	#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	#               Begin extracting Group ROI Stats                         #
 	#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -107,7 +107,7 @@ function grp_roiReport ()
 
 	cat ${REPORT}/etc/${RUN[r]}.${condition}.grp_roi_stats.1D >> \
 		${REPORT}/${RUN[r]}.${condition}.GroupReport.1D
-	
+
 	subl ${REPORT}/${RUN[r]}.${condition}.GroupReport.1D
 }
 
@@ -124,8 +124,8 @@ function grp_roiReport ()
 #	usage: subj_noNeg <region of interest>
 #------------------------------------------------------------------------
 
-subj_noNeg () 
-{	
+subj_noNeg ()
+{
 	for (( i=0, a=0, b=1; i < ${#subj_list[*]}; i++, a+=2, b+=2 )); do
 		echo -e "\n \t${subj_list[i]} subj_noNeg \n"
 		3dmerge \
@@ -136,13 +136,13 @@ subj_noNeg ()
 }
 
 #------------------------------------------------------------------------
-#	subj_roiStat: Uses 3dMaskdump to drop XYZ coords to 
+#	subj_roiStat: Uses 3dMaskdump to drop XYZ coords to
 #	usage: subj_roiStat <x> <y> <z>
 #------------------------------------------------------------------------
 
 subj_roiStat ()
 {
-	for (( i=0; i < ${#subj_list[*]}; i++)); do	
+	for (( i=0; i < ${#subj_list[*]}; i++)); do
 		for (( m = 0; m < ${#input3dMask[*]}; m++ )); do
 			3dmaskave \
 				-sigma \
@@ -159,15 +159,15 @@ subj_roiStat ()
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 #------------------------------------------------------------------------
-#	subjectReport: Uses 3dMaskdump to drop XYZ coords to 
+#	subjectReport: Uses 3dMaskdump to drop XYZ coords to
 #	usage: subjectReport
 #------------------------------------------------------------------------
 
 subjectReport ()
-{	
+{
 	echo -e "\n \t###### subjectReport ######\n"
-	
-	for (( i=0; i < ${#subj_list[*]}; i++ )); do	
+
+	for (( i=0; i < ${#subj_list[*]}; i++ )); do
 		#subj_noNeg
 		subj_roiStat >> ${REPORT}/etc/${RUN[r]}.${condition}.rm.subj_stats.1D
 	done
@@ -190,15 +190,15 @@ subjectReport ()
 #------------------------------------------------------------------------
 #
 #	Description: Complete_Report
-#                
-#		Purpose: 
-#                
-#		  Input: 
-#                
-#		 Output:   
-#                
-#	  Variables: 
-#                
+#
+#		Purpose:
+#
+#		  Input:
+#
+#		 Output:
+#
+#	  Variables:
+#
 #------------------------------------------------------------------------
 
 function Complete_Report ()
@@ -218,20 +218,20 @@ function Complete_Report ()
 	#------------------------------------------------------------------------
 	#
 	#	Description: MAIN
-	#                 
+	#
 	#		Purpose: a
-	#                
+	#
 	#		  Input: a
-	#                 
-	#		 Output: a  
-	#                 
+	#
+	#		 Output: a
+	#
 	#	  Variables: a
-	#                 
+	#
 	#------------------------------------------------------------------------
 
 	function MAIN ()
 	{
-		for (( r = 0; r < ${#RUN[*]}; r++ )); do				
+		for (( r = 0; r < ${#RUN[*]}; r++ )); do
 			#----------------------------------#
 			# Define pointers for Group report #
 			#----------------------------------#
@@ -247,7 +247,7 @@ function Complete_Report ()
 			plvl=05
 			event=sent
 			thresh=$(ccalc -expr "fitt_p2t(0.${plvl}000,15)")
-			input3dMask=($(basename $(ls ${MASK}/*.nii ) | cut -d . -f1)) 
+			input3dMask=($(basename $(ls ${MASK}/*.nii ) | cut -d . -f1))
 			hemi=($(basename $(ls ${MASK}/*.nii ) | cut -d . -f1 | cut -d _ -f3))
 			region=($(basename $(ls ${MASK}/*.nii ) | cut -d . -f1 | cut -d _ -f4))
 			#--------------------#
@@ -265,28 +265,28 @@ function Complete_Report ()
 #================================================================================
 
 condition=$1 			# This is a command-line supplied variable which determines
-						# which experimental condition should be run. This value is 
+						# which experimental condition should be run. This value is
 						# important in that it determines which group of subjects should
 						# be run. If this variable is not supplied the program will
 						# exit with an error and provide the user with instructions
-						# for proper input and execution. 
+						# for proper input and execution.
 
-operation=$2    # This command-line supplied variable is optional. If it is left 
-
-
-RUN=( Run1 Run2 Run3 )	
+operation=$2    # This command-line supplied variable is optional. If it is left
 
 
-case $condition in 		
-	"learn"|"learnable"     ) 
+RUN=( Run1 Run2 Run3 )
+
+
+case $condition in
+	"learn"|"learnable"     )
 							  condition="learnable"
 							  subj_list=( sub013 sub016 sub019 sub021 \
 										  sub023 sub027 sub028 sub033 \
 									   	  sub035 sub039 sub046 sub050 \
-									   	  sub057 sub067 sub069 sub073 ) 
+									   	  sub057 sub067 sub069 sub073 )
 							  ;;
 
-	"unlearn"|"unlearnable" ) 
+	"unlearn"|"unlearnable" )
 							  condition="unlearnable"
 							  subj_list=( sub009 sub011 sub012 sub018 \
 										  sub022 sub030 sub031 sub032 \
@@ -294,12 +294,12 @@ case $condition in
 										  sub049 sub051 sub059 sub060 )
 							  ;;
 
-	"debug"|"test"          ) 
+	"debug"|"test"          )
 						 	  condition="debugging"
 							  subj_list=( sub009 sub013 )
 						 	  ;;
 
-	*                       ) 
+	*                       )
 							  HelpMessage
 							  ;;
 esac
@@ -319,22 +319,22 @@ exit
 	#------------------------------------------------------------------------
 	#
 	#	Description: HelpMessage
-	#                
-	#		Purpose: This function provides the user with the instruction for 
-	#                how to correctly execute this script. It will only be 
-	#                called in cases in which the user improperly executes the 
-	#                script. In such a situation, this function will display 
+	#
+	#		Purpose: This function provides the user with the instruction for
+	#                how to correctly execute this script. It will only be
+	#                called in cases in which the user improperly executes the
+	#                script. In such a situation, this function will display
 	#                instruction on how to correctly execute this script as
 	#                as well as what is considered acceptable input. It will
 	#                then exit the script, at which time the user may try again.
-	#                
+	#
 	#		  Input: None
-	#                
-	#		 Output: A help message instructing the user on how to properly 
+	#
+	#		 Output: A help message instructing the user on how to properly
 	#                execute this script.
-	#                
+	#
 	#	  Variables: none
-	#                
+	#
 	#------------------------------------------------------------------------
 
 	function HelpMessage ()
@@ -364,6 +364,6 @@ exit
 	   echo "+                                                                     +"
 	   echo "+                  +++ Please try again +++                           +"
 	   echo "-----------------------------------------------------------------------"
-	   
+
 	   exit 1
 	}

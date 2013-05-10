@@ -103,13 +103,13 @@ def oneSample_tTest(imgList, maskFile, outImage, brik=''):
     """ perform a one sample tTest
 
     Params:
-        imgList --
-        maskFile --
-        brik --
-        outImage --
+        imgList -- a list of image file names
+        maskFile -- the mask image file
+        brik -- the desired subbrick number
+        outImage -- the output file name
 
     Returns:
-         Description of returns
+         None
     """
     if type(imgList) == list:
         imgFile = ' '.join([x + brik for x in imgList])

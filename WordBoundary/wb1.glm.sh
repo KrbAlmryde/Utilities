@@ -357,13 +357,9 @@ function regress_plot () {
 #
 #   Description: regress_alphcor
 #
-#       Purpose: a
-#
-#         Input: a
-#
-#        Output: a
-#
-#     Variables: input4d, fwhmx, condition, STATS, FUNC
+#       Purpose: Computes the required alpha cluster correction value
+#                using 3dClustSim. It them maps the clustering information
+#                to the image to make clusterizing a little easier.
 #
 #------------------------------------------------------------------------
 

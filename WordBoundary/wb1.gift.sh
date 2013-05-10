@@ -2,18 +2,18 @@
 #================================================================================
 #	Program Name: wb1.gift.sh
 #		  Author: Kyle Reese Almryde
-#			Date: 
+#			Date:
 #
-#	 Description: 
-#                 
-#                 
-#                 
-#          Notes: 
-#                 
+#	 Description:
+#
+#
+#
+#          Notes:
+#
 #	Deficiencies: It may be necessary at points to construct and edit masks
 #
 #================================================================================
-#                            FUNCTION DEFINITIONS 
+#                            FUNCTION DEFINITIONS
 #================================================================================
 
 function thresh_components ()
@@ -21,15 +21,19 @@ function thresh_components ()
 	#------------------------------------------------------------------------
 	#
 	#	Description: thresh_components
-	#                
-	#		Purpose: 
-	#                
-	#		  Input: 
-	#                
-	#		 Output:   
-	#                
-	#	  Variables: 
-	#                
+	#
+	#		Purpose: Threshold components of interest at the provided p-lvl
+    #                 as well as remove any negative activation from the
+    #                 image.
+	#
+	#		  Input: cond => THe present condition, availale options are
+	#                        learn or unlearn
+    #                comp => The component number of interest
+    #                run => The current scan, options incude run1-4
+    #
+	#		 Output: Produces a positive actiavtion only statistical map
+	#                 thresholded to the desired p-lvl.
+	#
 	#------------------------------------------------------------------------
 	cond=$1; comp=$2; run=$3
 
@@ -63,19 +67,19 @@ function thresh_components ()
 function filterComponents ()
 {
 	#------------------------------------------------------------------------
-	#                
+	#
 	#	Purpose: This function will filter the masked Component images
-	#	         through the stripped single subject images. It produces 
+	#	         through the stripped single subject images. It produces
 	#	         a whole brain filtered image as well as hemisphere specific
 	#	         images
 	#	  Input: condition, component, scan
-	#	              
+	#
 	#	 Output: Whole brain filtered image, hemishpere specific image
-	#                
+	#
 	#------------------------------------------------------------------------
 
 	cond=$1; comp=$2; run=$3
-	
+
 	echo -e "\n========================================================="
 	echo -e "Filtering Single Subject Data through Whole Component Masks and Clustered Component Masks"
 	local input4dMerged=${cond}_IC${comp}_${run}_${tstat}
@@ -101,7 +105,7 @@ function filterComponents ()
 			-prefix ${Merged}/${side}/${output4dFilter}_${side}.nii
 
 	done
-	
+
 	echo -e "========================================================\n"
 
 } # End of filterComponents
@@ -113,28 +117,26 @@ function display_components ()
 	#------------------------------------------------------------------------
 	#
 	#	Description: display_components
+    #
+	#		Purpose: Create a static value mask from the supplied datasets in
+    #                order to display each components unique ROI as well as
+    #                which portions of those components that overlap with one
+    #                another. Below is the value and mapped color assigned to
+    #                each component, and the associated overlap value and color
+    #
+    #                Component colors
+    #                     1 - Red     ==> 1.01
+    #                     2 - Yellow  ==> 1.02
+    #                     3 - Orange  ==> 1.03
+    #                     4 - Green   ==> 1.04
+    #                     5 - Purple  ==> 1.05
+    #
+    #                Overlapping Component colors
+    #                   2 Components - Cyan blue
+    #                   3 Components - Light blue
+    #                   4 Components - Dark Blue
+    #                   5 Components - Navy blue
 	#
-	#                Component colors
-	#                 	  1 - Red     ==> 1.01
-	#                	  2 - Yellow  ==> 1.02
-	#                	  3 - Orange  ==> 1.03
-	#                	  4 - Green   ==> 1.04
-	#                	  5 - Purple  ==> 1.05
-	#
-	#                Overlapping Component colors
-	#					2 Components - Cyan blue
-	#                   3 Components - Light blue
-	#                   4 Components - Dark Blue
-	#                   5 Components - Navy blue
-	#                
-	#		Purpose: 
-	#                
-	#		  Input: 
-	#                
-	#		 Output:   
-	#                
-	#	  Variables: 
-	#                
 	#------------------------------------------------------------------------
 
 	echo -e "\n\n=============================================="
@@ -178,23 +180,19 @@ function reportComponents ()
 	#------------------------------------------------------------------------
 	#
 	#	Description: reportComponents
-	#                
-	#		Purpose: This function will mask the session components to the 
-	#                single subjects session components
-	#		  Input: 
-	#                
-	#		 Output:   
-	#                
-	#	  Variables: 
-	#                
+	#
+	#		Purpose: Filters the single-subject data through a group mask of
+	#                the activation in order to see which subjects contributed
+	#                to the group activations.
+	#
 	#------------------------------------------------------------------------
 	cond=$1; comp=$2; run=$3
-	
+
 	echo -e "\n========================================================="
 	echo -e "Constructing Masks from Whole Component Images: Session: ${run}"
 
 	if [[ -f ${Report}/temp_${Condition}_grp_rpt.txt ]]; then
-		echo ""	
+		echo ""
 	else
 		echo -e \
 			"Scan\tHemisphere\tSubject\tComponent\tMean\tVariance" \
@@ -203,7 +201,7 @@ function reportComponents ()
 
 	for side in {L,R}; do
 		local input4d=${cond}_IC${comp}_${run}_${tstat}_Filtered_${side}
-		
+
 		if [[ ${cond} == 'unlearn' && ${run} == 's1' && ${comp} == 29 ]]; then
 			stat="0.0000     0.0000"
 		else
@@ -216,7 +214,7 @@ function reportComponents ()
 		echo -e \
 			"${run}\t${side}\tIC${comp}\t${stat}" \
 			>> ${Report}/temp_${Condition}_grp_rpt.txt
-		
+
 		echo -e "\t\nComponent: ${trueComps[i]}\n"
 	done
 	echo -e "========================================================\n"
@@ -229,22 +227,22 @@ function HelpMessage ()
 	#------------------------------------------------------------------------
 	#
 	#	Description: HelpMessage
-	#                
-	#		Purpose: This function provides the user with the instruction for 
-	#                how to correctly execute this script. It will only be 
-	#                called in cases in which the user improperly executes the 
-	#                script. In such a situation, this function will display 
+	#
+	#		Purpose: This function provides the user with the instruction for
+	#                how to correctly execute this script. It will only be
+	#                called in cases in which the user improperly executes the
+	#                script. In such a situation, this function will display
 	#                instruction on how to correctly execute this script as
 	#                as well as what is considered acceptable input. It will
 	#                then exit the script, at which time the user may try again.
-	#                
+	#
 	#		  Input: None
-	#                
-	#		 Output: A help message instructing the user on how to properly 
+	#
+	#		 Output: A help message instructing the user on how to properly
 	#                execute this script.
-	#                
+	#
 	#	  Variables: none
-	#                
+	#
 	#------------------------------------------------------------------------
 
 	echo "-----------------------------------------------------------------------"
@@ -278,7 +276,7 @@ function HelpMessage ()
 
 #====================================================================================
 #                         ++++++  Start of Main  ++++++
-#====================================================================================		
+#====================================================================================
 
 
 function MAIN ()
@@ -286,33 +284,33 @@ function MAIN ()
 	#------------------------------------------------------------------------
 	#
 	#	Description: Main
-	#                
-	#		Purpose: This function acts as the launching point of all other 
-	#                functions within this script. In addition to defining 
-	#                the path variables used to point to data within the 
-	#                various directories, it also controls the loop which 
+	#
+	#		Purpose: This function acts as the launching point of all other
+	#                functions within this script. In addition to defining
+	#                the path variables used to point to data within the
+	#                various directories, it also controls the loop which
 	#                iterates over experiment runs. Any operation the user
-	#                wishes to be performed related to the analysis should 
-	#                be executed within this function. 
-	#                
+	#                wishes to be performed related to the analysis should
+	#                be executed within this function.
+	#
 	#		  Input: sub0##
 	#                Primary input to this function is the subject number,
 	#                which is supplied via a loop in the execution body of
-	#                this script. 
-	#                
-	#		 Output: None, see individual functions for output. 
-	#                
+	#                this script.
+	#
+	#		 Output: None, see individual functions for output.
+	#
 	#	  Variables: subj, RUN, runsub, FUNC, RD, STIM, GLM, ID, IM, STATS, FITTS
-	#                
+	#
 	#------------------------------------------------------------------------
 
 	#----------------------------#
-	# Set components of interest # 
+	# Set components of interest #
 	#----------------------------#
 	case $cond in
-		  "learn" ) 
+		  "learn" )
 					  Condition="Learnable"
-				      comps=(1 6 24 30 38)     # These comps reflect afni's 0-based indexing, 
+				      comps=(1 6 24 30 38)     # These comps reflect afni's 0-based indexing,
 		            	   					   # for the real values, see realComps
 		              realComps=(2 7 25 31 39)
 		            ;;
@@ -323,14 +321,14 @@ function MAIN ()
 					  realComps=(14 29)
 					;;
 
-               *  ) 
+               *  )
 				       HelpMessage
 				    ;;
 	esac
 
 	#--------------------------#
-	# Begin Session iterations # 
-	#--------------------------#		
+	# Begin Session iterations #
+	#--------------------------#
 	for run in s1 s2 s3; do
 
 		#--------------------------#
@@ -352,9 +350,9 @@ function MAIN ()
 		ATLAS=${GIFT}/Atlas_analysis 			              # Location of the pre-made masks
 		EXPERT=${ATLAS}/${Condition}_Expert	                  # Location of the cluster masks
 		EDITABLE=${EXPERT}/Editable				              # Location of the editied cluster masks
-		
+
 		Figure=${GIFT}/${Condition}/${Condition}_figure      # Parent dir for WB1 figure, for each condition, sub dirs nested
-				Images=${Figure}/Images    		# contains jpg/png images and rgb images 
+				Images=${Figure}/Images    		# contains jpg/png images and rgb images
 				Merged=${Figure}/Merged    		# contains thresholded & and corrected ica data
 				Report=${Figure}/Report         # contains txt files reporting ROIs and other information
 
@@ -380,21 +378,21 @@ function MAIN ()
 
 #====================================================================================
 #                         ++++++  End of Main  ++++++
-#====================================================================================		
+#====================================================================================
 
 
 cond=$1 	# This is a command-line supplied variable which determines
-				# which experimental condition should be run. This value is 
+				# which experimental condition should be run. This value is
 				# important in that it determines which group of subjects should
 				# be run. If this variable is not supplied the program will
 				# exit with an error and provide the user with instructions
-				# for proper input and execution. 
+				# for proper input and execution.
 
-operation=$2    # This command-line supplied variable is optional. If it is left 
+operation=$2    # This command-line supplied variable is optional. If it is left
 
 
 #----------------------------#
-#   Execute MAIN function    # 
+#   Execute MAIN function    #
 #----------------------------#
 
 MAIN ${cond} ${operation}
@@ -408,31 +406,31 @@ function report_components ()
 	#------------------------------------------------------------------------
 	#
 	#	Description: report_components
-	#                
-	#		Purpose: 
-	#                
-	#		  Input: 
-	#                
-	#		 Output:   
-	#                
-	#	  Variables: 
-	#                
+	#
+	#		Purpose:
+	#
+	#		  Input:
+	#
+	#		 Output:
+	#
+	#	  Variables:
+	#
 	#------------------------------------------------------------------------
 
 	filterComps ()
 	{
 		if [[ -f ${Merged}/${mergedComponents}_${tstat}_filtered.nii ]]; then
 			echo "exists, skipping"
-			# rm ${Merged}/${mergedComponents}_${tstat}_filtered.nii 
+			# rm ${Merged}/${mergedComponents}_${tstat}_filtered.nii
 			# rm ${Etc}/${mergedComponents}_${tstat}_filter_Comp*
 		else
-			for (( i = 0; i < ${#comps[*]}; i++ )); do	
+			for (( i = 0; i < ${#comps[*]}; i++ )); do
 				3dcalc \
 					-a "${Merged}/${mergedComponents}_${tstat}.nii[$i]" \
 					-b "${Structurals}/MNI_2mm_mask.nii" \
 					-expr "a * b" \
 					-prefix ${Etc}/${mergedComponents}_${tstat}_filter_Comp${i}
-	
+
 				# Bucket the merged files together to keep directories clean
 				3dbucket \
 					-aglueto ${Etc}/${mergedComponents}_${tstat}_filtered+tlrc \
@@ -447,7 +445,7 @@ function report_components ()
 
 	clusterCoords ()
 	{
-		for (( i = 0; i < ${#comps[*]}; i++ )); do	
+		for (( i = 0; i < ${#comps[*]}; i++ )); do
 			3dclust \
 				-1noneg \
 				-1dindex $i \
