@@ -4,7 +4,7 @@
 #		  Author: Kyle Reese Almryde
 #			Date: September 5th, 2012
 #
-#	 Description: Perform ANOVA on supplied data
+#	 Description: Report stats regarding group ROI data.
 #
 #
 #

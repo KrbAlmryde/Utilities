@@ -5,7 +5,7 @@
 #                Date: 11/01/12 @ 11:39 AM
 #
 #      Description: This script tackles the single subject analysis of the gift
-#                        ICA output for the wordboundary1 study.
+#                   ICA output for the wordboundary1 study.
 #
 #================================================================================
 #                              FUNCTION DEFINITIONS
