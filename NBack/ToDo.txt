@@ -12,7 +12,13 @@ ToDo: Thu 03/21/2013 @ 12:06:18 PM
 
 1) Add 3-back to experiement
 2) I need to make a new background which includes little girl 'Sally'
-3) I need to create new array images approx. 24 arrays, with 1 target and
-    2 distractors
+3) I need to create new array images approx. 24 arrays, with 1 target and 2 distractors
 4) I need to make audio recordings of the stimuli and add them into the game.
-5) I need to upadate the intro and training recordings for all items.
+5) I need to update the intro and training recordings for all items.
+
+
+ToDo: Mon 05/20/2013 @ 4:34:00 PM
+1) I need to make a new background which includes little girl 'Sally'
+2) I need to 'munge' audio recordings of distractors for 2Back and 3Back
+3) I need to update the intro and training recordings for all items.
+4) Add 3-back to experiement
