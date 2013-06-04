@@ -1,0 +1,11 @@
+#!/bin/sh
+
+while read subj
+do
+	for condition in visual voice word
+	do
+
+#	dos2unix ${condition}_${subj}.txt #> ${condition}_${file}_temp.txt
+	awk 'FNR==1{A[++a]=$4;next}{A[a]=A[a] OFS $4;next}END {while(A[++i]) print A[i]}' ${condition}_${subj}.txt >>${condition}_item_temp.txt
+	awk -v OFS='\t' '$1=$1'> ${condition}_item_temp.txt
+	done; done < list.txt
