@@ -299,6 +299,7 @@ def main():
     RESIZED = os.path.join(THUMBS, 'RESIZED')
     FRAMES = os.path.join(THUMBS, 'FRAMES')
     DOGPOS = os.path.join(THUMBS, 'DOGPOS')
+
     #----------------------------------------
     # Setup some useful parameter variables
     #----------------------------------------
