@@ -1,0 +1,6 @@
+3dcalc -a R1_com5_set+tlrc -b run1_comp5_adjusted.nii -expr '(a*b)' -prefix R1_com5_final.nii
+
+3dcalc -a run1_comp3_adjusted_ClusterAll_mask+tlrc -b run1_comp3_adjusted.nii -expr '(a*b)' -prefix R1_comp3_final.nii
+
+
+3dcalc -a run1_comp14_adjusted_ClusterAll_mask+tlrc -expr 

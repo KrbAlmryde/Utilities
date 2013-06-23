@@ -1,0 +1,114 @@
+3dMean -sd -prefix mean_across_subj_fa \
+s1_memboth_fa-norm-irf+orig \
+s5_memboth_fa-norm-irf+orig \
+s6_memboth_fa-norm-irf+orig \
+s7_memboth_fa-norm-irf+orig \
+s8_memboth_fa-norm-irf+orig \
+s9_memboth_fa-norm-irf+orig \
+s10_memboth_fa-norm-irf+orig \
+s11_memboth_fa-norm-irf+orig \
+s12_memboth_fa-norm-irf+orig \
+s13_memboth_fa-norm-irf+orig \
+s14_memboth_fa-norm-irf+orig \
+s15_memboth_fa-norm-irf+orig \
+s16_memboth_fa-norm-irf+orig \
+s17_memboth_fa-norm-irf+orig 
+
+3dMean -sd -prefix mean_across_subj_ff \
+s1_memboth_ff-norm-irf+orig \
+s5_memboth_ff-norm-irf+orig \
+s6_memboth_ff-norm-irf+orig \
+s7_memboth_ff-norm-irf+orig \
+s8_memboth_ff-norm-irf+orig \
+s9_memboth_ff-norm-irf+orig \
+s10_memboth_ff-norm-irf+orig \
+s11_memboth_ff-norm-irf+orig \
+s12_memboth_ff-norm-irf+orig \
+s13_memboth_ff-norm-irf+orig \
+s14_memboth_ff-norm-irf+orig \
+s15_memboth_ff-norm-irf+orig \
+s16_memboth_ff-norm-irf+orig \
+s17_memboth_ff-norm-irf+orig 
+
+3dMean -sd -prefix mean_across_subj_ma \
+s1_memboth_ma-norm-irf+orig \
+s5_memboth_ma-norm-irf+orig \
+s6_memboth_ma-norm-irf+orig \
+s7_memboth_ma-norm-irf+orig \
+s8_memboth_ma-norm-irf+orig \
+s9_memboth_ma-norm-irf+orig \
+s10_memboth_ma-norm-irf+orig \
+s11_memboth_ma-norm-irf+orig \
+s12_memboth_ma-norm-irf+orig \
+s13_memboth_ma-norm-irf+orig \
+s14_memboth_ma-norm-irf+orig \
+s15_memboth_ma-norm-irf+orig \
+s16_memboth_ma-norm-irf+orig \
+s17_memboth_ma-norm-irf+orig 
+
+3dMean -sd -prefix mean_across_subj_mf \
+s1_memboth_mf-norm-irf+orig \
+s5_memboth_mf-norm-irf+orig \
+s6_memboth_mf-norm-irf+orig \
+s7_memboth_mf-norm-irf+orig \
+s8_memboth_mf-norm-irf+orig \
+s9_memboth_mf-norm-irf+orig \
+s10_memboth_mf-norm-irf+orig \
+s11_memboth_mf-norm-irf+orig \
+s12_memboth_mf-norm-irf+orig \
+s13_memboth_mf-norm-irf+orig \
+s14_memboth_mf-norm-irf+orig \
+s15_memboth_mf-norm-irf+orig \
+s16_memboth_mf-norm-irf+orig \
+s17_memboth_mf-norm-irf+orig 
+
+3dMean -sd -prefix mean_across_subj_na \
+s1_memboth_na-norm-irf+orig \
+s5_memboth_na-norm-irf+orig \
+s6_memboth_na-norm-irf+orig \
+s7_memboth_na-norm-irf+orig \
+s8_memboth_na-norm-irf+orig \
+s9_memboth_na-norm-irf+orig \
+s10_memboth_na-norm-irf+orig \
+s11_memboth_na-norm-irf+orig \
+s12_memboth_na-norm-irf+orig \
+s13_memboth_na-norm-irf+orig \
+s14_memboth_na-norm-irf+orig \
+s15_memboth_na-norm-irf+orig \
+s16_memboth_na-norm-irf+orig \
+s17_memboth_na-norm-irf+orig 
+
+3dMean -sd -prefix mean_across_subj_nf \
+s1_memboth_nf-norm-irf+orig \
+s5_memboth_nf-norm-irf+orig \
+s6_memboth_nf-norm-irf+orig \
+s7_memboth_nf-norm-irf+orig \
+s8_memboth_nf-norm-irf+orig \
+s9_memboth_nf-norm-irf+orig \
+s10_memboth_nf-norm-irf+orig \
+s11_memboth_nf-norm-irf+orig \
+s12_memboth_nf-norm-irf+orig \
+s13_memboth_nf-norm-irf+orig \
+s14_memboth_nf-norm-irf+orig \
+s15_memboth_nf-norm-irf+orig \
+s16_memboth_nf-norm-irf+orig \
+s17_memboth_nf-norm-irf+orig 
+
+3dcalc -a mean_across_subj_fa+orig -b mean_across_subj_ff+orig -expr '(a-b)' -prefix 1vs2
+3dcalc -a mean_across_subj_fa+orig -b mean_across_subj_ma+orig -expr '(a-b)' -prefix 1vs3
+3dcalc -a mean_across_subj_fa+orig -b mean_across_subj_na+orig -expr '(a-b)' -prefix 1vs5
+3dcalc -a mean_across_subj_ff+orig -b mean_across_subj_fa+orig -expr '(a-b)' -prefix 2vs1
+3dcalc -a mean_across_subj_ff+orig -b mean_across_subj_mf+orig -expr '(a-b)' -prefix 2vs4
+3dcalc -a mean_across_subj_ff+orig -b mean_across_subj_nf+orig -expr '(a-b)' -prefix 2vs6
+3dcalc -a mean_across_subj_ma+orig -b mean_across_subj_fa+orig -expr '(a-b)' -prefix 3vs1
+3dcalc -a mean_across_subj_ma+orig -b mean_across_subj_mf+orig -expr '(a-b)' -prefix 3vs4
+3dcalc -a mean_across_subj_ma+orig -b mean_across_subj_na+orig -expr '(a-b)' -prefix 3vs5
+3dcalc -a mean_across_subj_mf+orig -b mean_across_subj_ff+orig -expr '(a-b)' -prefix 4vs2
+3dcalc -a mean_across_subj_mf+orig -b mean_across_subj_ma+orig -expr '(a-b)' -prefix 4vs3
+3dcalc -a mean_across_subj_mf+orig -b mean_across_subj_nf+orig -expr '(a-b)' -prefix 4vs6
+3dcalc -a mean_across_subj_na+orig -b mean_across_subj_fa+orig -expr '(a-b)' -prefix 5vs1
+3dcalc -a mean_across_subj_na+orig -b mean_across_subj_ma+orig -expr '(a-b)' -prefix 5vs3
+3dcalc -a mean_across_subj_na+orig -b mean_across_subj_nf+orig -expr '(a-b)' -prefix 5vs6
+3dcalc -a mean_across_subj_nf+orig -b mean_across_subj_ff+orig -expr '(a-b)' -prefix 6vs2
+3dcalc -a mean_across_subj_nf+orig -b mean_across_subj_mf+orig -expr '(a-b)' -prefix 6vs4
+3dcalc -a mean_across_subj_nf+orig -b mean_across_subj_na+orig -expr '(a-b)' -prefix 6vs5

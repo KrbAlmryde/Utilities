@@ -1,0 +1,21 @@
+#!/bin/bash -
+
+# @(#) s2       Demonstrate column formatting.
+
+echo
+echo "(Versions displayed with local utility \"version\")"
+version >/dev/null 2>&1 && version =o $(_eat $0 $1) pr
+echo
+
+FILE=${1-data1}
+
+pr -a -t -s" " -2 $FILE
+
+exit 0
+
+
+
+
+
+
+

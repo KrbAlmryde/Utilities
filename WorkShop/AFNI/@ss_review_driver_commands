@@ -1,0 +1,26 @@
+tcsh -ef @ss_review_basic
+1dplot -wintitle "motion, outliers" -ynames Mot OFrac \
+       -sepscl -censor_RGB green -censor censor_TS004_combined_2.1D motion_TS004_enorm.1D outcount.rall.1D &
+1dplot -one -censor_RGB green -censor censor_TS004_combined_2.1D outcount.rall.1D "1D: 150@0.1" &
+1dplot -one -censor_RGB green -censor censor_TS004_combined_2.1D motion_TS004_enorm.1D "1D: 150@1" &
+afni anat_final.TS004+tlrc.HEAD pb02.TS004.r01.volreg+tlrc.HEAD &
+cat 3dDeconvolve.err
+1d_tool.py -show_cormat_warnings -infile X.xmat.1D
+1dplot -sepscl X.stim.xmat.1D &
+1dplot sum_ideal.1D &
+set pp = ( `3dBrickStat -slow -percentile 90 1 90 \
+            -mask full_mask.TS004+tlrc stats.TS004+tlrc"[0]"` )
+set thresh = $pp[2]
+echo -- thresholding F-stat at $thresh
+# locate peak coords of biggest cluster and jump there
+set maxcoords = ( `3dclust -1thresh $thresh -dxyz=1 1 2 \
+    stats.TS004+tlrc"[0]" | & awk '/^ / {print $14, $15, $16}' | head -n 1` )
+echo -- jumping to max coords: $maxcoords
+afni -com "OPEN_WINDOW A.axialimage"     \
+     -com "OPEN_WINDOW A.sagittalimage"  \
+     -com "SWITCH_UNDERLAY anat_final.TS004" \
+     -com "SWITCH_OVERLAY stats.TS004"   \
+     -com "SET_SUBBRICKS A 0 0 0"        \
+     -com "SET_THRESHNEW A $thresh"      \
+     -com "SET_DICOM_XYZ A $maxcoords"
+

@@ -1,0 +1,86 @@
+3dmerge -dxyz=1 -1clust_order 1 -2680 -1thresh 4.197 -prefix mean_memboth_fa_T_out mean_memboth_fa+tlrc'[1]'
+
+3dmerge -dxyz=1 -1clust_order 1 -2680 -1thresh 4.197 -prefix mean_memboth_fa_%_out mean_memboth_fa+tlrc'[0]'
+
+3dclust -dxyz=1 -1thresh 4.197 1 2680 mean_memboth_fa+tlrc > memboth_fa_out.txt 
+
+whereami -coord_file memboth_fa_out.txt'[1,2,3]' -tab | less > memboth_fa_coord.txt
+
+3dmerge -dxyz=1 -1clust_order 1 -2680 -1thresh 4.197 -prefix mean_memboth_ff_T_out mean_memboth_ff+tlrc'[1]'
+
+3dmerge -dxyz=1 -1clust_order 1 -2680 -1thresh 4.197 -prefix mean_memboth_ff_%_out mean_memboth_ff+tlrc'[0]'
+
+3dclust -dxyz=1 -1thresh 4.197 1 2680 mean_memboth_ff+tlrc > memboth_ff_out.txt 
+
+whereami -coord_file memboth_ff_out.txt'[1,2,3]' -tab | less > memboth_ff_coord.txt 
+
+3dmerge -dxyz=1 -1clust_order 1 -2680 -1thresh 4.197 -prefix mean_memboth_mf_T_out mean_memboth_mf+tlrc'[1]'
+
+3dmerge -dxyz=1 -1clust_order 1 -2680 -1thresh 4.197 -prefix mean_memboth_mf_%_out mean_memboth_mf+tlrc'[0]'
+
+3dclust -dxyz=1 -1thresh 4.197 1 2680 mean_memboth_mf+tlrc > memboth_mf_out.txt 
+
+3dmerge -dxyz=1 -1clust_order 1 -2680 -1thresh 4.197 -prefix mean_memboth_nf_T_out mean_memboth_nf+tlrc'[1]'
+
+3dmerge -dxyz=1 -1clust_order 1 -2680 -1thresh 4.197 -prefix mean_memboth_nf_%_out mean_memboth_nf+tlrc'[1]'
+
+3dclust -dxyz=1 -1thresh 4.197 1 2680 mean_memboth_nf+tlrc > memboth_nf_out.txt 
+
+whereami -coord_file memboth_nf_out.txt'[1,2,3]' -tab | less > memboth_nf_coord.txt 
+
+3dmerge -dxyz=1 -1clust_order 1 -2680 -1thresh 4.197 -prefix 1vs2_T_out 1vs2+tlrc'[1]'
+
+3dmerge -dxyz=1 -1clust_order 1 -2680 -1thresh 4.197 -prefix 1vs2_%_out 1vs2+tlrc'[0]'
+
+3dclust -dxyz=1 -1thresh 4.197 1 2680 1vs2+tlrc > 1vs2_out.txt 
+
+whereami -coord_file 1vs2_out.txt'[1,2,3]' -tab | less > 1vs2_coord.txt 
+
+3dmerge -dxyz=1 -1clust_order 1 -2680 -1thresh 4.197 -prefix 1vs3_T_out 1vs3+tlrc'[1]'
+
+3dmerge -dxyz=1 -1clust_order 1 -2680 -1thresh 4.197 -prefix 1vs3_%_out 1vs3+tlrc'[0]'
+
+3dclust -dxyz=1 -1thresh 4.197 1 2680 1vs3+tlrc > 1vs3_out.txt 
+
+whereami -coord_file 1vs3_out.txt'[1,2,3]' -tab | less > 1vs3_coord.txt 
+
+3dmerge -dxyz=1 -1clust_order 1 -2680 -1thresh 4.197 -prefix 1vs4_T_out 1vs4+tlrc'[1]'
+
+3dmerge -dxyz=1 -1clust_order 1 -2680 -1thresh 4.197 -prefix 1vs4_%_out 1vs4+tlrc'[0]'
+
+3dclust -dxyz=1 -1thresh 4.197 1 2680 1vs5+tlrc > 1vs4_out.txt 
+
+whereami -coord_file 1vs5_out.txt'[1,2,3]' -tab | less > 1vs4_coord.txt 
+
+3dmerge -dxyz=1 -1clust_order 1 -2680 -1thresh 4.197 -prefix 2vs3_T_out 2vs3+tlrc'[1]'
+
+3dmerge -dxyz=1 -1clust_order 1 -2680 -1thresh 4.197 -prefix 2vs3_%_out 2vs3+tlrc'[0]'
+
+3dclust -dxyz=1 -1thresh 4.197 1 2680 2vs3+tlrc > 2vs3_out.txt 
+
+whereami -coord_file 2vs3_out.txt'[1,2,3]' -tab | less > 2vs3_coord.txt 
+
+3dmerge -dxyz=1 -1clust_order 1 -2680 -1thresh 4.197 -prefix 2vs4_T_out 2vs4+tlrc'[1]'
+
+3dmerge -dxyz=1 -1clust_order 1 -2680 -1thresh 4.197 -prefix 2vs4_%_out 2vs4+tlrc'[0]'
+
+3dclust -dxyz=1 -1thresh 4.197 1 2680 2vs4+tlrc > 2vs4_out.txt 
+
+whereami -coord_file 2vs4_out.txt'[1,2,3]' -tab | less > 2vs4_coord.txt 
+
+3dmerge -dxyz=1 -1clust_order 1 -2680 -1thresh 4.197 -prefix 3vs4_T_out 3vs4+tlrc'[1]'
+
+3dmerge -dxyz=1 -1clust_order 1 -2680 -1thresh 4.197 -prefix 3vs4_%_out 3vs4+tlrc'[0]'
+
+3dclust -dxyz=1 -1thresh 4.197 1 2680 3vs4+tlrc > 3vs4_out.txt 
+
+whereami -coord_file 3vs4_out.txt'[1,2,3]' -tab | less > 3vs4_coord.txt 
+
+3dmerge -dxyz=1 -1clust_order 1 -2680 -1thresh 4.197 -prefix 1vs234_T_out 1vs234+tlrc'[1]'
+
+3dmerge -dxyz=1 -1clust_order 1 -2680 -1thresh 4.197 -prefix 1vs234_%_out 1vs234+tlrc'[0]'
+
+3dclust -dxyz=1 -1thresh 4.197 1 2680 1vs234+tlrc > 1vs234_out.txt 
+
+whereami -coord_file 1vs234_out.txt'[1,2,3]' -tab | less > 1vs234_coord.txt 
+

@@ -1,0 +1,26 @@
+#This list specifies variables specifc to the ATTNMEM study
+# Sourcing the exp_profile.sh so our variables get passed to the shell properly
+. $DRIVR/exp_profile.sh
+
+echo "attnmem_profile.sh has been sourced"
+
+# Paths to be specified in BLK scripts
+subj_dir=${ATTNMEM}/${subj}
+func=${ATTNMEM}/${subj}/${run}
+anat=${subj_dir}/struct/Tal
+
+
+# Names for files
+name=${func}/${subj}_${run}
+spgr=${anat}/${subj}_spgr
+fse=${anat}/${subj}_fse
+
+# Preprocessing parameters
+exp=attnmem
+trm=2300
+tr=2.3
+te1=235
+te2=222
+slice=26
+#base=`base_func`
+

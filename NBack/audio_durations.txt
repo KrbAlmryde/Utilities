@@ -1,0 +1,74 @@
+** 3-Back
+
+basket_baseball_toiletpaper.wav = 4150.56689342
+bear_snail_bowl.wav             = 3090.430839
+bike_train_car.wav              = 2782.31292517
+boat_lime_corn.wav              = 3468.63945578
+bus_tomato_rockinghorse.wav     = 4127.52834467
+fan_broccoli_toaster.wav        = 3284.1723356
+football_hose_tv.wav            = 3222.72108844
+glove_skateboard_belt.wav       = 4119.36507937
+lock_pan_snowflake.wav          = 3060.38548753
+moon_fish_ladybug.wav           = 3208.75283447
+paperclip_bathtub_tire.wav      = 3924.1723356
+purse_box_iceskate.wav          = 3569.569161
+robot_backpack_swing.wav        = 3287.80045351
+spider_torch_cupcake.wav        = 3586.75736961
+
+
+** 1-Back
+
+airplane.wav  = 882.358276644
+ball.wav      = 539.863945578
+blocks.wav    = 696.598639456
+boots.wav     = 621.133786848
+bug.wav       = 353.378684807
+bus.wav       = 615.328798186
+bus2.wav      = 551.473922902
+butterfly.wav = 661.768707483
+button.wav    = 452.789115646
+carrots.wav   = 783.673469388
+cd.wav        = 777.868480726
+chair.wav     = 632.743764172
+couch.wav     = 708.20861678
+frog.wav      = 806.893424036
+hair.wav      = 725.623582766
+highchair.wav = 835.918367347
+house.wav     = 632.743764172
+keys.wav      = 888.163265306
+leaf.wav      = 626.93877551
+orange.wav    = 936.893424036
+pumpkin.wav   = 1183.71882086
+ring.wav      = 754.648526077
+spoon.wav     = 1178.41269841
+stroller.wav  = 992.653061224
+truck.wav     = 563.083900227
+
+** 2-Back
+
+bottle_deer.wav           = 1837.27891156
+brush_fish.wav            = 1509.29705215
+camera_baseball.wav       = 1567.34693878
+crab_camera.wav           = 1718.27664399
+crab_cookie.wav           = 1358.36734694
+crib_bathtub.wav          = 1689.25170068
+cup_train.wav             = 1480.27210884
+dress_cat.wav             = 1401.9047619
+duck_spring.wav           = 1419.31972789
+foot_drum.wav             = 1268.39002268
+gloves_sock.wav           = 1369.97732426
+jacket_lollipop.wav       = 1973.69614512
+keyboard_spaceshuttle.wav = 1695.05668934
+lizard_clock.wav          = 1709.569161
+lock_motorcycle.wav       = 1857.59637188
+marshmellow_bucket.wav    = 1645.71428571
+oven_pig.wav              = 1416.41723356
+penguin_horse.wav         = 1877.9138322
+rock_sign.wav             = 1712.47165533
+rope_pool.wav             = 1274.19501134
+shell_tire.wav            = 1547.02947846
+snail_garbagebag.wav      = 1779.22902494
+snail_whistle.wav         = 1645.71428571
+spider_garlic.wav         = 1761.81405896
+star_hand.wav             = 1671.83673469
+swing_golfball.wav        = 1904.03628118

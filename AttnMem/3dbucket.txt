@@ -1,0 +1,38 @@
+3dbucket -prefix mean_FA_Tvalue -fbuc mean_memboth_fa+tlrc'[1]'
+3dbucket -prefix mean_FA_% -fbuc mean_memboth_fa+tlrc'[0]'
+
+3dbucket -prefix mean_Ff_Tvalue -fbuc mean_memboth_ff+tlrc'[1]'
+3dbucket -prefix mean_Ff_% -fbuc mean_memboth_ff+tlrc'[0]'
+
+3dbucket -prefix mean_Mf_Tvalue -fbuc mean_memboth_mf+tlrc'[1]'
+3dbucket -prefix mean_Mf_% -fbuc mean_memboth_mf+tlrc'[0]'
+
+3dbucket -prefix mean_Nf_Tvalue -fbuc mean_memboth_nf+tlrc'[1]'
+3dbucket -prefix mean_Nf_% -fbuc mean_memboth_nf+tlrc'[0]'
+
+3dbucket -prefix 1vs2_Tvalue -fbuc 1vs2+tlrc'[1]'
+3dbucket -prefix 1vs2_% -fbuc 1vs2+tlrc'[0]'
+
+3dbucket -prefix 1vs3_Tvalue -fbuc 1vs3+tlrc'[1]'
+3dbucket -prefix 1vs3_% -fbuc 1vs3+tlrc'[0]'
+
+3dbucket -prefix 1vs4_Tvalue -fbuc 1vs4+tlrc'[1]'
+3dbucket -prefix 1vs4_% -fbuc 1vs4+tlrc'[0]'
+
+3dbucket -prefix 2vs3_Tvalue -fbuc 2vs3+tlrc'[1]'
+3dbucket -prefix 2vs3_% -fbuc 2vs3+tlrc'[0]'
+
+3dbucket -prefix 2vs4_Tvalue -fbuc 2vs4+tlrc'[1]'
+3dbucket -prefix 2vs4_% -fbuc 2vs4+tlrc'[0]'
+
+3dbucket -prefix 3vs4_Tvalue -fbuc 3vs4+tlrc'[1]'
+3dbucket -prefix 3vs4_% -fbuc 3vs4+tlrc'[0]'
+
+3dbucket -prefix 1vs234_Tvalue -fbuc 1vs234+tlrc'[1]'
+3dbucket -prefix 1vs234_% -fbuc 1vs234+tlrc'[0]'
+
+3dbucket -prefix 4vs123_Tvalue -fbuc 4vs123+tlrc'[1]'
+3dbucket -prefix 4vs123_% -fbuc 4vs123+tlrc'[0]'
+
+3dbucket -prefix 12vs34_Tvalue -fbuc 12vs34+tlrc'[1]'
+3dbucket -prefix 12vs34_% -fbuc 12vs34+tlrc'[0]'

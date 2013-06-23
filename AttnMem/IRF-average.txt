@@ -1,0 +1,9 @@
+3dcalc -prefix fa_irf_mean -a s1_SPMG2_fa-norm-irf+tlrc -b  s5_SPMG2_fa-norm-irf+tlrc -c s7_SPMG2_fa-norm-irf+tlrc -d  s9_SPMG2_fa-norm-irf+tlrc -e s10_SPMG2_fa-norm-irf+tlrc -f s11_SPMG2_fa-norm-irf+tlrc -g s12_SPMG2_fa-norm-irf+tlrc  -h s14_SPMG2_fa-norm-irf+tlrc -i s16_SPMG2_fa-norm-irf+tlrc -j s17_SPMG2_fa-norm-irf+tlrc -expr '(a+b+c+d+e+f+g+h+i+j)/10'
+3dcalc -prefix ff_irf_mean -a s1_SPMG2_ff-norm-irf+tlrc -b  s5_SPMG2_ff-norm-irf+tlrc -c s7_SPMG2_ff-norm-irf+tlrc -d  s9_SPMG2_ff-norm-irf+tlrc -e s10_SPMG2_ff-norm-irf+tlrc -f s11_SPMG2_ff-norm-irf+tlrc -g s12_SPMG2_ff-norm-irf+tlrc  -h s14_SPMG2_ff-norm-irf+tlrc -i s16_SPMG2_ff-norm-irf+tlrc -j s17_SPMG2_ff-norm-irf+tlrc -expr '(a+b+c+d+e+f+g+h+i+j)/10'
+3dcalc -prefix mf_irf_mean -a s1_SPMG2_mf-norm-irf+tlrc -b  s5_SPMG2_mf-norm-irf+tlrc -c s7_SPMG2_mf-norm-irf+tlrc -d  s9_SPMG2_mf-norm-irf+tlrc -e s10_SPMG2_mf-norm-irf+tlrc -f s11_SPMG2_mf-norm-irf+tlrc -g s12_SPMG2_mf-norm-irf+tlrc  -h s14_SPMG2_mf-norm-irf+tlrc -i s16_SPMG2_mf-norm-irf+tlrc -j s17_SPMG2_mf-norm-irf+tlrc -expr '(a+b+c+d+e+f+g+h+i+j)/10'
+3dcalc -prefix nf_irf_mean -a s1_SPMG2_nf-norm-irf+tlrc -b  s5_SPMG2_nf-norm-irf+tlrc -c s7_SPMG2_nf-norm-irf+tlrc -d  s9_SPMG2_nf-norm-irf+tlrc -e s10_SPMG2_nf-norm-irf+tlrc -f s11_SPMG2_nf-norm-irf+tlrc -g s12_SPMG2_nf-norm-irf+tlrc  -h s14_SPMG2_nf-norm-irf+tlrc -i s16_SPMG2_nf-norm-irf+tlrc -j s17_SPMG2_nf-norm-irf+tlrc -expr '(a+b+c+d+e+f+g+h+i+j)/10'
+
+
+s14_SPMG2_nf-norm-irf+orig.HEAD
+s14_SPMG2_mf-norm-irf+orig.BRIK
+s14_SPMG2_nf-norm-irf+tlrc

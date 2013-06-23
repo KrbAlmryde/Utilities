@@ -1,0 +1,29 @@
+chmod ugo+x Mem1script.txt
+./Mem1script.txt s1 mem1 37
+cd ../s5
+chmod ugo+x Mem1script.txt
+./Mem1script.txt s5 mem1 26
+cd ../s7
+chmod ugo+x Mem1script.txt
+./Mem1script.txt s7 mem1 40
+cd ../s9
+chmod ugo+x Mem1script.txt
+./Mem1script.txt s9 mem1 10
+cd ../s10
+chmod ugo+x Mem1script.txt
+./Mem1script.txt s10 mem1 43
+cd ../s11
+chmod ugo+x Mem1script.txt
+./Mem1script.txt s11 mem1 16
+cd ../s12
+chmod ugo+x Mem1script.txt
+./Mem1script.txt s12 mem1 35
+cd ../s14
+chmod ugo+x Mem1script.txt
+./Mem1script.txt s14 mem1 67
+cd ../s16
+chmod ugo+x Mem1script.txt
+./Mem1script.txt s16 mem1 28
+cd ../s17
+chmod ugo+x Mem1script.txt
+./Mem1script.txt s17 mem1 69

@@ -1,0 +1,15 @@
+Both the 3dBrickStat and 3dROIstats commands can give you the number of voxels.
+
+3dBrickStat -count -non-zero dset+orig
+or
+3dBrickStat -count -mask mask+orig dset+orig
+
+Otherwise, 3dROIstats has an nzvoxels option for multiple ROIs to count the number of non-zero voxels for each mask value.
+
+3dROIstats -nzvoxels -mask mask+orig dset+orig
+
+You can see more about in the help for each command and in these threads:
+http://afni.nimh.nih.gov/afni/community/board/read.php?f=1&i=25146&t=25142#reply_25146
+http://afni.nimh.nih.gov/afni/community/board/read.php?f=1&i=25146&t=25142#reply_25146
+
+Of course the number of voxels will vary with voxel size/resolution and subject for any anatomical ROI.

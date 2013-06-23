@@ -1,0 +1,56 @@
+3dmerge -dxyz=1 -1clust 1 -1894 -1thresh 2.643 -prefix FA_Merge2 mean_FA_Tvalue+tlrc
+
+3dcalc -prefix FA_Hippo -a TT_mask_template+tlrc -b FA_Merge2+tlrc -expr '(a*b)'
+
+3dmerge -dxyz=1 -1clust 1 -2065 -1thresh 3.01 -prefix FF_Merge2 mean_Ff_Tvalue+tlrc
+
+3dcalc -prefix FF_Hippo -a TT_mask_template+tlrc -b FF_Merge2+tlrc -expr '(a*b)'
+
+3dmerge -dxyz=1 -1clust 1 -2065 -1thresh 3.01 -prefix MF_Merge2 mean_Mf_Tvalue+tlrc
+
+3dcalc -prefix MF_Hippo -a TT_mask_template+tlrc -b MF_Merge2+tlrc -expr '(a*b)'
+
+3dmerge -dxyz=1 -1clust 1 -2065 -1thresh 3.01 -prefix NF_Merge2 mean_Nf_Tvalue+tlrc
+
+
+
+3dcalc -prefix FA_L_Hippocampus3 -a L_Hippocampus+tlrc -b FA_Merge2+tlrc -expr '(a*b)'
+3dcalc -prefix FA_R_Hippocampus3 -a R_Hippocampus+tlrc -b FA_Merge2+tlrc -expr '(a*b)'
+3dcalc -prefix FA_L_Parahippocampus3 -a L_Parahippocampus+tlrc -b FA_Merge2+tlrc -expr '(a*b)'
+3dcalc -prefix FA_R_Parahippocampus3 -a R_Parahippocampus+tlrc -b FA_Merge2+tlrc -expr '(a*b)'
+3dcalc -prefix FF_L_Hippocampus3 -a L_Hippocampus+tlrc -b FF_Merge2+tlrc -expr '(a*b)'
+3dcalc -prefix FF_R_Hippocampus3 -a R_Hippocampus+tlrc -b FF_Merge2+tlrc -expr '(a*b)'
+3dcalc -prefix FF_L_Parahippocampus3 -a L_Parahippocampus+tlrc -b FF_Merge2+tlrc -expr '(a*b)'
+3dcalc -prefix FF_R_Parahippocampus3 -a R_Parahippocampus+tlrc -b FF_Merge2+tlrc -expr '(a*b)'
+3dcalc -prefix MF_L_Hippocampus3 -a L_Hippocampus+tlrc -b MF_Merge2+tlrc -expr '(a*b)'
+3dcalc -prefix MF_R_Hippocampus3 -a R_Hippocampus+tlrc -b MF_Merge2+tlrc -expr '(a*b)'
+3dcalc -prefix MF_L_Parahippocampus3 -a L_Parahippocampus+tlrc -b MF_Merge2+tlrc -expr '(a*b)'
+3dcalc -prefix MF_R_Parahippocampus3 -a R_Parahippocampus+tlrc -b MF_Merge2+tlrc -expr '(a*b)'
+3dcalc -prefix NF_L_Hippocampus3 -a L_Hippocampus+tlrc -b NF_Merge2+tlrc -expr '(a*b)'
+3dcalc -prefix NF_R_Hippocampus3 -a R_Hippocampus+tlrc -b NF_Merge2+tlrc -expr '(a*b)'
+3dcalc -prefix NF_L_Parahippocampus3 -a L_Parahippocampus+tlrc -b NF_Merge2+tlrc -expr '(a*b)'
+3dcalc -prefix NF_R_Parahippocampus3 -a R_Parahippocampus+tlrc -b NF_Merge2+tlrc -expr '(a*b)'
+
+
+3dcalc -prefix FA-Amydala -a Amydala+tlrc -b FA_Merge2+tlrc -expr '(a*b)'
+3dcalc -prefix FA-Amydala -a Amydala+tlrc -b FA_Merge2+tlrc -expr '(a*b)'
+3dcalc -prefix FF-Amydala -a Amydala+tlrc -b FF_Merge2+tlrc -expr '(a*b)'
+3dcalc -prefix FF-Amydala -a Amydala+tlrc -b FF_Merge2+tlrc -expr '(a*b)'
+3dcalc -prefix MF-Amydala -a Amydala+tlrc -b MF_Merge2+tlrc -expr '(a*b)'
+3dcalc -prefix MF-Amydala -a Amydala+tlrc -b MF_Merge2+tlrc -expr '(a*b)'
+3dcalc -prefix NF-Amydala -a Amydala+tlrc -b NF_Merge2+tlrc -expr '(a*b)'
+3dcalc -prefix NF-Amydala -a Amydala+tlrc -b NF_Merge2+tlrc -expr '(a*b)'
+
+
+
+
+3dMerge -dxyz=1 -1clust 1 -3000 -1thresh 1.863 -prefix FA_Merge% mean_FA_%+tlrc
+3dMerge -dxyz=1 -1clust 1 -3000 -1thresh 1.738 -prefix FF_Merge% mean_Ff_%+tlrc
+3dMerge -dxyz=1 -1clust 1 -3000 -1thresh 2.522 -prefix MF_Merge% mean_Mf_%+tlrc
+3dMerge -dxyz=1 -1clust 1 -3000 -1thresh 1.760 -prefix NF_Merge% mean_Nf_%+tlrc
+3dcalc -prefix FA_Clean_% -a Full_mask_template+tlrc -b FA_Merge%+tlrc -expr '(a*b)'
+3dcalc -prefix FF_Clean_% -a Full_mask_template+tlrc -b FF_Merge%+tlrc -expr '(a*b)'
+3dcalc -prefix MF_Clean_% -a Full_mask_template+tlrc -b MF_Merge%+tlrc -expr '(a*b)'
+3dcalc -prefix NF_Clean_% -a Full_mask_template+tlrc -b NF_Merge%+tlrc -expr '(a*b)'
+-expr '(a*b)'
+3dcalc -prefix NF_Hippo -a TT_mask_template+tlrc -b NF_Merge2+tlrc -expr '(a*b)'

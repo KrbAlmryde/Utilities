@@ -1,0 +1,108 @@
+#!/usr/bin/env tcsh
+echo "Follow this command line format: ./AnovaGam"
+# --------------------------------------------------
+# Script Setup
+set images_home = /Volumes/Data/MRI-AttnMem/Anova
+#set type = Group/Female/Male
+
+foreach gam (1 2 3 4 5 6 7)
+
+echo "Setting Directory Paths"
+
+# assign output directory name
+set results_dir = $images_home/Anova_GAM${gam}_results
+
+# verify that the results directory does not yet exist
+# if ( -d $results_dir ) then 
+#     echo output dir "Anova_GAM${gam}_results" already exists
+   
+#  endif
+
+echo "Making $results_dir directory"
+# create results and group analysis directory
+mkdir $results_dir
+
+echo "Enter results directory"
+#change directory to results
+cd $results_dir
+
+echo "Let the ANOVA begin!"
+echo "alevels = conditions; blevels = subjects"
+# --------------------------------------------------
+3dANOVA2 -type 3 -alevels 4 -blevels 14	\
+-dset 1 1 $images_home/Data/s1_GAM${gam}_ma_peak_irf+tlrc	\
+-dset 2 1 $images_home/Data/s1_GAM${gam}_ff_peak_irf+tlrc	\
+-dset 3 1 $images_home/Data/s1_GAM${gam}_mf_peak_irf+tlrc	\
+-dset 4 1 $images_home/Data/s1_GAM${gam}_nf_peak_irf+tlrc	\
+-dset 1 2 $images_home/Data/s5_GAM${gam}_ma_peak_irf+tlrc	\
+-dset 2 2 $images_home/Data/s5_GAM${gam}_ma_peak_irf+tlrc	\
+-dset 3 2 $images_home/Data/s5_GAM${gam}_ma_peak_irf+tlrc	\
+-dset 4 2 $images_home/Data/s5_GAM${gam}_ma_peak_irf+tlrc	\
+-dset 1 3 $images_home/Data/s7_GAM${gam}_ma_peak_irf+tlrc	\
+-dset 2 3 $images_home/Data/s7_GAM${gam}_ff_peak_irf+tlrc	\
+-dset 3 3 $images_home/Data/s7_GAM${gam}_mf_peak_irf+tlrc	\
+-dset 4 3 $images_home/Data/s7_GAM${gam}_nf_peak_irf+tlrc	\
+-dset 1 4 $images_home/Data/s9_GAM${gam}_ma_peak_irf+tlrc	\
+-dset 2 4 $images_home/Data/s9_GAM${gam}_ff_peak_irf+tlrc	\
+-dset 3 4 $images_home/Data/s9_GAM${gam}_mf_peak_irf+tlrc	\
+-dset 4 4 $images_home/Data/s9_GAM${gam}_nf_peak_irf+tlrc	\
+-dset 1 5 $images_home/Data/s10_GAM${gam}_ma_peak_irf+tlrc	\
+-dset 2 5 $images_home/Data/s10_GAM${gam}_ff_peak_irf+tlrc	\
+-dset 3 5 $images_home/Data/s10_GAM${gam}_mf_peak_irf+tlrc	\
+-dset 4 5 $images_home/Data/s10_GAM${gam}_nf_peak_irf+tlrc	\
+-dset 1 6 $images_home/Data/s11_GAM${gam}_ma_peak_irf+tlrc	\
+-dset 2 6 $images_home/Data/s11_GAM${gam}_ff_peak_irf+tlrc	\
+-dset 3 6 $images_home/Data/s11_GAM${gam}_mf_peak_irf+tlrc	\
+-dset 4 6 $images_home/Data/s11_GAM${gam}_nf_peak_irf+tlrc	\
+-dset 1 7 $images_home/Data/s12_GAM${gam}_ma_peak_irf+tlrc	\
+-dset 2 7 $images_home/Data/s12_GAM${gam}_ff_peak_irf+tlrc	\
+-dset 3 7 $images_home/Data/s12_GAM${gam}_mf_peak_irf+tlrc	\
+-dset 4 7 $images_home/Data/s12_GAM${gam}_nf_peak_irf+tlrc	\
+-dset 1 8 $images_home/Data/s14_GAM${gam}_ma_peak_irf+tlrc	\
+-dset 2 8 $images_home/Data/s14_GAM${gam}_ff_peak_irf+tlrc	\
+-dset 3 8 $images_home/Data/s14_GAM${gam}_mf_peak_irf+tlrc	\
+-dset 4 8 $images_home/Data/s14_GAM${gam}_nf_peak_irf+tlrc	\
+-dset 1 9 $images_home/Data/s16_GAM${gam}_ma_peak_irf+tlrc	\
+-dset 2 9 $images_home/Data/s16_GAM${gam}_ff_peak_irf+tlrc	\
+-dset 3 9 $images_home/Data/s16_GAM${gam}_mf_peak_irf+tlrc	\
+-dset 4 9 $images_home/Data/s16_GAM${gam}_nf_peak_irf+tlrc	\
+-dset 1 10 $images_home/Data/s17_GAM${gam}_ma_peak_irf+tlrc	\
+-dset 2 10 $images_home/Data/s17_GAM${gam}_ff_peak_irf+tlrc	\
+-dset 3 10 $images_home/Data/s17_GAM${gam}_mf_peak_irf+tlrc	\
+-dset 4 10 $images_home/Data/s17_GAM${gam}_nf_peak_irf+tlrc	\
+-dset 1 11 $images_home/Data/s6_GAM${gam}_ma_peak_irf+tlrc	\
+-dset 2 11 $images_home/Data/s6_GAM${gam}_ff_peak_irf+tlrc	\
+-dset 3 11 $images_home/Data/s6_GAM${gam}_mf_peak_irf+tlrc	\
+-dset 4 11 $images_home/Data/s6_GAM${gam}_nf_peak_irf+tlrc	\
+-dset 1 12 $images_home/Data/s8_GAM${gam}_ma_peak_irf+tlrc	\
+-dset 2 12 $images_home/Data/s8_GAM${gam}_ff_peak_irf+tlrc	\
+-dset 3 12 $images_home/Data/s8_GAM${gam}_mf_peak_irf+tlrc	\
+-dset 4 12 $images_home/Data/s8_GAM${gam}_nf_peak_irf+tlrc	\
+-dset 1 13 $images_home/Data/s13_GAM${gam}_ma_peak_irf+tlrc	\
+-dset 2 13 $images_home/Data/s13_GAM${gam}_ff_peak_irf+tlrc	\
+-dset 3 13 $images_home/Data/s13_GAM${gam}_mf_peak_irf+tlrc	\
+-dset 4 13 $images_home/Data/s13_GAM${gam}_nf_peak_irf+tlrc	\
+-dset 1 14 $images_home/Data/s15_GAM${gam}_ma_peak_irf+tlrc	\
+-dset 2 14 $images_home/Data/s15_GAM${gam}_ff_peak_irf+tlrc	\
+-dset 3 14 $images_home/Data/s15_GAM${gam}_mf_peak_irf+tlrc	\
+-dset 4 14 $images_home/Data/s15_GAM${gam}_nf_peak_irf+tlrc	\
+-voxel 2000	\
+-fa Fstat_all	\
+-amean 1 mean_GAM${gam}_ma	\
+-amean 2 mean_GAM${gam}_ff	\
+-amean 3 mean_GAM${gam}_mf	\
+-amean 4 mean_GAM${gam}_nf	\
+-acontr 0 1 -1 0 contr_GAM${gam}_FvM	\
+-acontr 0 1 0 -1 contr_GAM${gam}_FvN	\
+-acontr 0 2 -1 -1 contr_GAM${gam}_FvMN	\
+-acontr 0 -1 1 0 contr_GAM${gam}_MvF	\
+-acontr 0 0 1 -1 contr_GAM${gam}_MvN	\
+-acontr 0 -1 2 -1 contr_GAM${gam}_MvFN	\
+-acontr 0 -1 0 1 contr_GAM${gam}_NvF	\
+-acontr 0 0 -1 1 contr_GAM${gam}_NvM	\
+-acontr 0 -1 -1 2 contr_GAM${gam}_NvFM	\
+-acontr 0 1 0 0 base_GAM${gam}_ff	\
+-acontr 0 0 1 0 base_GAM${gam}_mf	\
+-acontr 0 0 0 1 base_GAM${gam}_nf	\
+-fa Fstat_mean_GAM${gam}_peak_irf
+end

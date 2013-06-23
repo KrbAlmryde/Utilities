@@ -1,0 +1,40 @@
+3dclust -1Dformat -1noneg -1thresh 2.650 1 1321 FA_GAM2+tlrc > fa_g2.1D
+whereami -coord_file fa_g2.1D'[1,2,3]' -tab -atlas TT_Daemon less > fa_g2_coord.txt
+3dclust -1Dformat -1noneg -1thresh 2.650 1 1321 FA_GAM3+tlrc > fa_g3.1D
+whereami -coord_file fa_g3.1D'[1,2,3]' -tab -atlas TT_Daemon less > fa_g3_coord.txt
+3dclust -1Dformat -1noneg -1thresh 2.650 1 1321 FA_GAM4+tlrc > fa_g4.1D
+whereami -coord_file fa_g4.1D'[1,2,3]' -tab -atlas TT_Daemon less > fa_g4_coord.txt
+3dclust -1Dformat -1noneg -1thresh 2.650 1 1321 FA_GAM5+tlrc > fa_g5.1D
+whereami -coord_file fa_g5.1D'[1,2,3]' -tab -atlas TT_Daemon less > fa_g5_coord.txt
+3dclust -1Dformat -1noneg -1thresh 2.650 1 1321 FA_GAM6+tlrc > fa_g6.1D
+whereami -coord_file fa_g6.1D'[1,2,3]' -tab -atlas TT_Daemon less > fa_g6_coord.txt
+3dclust -1Dformat -1noneg -1thresh 2.160 1 1123 FF_GAM2+tlrc > ff_g2.1D
+whereami -coord_file ff_g2.1D'[1,2,3]' -tab -atlas TT_Daemon less > ff_g2_coord.txt
+3dclust -1Dformat -1noneg -1thresh 2.160 1 1123 FF_GAM3+tlrc > ff_g3.1D
+whereami -coord_file ff_g3.1D'[1,2,3]' -tab -atlas TT_Daemon less > ff_g3_coord.txt
+3dclust -1Dformat -1noneg -1thresh 2.160 1 1123 FF_GAM4+tlrc > ff_g4.1D
+whereami -coord_file ff_g4.1D'[1,2,3]' -tab -atlas TT_Daemon less > ff_g4_coord.txt
+3dclust -1Dformat -1noneg -1thresh 2.160 1 1123 FF_GAM5+tlrc > ff_g5.1D
+whereami -coord_file ff_g5.1D'[1,2,3]' -tab -atlas TT_Daemon less > ff_g5_coord.txt
+3dclust -1Dformat -1noneg -1thresh 2.160 1 1123 FF_GAM6+tlrc > ff_g6.1D
+whereami -coord_file ff_g6.1D'[1,2,3]' -tab -atlas TT_Daemon less > ff_g6_coord.txt
+3dclust -1Dformat -1noneg -1thresh 2.436 1 1211 MF_GAM2+tlrc > mf_g2.1D
+whereami -coord_file mf_g2.1D'[1,2,3]' -tab -atlas TT_Daemon less > mf_g2_coord.txt
+3dclust -1Dformat -1noneg -1thresh 2.436 1 1211 MF_GAM3+tlrc > mf_g3.1D
+whereami -coord_file mf_g3.1D'[1,2,3]' -tab -atlas TT_Daemon less > mf_g3_coord.txt
+3dclust -1Dformat -1noneg -1thresh 2.436 1 1211 MF_GAM4+tlrc > mf_g4.1D
+whereami -coord_file mf_g4.1D'[1,2,3]' -tab -atlas TT_Daemon less > mf_g4_coord.txt
+3dclust -1Dformat -1noneg -1thresh 2.436 1 1211 MF_GAM5+tlrc > mf_g5.1D
+whereami -coord_file mf_g5.1D'[1,2,3]' -tab -atlas TT_Daemon less > mf_g5_coord.txt
+3dclust -1Dformat -1noneg -1thresh 2.436 1 1211 MF_GAM6+tlrc > mf_g6.1D
+whereami -coord_file mf_g6.1D'[1,2,3]' -tab -atlas TT_Daemon less > mf_g6_coord.txt
+whereami -coord_file nf_g2.1D'[1,2,3]' -tab -atlas TT_Daemon less > nf_g2_coord.txt
+3dclust -1Dformat -1noneg -1thresh 3.375 1 1211 NF_GAM3+tlrc > nf_g3.1D
+whereami -coord_file nf_g3.1D'[1,2,3]' -tab -atlas TT_Daemon less > nf_g3_coord.txt
+3dclust -1Dformat -1noneg -1thresh 3.375 1 1211 NF_GAM4+tlrc > nf_g4.1D
+whereami -coord_file nf_g4.1D'[1,2,3]' -tab -atlas TT_Daemon less > nf_g4_coord.txt
+3dclust -1Dformat -1noneg -1thresh 3.375 1 1211 NF_GAM5+tlrc > nf_g5.1D
+whereami -coord_file nf_g5.1D'[1,2,3]' -tab -atlas TT_Daemon less > nf_g5_coord.txt
+3dclust -1Dformat -1noneg -1thresh 3.375 1 1211 NF_GAM6+tlrc > nf_g6.1D
+whereami -coord_file nf_g6.1D'[1,2,3]' -tab -atlas TT_Daemon less > nf_g6_coord.txt
+

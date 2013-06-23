@@ -1,0 +1,55 @@
+Hi,
+
+I showed you both rcs, and promised to provide more detail.	Here it is.
+
+Here are the notes I referred to but had largely forgotten.
+Note, for the Admin commands, there really are dashes without spaces there...weird but true.
+
+We have all inherited these two aliases from my husband:
+alias rd				'rcsdiff \!* |& less'
+alias rl				'rlog \!* |& less'
+They are in your .cshrc, but they won't work on other people's machines.
+
+In the examples below, I bold the parts you actually type.
+>> is the weird prompt rcs gives you when it wants you to enter a description of the file.
+
+You can actually go and look at the file in the RCS directory (thanks for trying this Lesley)...and it is just a text file you can display....
+It has your checkin messages version numbers etc.
+
+rcsdiff (alias rd) is a little weird to use as it shows you for each line in the file whether it is in the new version or old version using < and >.
+
+There are some tools built into Textwrangler for doing a "diff" operation on a text file (Search->Find Differences)...
+same idea as rcsdiff, but you need two complete independent files to do it.
+
+RCS
+RCS only works on a single directory at a time (and not subdirectories)
+As a rule: diff old new
+mkdir RCS
+
+>ci -l .cshrc
+>>add a log message,
+>>as many lines as you want.
+>>When finished, create a new line with a single . on it.
+>>.
+
+>ci -l f* (check in all files starting with f)
+ctrl d or single . to finish an entry.
+
+>rcs -kb -i wmh3 (checkin a binary file so it is recorded as binary and won't get broken)
+rcsdiff (rd alias)
+rlog (rl alias)
+
+>rcsdiff .cshrc (shows the difference between the current one and the one last checked in.)
+< to create the current file, throw this out
+> and put this in
+
+>rcsdiff -r1.1 .cshrc	(different possible comparisons)
+>rcsdiff -r1.1 -r1.2
+>rd * (useful for seeing what things in the directory are actually in RCS)
+>rlog .cshrc (shows your log messages)
+>co -l .cshrc (checks out the most recent version to replace the current one.
+> rcs -l .cshrc (will lock a file that is inexplicably unlocked)
+
+Admin
+>rcs -t-'blah blah' .cshrc change description
+>rcs -m1.1:'blah blah' .cshrc change log entry for version 1

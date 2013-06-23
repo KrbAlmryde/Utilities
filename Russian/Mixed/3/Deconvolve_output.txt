@@ -1,0 +1,23 @@
+++ waveform setup: WAV(dur=0,delay=2,rise=4,fall=6,undershoot=0.2,restore=2)
+++ using TR=2 seconds for -stim_times and -nodata
+++ Input polort=4; Longest run=480.0 s; Recommended minimum polort=4 ++ OK ++
+++ Number of time points: 240 (no censoring)
+ + Number of parameters:  9 [5 baseline ; 4 signal]
+++ ----- Signal+Baseline matrix condition [X] (240x9):  1.84082  ++ VERY GOOD ++
+++ ----- Signal-only matrix condition [X] (240x4):  1  ++ VERY GOOD ++
+++ ----- Baseline-only matrix condition [X] (240x5):  1.01392  ++ VERY GOOD ++
+++ ----- polort-only matrix condition [X] (240x5):  1.01392  ++ VERY GOOD ++
+++ Wrote matrix values to file rus2_XtXinv.xmat.1D
+++ +++++ Matrix inverse average error = 5.50968e-16  ++ VERY GOOD ++
+
+Stimulus: sF1
+  h[ 0] norm. std. dev. =   0.1007
+
+Stimulus: sF2
+  h[ 0] norm. std. dev. =   0.1036
+
+Stimulus: sM1
+  h[ 0] norm. std. dev. =   0.1059
+
+Stimulus: sM2
+  h[ 0] norm. std. dev. =   0.1056

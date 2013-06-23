@@ -1,0 +1,26 @@
+#!/usr/bin/env tcsh
+# execute via : tcsh -x S#-run-script |& tee output.S#-run-script
+# --------------------------------------------------
+# script setup
+echo "./ContrMasking"
+
+set images_home = /Volumes/Data/MRI-AttnMem/Anova
+echo "Assigning Variables"
+
+foreach gam (1 2 3 4 5 6 7)
+foreach vari (FvM FvN MvF MvN NvF NvM)
+foreach mask (AI CAU CER CIN IFG IFG2 IFG3 MFG MFG2 MTG SFG SMG SOG STG THA)
+set results_dir = $images_home/Contrasts/$vari/roi
+# --------------------------------------------------
+# script setup
+3dcalc -a Masks/${mask}+tlrc -b Contrasts/$vari/contr_GAM${gam}_${vari}_0.05+tlrc -expr '(a*b)' -prefix $results_dir/${mask}/${mask}_GAM${gam}_${vari}+tlrc
+# --------------------------------------------------
+# script setup
+3dclust 1 10 $results_dir/${mask}/${mask}_GAM${gam}_${vari}+tlrc'[0]' > $results_dir/${mask}/${mask}_GAM${gam}_${vari}.txt
+# --------------------------------------------------
+# script setup
+whereami -tab -atlas TT_Daemon -coord_file $results_dir/${mask}/${mask}_GAM${gam}_${vari}.txt'[13,14,15]' > $results_dir/${mask}/${mask}_GAM${gam}_whereami_${vari}.txt
+# --------------------------------------------------
+end
+end
+end

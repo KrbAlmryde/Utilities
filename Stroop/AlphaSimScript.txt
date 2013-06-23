@@ -1,0 +1,1 @@
+AlphaSim -nx 240 -ny 240 -nz 130 -dx 1 -dy 1 -dz 1 -iter 1000 -rmm 1 -pthr 0.005 -fwhm 8.0 -out Alphasim.txt

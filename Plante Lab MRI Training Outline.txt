@@ -1,0 +1,82 @@
+Plante Lab MRI Training Outline
+Learner Outcomes (By Modules):
+
+    Module 0: General Lab Survival Guidelines:
+        + Know how to avoid getting youself slapped by..
+            - Dr. Plante
+            - Dr. Patterson
+            - Kyle Almryde
+        + Human Subjects Training, Evidenced based practice,
+        + What level of contribution is required to be a co-author
+        + What you should do when your sick
+        + Who you should go to first when you have questions
+        + Brain Mapping WorkGroup
+        + Whose who in the Plante Lab
+
+
+    Module 1: Working in UNIX enviornment:
+        + Can define and understands the difference between a GUI and a CLI
+        + Understands hows to traverse a directory tree
+        + Knows standard UNIX commands and their associative flags
+          - 'cd', 'ls', 'rm', 'cp', 'mkdir', 'mv', 'echo', 'pwd'
+        + Can access 'man page' of commands unsure about.
+        + Understands what a variable is, how to create one, and how to access its information
+        + Knows how to recognize the differences between flavors of shell enviornments, and how to check enviornments
+          - tcsh, csh, bash
+        + Can write and execute a simple 'hello world' shell script
+        + Understands the difference between a 'for loop' and 'while loop' and how to use each
+        + Can setup and evaluate simple conditional expressions (if-then-else statements)
+
+
+    Module 2: Using AFNI:
+        + Understands the basic syntax of standard afni commands
+        + Knows how to combine afni commands with shell variables
+        + Knows how to call the afni GUI from the CLI
+        + Can reconstruct both functional and structural MRI images
+            - Using the GUI
+            - Using just the CLI
+        + Can align a structural image to standard space
+            - Manually using ACPC markers
+            - Automagically using auto_talairach
+            - How to check for good or bad alignments
+        + Can define and understands the structure of the preproccessing pipeline
+        + Knows how were to get help when in need:
+            - how to access afni commands help-page
+            - where to go to ask the afni community for help
+        + Knows what an ROI is and how to create one
+        + Can access information stored in an afni image 'header'
+
+
+    Module 3: Magnetic Resonance Imaging and Analysis:
+        + Knows the difference between the various image types
+            - Structural vs Functional
+            - EPI, Spiral, FSE, SPGR, MP-RAGE, DTI, T1, T2
+        + What type of files you get from the scanner
+            - DICOM format
+            - Pfile
+            - GE, Semens
+        + Knows the difference between Talairach and MNI space
+        + What SNR is and why we care about it
+        + Can define and describe
+            - TR
+            - TE
+            - FOV
+            - Flip angle
+            - HRF
+        + Difference between an Event-Related Design vs a Block Design
+            - Pros, Cons to using each
+        + Understands the difference between a GLM and ICA analysis are
+            - What kind of questions can we ask with each technique?
+        + Why head movement sucks and how we can fix it
+        + Knows and can demonstrate proper safety edicate when interacting with the MRI Scanner
+            - Why should you not wear you spiked vest and steal Earrings to the scanner?
+        + The various NeuroImaging software tools
+            - AFNI
+            - FSL
+            - SPM
+            - GIFT
+            * MatLab
+            * Python
+
+    Module 4: Using the The LONI Pipline || NiPype Pipeline || Something Kyle came up with
+        ** to be determined

@@ -1,0 +1,225 @@
+#!/bin/tcsh
+
+# ----------------------------------------------------------------------
+# output some basic details about this subjects input and results:
+#   - subject ID, TRs removed, num stim files, motion limit, outlier limit
+#   - num runs, TRs per run, total TRs
+#   - TRs censored, fraction, num regs of interest
+#   - per reg: num TRs applied, num TRs censored, fraction censored
+#   - num stim files found, TSNR average, max F-stat, blur estimates
+#
+# This script should be run from a '.results' directory, produced by an
+# afni_proc.py processing script.
+# 
+# NOTE: this script is not particularly meant to be easy to read and follow,
+#       but is more to just be executed.  Yanking numbers from datasets is
+#       not such a common need.
+#
+# NOTE: this script creates one new file: X.stim.xmat.1D
+#
+#       - an X-matrix containing only uncensored regressors of interest
+#
+#       This new file is used to compute fractions of "response TRs" censored,
+#       per stimulus class of interest, where a "response TR" means the given
+#       regressor was non-zero at that TR.
+#
+
+# ----------------------------------------------------------------------
+# main variables regarding this single subject analysis
+set subj             = TS004
+set rm_trs           = 4
+set num_stim         = 2
+set mot_limit        = 1.0
+set out_limit        = 0.1
+set final_view       = tlrc
+set was_censored     = 1
+
+set tcat_dset        = pb00.TS004.r01.tcat+orig.HEAD
+set enorm_dset       = motion_TS004_enorm.1D
+set motion_dset      = dfile.rall.1D
+set outlier_dset     = outcount.rall.1D
+set xmat_regress     = X.xmat.1D
+set stats_dset       = stats.TS004+tlrc.HEAD
+set censor_dset      = censor_TS004_combined_2.1D
+set xmat_uncensored  = X.nocensor.xmat.1D
+set final_anat       = anat_final.TS004+tlrc.HEAD
+set mask_dset        = full_mask.TS004+tlrc.HEAD
+set tsnr_dset        = TSNR.TS004+tlrc.HEAD
+
+
+# ------------------------------------------------------------
+# some overview details
+echo ""
+echo "subject ID                : $subj"
+
+if ( $?rm_trs ) then
+   set value = $rm_trs
+else
+   set value = UNKNOWN
+endif
+echo "TRs removed (per run)     : $value"
+
+echo "num stim classes provided : $num_stim"
+echo "final anatomy dset        : $final_anat"
+echo "final stats dset          : $stats_dset"
+echo "final voxel resolution    : `3dinfo -ad3 $stats_dset`"
+echo ""
+
+# ------------------------------------------------------------
+# report motion limit, average motion and number of TRs exceeding limit
+
+echo "motion limit              : $mot_limit"
+
+set mcount = `1deval -a $enorm_dset -expr "step(a-$mot_limit)"      \
+                        | awk '$1 != 0 {print}' | wc -l`
+echo "num TRs above mot limit   : $mcount"
+
+set mmean = `3dTstat -prefix - -mean $enorm_dset\' | & tail -n 1`
+echo "average motion (per TR)   : $mmean"
+
+if ( $?motion_dset ) then
+    if ( $was_censored ) then
+        # compute average censored motion
+        1deval -a $enorm_dset -b $censor_dset -expr 'a*b' > rm.ec.1D
+        set mmean = `3dTstat -prefix - -nzmean rm.ec.1D\' | & tail -n 1`
+        echo "average censored motion   : $mmean"
+        \rm -f rm.ec.1D
+    endif
+
+    # compute the maximum motion displacement over all TR pairs
+    set disp = `1d_tool.py -infile $motion_dset -show_max_displace -verb 0`
+    echo "max motion displacement   : $disp"
+
+    if ( $was_censored ) then
+        # compute the maximum motion displacement over all TR pairs
+        set disp = `1d_tool.py -infile $motion_dset -show_max_displace \
+                               -censor_infile $censor_dset -verb 0`
+        echo "max censored displacement : $disp"
+    endif
+endif
+
+# ------------------------------------------------------------
+# report outlier limit, average and number of TRs exceeding limit
+
+echo "outlier limit             : $out_limit"
+
+set mmean = `3dTstat -prefix - -mean $outlier_dset\' | & tail -n 1`
+echo "average outlier frac (TR) : $mmean"
+
+set mcount = `1deval -a $outlier_dset -expr "step(a-$out_limit)"      \
+                        | awk '$1 != 0 {print}' | wc -l`
+echo "num TRs above out limit   : $mcount"
+
+
+echo ""
+
+# ------------------------------------------------------------
+# get tcat files and count TRs
+set tcat_files = ( `find . -maxdepth 1 -name "pb00*$subj*.HEAD" -print` )
+if ( $#tcat_files == 0 ) then
+    echo "** missing tcat files, skipping num runs and TRs per run..."
+    echo ""
+else
+    set trs = ( )
+    foreach file ( $tcat_files )
+        set trs = ( $trs `3dnvals $file` )
+    end
+    echo "num runs found            : $#tcat_files"
+    echo "num TRs per run           : $trs"
+endif
+
+# count total (uncensored) TRs from X-matrix (as a check against sum of TRs)
+if ( $?xmat_uncensored ) then
+   set xmat = $xmat_uncensored
+else
+   set xmat = $xmat_regress
+endif
+set rows_cols = ( `1d_tool.py -infile $xmat -show_rows_cols -verb 0` )
+set num_trs = $rows_cols[1]
+echo "TRs total (uncensored)    : $num_trs"
+echo ""
+
+# ------------------------------------------------------------
+# make non-basline X-matrix, if one is not already here
+set xstim = X.stim.xmat.1D
+if ( ! -f $xstim ) then
+   set reg_cols = `1d_tool.py -infile $xmat -show_indices_interest`
+   1d_tool.py -infile $xmat"[$reg_cols]" -overwrite -write $xstim
+endif
+
+# ----------------------------------------------------------------------
+# report censoring results (if applicable)
+if ( $was_censored ) then
+    set ntr_censor = `cat $censor_dset | grep 0 | wc -l`
+    echo "TRs censored              : $ntr_censor"
+    echo "censor fraction           : `ccalc $ntr_censor/$num_trs`"
+
+    # note number of regressors of interest
+    set rc = ( `1d_tool.py -infile $xstim -show_rows_cols -verb 0` )
+    set nint = $rc[2]
+    echo "num regs of interest      : $nint"
+
+    # compute fractions of stimulus TRs censored in each
+    set stim_trs = ()
+    set stim_trs_censor = ()
+    set stim_frac_censor = ()
+    @ nm1 = $nint - 1
+    foreach index ( `count -digits 1 0 $nm1` )
+        # count response TRs, with and without censoring
+        # (their difference is the number of TRs lost to censoring)
+        set st = `1deval -a $xstim"[$index]" -expr 'bool(a)' | grep 1 | wc -l`
+        set sc = `1deval -a $xstim"[$index]" -b $censor_dset -expr 'bool(a*b)'                         | grep 1 | wc -l`
+        set sc = `ccalc -i "$st-$sc"`           # change to num censored
+        set ff = `ccalc -form '%.3f' "$sc/$st"` # and the fraction censored
+
+        # keep lists of reponse TRs, # censored and fractions censored
+        # (across all stimulus regressors)
+        set stim_trs = ( $stim_trs $st )
+        set stim_trs_censor = ( $stim_trs_censor $sc )
+        set stim_frac_censor = ( $stim_frac_censor $ff )
+    end
+
+    echo "num TRs per stim          : $stim_trs"
+    echo "num TRs censored per stim : $stim_trs_censor"
+    echo "fraction TRs censored     : $stim_frac_censor"
+    echo ""
+endif  # $was_censored
+
+
+# ------------------------------------------------------------
+# get TSNR average
+if ( -f $tsnr_dset && -f $mask_dset ) then
+    eval 'set tsnr_ave = `3dmaskave -quiet -mask $mask_dset $tsnr_dset`'          >& /dev/null
+    echo "TSNR average              : $tsnr_ave"
+endif
+
+# ------------------------------------------------------------
+# note maximum F-stat
+if ( -f $stats_dset ) then
+    set fmax = `3dBrickStat -slow -max $stats_dset"[Full_Fstat]"`
+    echo "maximum F-stat            : $fmax"
+endif
+
+# ------------------------------------------------------------'
+# note blur estimates
+set blur_file = blur_est.$subj.1D
+if ( -f $blur_file ) then
+    set best = `awk '/errts/ {print $1, $2, $3}' $blur_file`
+    if ( $#best != 3 ) then
+        set best = `awk '/epits/ {print $1, $2, $3}' $blur_file`
+    endif
+    if ( $#best == 3 ) then
+        echo "blur estimates            : $best"
+    endif
+endif
+
+echo ""
+
+# ------------------------------------------------------------'
+# if there happen to be pre-steady state warnings, show them
+set pre_ss_warn = 'out.pre_ss_warn.txt'
+if ( -f $pre_ss_warn ) then
+    cat $pre_ss_warn
+    echo ""
+endif
+

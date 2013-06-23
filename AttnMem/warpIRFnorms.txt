@@ -1,0 +1,55 @@
+adwarp -apar s1-spgr+tlrc -dpar s1_SPMG2_fa-norm-irf+orig
+adwarp -apar s1-spgr+tlrc -dpar s1_SPMG2_ff-norm-irf+orig
+adwarp -apar s1-spgr+tlrc -dpar s1_SPMG2_mf-norm-irf+orig
+adwarp -apar s1-spgr+tlrc -dpar s1_SPMG2_nf-norm-irf+orig
+
+adwarp -apar s5-spgr+tlrc -dpar s5_SPMG2_fa-norm-irf+orig
+adwarp -apar s5-spgr+tlrc -dpar s5_SPMG2_ff-norm-irf+orig
+adwarp -apar s5-spgr+tlrc -dpar s5_SPMG2_mf-norm-irf+orig
+adwarp -apar s5-spgr+tlrc -dpar s5_SPMG2_nf-norm-irf+orig
+
+adwarp -apar s7-spgr+tlrc -dpar s7_SPMG2_fa-norm-irf+orig
+adwarp -apar s7-spgr+tlrc -dpar s7_SPMG2_ff-norm-irf+orig
+adwarp -apar s7-spgr+tlrc -dpar s7_SPMG2_mf-norm-irf+orig
+adwarp -apar s7-spgr+tlrc -dpar s7_SPMG2_nf-norm-irf+orig
+
+adwarp -apar s9-spgr+tlrc -dpar s9_SPMG2_fa-norm-irf+orig
+adwarp -apar s9-spgr+tlrc -dpar s9_SPMG2_ff-norm-irf+orig
+adwarp -apar s9-spgr+tlrc -dpar s9_SPMG2_mf-norm-irf+orig
+adwarp -apar s9-spgr+tlrc -dpar s9_SPMG2_nf-norm-irf+orig
+
+adwarp -apar s10-spgr+tlrc -dpar s10_SPMG2_fa-norm-irf+orig
+adwarp -apar s10-spgr+tlrc -dpar s10_SPMG2_ff-norm-irf+orig
+adwarp -apar s10-spgr+tlrc -dpar s10_SPMG2_mf-norm-irf+orig
+adwarp -apar s10-spgr+tlrc -dpar s10_SPMG2_nf-norm-irf+orig
+
+adwarp -apar s11-spgr+tlrc -dpar s11_SPMG2_fa-norm-irf+orig
+adwarp -apar s11-spgr+tlrc -dpar s11_SPMG2_ff-norm-irf+orig
+adwarp -apar s11-spgr+tlrc -dpar s11_SPMG2_mf-norm-irf+orig
+adwarp -apar s11-spgr+tlrc -dpar s11_SPMG2_nf-norm-irf+orig
+
+adwarp -apar s12-spgr+tlrc -dpar s12_SPMG2_fa-norm-irf+orig
+adwarp -apar s12-spgr+tlrc -dpar s12_SPMG2_ff-norm-irf+orig
+adwarp -apar s12-spgr+tlrc -dpar s12_SPMG2_mf-norm-irf+orig
+adwarp -apar s12-spgr+tlrc -dpar s12_SPMG2_nf-norm-irf+orig
+
+adwarp -apar s14-spgr+tlrc -dpar s14_SPMG2_fa-norm-irf+orig
+adwarp -apar s14-spgr+tlrc -dpar s14_SPMG2_ff-norm-irf+orig
+adwarp -apar s14-spgr+tlrc -dpar s14_SPMG2_mf-norm-irf+orig
+adwarp -apar s14-spgr+tlrc -dpar s14_SPMG2_nf-norm-irf+orig
+
+adwarp -apar s15-spgr+tlrc -dpar s15_SPMG2_fa-norm-irf+orig
+adwarp -apar s15-spgr+tlrc -dpar s15_SPMG2_ff-norm-irf+orig
+adwarp -apar s15-spgr+tlrc -dpar s15_SPMG2_mf-norm-irf+orig
+adwarp -apar s15-spgr+tlrc -dpar s15_SPMG2_nf-norm-irf+orig
+
+adwarp -apar s16-spgr+tlrc -dpar s16_SPMG2_fa-norm-irf+orig
+adwarp -apar s16-spgr+tlrc -dpar s16_SPMG2_ff-norm-irf+orig
+adwarp -apar s16-spgr+tlrc -dpar s16_SPMG2_mf-norm-irf+orig
+adwarp -apar s16-spgr+tlrc -dpar s16_SPMG2_nf-norm-irf+orig
+
+adwarp -apar s17-spgr+tlrc -dpar s17_SPMG2_fa-norm-irf+orig
+adwarp -apar s17-spgr+tlrc -dpar s17_SPMG2_ff-norm-irf+orig
+adwarp -apar s17-spgr+tlrc -dpar s17_SPMG2_mf-norm-irf+orig
+adwarp -apar s17-spgr+tlrc -dpar s17_SPMG2_nf-norm-irf+orig
+

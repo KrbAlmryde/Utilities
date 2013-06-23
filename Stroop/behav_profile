@@ -1,0 +1,23 @@
+####################################################################################################
+# This list specifies variables specifc to the Behavioral Stroop study
+####################################################################################################
+# Sourcing the exp_profile.sh so our variables get passed to the shell properly
+
+. $DRIVR/exp_profile.sh
+
+echo "behav_profile.sh has been sourced"
+####################################################################################################
+#
+# These are path variables that will be specified in the individual program scripts
+
+run_dir=${BEHAV}/${run}
+cond_dir=${run_dir}/${cond}
+results_dir=${cond_dir}/Results
+####################################################################################################
+#
+# Names for files
+
+subrun=${subj}_${run}
+subcond=${subj}_${run}_${cond}
+runcond=${run}_${cond}
+####################################################################################################

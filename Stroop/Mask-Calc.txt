@@ -1,0 +1,29 @@
+3dcalc -a leftBA45_sphere10+tlrc -b S19_voice_fvfw_norm_irf+tlrc -expr '(a*b)' -prefix S19_v_fvfw_lBA45
+3dcalc -a leftBA45_sphere10+tlrc -b S19_voice_fvmw_norm_irf+tlrc -expr '(a*b)' -prefix S19_v_fvmw_lBA45
+3dcalc -a leftBA45_sphere10+tlrc -b S19_voice_fvnw_norm_irf+tlrc -expr '(a*b)' -prefix S19_v_fvnw_lBA45
+3dcalc -a leftBA45_sphere10+tlrc -b S19_voice_mvmw_norm_irf+tlrc -expr '(a*b)' -prefix S19_v_mvmw_lBA45
+3dcalc -a leftBA45_sphere10+tlrc -b S19_voice_mvfw_norm_irf+tlrc -expr '(a*b)' -prefix S19_v_mvfw_lBA45
+3dcalc -a leftBA45_sphere10+tlrc -b S19_voice_mvnw_norm_irf+tlrc -expr '(a*b)' -prefix S19_v_mvnw_lBA45
+
+3dcalc -a leftBA13_sphere10+tlrc -b S19_voice_fvfw_norm_irf+tlrc -expr '(a*b)' -prefix S19_v_fvfw_lBA45
+3dcalc -a leftBA45_sphere10+tlrc -b S19_voice_fvmw_norm_irf+tlrc -expr '(a*b)' -prefix S19_v_fvmw_lBA45
+3dcalc -a leftBA45_sphere10+tlrc -b S19_voice_fvnw_norm_irf+tlrc -expr '(a*b)' -prefix S19_v_fvnw_lBA45
+3dcalc -a leftBA45_sphere10+tlrc -b S19_voice_mvmw_norm_irf+tlrc -expr '(a*b)' -prefix S19_v_mvmw_lBA45
+3dcalc -a leftBA45_sphere10+tlrc -b S19_voice_mvfw_norm_irf+tlrc -expr '(a*b)' -prefix S19_v_mvfw_lBA45
+3dcalc -a leftBA45_sphere10+tlrc -b S19_voice_mvnw_norm_irf+tlrc -expr '(a*b)' -prefix S19_v_mvnw_lBA45
+
+3dcalc -a leftBA45_sphere10+tlrc -b S19_voice_fvfw_norm_irf+tlrc -expr '(a*b)' -prefix S19_v_fvfw_lBA45
+3dcalc -a leftBA45_sphere10+tlrc -b S19_voice_fvmw_norm_irf+tlrc -expr '(a*b)' -prefix S19_v_fvmw_lBA45
+3dcalc -a leftBA45_sphere10+tlrc -b S19_voice_fvnw_norm_irf+tlrc -expr '(a*b)' -prefix S19_v_fvnw_lBA45
+3dcalc -a leftBA45_sphere10+tlrc -b S19_voice_mvmw_norm_irf+tlrc -expr '(a*b)' -prefix S19_v_mvmw_lBA45
+3dcalc -a leftBA45_sphere10+tlrc -b S19_voice_mvfw_norm_irf+tlrc -expr '(a*b)' -prefix S19_v_mvfw_lBA45
+3dcalc -a leftBA45_sphere10+tlrc -b S19_voice_mvnw_norm_irf+tlrc -expr '(a*b)' -prefix S19_v_mvnw_lBA45
+
+3dcalc -a leftBA45_sphere10+tlrc -b S19_voice_fvfw_norm_irf+tlrc -expr '(a*b)' -prefix S19_v_fvfw_lBA45
+3dcalc -a leftBA45_sphere10+tlrc -b S19_voice_fvmw_norm_irf+tlrc -expr '(a*b)' -prefix S19_v_fvmw_lBA45
+3dcalc -a leftBA45_sphere10+tlrc -b S19_voice_fvnw_norm_irf+tlrc -expr '(a*b)' -prefix S19_v_fvnw_lBA45
+3dcalc -a leftBA45_sphere10+tlrc -b S19_voice_mvmw_norm_irf+tlrc -expr '(a*b)' -prefix S19_v_mvmw_lBA45
+3dcalc -a leftBA45_sphere10+tlrc -b S19_voice_mvfw_norm_irf+tlrc -expr '(a*b)' -prefix S19_v_mvfw_lBA45
+3dcalc -a leftBA45_sphere10+tlrc -b S19_voice_mvnw_norm_irf+tlrc -expr '(a*b)' -prefix S19_v_mvnw_lBA45
+
+

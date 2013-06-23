@@ -1,0 +1,23 @@
+#!/bin/sh
+
+# Written by Dianne Patterson, University of Arizona 
+# This is a general script to create a binary thresholded image
+# In this case, the image has a range bracketted between 2 absolute intensity values
+# that are affixed to the stem.
+
+if [ $# -lt 3 ]
+then
+    echo "Usage: $0 <image> <lower-threshold> <upper-threshold>."
+    echo "Example: $0 Fip_hotspot/all_arc_l_B_stand 5 7"
+    echo "This creates the thresholded binary image and labels it with the range"
+    echo ""  
+    exit 1
+fi
+
+image=$1
+thresh=$2
+thresh2=$3
+imagestem=`basename -s .nii.gz $image`
+dir=`dirname $image`
+
+fslmaths ${image} -uthr ${thresh2} -thr ${thresh} -bin ${dir}/${imagestem}_${thresh}-${thresh2}_bin

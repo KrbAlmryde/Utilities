@@ -1,0 +1,339 @@
+Re-record all Adult Item audio, make sure sampling rate is the same as the distractors!!!
+
+16 items per category
+    3 training items each
+    13 test items
+
+Re-record training instructions to include the 3-back test as well (Dont listen to Jerry or Sally!)
+
+
+
+
+Modified N-Back:
+
+Intro:
+    HI FRIEND!
+    LETS PLAY A GAME TOGETHER!
+    MY NAME IS TOM AND THESE ARE MY FRIENDS BILLY AND SALLY.
+    WE HAVE A NEW PUPPY.
+    WE NEED YOU TO HELP US TRAIN HIM.
+    LET'S TRAIN HIM TO FIND HIS TOYS.
+
+========================================================================================
+
+Training 1-back:
+    I WILL ASK THE PUPPY FOR A TOY.
+    <HOTDOG>
+    LET'S HELP THE PUPPY FIND IT.
+    DO YOU SEE IT?
+
+    [PLAY THE DING SOUND].
+    THAT SOUND MEANS IT IS YOUR TURN.
+
+    SHOW THE PUPPY WHAT TO GET.
+    CLICK ON THE [TOY NAME].
+
+    GREAT! THE [DING SOUND]
+    WILL TELL YOU WHEN IT IS YOUR TURN.
+
+    WAIT FOR THE [DING SOUND]
+    TO TAKE YOUR TURN.
+
+
+    READY?
+    LET'S TRY SOME MORE.
+    REMEMBER, WAIT FOR THE [DING SOUND].
+
+========================================================================================
+
+Training 2-back.
+    SOMETIMES THE KIDS FORGET WHAT I WANT THE PUPPY TO GET.
+    THEY SAY THE WRONG THING.
+    DON'T LISTEN TO THEM!
+    JUST LISTEN TO ME.
+    I WILL TELL YOU THE RIGHT TOY.
+    MAKE SURE YOU WAIT FOR THE [DING SOUND]!
+
+    LET'S TRY A COUPLE.
+
+========================================================================================
+
+Training 3-back.
+    SALLY WANTS TO HELP TOO!
+    BUT SALLY FORGETS WHAT I WANT THE PUPPY TO GET.
+    SHE SAYS THE WRONG THING.
+    DON'T LISTEN TO HER!
+    JUST LISTEN TO ME.
+    I WILL TELL YOU THE RIGHT TOY.
+    MAKE SURE YOU WAIT FOR THE [DING SOUND]!
+
+    LET'S TRY A COUPLE.
+
+========================================================================================
+
+For correct response during training:
+    GREAT JOB, THE PUPPY FOUND THE TOY!
+
+========================================================================================
+
+For Incorrect response to 1-back:     file 100
+    OOPS, THAT ISN'T THE RIGHT TOY, BUT THE PUPPY FOUND THE RIGHT ONE.
+
+========================================================================================
+
+For Incorrect response to 2-back:     file101
+    OOPS, DON'T LISTEN TO BILLY!
+
+========================================================================================
+
+For Incorrect response to 3-back:     file101
+    OOPS, DON'T LISTEN TO SALLY!
+
+========================================================================================
+
+For Progress markers:
+
+1 bone:  file 102
+    GREAT JOB!
+    NOW THE PUPPY GETS A BONE!
+    WHEN THE PUPPY HAS 4 BONES WERE DONE TRAINING THE PUPPY!
+    ALMOST THERE!
+
+========================================================================================
+
+2 bones:    103
+    ALRIGHT! THE PUPPY GETS ANOTHER BONE! ONLY TWO MORE!
+
+========================================================================================
+
+3 bones:     file 104
+    GREAT WORK! THE PUPPY HAS 3 BONES! ONE MORE TO GO!
+
+========================================================================================
+4 bones:     file 105
+    WAY TO GO!! THE PUPPY GOT ALL 4 BONES. YOU DID A GREAT JOB! WERE ALL DONE NOW!
+
+========================================================================================
+
+    GO GET THE...
+
+
+========================================================================================
+1-Back Items:
+
+    BUTTON
+    COUCH
+    HOUSE
+    TRUCK
+    BLOCKS
+    CARROTS
+    CD
+    HIGHCHAIR
+    BALL
+    HAIR
+    RING
+    BOOTS
+    CHAIR
+    STROLLER
+    AIRPLANE
+    BUG
+    BUS
+    SPOON
+    FROG
+    KEYS
+    LEAF
+
+    HOTDOG
+    PUMPKIN
+    BUTTERFLY
+    ORANGE
+
+========================================================================================
+2-Back Items:
+
+    < ME >              < Billy >
+    BOTTLE              deer
+    SWING               golfball
+    ROCK                sign
+    JACKET              lollipop
+    BRUSH               fish
+    STAR                hand
+    SNAIL               whistle
+    CRIB                bathtub
+    CUP                 train
+    MARSHMALLOW         bucket
+    FOOT                drum
+    DUCK                spring
+    LOCK                motorcycle
+    CAMERA              baseball
+    GLOVES              sock
+    DRESS               cat
+    KEYBOARD            spaeshuttle
+    ROPE                pool
+    SHELL               tire
+    CRAB                cookie
+    --------------------------------- missing
+    SNAIL               garbageBag
+    PENGUIN             horse
+    SPIDER              garlic
+    LIZARD              clock
+    OVEN                pig
+
+
+========================================================================================
+3-Back Items:
+
+    BASKET
+    BOAT
+    HOTDOG
+    FRENCHFRIES
+    PAPERCLIP
+    PIG
+    BUTTON
+    CARROT
+    PURSE
+    SPOON
+    FAN
+    FOOTBALL
+    MOON
+    ROBOT
+    SPIDER
+    BIKE
+    BLOW DRYER
+    BUS
+    HAT
+    LOCK
+    BEAR
+    BEE
+    GLOVE
+    MUSHROOM
+    TOOTHBRUSH
+
+
+
+
+
+
+ BASKET
+    BASEBALL
+        toiletpaper
+
+
+ BOAT
+    LIME
+        corn
+
+
+ HOTDOG
+    STAR
+        spatula
+
+
+ FRENCHFRIES
+    ICECREAM
+        iron
+
+
+ PAPERCLIP
+    BATHTUB
+        tire
+
+
+ PIG
+    PLATE
+        baseballbat
+
+
+ BUTTON
+    CHERRIES
+        bread
+
+
+ CARROT
+    HAMBURGER
+        bandaid
+
+
+ PURSE
+    BOX
+        iceskate
+
+
+ SPOON
+    FLAG
+        banana
+
+
+ FAN
+    BROCCOLI
+        toaster
+
+
+ FOOTBALL
+    HOSE
+        tv
+
+
+ MOON
+    FISH
+        ladybug
+
+
+ ROBOT
+    BACKPACK
+        swing
+
+
+ SPIDER
+    TORCH
+        cupcake
+
+
+ BIKE
+    TRAIN
+        car
+
+
+ BLOW dryer
+    BOOTS
+        helicopter
+
+
+ BUS
+    TOMATO
+        rocking horse
+
+
+ HAT
+    AIRPLANE
+        volcano
+
+
+ LOCK
+    PAN
+        snowflake
+
+
+ BEAR
+    SNAIL
+        bowl
+
+
+ BEE
+    PHONE
+        eggs
+
+
+ GLOVE
+    SKATEBOARD
+        belt
+
+
+ MUSHROOM
+    RADIO
+        coins
+
+
+ TOOTHBRUSH
+    FLOWERS
+        legos
