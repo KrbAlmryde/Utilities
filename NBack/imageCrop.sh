@@ -141,11 +141,7 @@ for (( i = 0, j = 0; i < ${counter}; i++, j++ )); do
 
 done
 
-<<<<<<< HEAD
 # This command crops a gif the '\!' is necessary in order to properly crop the whole image sequence
-=======
-# This command crops a gif the '\?' is necessary in order to properly crop the whole image sequence
->>>>>>> c388accc3877fb367f9b3b3512fef5b71ebe8b61
 #convert Dog_position1.gif -crop 1024x590+0+0\! test2Dog_position1.gif
 
 
