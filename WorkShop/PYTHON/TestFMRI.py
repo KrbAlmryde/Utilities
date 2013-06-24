@@ -62,5 +62,3 @@ class Reconstruct(object):
                          '${ORIG}/${run}.*'])
         epan = os.path.join(self.outDir, to3d)
         return epan
-
-
