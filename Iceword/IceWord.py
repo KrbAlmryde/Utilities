@@ -1,6 +1,10 @@
 from MRI import fMRI
 import os
+<<<<<<< HEAD
 from subprocess import check_output
+=======
+from subprocess import Popen
+>>>>>>> c388accc3877fb367f9b3b3512fef5b71ebe8b61
 
 
 class Iceword(fMRI):
@@ -53,7 +57,11 @@ class Iceword(fMRI):
             print outputImg.split('/')[-1], 'Already exists, skipping... '
             pass
         else:
+<<<<<<< HEAD
             check_output('3dcopy -denote ' + inputImg + ' ' + outputImg)
+=======
+            os.popen('3dcopy -denote ' + inputImg + ' ' + outputImg)
+>>>>>>> c388accc3877fb367f9b3b3512fef5b71ebe8b61
 
     def getFuncSpec(self, imgFile, funcDict):
         """Get Subject Image Specifications such as # of Volumes, TRs etc
@@ -67,7 +75,11 @@ class Iceword(fMRI):
         """
         print '3dinfo', imgFile, '\n', funcDict
 
+<<<<<<< HEAD
         for line in check_output('3dinfo ' + imgFile):
+=======
+        for line in os.popen('3dinfo ' + imgFile):
+>>>>>>> c388accc3877fb367f9b3b3512fef5b71ebe8b61
             line = line.strip()
             if 'third  ' in line:
                 funcDict['Orient'] = line.split()[-1][:-1]
@@ -113,7 +125,11 @@ class Iceword(fMRI):
         """
         print '3dinfo', imgFile, '\n', anatDict
 
+<<<<<<< HEAD
         for line in check_output('3dinfo ' + imgFile):
+=======
+        for line in os.popen('3dinfo ' + imgFile):
+>>>>>>> c388accc3877fb367f9b3b3512fef5b71ebe8b61
             line = line.strip()
             if 'third  ' in line:
                 anatDict['Orient'] = line.split()[-1][:-1]
@@ -158,6 +174,7 @@ class Iceword(fMRI):
         title = "{:<11}{:<8}{:<10}{:<15}{:<17}{:<13}{:<20}{:<21}{:<23}{:<20}\n"
         header = ['Subject', 'Scan', 'MRInum', 'Orientation', 'Dimensions', 'Thickness', 'TR/FOV', 'Reps/R-extent', 'Slices/A-extent', 'Origin/I-extent']
 
+<<<<<<< HEAD
         with open('/Volumes/Data/Iceword/README.txt', 'a+') as fout:
             fout.write(title.format(*header))
 
@@ -170,3 +187,18 @@ class Iceword(fMRI):
                     dataTbl = "{0:<11}{1:<8}{2:<10}{Orient:<15}{Dimensions:<17}{Thickness:<13}{FOV:<20}{R-extent:<21}{A-extent:<23}{I-extent:<20}\n"
                 fout.write(dataTbl.format(subj, scan, subjDict[subj]['MRInum'], **subjDict[subj][scan]))
         fout.close()
+=======
+        fout = open('/Volumes/Data/Iceword/README.txt', 'a+')
+        fout.write(title.format(*header))
+
+        for subscan in [(sub, scan) for sub in subjDict for scan in subjDict[sub] if scan not in ('MRInum', 'OldID')]:
+            subj = subscan[0]
+            scan = subscan[1]
+            if scan in ('Run1', 'Run2', 'Run3', 'Run4'):
+                dataTbl = "{0:<11}{1:<8}{2:<10}{Orient:<15}{Dimensions:<17}{Thickness:<13}{TR:<20}{Reps:<21}{Slices:<23}{Origin:<20}\n"
+            elif scan in ('SPGR', 'FSE'):
+                dataTbl = "{0:<11}{1:<8}{2:<10}{Orient:<15}{Dimensions:<17}{Thickness:<13}{FOV:<20}{R-extent:<21}{A-extent:<23}{I-extent:<20}\n"
+            fout.write(dataTbl.format(subj, scan, subjDict[subj]['MRInum'], **subjDict[subj][scan]))
+        fout.close()
+            
+>>>>>>> c388accc3877fb367f9b3b3512fef5b71ebe8b61

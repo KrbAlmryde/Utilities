@@ -114,12 +114,20 @@ def Resize(infile, outfile, width=156, height=156, format="JPEG"):
             img.save(outfile, format)
             return outfile
         except IOError:
+<<<<<<< HEAD
             print "cannot resize {}".format(infile)
+=======
+            print "cannot resize %s" % infile
+>>>>>>> c388accc3877fb367f9b3b3512fef5b71ebe8b61
             return None
 
 
 def Crop(infile, outfile, upperPos, width=156, height=156, format="JPEG"):
+<<<<<<< HEAD
     """ Crop an existing array image in order to extract an image
+=======
+    """ Crop and existing array image in order to extract an image
+>>>>>>> c388accc3877fb367f9b3b3512fef5b71ebe8b61
 
     Params:
         infile --
@@ -299,6 +307,10 @@ def main():
     RESIZED = os.path.join(THUMBS, 'RESIZED')
     FRAMES = os.path.join(THUMBS, 'FRAMES')
     DOGPOS = os.path.join(THUMBS, 'DOGPOS')
+<<<<<<< HEAD
+=======
+
+>>>>>>> c388accc3877fb367f9b3b3512fef5b71ebe8b61
     #----------------------------------------
     # Setup some useful parameter variables
     #----------------------------------------

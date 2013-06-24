@@ -1,0 +1,26 @@
+Intro.wav
+	GreenFrog: Hi friend! My name is GreenFrog and this is my friend LadyFrog
+
+Directions.wav
+	LadyFrog: We like to eat flies! You can help! When we spot a fly you smash with your hand
+PushButton.wav
+	GreenFrog: Push the button to smash it!
+
+
+DontPush.wav
+	GreenFrog: If its not a fly, dont push the button!
+
+
+       after training, dont push the button
+       after rewards, Say that again 
+
+
+
+
+
+
+Background.bmp, !Intro.wav 15000, _GreenFrogSpeak
+Background.bmp, !Directions.wav 15000, _LadyFronSpeak 1500, BackgroundHand.bmp
+Background.bmp, !HandsOnMat.wav 1500, _GreenFrogSpeak
+FlyTrain.bmp, !M-NN-Fly.wav 1500, _GreenFrogSpeak, !PushButton.wav 0,0,1, rt:num
+NonTargetTrain.bmp, !DontPush.wav, _GreenFrogSpeak, rt:252, max 2500
