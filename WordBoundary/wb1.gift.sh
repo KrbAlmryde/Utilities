@@ -352,9 +352,9 @@ function MAIN ()
         EDITABLE=${EXPERT}/Editable                           # Location of the editied cluster masks
 
         Figure=${GIFT}/${Condition}/${Condition}_figure      # Parent dir for WB1 figure, for each condition, sub dirs nested
-                Images=${Figure}/Images         # contains jpg/png images and rgb images
-                Merged=${Figure}/Merged         # contains thresholded & and corrected ica data
-                Report=${Figure}/Report         # contains txt files reporting ROIs and other information
+        Images=${Figure}/Images     # contains jpg/png images and rgb images
+        Merged=${Figure}/Merged     # contains thresholded & and corrected ica data
+        Report=${Figure}/Report     # contains txt files reporting ROIs and other information
 
         #--------------------------#
         # Make Directory structure #
@@ -372,7 +372,7 @@ function MAIN ()
             reportComponents $cond ${realComps[i]} $run
         done
         display_components $cond $run
-        python ${Figure}/wb1_${Condition}Grp_formatter.py
+        python ${UTL}/wb1_${Condition}Grp_formatter.py
     done
 }
 
