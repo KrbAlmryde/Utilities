@@ -1,0 +1,9 @@
+bin
+
+*.class
+*.pdf
+*.nii
+*.nii.gz
+*.HEAD
+*.BRIK
+*.wav

@@ -1,0 +1,35 @@
+'basket_baseball_toiletpaper.wav'   4150.566893424037
+'paperclip_bathtub_tire.wav'   3924.172335600907
+'bear_snail_bowl.wav'   3090.4308390022675
+'bike_train_car.wav'   2782.3129251700684
+'boat_lime_corn.wav'   3468.639455782313
+'bus_tomato_rockinghorse.wav'   4127.528344671202
+'fan_broccoli_toaster.wav'   3284.172335600907
+'football_hose_tv.wav'   3222.721088435374
+'glove_skateboard_belt.wav'   4119.3650793650795
+'lock_pan_snowflake.wav'   3060.3854875283446
+'moon_fish_ladybug.wav'   3208.7528344671205
+'purse_box_iceskate.wav'   3569.5691609977325
+'robot_backpack_swing.wav'   3287.8004535147393
+'spider_torch_cupcake.wav'   3586.7573696145123
+
+
+
+
+
+['spoon_flag_banana.wav',
+'pig_plate_baseballbat.wav',
+'football_hose_tv.wav',
+'boat_lime_corn.wav',
+'basket_baseball_toiletpaper.wav',
+'paperclip_bathtub_tire.wav',
+'purse_box_iceskate.wav',
+'fan_broccoli_toaster.wav',
+'moon_fish_ladybug.wav',
+'robot_backpack_swing.wav',
+'spider_torch_cupcake.wav',
+'bike_train_car.wav',
+'bus_tomato_rocking horse.wav',
+'lock_pan_snowflake.wav',
+'bear_snail_bowl.wav',
+'glove_skateboard_belt.wav']

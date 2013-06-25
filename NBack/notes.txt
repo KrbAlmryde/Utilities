@@ -2,9 +2,7 @@
 1-back\Arrays\framed\Train-3-1back-pumpkin_framed.bmp
 1-back\Arrays\framed\Train-5-1back-butterfly_framed.bmp
 2-back\Arrays\framed\Train-1_6-2back-penguin_horse_framed.bmp
-3-back\Arrays\framed\Train-3-3back-spoon_flag_banana_framed.bmp
 2-back\Arrays\framed\Train-2_4-2back-spider_garlic_framed.bmp
-3-back\Arrays\framed\Train-2-3back-pig_plate_baseballbat_framed.bmp
 2-back\Arrays\framed\Train-3_5-2back-lizard_clock_framed.bmp
 1-back\Arrays\framed\Train-6-1back-orange_framed.bmp
 2-back\Arrays\framed\Train-4_6-2back-oven_pig_framed.bmp
