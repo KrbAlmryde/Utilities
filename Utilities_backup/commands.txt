@@ -1,0 +1,19 @@
+#Force machine to start in Safe Mode
+sudo nvram boot-args="-x"
+
+#Force machine to start in Normal mode
+sudo nvram boot-args=""
+
+
+Starting up in single-user or verbose mode
+1. Shut down your Mac if it is on.
+2. Immediately press and hold the Command (Apple) key and one of the following:
+the "s" key for single-user mode.  (Command-S)
+the "v" key for verbose mode.  (Command-V)
+You have successfully entered single-user or verbose mode when you see white text appear on the screen.
+To exit single-user mode type reboot  then press Return. Verbose mode exits automatically when the computer's startup process progresses sufficiently and the blue screen appears.
+
+If the computer does not progress beyond verbose mode, and does not show progression messages, press the power button until the computer shuts down. See this article for information about troubleshooting startup issues.
+
+
+10.135.218.74
