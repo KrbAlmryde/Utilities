@@ -1,0 +1,79 @@
+
+3dToutcount -save rat.700.outs.nii rat.700.epan.nii | 1dplot -jpeg rat.700.outs -stdin rat.700.outs.nii
+
+awk '/  [0-3] / {print NR-1;exit}' rat.700.outs.txt "276"
+
+3dTshift -verbose -tzero 0 -prefix rat.700.tshift.nii rat.700.epan.nii
+
+3dvolreg -verbose -zpad 1 -base rat.700.tshift.nii'[276]' -1Dfile rat.700.dfile.1D \
+	-prefix rat.700.volreg rat.700.tshift.nii > log.rat.700.volreg.txt
+1dplot -jpeg rat.700.volreg -volreg -xlabel TIME rat.700.dfile.1D
+
+3dAutomask -dilate 1 -prefix rat.700.automask.nii rat.700.volreg.nii > log.rat.700.automask.txt
+
+3dMean -datum short -prefix rm.mean.nii rat.700.automask.nii
+3dcalc -a rm.mean.nii -expr 'ispositive(a-0)' -prefix rat.700.fullmask.nii
+3dTstat -prefix rm.mean_r$run pb03.$subj.r$run.blur+orig
+
+
+3dcalc -a pb03.$subj.r$run.blur+orig -b rm.mean_r$run+orig -c full_mask.$subj+orig -expr 'c * min(200, a/b*100)' -prefix pb04.$subj.r$run.scale
+
+
+3dTstat -prefix rm.rat.700.mean.nii rat.700.volreg.nii > log.rat.700.tstat.txt
+
+3dcalc -verbose -float -a rat.700.volreg.nii -b rm.rat.700.mean.nii -c rat.700.fullmask.edit.nii -expr 'c * min(200, a/b*100)' -prefix rat.700.scale
+
+1d_tool.py -infile rat.700.dfile.1D -set_nruns 1 -set_tr 3.5 -show_censor_count \
+		-censor_prev_TR -censor_motion .1 motion_rat.700. -verb 2
+
+
+
+
+3dDeconvolve -input rat.700.scale.nii -polort A \
+-mask rat.700.automask.nii -num_stimts 7 -global_times \
+-stim_times 1 '1D: 240' "TENT(0,10,3)"  -stim_label 1 rat.700.drug1 \
+-stim_file 2 rat.700.dfile.1D'[0]' -stim_base 2 -stim_label 2 roll \
+-stim_file 3 rat.700.dfile.1D'[1]' -stim_base 3 -stim_label 3 pitch \
+-stim_file 4 rat.700.dfile.1D'[2]' -stim_base 4 -stim_label 4 yaw \
+-stim_file 5 rat.700.dfile.1D'[3]' -stim_base 5 -stim_label 5 dS \
+-stim_file 6 rat.700.dfile.1D'[4]' -stim_base 6 -stim_label 6 dL \
+-stim_file 7 rat.700.dfile.1D'[5]' -stim_base 7 -stim_label 7 dP \
+-xout -x1D rat.700.drug.xmat.1D -xjpeg rat.700.drug.xmat.jpg \
+-fout -tout -TR_times 1 \
+-iresp 1 rat.700.drug_irf \
+-fitts rat.700.drug1.fitt -bucket rat.700.drug1.func
+1dplot -sepscl -jpeg rat.700.drug1.Regressors-All rat.700.drug.xmat.1D'[22..0]'
+1dplot -sepscl -jpeg rat.700.drug1.MotionStim rat.700.drug.xmat.1D'[22..16]'
+
+####################################################################################################
+# This marks the end of the test function that will determine whether this script runs or not.
+# It also marks the end of this script. Thanks for playing!
+####################################################################################################
+# Plot Regressors and Regressors of interest
+1dplot -sepscl -jpeg rat.700.drug.Regressors-All rat.700.drug.xmat.1D'[22..0]'
+1dplot -sepscl -jpeg rat.700.drug.Motion&Stim rat.700.drug.xmat.1D'[22..16]'
+####################################################################################################
+# Create ideal files that we can use to estimate our model
+1dcat rat.700.drug.xmat.1D'[16]' > ideal_rat.700.drug.1D
+1dcat ${subrunmod}.xmat.1D'[5]' > ideal_rat.700.${cond2}_${mod}.1D
+fi
+
+
+3dNLfim -input rat.700.volreg.nii -bucket 0 rat.700.NLbucket.nii
+
+epan
+tshift
+volreg
+mean
+scale
+
+Input:rat.700.scale.nii
+CompOutput:rat.700.ICA
+MixOutput:Temp
+NoComp:100
+Func:logcosh
+Type:parallel
+
+
+
+
