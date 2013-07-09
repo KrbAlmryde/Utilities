@@ -8,25 +8,54 @@ class ColorPallet(object):
         self.maxRange = maxRange  # The highest overlap value
         self.limit = limit  # The number of components
         self.length = 0
+        self.pallet = ''
         self.overlap = []  # [2,3,4]
+        self.compValue = []  # [1.01, 1.02, 1.03, 1.04, 1.05]
         self.comboValues = set()  # [1.01, 1.02, 1.03, 1.04, 1.05, 2.0300000000000002, 2.04, 2.05, 2.06...]
         self.palletValues = set()  # [2.5495049504950495, 2.0495049504950495, 2.0445544554455446, 2.0396039603960396...]
-        self.compValue = [1.01, 1.02, 1.03, 1.04, 1.05]
-        self.colorCodes = ['navyblue', '#0069ff', '#00ccff', '#6600cc', '#00ff00', '#ffcc00', '#ccff00', '#ff0000']
         self.colorNames = ['navy', 'dk-blue', 'lt-blue1', 'blue-cyan', 'purple', 'green', 'yell-oran', 'rbgyr20_14', 'red']
+        # self.colorCodes = ['navyblue', '#0069ff', '#00ccff', '#6600cc', '#00ff00', '#ffcc00', '#ccff00', '#ff0000']
         # Set the value lists
+        self.setCompValues()
         self.setComboValues()
         self.setPalletValues()
+        # self.trimValueLists()
+
+    def setCompValues(self):
+        """Sets the total number of possible component
+           values to that of limit, so that we dont
+           produce extra computations
+        """
+        for x in [1.01, 1.02, 1.03, 1.04, 1.05]:
+            if len(self.compValue) is self.limit:
+                break
+            else:
+                self.compValue.append(x)
 
     def setComboValues(self):
+        """Populates the comboValues attribute with the
+           total combinations
+        """
         for i in range(1, len(self.compValue) + 1):
             for x in itertools.combinations(self.compValue, i):
-                self.comboValues.add(sum(x))
+                val = round(sum(x), 4)
+                if val > self.maxRange:
+                    break
+                else:
+                    self.comboValues.add(val)
         self.comboValues = sorted(list(self.comboValues))
 
     def setPalletValues(self):
+        """Sets the Pallet values for each of the individual
+           colors by dividing the maxRange by the value in
+           comboValues
+        """
         for v in self.comboValues:
-            self.palletValues.add(v/self.maxRange)
+            if len(self.palletValues) == len(self.comboValues):
+                break
+            else:
+                palletValue = v/self.maxRange
+                self.palletValues.add(palletValue)
         self.palletValues = sorted(list(self.palletValues))
         self.palletValues.reverse()
 
@@ -36,37 +65,38 @@ class ColorPallet(object):
     def getPalletValues(self):
         return self.palletValues
 
-    def trimValueLists(self, index, check):
-        if check < 2.0:
-            self.comboValues.pop(index)
-            self.palletValues.pop(index)
-        elif check >= 2.0:
-            if int(check) in self.overlap:
-                self.comboValues.pop(index)
-                self.palletValues.pop(index)
-            else:
-                self.overlap.append(int(check))
-        if self.comboValues[index] == check:
-            self.comboValues.pop(index)
+    def trimValueLists(self):
+        for check in self.getComboValues():
+            print check, "bigger than 1.05?", check >= 2.0, self.comboValues
+            if check > 1.05:
+                if int(check) not in self.overlap:
+                    self.overlap.append(int(check))
+                else:
+                    index = self.comboValues.index(check)
+                    print "\n--->", self.comboValues.index(check), self.comboValues[index],
+                    print self.comboValues.pop(index)
+                    self.palletValues.pop(index)
+        # for i in range(len(self.getComboValues())):
+        #     print self.comboValues[i], self.palletValues[i]
+            # if self.comboValues[index] == check:
+            #     self.comboValues.pop(index)
 
-    def build_Pallet(self, palletName):
+    def buildPallet(self, palletName):
         template = "#--------------------------------------\n#   Component colors\n#      1 - Red     ==> 1.01\n#      2 - Yellow  ==> 1.02\n#      3 - Orange  ==> 1.03\n#      4 - Green   ==> 1.04\n#      5 - Purple  ==> 1.05\n#\n#   Overlapping Component colors\n#      2 - Cyan blue   ==> 2.0[3-9]\n#      3 - Light blue  ==> 3.[06-12]\n#      4 - Dark Blue   ==> 4.1[0-4]\n#      5 - Navy blue   ==> 5.15\n#--------------------------------------\n\n"
         COLORS = "***COLORS\n\tnavy = navyblue\n\tdk-blue = #0000ff\n\tlt-blue1 = #0069ff\n\tblue-cyan = #00ccff\n\tpurple = #6600cc\n\tgreen = #00ff00\n\tyell-oran = #ffcc00\n\trbgyr20_14 = #ccff00\n\tred = #ff0000\n"
-        pallet = "{}\n{}\n***PALETTES {} [{}+]".format(template, COLORS, palletName, self.length)
-
+        self.pallet = "{}\n{}\n***PALETTES {} [{}+]".format(template, COLORS, palletName, self.length)
+        # self.trimValueLists()
         for i, val in enumerate(self.getPalletValues()):
-            if i+1 > self.limit:
-                self.trimValueLists(i, val)
-            pallet += "\n\t{:0.4f} -> {}".format(val, self.colorNames[i])
-            i += 1
-        return pallet
+            self.pallet += "\n\t{:0.4f} -> {}".format(val, self.colorNames[i])
+        return self.pallet
 
 
 def main():
-    iceR1 = ColorPallet(2.02, 4)
-    print iceR1.getComboValues()
-    print iceR1.getPalletValues()
-    print iceR1.build_Pallet('iceR1')
+    iceR1 = ColorPallet(4.1)
+    iceR1.trimValueLists()
+    print len(iceR1.getComboValues()), iceR1.getComboValues()
+    print len(iceR1.getPalletValues()), iceR1.getPalletValues()
+    # print iceR1.buildPallet('iceR1')
 
 
 if __name__ == '__main__':
