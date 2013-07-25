@@ -1,6 +1,0 @@
-#!/bin/sh
-
-while read exam; do
-	<${exam}.csv cut -d , -f 1,3,8-10 | sed '1d' >> A.txt
-	<A.txt sed -n -e '/${exam},3,/p' -e '/${exam},4,/p' | sort >> B.txt
-done <ls.txt

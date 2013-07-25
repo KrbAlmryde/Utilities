@@ -1,0 +1,61 @@
+1) to3d -fse -prefix rat.fse.nii -xSLAB 12.750L-R -ySLAB 12.750S-I -zSLAB 10.50P-A MRIm*
+
+2) to3d -epan -prefix rat.50.epan.nii -text_outliers -save_outliers rat.50.outs.txt -xSLAB 12.60L-R \
+	-ySLAB 12.60S-I -zSLAB 10.50P-A -time:zt 15 50 3000 @rat_offsets.1D MRIm*
+
+3) to3d -epan -prefix rat.700.epan.nii -text_outliers -save_outliers rat.700.outs.txt -xSLAB 12.60L-R \
+	-ySLAB 12.60S-I -zSLAB 10.50P-A -time:zt 15 700 3000 @rat_offsets.1D MRIm*
+
+3a) 3dToutcount -save rat.700.outs.nii rat.700.epan.nii | 1dplot -jpeg rat.700.outs -stdin \
+			rat.700.outs.nii
+
+4) 3dTshift -verbose -tzero 0 -prefix rat.700.tshift.nii rat.700.epan.nii
+
+	awk '/  [0-3] / {print NR-1;exit}' rat.700.outs.txt "276"
+
+5) 3dvolreg -verbose -zpad 1 -base rat.700.tshift.nii'[276]' -1Dfile rat.700.dfile.1D -prefix \
+	rat.700.volreg rat.700.tshift.nii > log.rat.700.volreg.txt
+
+	1dplot -jpeg rat.700.volreg -volreg -xlabel TIME rat.700.dfile.1D
+
+6) 3dAutomask -dilate 1 -prefix rat.700.automask.nii rat.700.volreg.nii > log.rat.700.automask.txt
+
+7) 3dMean -datum short -prefix rm.mean.nii rat.700.automask.nii
+
+8) 3dcalc -a rm.mean.nii -expr 'ispositive(a-0)' -prefix rat.700.fullmask.nii
+
+9) 3dTstat -prefix rm.rat.700.mean.nii rat.700.volreg.nii
+
+10) 3dcalc -verbose -float -a rat.700.volreg.nii -b rm.rat.700.mean.nii -c rat.700.fullmask.edit.nii \
+	-expr 'c * min(200, a/b*100)' -prefix rat.700.scale.nii
+
+11) while read hrm; do
+	 3dDeconvolve -input rat.700.scale.nii.gz -polort A \
+	  -mask rat.700.fullmask.edit.nii -num_stimts 7 -global_times \
+	  -stim_times 1 '1D: 240' "$hrm"  -stim_label 1 rat.700.$hrm \
+	  -stim_file 2 rat.700.dfile.1D'[0]' -stim_base 2 -stim_label 2 roll \
+	  -stim_file 3 rat.700.dfile.1D'[1]' -stim_base 3 -stim_label 3 pitch \
+	  -stim_file 4 rat.700.dfile.1D'[2]' -stim_base 4 -stim_label 4 yaw \
+	  -stim_file 5 rat.700.dfile.1D'[3]' -stim_base 5 -stim_label 5 dS \
+	  -stim_file 6 rat.700.dfile.1D'[4]' -stim_base 6 -stim_label 6 dL \
+	  -stim_file 7 rat.700.dfile.1D'[5]' -stim_base 7 -stim_label 7 dP \
+	  -xout -x1D rat.700.$hrm.xmat.1D -xjpeg rat.700.$hrm.xmat.jpg \
+	  -fout -tout -TR_times 1 \
+	  -iresp 1 rat.700.$hrm.irf.nii \
+	  -fitts rat.700.$hrm.fitt.nii \
+	  -errts rat.700.$hrm.errts.nii \
+	  -bucket rat.700.$hrm.func.nii
+
+ 12) 3dREMLfit -matrix rat.700.$hrm.xmat.1D -input rat.700.scale.nii.gz \
+	  -mask rat.700.fullmask.edit.nii -fout -tout \
+	  -Rbuck rat.700.$hrm.func.REML.nii -Rvar rat.700.$hrm.func.REMLvar.nii \
+	  -Rfitts rat.700.$hrm.fitt.REML.nii \
+	  -Rerrts rat.700.$hrm.REML.nii -verb $*
+
+	 1dgrayplot -sep -jpeg ${hrm}.xmat rat.700.$hrm.xmat.1D
+	 1dplot -sepscl -jpeg ${hrm}.Regressors-All rat.700.$hrm.xmat.1D
+	 1dplot -sepscl -jpeg ${hrm}.MotionStim rat.700.$hrm.xmat.1D'[22..16]'
+	 1dcat rat.700.$hrm.xmat.1D'[16]' > ideal.rat.700.$hrm.1D
+
+	 mv rat.700.$hrm.* BLOCK
+    done < RATHRF2.txt
