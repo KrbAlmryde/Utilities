@@ -47,6 +47,52 @@ function setup() {
 } # End of setup
 
 
+function thresh_components () {
+    #------------------------------------------------------------------------
+    #
+    #   Description: thresh_components
+    #
+    #       Purpose: Threshold components of interest at the provided p-lvl
+    #                 as well as remove any negative activation from the
+    #                 image.
+    #
+    #         Input: cond => THe present condition, availale options are
+    #                        learn or unlearn
+    #                comp => The component number of interest
+    #                run => The current scan, options incude run1-4
+    #
+    #        Output: Produces a positive actiavtion only statistical map
+    #                 thresholded to the desired p-lvl.
+    #
+    #------------------------------------------------------------------------
+    cond=$1; comp=$2; run=$3
+
+    if [[ ${cond} == 'unlearn' ]]; then
+        local input4d=${cond}_${run}_IC${comp}
+    else
+        local input4d=${cond}_IC${comp}_${run}
+    fi
+
+    local output4=${cond}_IC${comp}_${run}_${tstat}
+
+    echo -e "\n========================================================="
+    echo -e "Thresholding Components @ ${tstat}"
+
+    # Merge clusters exlcuding Negative activations
+    3dmerge \
+        -1noneg \
+        -dxyz=1 \
+        -1clust 1 ${clust} \
+        -1thresh ${tstat} \
+        -prefix ${Merged}/Etc/${output4}.nii \
+        ${EXPERT}/${input4d}.nii.gz
+
+    3drefit -space MNI ${Merged}/Etc/"${output4}.nii"
+
+
+    echo -e "========================================================\n"
+}
+
 
 
 function MAIN() {
