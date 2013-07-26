@@ -40,15 +40,6 @@ function setup() {
 
 # 1) Extract tstat and coef subbricks
 
-    if [[ $condition == "sent" ]]; then
-        coef=12
-        tstat=13
-    else
-        coef=9
-        tstat=10
-    fi
-
-
 function getStatImages() {
     #------------------------------------------------------------------------
     #
@@ -131,7 +122,8 @@ function bucketStatImages() {
 function tTestImages() {
     #------------------------------------------------------------------------
     #
-    #  Purpose:
+    #  Purpose: Run 3dTtest++ on the extracted nn datasets, specifically just
+    #           the co datafiles
     #
     #
     #    Input:
@@ -143,17 +135,89 @@ function tTestImages() {
     local DIRNAME=/path/
     local var=param1
 
-} # End of tTestImages
-
-
-
-
-
-# 3) Run 3dTtest++ on the extracted nn datasets, specifically just the co datafiles
     3dttest++ \
         -setA "${SUBSTATS}/NoNeg/${scan}_sub*_${task}_${condition}_co_nn.nii.gz"
         -prefix "${STATS}/NoNeg/${scan}_${task}_${condition}_nn_ttest.nii.gz"
 
+} # End of tTestImages
+
+
+
+function HelpMessage ()
+{
+   echo "-----------------------------------------------------------------------"
+   echo "+                 +++ No arguments provided! +++                      +"
+   echo "+                                                                     +"
+   echo "+             This program requires at least 1 arguments.             +"
+   echo "+                                                                     +"
+   echo "+       NOTE: [words] in square brackets represent possible input.    +"
+   echo "+             See below for available options.                        +"
+   echo "+                                                                     +"
+   echo "-----------------------------------------------------------------------"
+   echo "   +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+   echo "   +                Experimental condition                       +"
+   echo "   +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+   echo "   +                                                             +"
+   echo "   +  [learn]   or  [learnable]    For the Learnable Condtion    +"
+   echo "   +  [unlearn] or  [unlearnable]  For the Unlearnable Condtion  +"
+   echo "   +  [debug]   or  [test]         For testing purposes only     +"
+   echo "   +                                                             +"
+   echo "   +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+   echo "-----------------------------------------------------------------------"
+   echo "+                Example command-line execution:                      +"
+   echo "+                                                                     +"
+   echo "+                    bash wb1.glm.sh learn                            +"
+   echo "+                                                                     +"
+   echo "+                  +++ Please try again +++                           +"
+   echo "-----------------------------------------------------------------------"
+
+   exit 1
+}
+
+
+function Main() {
+    #------------------------------------------------------------------------
+    #
+    #  Purpose:
+    #
+    #
+    #    Input:
+    #
+    #   Output:
+    #
+    #------------------------------------------------------------------------
+
+    subj=$1
+    RUN=( Run{1..3} )
+    runsub=( run{1..3}_${subj} )
+
+    BASE="/Exps/Analysis/HuanpingWB1"
+    MASK="/Exps/Analysis/HuanpingWB1/Masks"
+    SSUB="/Exps/Analysis/HuanpingWB1/Subjects"  # This contains the raw sub
+    SSTATS="/Exps/Analysis/HuanpingWB1/Subjects/Stats"  # This contains the combined tstat and coef datasets for each subject
+    SNNEG="$/Exps/Analysis/HuanpingWB1/Subjects/NoNeg" #
+    SSNNEG="/Exps/Analysis/HuanpingWB1/Subjects/Stats/NoNeg"  # This is the combined tstat and coef datasets that contain no negative actiavtion
+
+    if [[ $task == "sent" ]]; then
+        coef=12
+        tstat=13
+    else
+        coef=9
+        tstat=10
+    fi
+
+
+    for
+        SDATA="/Volumes/Data/WordBoundary1/GLM/${subj}/Glm/${RUN[r]}/Stats"
+
+
+    echo -e "\nMain has been called\n"
+
+} # End of Main
+
+
+
+# 3)
 
 # function main () {
 #     for subj in ${subjList[*]}; do
@@ -182,24 +246,9 @@ condition=$1            # This is a command-line supplied variable which determi
                         # exit with an error and provide the user with instructions
                         # for proper input and execution.
 
-operation=$2    # This command-line supplied variable is optional. If it is left
+task=$2    # This command-line supplied variable distinguishes the task from sentences
+           # to tones. Correct input should be
 
-
-BASE="/Exps/Analysis/HuanpingWB1"
-MASK="/Exps/Analysis/HuanpingWB1/Masks"
-SSUB="/Exps/Analysis/HuanpingWB1/Subjects"  # This contains the raw sub
-SSTATS="/Exps/Analysis/HuanpingWB1/Subjects/Stats"  # This contains the combined tstat and coef datasets for each subject
-SNNEG="$/Exps/Analysis/HuanpingWB1/Subjects/NoNeg" #
-SSNNEG="/Exps/Analysis/HuanpingWB1/Subjects/Stats/NoNeg"  # This is the combined tstat and coef datasets that contain no negative actiavtion
-SDATA="/Volumes/Data/WordBoundary1/GLM/${subj}/Glm/${RUN[r]}/Stats"
-
-
-taskList=(learnable unlearnable)
-condList=(sent tone)
-scanList=(run{1..3})
-RUN=(Run{1..3})
-
-for
 
 
 case $condition in
@@ -225,6 +274,9 @@ case $condition in
 esac
 
 
+for subj in ${subjList[*]}; do
+    Main $subj
+done
 
 #================================================================================
 #                              END OF MAIN
