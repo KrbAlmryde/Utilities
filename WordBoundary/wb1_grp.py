@@ -87,8 +87,7 @@ def statMask(imgFile, outMaskImg, cluster='273', plvl='0.01'):
         plvl -- The corrected alpha level, default is 0.01
 
     Returns:
-         None
-    """
+         None    """
     # See if you cant use a proper stats function via python instead of the afni one here
     thresh = os.popen("ccalc -expr 'fitt_p2t(" + plvl + "000,128)'").readlines()
 

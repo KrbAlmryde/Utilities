@@ -39,17 +39,57 @@ function setup() {
 # to whatever type of subbrick the dataset contains (ie co-tt)
 
 # 1) Extract tstat and coef subbricks
-    if $condition == "sent"
-        coefSB=12
-        tstatSB=13
+
+    if [[ $condition == "sent" ]]; then
+        coef=12
+        tstat=13
     else
-        coefSB=9
-        tstatSB=10
+        coef=9
+        tstat=10
+    fi
+
+
+function getStatImages() {
+    #------------------------------------------------------------------------
+    #
+    #  Purpose: Extract tstat and coef sub bricks
+    #
+    #
+    #    Input:
+    #
+    #   Output:
+    #
+    #------------------------------------------------------------------------
+
+    local input3D=$1
+    local output3D=${scan}_${subj}_${task}_${condition}_co-tt_stats
 
     3dbucket \
-        -prefix "${SSTATS}/${scan}_${subj}_${task}_${condition}_co-tt_stats.nii.gz" \
-                "${scan}_${subj}_tshift_volreg_despike_mni_7mm_164tr_0sec_${task}.nii.gz[${coefSB},${tstatSB}]"
+        -prefix "${SSTATS}/${output3D}.nii.gz" \
+                "${SDATA}/${input3D}.nii.gz[${coef},${tstat}]"
+
+
+} # End of getStatImage
+
+
+
 # 2) Remove negative activation from coef and tstats, rebucket them
+
+function noNegImages() {
+    #------------------------------------------------------------------------
+    #
+    #  Purpose: Remove negative activation from coef and tstats, rebucket them.
+    #
+    #
+    #    Input:
+    #
+    #   Output:
+    #
+    #------------------------------------------------------------------------
+
+    local DIRNAME=/path/
+    local var=param1
+
     3dmerge \
         -1noneg \
         -prefix "${SUBSTATS}/NoNeg/${scan}_${subj}_${task}_${condition}_co_nn.nii.gz"
@@ -60,12 +100,53 @@ function setup() {
         -prefix "${SUBSTATS}/NoNeg/${scan}_${subj}_${condition}_tt_nn.nii.gz"
                 "${SUBSTATS}/Combo/${scan}_${subj}_${task}_${condition}_co-tt_stats.nii.gz[1]"
 
+} # End of noNegImages
+
+
+function bucketStatImages() {
+    #------------------------------------------------------------------------
+    #
+    #  Purpose: Bucket two datasets to form one Stat image
+    #
+    #
+    #    Input:
+    #
+    #   Output:
+    #
+    #------------------------------------------------------------------------
+
+    local DIRNAME=/path/
+    local var=param1
 
     3dbucket \
         -fbuc \
-        -prefix "${STATS}/NoNeg/${scan}_${subj}_${task}_${condition}_co-tt_nn_stats.nii.gz" \
-                "${SUBSTATS}/NoNeg/Etc/${scan}_${subj}_${condition}_co_nn.nii.gz"
-                "${SUBSTATS}/NoNeg/Etc/${scan}_${subj}_${condition}_tt_nn.nii.gz"
+        -prefix "${SSNNEG}/${scan}_${subj}_${task}_${condition}_co-tt_nn_stats.nii.gz" \
+                "${SSNNEG}/Etc/${scan}_${subj}_${condition}_co_nn.nii.gz"
+                "${SSNNEG}/Etc/${scan}_${subj}_${condition}_tt_nn.nii.gz"
+
+} # End of bucketStatImages
+
+
+
+function tTestImages() {
+    #------------------------------------------------------------------------
+    #
+    #  Purpose:
+    #
+    #
+    #    Input:
+    #
+    #   Output:
+    #
+    #------------------------------------------------------------------------
+
+    local DIRNAME=/path/
+    local var=param1
+
+} # End of tTestImages
+
+
+
 
 
 # 3) Run 3dTtest++ on the extracted nn datasets, specifically just the co datafiles
@@ -74,20 +155,20 @@ function setup() {
         -prefix "${STATS}/NoNeg/${scan}_${task}_${condition}_nn_ttest.nii.gz"
 
 
-function main () {
-    for subj in ${subjList[*]}; do
-        for scan ${scanList[*]}; do
-            for task in ${taskList[*]}; do
-                for condition ${condList[*]}; do
+# function main () {
+#     for subj in ${subjList[*]}; do
+#         for scan ${scanList[*]}; do
+#             for task in ${taskList[*]}; do
+#                 for condition ${condList[*]}; do
 
-                    if $condition == "sent"
-                        coefSB=12
-                        tstatSB=13
-                    else
-                        coefSB=9
-                        tstatSB=10
+#                     if $condition == "sent"
+#                         coefSB=12
+#                         tstatSB=13
+#                     else
+#                         coefSB=9
+#                         tstatSB=10
 
-}
+# }
 
 
 #================================================================================
@@ -104,40 +185,45 @@ condition=$1            # This is a command-line supplied variable which determi
 operation=$2    # This command-line supplied variable is optional. If it is left
 
 
-RUN=( Run1 Run2 Run3 )
+BASE="/Exps/Analysis/HuanpingWB1"
+MASK="/Exps/Analysis/HuanpingWB1/Masks"
+SSUB="/Exps/Analysis/HuanpingWB1/Subjects"  # This contains the raw sub
+SSTATS="/Exps/Analysis/HuanpingWB1/Subjects/Stats"  # This contains the combined tstat and coef datasets for each subject
+SNNEG="$/Exps/Analysis/HuanpingWB1/Subjects/NoNeg" #
+SSNNEG="/Exps/Analysis/HuanpingWB1/Subjects/Stats/NoNeg"  # This is the combined tstat and coef datasets that contain no negative actiavtion
+SDATA="/Volumes/Data/WordBoundary1/GLM/${subj}/Glm/${RUN[r]}/Stats"
+
+
+taskList=(learnable unlearnable)
+condList=(sent tone)
+scanList=(run{1..3})
+RUN=(Run{1..3})
+
+for
 
 
 case $condition in
-    "learn"|"learnable"     )
-                              condition="learnable"
-                              subj_list=( sub013 sub016 sub019 sub021 \
-                                          sub023 sub027 sub028 sub033 \
-                                          sub035 sub039 sub046 sub050 \
-                                          sub057 sub067 sub069 sub073 )
-                              ;;
+    "learn"|"learnable" )
+        condition="learnable"
+        subjList=( sub013 sub016 sub019 sub021 \
+                   sub023 sub027 sub028 sub033 \
+                   sub035 sub039 sub046 sub050 \
+                   sub057 sub067 sub069 sub073 )
+        ;;
 
     "unlearn"|"unlearnable" )
-                              condition="unlearnable"
-                              subj_list=( sub009 sub011 sub012 sub018 \
-                                          sub022 sub030 sub031 sub032 \
-                                          sub038 sub045 sub047 sub048 \
-                                          sub049 sub051 sub059 sub060 )
-                              ;;
+        condition="unlearnable"
+        subjList=( sub009 sub011 sub012 sub018 \
+                   sub022 sub030 sub031 sub032 \
+                   sub038 sub045 sub047 sub048 \
+                   sub049 sub051 sub059 sub060 )
+        ;;
 
-    "debug"|"test"          )
-                              condition="debugging"
-                              subj_list=( sub009 sub013 )
-                              ;;
-
-    *                       )
-                              HelpMessage
-                              ;;
+    * )
+        HelpMessage
+        ;;
 esac
 
-
-
-
-MAIN
 
 
 #================================================================================
@@ -146,19 +232,7 @@ MAIN
 
 exit
 
-BASE="/Exps/Analysis/HuanpingWB1"
-MASK="$BASE/Masks"
-SSUB="$BASE/SingleSubjects"  # This contains the raw sub
-SSNONEG="$SSUB/NoNeg" #
-SSTATS="$SSUB/Stats"  # This contains the combined tstat and coef datasets for each subject
-SSTATSNONEG="$SSTATS/NoNeg"  # This is the combined tstat and coef datasets that contain no negative actiavtion
-SOURCE=/Volumes/Data/WordBoundary1/GLM/${subj}/Glm/${scan}/Stats
 
-
-taskList=(learnable unlearnable)
-condList=(sent tone)
-scanList=(run{1..3})
-subjList=()
 
 
 
@@ -192,4 +266,49 @@ subjList=()
         sub013_run1_smg_l_4d.nii.gz
         sub013_run2_smg_l_4d.nii.gz
         sub013_run3_smg_l_4d.nii.gz
+========================================================================================
+
+# File naming conventions:
+# co ==> coefficient dataset
+# tt ==> t-statitic dataset
+# nn ==> no negative actication
+#
+# If a file has more than one subbrick, it is labeled stats, in addition
+# to whatever type of subbrick the dataset contains (ie co-tt)
+
+# 1) Extract tstat and coef subbricks
+    if $condition == "sent"
+        coefSB=12
+        tstatSB=13
+    else
+        coefSB=9
+        tstatSB=10
+
+    3dbucket \
+        -prefix "${SSTATS}/${scan}_${subj}_${task}_${condition}_co-tt_stats.nii.gz" \
+                "/Volumes/Data/WordBoundary1/GLM/sub009/Glm/Run1/Stats/${scan}_${subj}_tshift_volreg_despike_mni_7mm_164tr_0sec_${task}.nii.gz[${coefSB},${tstatSB}]"
+# 2) Remove negative activation from coef and tstats, rebucket them
+    3dmerge \
+        -1noneg \
+        -prefix "${SUBSTATS}/NoNeg/${scan}_${subj}_${task}_${condition}_co_nn.nii.gz"
+                "${SUBSTATS}/NoNeg/${scan}_${subj}_${task}_${condition}_co-tt_stats.nii.gz[0]"
+
+    3dmerge \
+        -1noneg \
+        -prefix "${SUBSTATS}/NoNeg/${scan}_${subj}_${condition}_tt_nn.nii.gz"
+                "${SUBSTATS}/Combo/${scan}_${subj}_${task}_${condition}_co-tt_stats.nii.gz[1]"
+
+
+    3dbucket \
+        -fbuc \
+        -prefix "${STATS}/NoNeg/${scan}_${subj}_${task}_${condition}_co-tt_nn_stats.nii.gz" \
+                "${SUBSTATS}/NoNeg/Etc/${scan}_${subj}_${condition}_co_nn.nii.gz"
+                "${SUBSTATS}/NoNeg/Etc/${scan}_${subj}_${condition}_tt_nn.nii.gz"
+
+
+# 3) Run 3dTtest++ on the extracted nn datasets, specifically just the co datafiles
+    3dttest++ \
+        -setA "${SUBSTATS}/NoNeg/${scan}_sub*_${task}_${condition}_co_nn.nii.gz"
+        -prefix "${STATS}/NoNeg/${scan}_${task}_${condition}_nn_ttest.nii.gz"
+
 NOTES
