@@ -5,11 +5,26 @@
 #           Date: 6/25/2013
 #
 #    Description: This program is part of a collaboration with Dr. Huanping
-#                 Dai. filters group generated ROI binary masks through the single-subject 3D t-value and 4D data post-processing
-#                 data.
+#                 Dai. filters group generated ROI binary masks through the
+#                 single-subject 3D t-value and 4D data post-processing data.
 #
+#                 File naming conventions:
+#                 co ==> coefficient dataset
+#                 tt ==> t-statitic dataset
+#                 nn ==> no negative actication
 #
+#                 If a file has more than one subbrick, it is labeled stats, in addition
+#                 to whatever type of subbrick the dataset contains (ie co-tt)
 #
+#          Notes: This script is intended to be run Three times!
+#                 1st) To process each individual subject, extracting subbrick
+#                       info and remove negative activation
+#                 2nd) Run the group ttest
+#                 3rd) Filter the newly created masks through each subject
+#
+#           To run every subject and every condition, copy and paste the following
+#           into the command-line:
+#           for i in wb1.hp.sh{' 'un,' '}learn{' 'sent,' 'tone}; do bash $i; done
 #================================================================================
 #                            FUNCTION DEFINITIONS
 #================================================================================
@@ -23,20 +38,10 @@ function setup() {
     #
     #------------------------------------------------------------------------
 
-    mkdir -p {$BASE,$MASK,$SSUB}/Etc
+    mkdir -p {$BASE,$SUB/Filtered,$SUBNEG,$SUBSTATS,$SUBSTATSNEG,$MASK,$TTEST}
 
 } # End of setup
 
-
-
-
-# File naming conventions:
-# co ==> coefficient dataset
-# tt ==> t-statitic dataset
-# nn ==> no negative actication
-#
-# If a file has more than one subbrick, it is labeled stats, in addition
-# to whatever type of subbrick the dataset contains (ie co-tt)
 
 # 1) Extract tstat and coef subbricks
 
@@ -53,14 +58,25 @@ function getStatImages() {
     #------------------------------------------------------------------------
 
     local input3D=$1
-    local output3D=${scan}_${subj}_${task}_${condition}_co-tt_stats
+
+    if [[ $task == "sent" ]]; then
+        coef=12
+        tstat=13
+    else
+        coef=9
+        tstat=10
+    fi
 
     3dbucket \
-        -prefix "${SSTATS}/${output3D}.nii.gz" \
+        -fbuc \
+        -prefix "${SUBSTATS}/${output3D}_co-tt_stats.nii.gz" \
                 "${SDATA}/${input3D}.nii.gz[${coef},${tstat}]"
 
-    echo -e "++++++++++++++++++++++++\getStatImages has been called!\n"
-    echo -e "========================\n"
+    echo -e "\t++++++++++++++++++++++++"
+    echo -e "\tgetStatImages has been called! ${runsub} "
+    echo -e "\tInput: ${SDATA}/${input3D}.nii.gz[${coef},${tstat}]"
+    echo -e "\tOutput: ${SUBSTATS}/${output3D}_co-tt_stats.nii.gz"
+    echo -e "\t========================\n"
 } # End of getStatImage
 
 
@@ -78,46 +94,25 @@ function noNegImages() {
     #------------------------------------------------------------------------
 
     local input3D=$1
-    local output3D=${scan}_${subj}_${task}_${condition}_co-tt_stats
+    local output3D=${runsub}_${task}_${condition}
 
     3dmerge \
         -1noneg \
-        -prefix "${SUBSTATS}/NoNeg/${scan}_${subj}_${task}_${condition}_co_nn.nii.gz"
-                "${SUBSTATS}/NoNeg/${scan}_${subj}_${task}_${condition}_co-tt_stats.nii.gz[0]"
+        -prefix "${SUBNEG}/${output3D}_co_nn.nii.gz" \
+                "${SUBSTATS}/${input3D}.nii.gz[0]"
 
     3dmerge \
         -1noneg \
-        -prefix "${SUBSTATS}/NoNeg/${scan}_${subj}_${condition}_tt_nn.nii.gz"
-                "${SUBSTATS}/Combo/${scan}_${subj}_${task}_${condition}_co-tt_stats.nii.gz[1]"
+        -prefix "${SUBNEG}/${output3D}_tt_nn.nii.gz" \
+                "${SUBSTATS}/${input3D}.nii.gz[1]"
 
-    echo -e "++++++++++++++++++++++++\nMain has been called!\n========================\n"
+    echo -e "\t++++++++++++++++++++++++\n\tnoNegImages has been called! ${runsub}"
+    echo -e "\tInput: ${SUBSTATS}/${input3D}.nii.gz[0]"
+    echo -e "\tOutput: ${SUBNEG}/${output3D}_co_nn.nii.gz"
+    echo -e "\tInput: ${SUBSTATS}/${output3D}_tt_nn.nii.gz"
+    echo -e "\tOutput: ${SUBNEG}/${input3D}.nii.gz[1]"
+    echo -e "\t========================\n"
 } # End of noNegImages
-
-
-function bucketStatImages() {
-    #------------------------------------------------------------------------
-    #
-    #  Purpose: Bucket two datasets to form one Stat image
-    #
-    #
-    #    Input:
-    #
-    #   Output:
-    #
-    #------------------------------------------------------------------------
-
-    local DIRNAME=/path/
-    local var=param1
-
-    3dbucket \
-        -fbuc \
-        -prefix "${SSNNEG}/${scan}_${subj}_${task}_${condition}_co-tt_nn_stats.nii.gz" \
-                "${SSNNEG}/Etc/${scan}_${subj}_${condition}_co_nn.nii.gz"
-                "${SSNNEG}/Etc/${scan}_${subj}_${condition}_tt_nn.nii.gz"
-
-    echo -e "++++++++++++++++++++++++\nMain has been called!\n========================\n"
-} # End of bucketStatImages
-
 
 
 function tTestImages() {
@@ -133,16 +128,61 @@ function tTestImages() {
     #
     #------------------------------------------------------------------------
 
-    local DIRNAME=/path/
-    local var=param1
+    local output3D=${scan}_${task}_${condition}
+    local STRUCT="/Volumes/Data/StructuralImage"
 
-    3dttest++ \
-        -setA "${SUBSTATS}/NoNeg/${scan}_sub*_${task}_${condition}_co_nn.nii.gz"
-        -prefix "${STATS}/NoNeg/${scan}_${task}_${condition}_nn_ttest.nii.gz"
+    if [[ -e ${TTEST}/${output3D}_nn_ttest.nii.gz ]]; then
+        echo
+    else
+        3dttest++ \
+            -mask ${STRUCT}/MNI_2mm_mask.nii \
+            -setA "${BASE}/${subjList[0]}/NoNeg/${scan}_${subjList[0]}_${task}_${condition}_co_nn.nii.gz" \
+                  "${BASE}/${subjList[1]}/NoNeg/${scan}_${subjList[1]}_${task}_${condition}_co_nn.nii.gz" \
+                  "${BASE}/${subjList[2]}/NoNeg/${scan}_${subjList[2]}_${task}_${condition}_co_nn.nii.gz" \
+                  "${BASE}/${subjList[3]}/NoNeg/${scan}_${subjList[3]}_${task}_${condition}_co_nn.nii.gz" \
+                  "${BASE}/${subjList[4]}/NoNeg/${scan}_${subjList[4]}_${task}_${condition}_co_nn.nii.gz" \
+                  "${BASE}/${subjList[5]}/NoNeg/${scan}_${subjList[5]}_${task}_${condition}_co_nn.nii.gz" \
+                  "${BASE}/${subjList[6]}/NoNeg/${scan}_${subjList[6]}_${task}_${condition}_co_nn.nii.gz" \
+                  "${BASE}/${subjList[7]}/NoNeg/${scan}_${subjList[7]}_${task}_${condition}_co_nn.nii.gz" \
+                  "${BASE}/${subjList[8]}/NoNeg/${scan}_${subjList[8]}_${task}_${condition}_co_nn.nii.gz" \
+                  "${BASE}/${subjList[9]}/NoNeg/${scan}_${subjList[9]}_${task}_${condition}_co_nn.nii.gz" \
+                  "${BASE}/${subjList[10]}/NoNeg/${scan}_${subjList[10]}_${task}_${condition}_co_nn.nii.gz" \
+                  "${BASE}/${subjList[11]}/NoNeg/${scan}_${subjList[11]}_${task}_${condition}_co_nn.nii.gz" \
+                  "${BASE}/${subjList[12]}/NoNeg/${scan}_${subjList[12]}_${task}_${condition}_co_nn.nii.gz" \
+                  "${BASE}/${subjList[13]}/NoNeg/${scan}_${subjList[13]}_${task}_${condition}_co_nn.nii.gz" \
+                  "${BASE}/${subjList[14]}/NoNeg/${scan}_${subjList[14]}_${task}_${condition}_co_nn.nii.gz" \
+                  "${BASE}/${subjList[15]}/NoNeg/${scan}_${subjList[15]}_${task}_${condition}_co_nn.nii.gz" \
+            -prefix "${TTEST}/${output3D}_nn_ttest.nii.gz"
+    fi
 
-    echo -e "++++++++++++++++++++++++\nMain has been called!\n========================\n"
+    echo -e "\t++++++++++++++++++++++++\n\ttTestImages has been called! ${runsub}"
+    echo -e "\tInput: ${SUBSTATS}/NoNeg/${input3D}.nii.gz[0]"
+    echo -e "\tOutput: ${TTEST}/${scan}_${task}_${condition}_nn_ttest.nii.gz"
+    echo -e "\t========================\n"
+
 
 } # End of tTestImages
+
+
+
+function filterSubjectImages() {
+    #------------------------------------------------------------------------
+    #
+    #  Purpose: Filter single subject data through roi masks (once created)
+    #
+    #
+    #    Input:
+    #
+    #   Output:
+    #
+    #------------------------------------------------------------------------
+
+    local input3D=$1
+    local maskList=(`ls ${MASK}/*.nii.gz`)
+    local output3D
+
+} # End of filterSubjectImages
+
 
 
 
@@ -151,14 +191,14 @@ function HelpMessage ()
    echo "-----------------------------------------------------------------------"
    echo "+                 +++ No arguments provided! +++                      +"
    echo "+                                                                     +"
-   echo "+             This program requires at least 1 arguments.             +"
+   echo "+             This program requires at least 2 arguments.             +"
    echo "+                                                                     +"
    echo "+       NOTE: [words] in square brackets represent possible input.    +"
    echo "+             See below for available options.                        +"
    echo "+                                                                     +"
    echo "-----------------------------------------------------------------------"
    echo "   +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
-   echo "   +                Experimental condition                       +"
+   echo "   +                   Experimental condition                    +"
    echo "   +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
    echo "   +                                                             +"
    echo "   +  [learn]   or  [learnable]    For the Learnable Condtion    +"
@@ -166,10 +206,17 @@ function HelpMessage ()
    echo "   +  [debug]   or  [test]         For testing purposes only     +"
    echo "   +                                                             +"
    echo "   +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+   echo "   +                      Experimental task                      +"
+   echo "   +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+   echo "   +                                                             +"
+   echo "   +  [sent]    For the Sentences focused task                   +"
+   echo "   +  [tone]    For the Tone focused task                        +"
+   echo "   +                                                             +"
+   echo "   +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
    echo "-----------------------------------------------------------------------"
    echo "+                Example command-line execution:                      +"
    echo "+                                                                     +"
-   echo "+                    bash wb1.glm.sh learn                            +"
+   echo "+                    bash wb1.hp.sh learn sent                        +"
    echo "+                                                                     +"
    echo "+                  +++ Please try again +++                           +"
    echo "-----------------------------------------------------------------------"
@@ -189,76 +236,72 @@ function Main() {
     #   Output:
     #
     #------------------------------------------------------------------------
-
     subj=$1
-    RUN=( Run{1..3} )
-    runsub=( run{1..3}_${subj} )
+    scan=run$2
+    condition=$3
+    task=$4
+    operation=$5
 
-    BASE="/Exps/Analysis/HuanpingWB1"
-    MASK="/Exps/Analysis/HuanpingWB1/Masks"
-    SSUB="/Exps/Analysis/HuanpingWB1/Subjects"  # This contains the raw sub
-    SSTATS="/Exps/Analysis/HuanpingWB1/Subjects/Stats"  # This contains the combined tstat and coef datasets for each subject
-    SNNEG="$/Exps/Analysis/HuanpingWB1/Subjects/NoNeg" #
-    SSNNEG="/Exps/Analysis/HuanpingWB1/Subjects/Stats/NoNeg"  # This is the combined tstat and coef datasets that contain no negative actiavtion
+    RUN=Run$2
+    runsub=${scan}_${subj}
+    output3D=${runsub}_${task}_${condition}
 
-    if [[ $task == "sent" ]]; then
-        coef=12
-        tstat=13
-    else
-        coef=9
-        tstat=10
-    fi
+    SDATA="/Volumes/Data/WordBoundary1/GLM/${subj}/Glm/${RUN}/Stats"
+    BASE="/Exps/Analysis/HuanpingWB1/${condition}/${RUN}"
+    SUB="${BASE}/${subj}"   # This contains the raw sub
+    SUBNEG="${SUB}/NoNeg"  #
+    SUBSTATS="${SUB}/Stats"  #
+    SUBFILTER="${SUB}/Filtered"  # once we have masks to filter the subject data, they will go here
+    MASK="${BASE}/Masks"
+    TTEST="${BASE}/Ttest"
 
-    SDATA="/Volumes/Data/WordBoundary1/GLM/${subj}/Glm/${RUN[r]}/Stats"
+    # -----------------
+    # Execute Functions
+    # -----------------
+    case $operation in
+        "group" )
+            tTestImages
+            ;;
 
-    for i in words; do
-        getStatImages ${scan}_${subj}_tshift_volreg_despike_mni_7mm_164tr_0sec_${task}
-        noNegImages ${scan}_${subj}_${task}_${condition}_co-tt_stats
-        bucketStatImages ${scan}_${subj}_${task}_${condition}_co-tt_nn_stats
-        tTestImages # No input
-    done
+        "filter" )
+            echo "theres is nothing here!"
+            # filterSubjectImages
+            ;;
 
-    echo -e "++++++++++++++++++++++++\nMain has been called!\n========================\n"
+        * )
+            setup  ${runsub}_tshift_volreg_despike_mni_7mm_164tr_0sec_${condition}.stats  # Build the directory
+            getStatImages ${runsub}_tshift_volreg_despike_mni_7mm_164tr_0sec_${condition}.stats  # Get the stat images
+            noNegImages ${runsub}_${task}_${condition}_co-tt_stats   # Remove the negative activation
+            ;;
+    esac
+
+    #+++++++++++++++++++++++++++++++++++++++++++++++
+
+    echo -e "++++++++++++++++++++++++\nMain has been called! ${runsub} $condition $task\n========================\n"
 
 } # End of Main
-
-
-
-# 3)
-
-# function main () {
-#     for subj in ${subjList[*]}; do
-#         for scan ${scanList[*]}; do
-#             for task in ${taskList[*]}; do
-#                 for condition ${condList[*]}; do
-
-#                     if $condition == "sent"
-#                         coefSB=12
-#                         tstatSB=13
-#                     else
-#                         coefSB=9
-#                         tstatSB=10
-
-# }
 
 
 #================================================================================
 #                                START OF MAIN
 #================================================================================
 
-condition=$1            # This is a command-line supplied variable which determines
-                        # which experimental condition should be run. This value is
-                        # important in that it determines which group of subjects should
-                        # be run. If this variable is not supplied the program will
-                        # exit with an error and provide the user with instructions
-                        # for proper input and execution.
+cond=$1     # This is a command-line supplied variable which determines
+            # which experimental condition should be run. This value is
+            # important in that it determines which group of subjects should
+            # be run. If this variable is not supplied the program will
+            # exit with an error and provide the user with instructions
+            # for proper input and execution.
 
 task=$2    # This command-line supplied variable distinguishes the task from sentences
-           # to tones. Correct input should be
+           # or tones. If this is not provided, it will default to "sent" for sentences
+
+oper=$3    # This determines whether we should be processing the individual subjects,
+           # the group tTest, or filter masks through single subject data.
 
 
 
-case $condition in
+case $cond in
     "learn"|"learnable" )
         condition="learnable"
         subjList=( sub013 sub016 sub019 sub021 \
@@ -281,8 +324,10 @@ case $condition in
 esac
 
 
-for subj in ${subjList[*]}; do
-    Main $subj
+for r in {1..3}; do
+    for subj in ${subjList[*]}; do
+        Main $subj $r $condition $task $oper
+    done
 done
 
 #================================================================================
@@ -344,25 +389,25 @@ exit
         tstatSB=10
 
     3dbucket \
-        -prefix "${SSTATS}/${scan}_${subj}_${task}_${condition}_co-tt_stats.nii.gz" \
-                "/Volumes/Data/WordBoundary1/GLM/sub009/Glm/Run1/Stats/${scan}_${subj}_tshift_volreg_despike_mni_7mm_164tr_0sec_${task}.nii.gz[${coefSB},${tstatSB}]"
+        -prefix "${SSTATS}/${runsub}_${task}_${condition}_co-tt_stats.nii.gz" \
+                "/Volumes/Data/WordBoundary1/GLM/sub009/Glm/Run1/Stats/${runsub}_tshift_volreg_despike_mni_7mm_164tr_0sec_${task}.nii.gz[${coefSB},${tstatSB}]"
 # 2) Remove negative activation from coef and tstats, rebucket them
     3dmerge \
         -1noneg \
-        -prefix "${SUBSTATS}/NoNeg/${scan}_${subj}_${task}_${condition}_co_nn.nii.gz"
-                "${SUBSTATS}/NoNeg/${scan}_${subj}_${task}_${condition}_co-tt_stats.nii.gz[0]"
+        -prefix "${SUBSTATS}/NoNeg/${runsub}_${task}_${condition}_co_nn.nii.gz"
+                "${SUBSTATS}/NoNeg/${runsub}_${task}_${condition}_co-tt_stats.nii.gz[0]"
 
     3dmerge \
         -1noneg \
-        -prefix "${SUBSTATS}/NoNeg/${scan}_${subj}_${condition}_tt_nn.nii.gz"
-                "${SUBSTATS}/Combo/${scan}_${subj}_${task}_${condition}_co-tt_stats.nii.gz[1]"
+        -prefix "${SUBSTATS}/NoNeg/${runsub}_${condition}_tt_nn.nii.gz"
+                "${SUBSTATS}/Combo/${runsub}_${task}_${condition}_co-tt_stats.nii.gz[1]"
 
 
     3dbucket \
         -fbuc \
-        -prefix "${STATS}/NoNeg/${scan}_${subj}_${task}_${condition}_co-tt_nn_stats.nii.gz" \
-                "${SUBSTATS}/NoNeg/Etc/${scan}_${subj}_${condition}_co_nn.nii.gz"
-                "${SUBSTATS}/NoNeg/Etc/${scan}_${subj}_${condition}_tt_nn.nii.gz"
+        -prefix "${STATS}/NoNeg/${runsub}_${task}_${condition}_co-tt_nn_stats.nii.gz" \
+                "${SUBSTATS}/NoNeg/Etc/${runsub}_${condition}_co_nn.nii.gz"
+                "${SUBSTATS}/NoNeg/Etc/${runsub}_${condition}_tt_nn.nii.gz"
 
 
 # 3) Run 3dTtest++ on the extracted nn datasets, specifically just the co datafiles
@@ -371,3 +416,35 @@ exit
         -prefix "${STATS}/NoNeg/${scan}_${task}_${condition}_nn_ttest.nii.gz"
 
 NOTES
+
+
+
+
+function bucketStatImages() {
+    # THIS FUNCTION IS DEPRECIATED!!!
+    #------------------------------------------------------------------------
+    #
+    #  Purpose: Bucket two datasets to form one Stat image
+    #
+    #
+    #    Input:
+    #
+    #   Output:
+    #
+    #------------------------------------------------------------------------
+
+    # local input3D=$1
+    # local output3D=${runsub}_${task}_${condition}
+
+    # # 3dbucket \
+    # #     -fbuc \
+    # #     -prefix "${SUBSTATSNEG}/${output3D}_co-tt_nn_stats.nii.gz" \
+    # #             "${SUBNEG}/${input3D}_co_nn.nii.gz"
+    # #             "${SUBNEG}/${input3D}_tt_nn.nii.gz"
+
+    # echo -e "\t++++++++++++++++++++++++\n\tbucketStatImages has been called! ${runsub}"
+    # echo -e "\tInput: ${SUBNEG}/${input3D}_co_nn.nii.gz"
+    # echo -e "\t       ${SUBNEG}/${input3D}_tt_nn.nii.gz"
+    # echo -e "\tOutput: ${SUBSTATSNEG}/${output3D}_co-tt_nn_stats.nii.gz"
+    # echo -e "\t========================\n"
+} # End of bucketStatImages
