@@ -43,7 +43,7 @@ function setup() {
 function getStatImages() {
     #------------------------------------------------------------------------
     #
-    #  Purpose: Extract tstat and coef sub bricks
+    #  Purpose: Extract tstat and coef sub bricks from individual subjects
     #
     #
     #    Input:
@@ -59,12 +59,11 @@ function getStatImages() {
         -prefix "${SSTATS}/${output3D}.nii.gz" \
                 "${SDATA}/${input3D}.nii.gz[${coef},${tstat}]"
 
-
+    echo -e "++++++++++++++++++++++++\getStatImages has been called!\n"
+    echo -e "========================\n"
 } # End of getStatImage
 
 
-
-# 2) Remove negative activation from coef and tstats, rebucket them
 
 function noNegImages() {
     #------------------------------------------------------------------------
@@ -78,8 +77,8 @@ function noNegImages() {
     #
     #------------------------------------------------------------------------
 
-    local DIRNAME=/path/
-    local var=param1
+    local input3D=$1
+    local output3D=${scan}_${subj}_${task}_${condition}_co-tt_stats
 
     3dmerge \
         -1noneg \
@@ -91,6 +90,7 @@ function noNegImages() {
         -prefix "${SUBSTATS}/NoNeg/${scan}_${subj}_${condition}_tt_nn.nii.gz"
                 "${SUBSTATS}/Combo/${scan}_${subj}_${task}_${condition}_co-tt_stats.nii.gz[1]"
 
+    echo -e "++++++++++++++++++++++++\nMain has been called!\n========================\n"
 } # End of noNegImages
 
 
@@ -115,6 +115,7 @@ function bucketStatImages() {
                 "${SSNNEG}/Etc/${scan}_${subj}_${condition}_co_nn.nii.gz"
                 "${SSNNEG}/Etc/${scan}_${subj}_${condition}_tt_nn.nii.gz"
 
+    echo -e "++++++++++++++++++++++++\nMain has been called!\n========================\n"
 } # End of bucketStatImages
 
 
@@ -138,6 +139,8 @@ function tTestImages() {
     3dttest++ \
         -setA "${SUBSTATS}/NoNeg/${scan}_sub*_${task}_${condition}_co_nn.nii.gz"
         -prefix "${STATS}/NoNeg/${scan}_${task}_${condition}_nn_ttest.nii.gz"
+
+    echo -e "++++++++++++++++++++++++\nMain has been called!\n========================\n"
 
 } # End of tTestImages
 
@@ -206,12 +209,16 @@ function Main() {
         tstat=10
     fi
 
+    SDATA="/Volumes/Data/WordBoundary1/GLM/${subj}/Glm/${RUN[r]}/Stats"
 
-    for
-        SDATA="/Volumes/Data/WordBoundary1/GLM/${subj}/Glm/${RUN[r]}/Stats"
+    for i in words; do
+        getStatImages ${scan}_${subj}_tshift_volreg_despike_mni_7mm_164tr_0sec_${task}
+        noNegImages ${scan}_${subj}_${task}_${condition}_co-tt_stats
+        bucketStatImages ${scan}_${subj}_${task}_${condition}_co-tt_nn_stats
+        tTestImages # No input
+    done
 
-
-    echo -e "\nMain has been called\n"
+    echo -e "++++++++++++++++++++++++\nMain has been called!\n========================\n"
 
 } # End of Main
 
