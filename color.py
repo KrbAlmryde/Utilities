@@ -1,3 +1,15 @@
+"""
+==============================================================================
+Program: color.py
+ Author: Kyle Reese Almryde
+   Date:
+
+ Description:
+
+
+
+==============================================================================
+"""
 import itertools
 
 
@@ -89,6 +101,8 @@ class ColorPallet(object):
         for i, val in enumerate(self.getPalletValues()):
             self.pallet += "\n\t{:0.4f} -> {}".format(val, self.colorNames[i])
         return self.pallet
+
+#=============================== START OF MAIN ===============================
 
 
 def main():
