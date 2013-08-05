@@ -118,11 +118,11 @@ function noNegImages() {
 function tTestImages() {
     #------------------------------------------------------------------------
     #
-    #  Purpose: Run 3dTtest++ on the extracted nn datasets, specifically just
-    #           the co datafiles
+    #  Purpose: Run 3dTtest++ on the extracted no-negative activation datasets,
+    #           specifically just the coef datafiles.
     #
     #
-    #    Input:
+    #    Input: None, presntely hard-coded for subject.
     #
     #   Output:
     #
@@ -181,6 +181,10 @@ function filterSubjectImages() {
     local maskList=(`ls ${MASK}/*.nii.gz`)
     local output3D
 
+    for maskImg in ${maskList[*]}; do
+      statements
+    done
+
 } # End of filterSubjectImages
 
 
@@ -236,48 +240,74 @@ function Main() {
     #   Output:
     #
     #------------------------------------------------------------------------
-    subj=$1
     scan=run$2
-    condition=$3
+    RUN=Run$2
+    cond=$3
     task=$4
     operation=$5
 
-    RUN=Run$2
-    runsub=${scan}_${subj}
-    output3D=${runsub}_${task}_${condition}
 
-    SDATA="/Volumes/Data/WordBoundary1/GLM/${subj}/Glm/${RUN}/Stats"
-    BASE="/Exps/Analysis/HuanpingWB1/${condition}/${RUN}"
-    SUB="${BASE}/${subj}"   # This contains the raw sub
-    SUBNEG="${SUB}/NoNeg"  #
-    SUBSTATS="${SUB}/Stats"  #
-    SUBFILTER="${SUB}/Filtered"  # once we have masks to filter the subject data, they will go here
-    MASK="${BASE}/Masks"
-    TTEST="${BASE}/Ttest"
-
-    # -----------------
-    # Execute Functions
-    # -----------------
-    case $operation in
-        "group" )
-            tTestImages
+    case $cond in
+        "learn"|"learnable" )
+            condition="learnable"
+            subjList=( sub013 sub016 sub019 sub021 \
+                       sub023 sub027 sub028 sub033 \
+                       sub035 sub039 sub046 sub050 \
+                       sub057 sub067 sub069 sub073 )
             ;;
 
-        "filter" )
-            echo "theres is nothing here!"
-            # filterSubjectImages
+        "unlearn"|"unlearnable" )
+            condition="unlearnable"
+            subjList=( sub009 sub011 sub012 sub018 \
+                       sub022 sub030 sub031 sub032 \
+                       sub038 sub045 sub047 sub048 \
+                       sub049 sub051 sub059 sub060 )
             ;;
 
         * )
-            setup  ${runsub}_tshift_volreg_despike_mni_7mm_164tr_0sec_${condition}.stats  # Build the directory
-            getStatImages ${runsub}_tshift_volreg_despike_mni_7mm_164tr_0sec_${condition}.stats  # Get the stat images
-            noNegImages ${runsub}_${task}_${condition}_co-tt_stats   # Remove the negative activation
+            HelpMessage
             ;;
     esac
 
-    #+++++++++++++++++++++++++++++++++++++++++++++++
+    for subj in ${subjList[*]}; do
 
-    echo -e "++++++++++++++++++++++++\nMain has been called! ${runsub} $condition $task\n========================\n"
+        runsub=${scan}_${subj}
+        output3D=${runsub}_${task}_${condition}
+
+        SDATA="/Volumes/Data/WordBoundary1/GLM/${subj}/Glm/${RUN}/Stats"
+
+        BASE="/Exps/Analysis/HuanpingWB1/${condition}/${RUN}"
+        SUB="${BASE}/${subj}"   # This contains the raw sub
+        SUBNEG="${SUB}/NoNeg"  #
+        SUBSTATS="${SUB}/Stats"  #
+        SUBFILTER="${SUB}/Filtered"  # once we have masks to filter the subject data, they will go here
+        MASK="${BASE}/Masks"
+        TTEST="${BASE}/Ttest"
+
+        # -----------------
+        # Execute Functions
+        # -----------------
+        case $operation in
+            "group" )
+                tTestImages
+                ;;
+
+            "filter" )
+                echo "theres is nothing here!"
+                # filterSubjectImages
+                ;;
+
+            * )
+                setup  ${runsub}_tshift_volreg_despike_mni_7mm_164tr_0sec_${condition}.stats  # Build the directory
+                getStatImages ${runsub}_tshift_volreg_despike_mni_7mm_164tr_0sec_${condition}.stats  # Get the stat images
+                noNegImages ${runsub}_${task}_${condition}_co-tt_stats   # Remove the negative activation
+                ;;
+        esac
+
+        #+++++++++++++++++++++++++++++++++++++++++++++++
+
+        echo -e "++++++++++++++++++++++++\nMain has been called! ${runsub} $condition $task\n========================\n"
+    done
 
 } # End of Main
 
@@ -325,9 +355,7 @@ esac
 
 
 for r in {1..3}; do
-    for subj in ${subjList[*]}; do
-        Main $subj $r $condition $task $oper
-    done
+    Main $r $condition $task $oper
 done
 
 #================================================================================

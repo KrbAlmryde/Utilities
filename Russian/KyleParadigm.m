@@ -13,7 +13,7 @@ function [] = KyleParadigm()
     for i=1:NumberOfTrials % read in the actual audio data
         %exist(strcat(StimulusPath,StimulusList{i},'.wav'))
         if strcmp(StimulusList{i},'null') % if a line says "null"
-            BufferedAudioFiles{i} = (0); % we'll call this an "empty" buffer (i.e. no sound played) 
+            BufferedAudioFiles{i} = (0); % we'll call this an "empty" buffer (i.e. no sound played)
         else % otherwise read in the data (the last Fs read in will be used for all sounds)
             [CurSound,Fs] = wavread(strcat(StimulusPath,StimulusList{i},'.wav'));
             BufferedAudioFiles{i} = CurSound(1:min(numel(CurSound),Fs)); % only take at max the first second...
@@ -26,7 +26,7 @@ function [] = KyleParadigm()
 
     if 1 == 2 % if we want to use the screen...
         [DisplayWindow]=Screen('OpenWindow', 0,0); % This is what's shown onscreen.
-        HideCursor; 
+        HideCursor;
         %Screen('FillRect',w.buffer,[255 255 255],w.rect); % clean up
     end
     trigger=0;
@@ -36,13 +36,13 @@ function [] = KyleParadigm()
             trigger=0; % (ignore this keypress and keep scanning)
         end
     end
-    
+
     if find(KeyCodes) == QuitKey % then the user has aborted at the "hang screen -- QUIT."
         try PsychPortAudio('close'), end; % try to close the audioport
         try Screen('CloseAll'), end; % try to close the screen
         return; % kill the script, and go back to the command line.
     end
-    
+
     EndOfTR=StartTime; % we'll increment this in each trial loop
     for trials=1:NumberOfTrials
         EndOfTR=EndOfTR+TR;
