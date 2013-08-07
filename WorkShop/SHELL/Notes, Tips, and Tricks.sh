@@ -1,18 +1,18 @@
 ####################################################################################################
-# The eprime on the new scanner PC produces text files in UTF16.  This breaks everything. iconv can 
+# The eprime on the new scanner PC produces text files in UTF16.  This breaks everything. iconv can
 # do the conversion back to a standard text format that sed likes.
 ####################################################################################################
 
 iconv -f UTF-16 -t ISO-8859-1 ${subj}-${run}.txt > iconv.iso.${subrun}.txt
 ####################################################################################################
-# The dos2unix tool is the next step in the conversion from UTF16 to UNIX compatible text files. 
+# The dos2unix tool is the next step in the conversion from UTF16 to UNIX compatible text files.
 # You'll first need to used iconv above to convert to UTF-8 bit, then this tool to convert the
 # Windows-CRLF encoding type to UNIX(LF). This is crucial, as the windows line-returns breaks paste
-# in horrible ways that makes text editing via sed and awk a goddamn nightmare. The dos2unix tool 
+# in horrible ways that makes text editing via sed and awk a goddamn nightmare. The dos2unix tool
 # is part of the fink distribution, but you have to go get it. Special Thanks to Tom Hicks and
 # Dianne Patterson for this. NOTE: This command affects the actual file, it does not print any sort
 # of output to the screen, it simply converts the file. Try to remember that before you start hating
-# this marvelous tool. 
+# this marvelous tool.
 ####################################################################################################
 
 dos2unix iconv.iso.${subrun}.txt
@@ -20,7 +20,7 @@ dos2unix iconv.iso.${subrun}.txt
 ####################################################################################################
 ## Here are some pieces of bash code that underpants gnomes have found useful:
 ####################################################################################################
-#How many lines in a file? 
+#How many lines in a file?
 ####################################################################################################
 wc file.txt
 
@@ -30,28 +30,28 @@ ls -d
 #List files
 ls -f
 
-#These last two commands are useful for if-then statements. For example the following code says if 
-#the file /clare/image.nii.gz exists, then print "Clare is great" to the screen, otherwise print 
+#These last two commands are useful for if-then statements. For example the following code says if
+#the file /clare/image.nii.gz exists, then print "Clare is great" to the screen, otherwise print
 # "Image is missing"
-if [ -f /clare/image.nii.gz ]
-then
-echo "Clare is great"
-else echo "Image is missing"
+if [ -f /clare/image.nii.gz ]; then
+	echo "Clare is great"
+else
+	echo "Image is missing"
 fi
 
 #This first one says if the directory /clare/sub001 exists, then print "Clare is great" to the screen,
 # otherwise print "sub001 directory is missing"
-if [ -d /clare/sub001 ]
-then
-echo "Clare is great"
-else echo "sub001 directory is missing"
+if [ -d /clare/sub001 ]; then
+	echo "Clare is great"
+else
+	echo "sub001 directory is missing"
 fi
 
 
 ##Get a line containing a particular piece of text from a file
 grep "DTI_field_map" temp.txt> FMdirs_coc.txt
 
-#Read in a textfile, and get characters 37-38 from each line, Then write those characters into a 
+#Read in a textfile, and get characters 37-38 from each line, Then write those characters into a
 # new file
 
 while read line
@@ -60,7 +60,7 @@ do
 	printf " \t ${DTI_dir}" >>DTI_cocaine_MAR2010.txt
 	printf " \n" >>DTI_cocaine_MAR2010.txt
 done < FMdirs_coc.txt
-	
+
 ##Take 6th field (here, column) from line, where the separator is /
 sub=$( echo $line | cut -d '/' -f 6 )
 
@@ -82,12 +82,12 @@ for site in Bangor Berlin Berlin-Margulies Cleveland Harvard
 do
 	echo ${x}
 	numTRs=${TRs[${x}]}
-	
+
 	echo ${numTRs}
-	
+
 	sed -e s/265/"${numTRs}"/g <ofc_l.fsf > ${site}_TR_ofc_l.fsf
 	sed -e s/Bangor/"${site}"/g <${site}_TR_ofc_l.fsf > ${site}_ofc_l.fsf
-	
+
 	x=$(( $x + 1 ))
 done
 
@@ -99,13 +99,42 @@ do
 
 	for number in `seq 1 ${dir}`
 	do
-	
+
 	3dcalc -a ${dir}/corr${number}.nii.gz \
-	-expr 'log((1+a)/(1-a))/2' -prefix ${dir}/zstat${number}.nii.gz
-	
+		-expr 'log((1+a)/(1-a))/2' -prefix ${dir}/zstat${number}.nii.gz
+
 	done
 done
 
+
+# Substring a filename so we can convert it to nii.gz format.
+maskList=(`ls *.HEAD`)
+for mask in ${maskList[*]}; do
+    outMask=${mask%+tlrc*}
+    3dcopy $mask ${outMask}.nii.gz
+done
+
+
+# Convert a string into an array seperated by whitespace to access each word individually
+astring="Look at that string!"
+stringArray=( $astring )
+for word in ${stringArray[*]}; do
+	echo $word
+done
+# Output:
+	# Look
+	# at
+	# that
+	# string
+
+# To get just the first letter of a string, or a range of letters from a string
+# do the following
+astring="Hello"
+echo ${astring:0:1}  # H
+echo ${astring:0:4}  # Hell
+echo ${astring:1}  # ello
+echo ${astring:3}  # lo
+echo ${astring:0}  # Hello
 ####################################################################################################
 #Create a BRIK & HEADER from a manual TLRC
 

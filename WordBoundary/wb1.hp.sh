@@ -43,8 +43,6 @@ function setup() {
 } # End of setup
 
 
-# 1) Extract tstat and coef subbricks
-
 function getStatImages() {
     #------------------------------------------------------------------------
     #
@@ -164,6 +162,120 @@ function tTestImages() {
 } # End of tTestImages
 
 
+toLower () {
+    local old=$*
+    local new=`echo $old | tr '[:upper:]' '[:lower:]'`
+    echo $new
+}
+
+
+toUpper () {
+    local old=$*
+    local new=`echo $old | tr '[:lower:]' '[:upper:]'`
+    echo $new
+}
+
+clusterCoords () {
+    local input3D=$1
+
+    3dclust \
+        -1Dformat 2 274 $input3D \
+    | tail +12 \
+    | awk -v OFS='\t' '{print $2, $3, $4 }' \
+    | sed '/#/d'
+}
+
+
+whereamiReport () {
+    local xyz=$*
+
+    whereami -atlas CA_ML_18_MNIA -rai $xyz \
+    | egrep -C1 '^Atlas CA_ML_18_MNIA: Macro Labels \(N27\)$' \
+    | egrep '^   Focus point|Within . mm' \
+    | colrm 1 16 \
+    | awk -v OFS='\t' '{print $1,$2" "$3" "$4}'
+}
+
+
+renameMask () {
+    local input3D=$1
+
+    local xyz=$(clusterCoords ${MASK}/${input3D}.nii.gz)
+    local roi=`whereamiReport ${xyz}`
+    roi=`toLower $roi`
+    roi=($roi)
+    echo ${roi[*]}
+    local nm=''
+    for (( k = 0; k < ${#roi[*]}; k++ )); do
+        if [[ $k -eq 0 ]]; then
+            hemi=${roi[k]:0:1}
+            echo $hemi
+        else
+            if [[ ${#roi[*]} -lt 3 ]]; then
+                nm=${nm}${roi[k]:0:3}
+                echo $nm
+            else
+                nm=${nm}${roi[k]:0:1}
+                echo $nm
+            fi
+        fi
+    done
+
+    local output3D=${scan}_${condition}_${nm}_${hemi}
+
+    inc=2
+    while [[ -e ${MASK}/${output3D}.nii.gz ]]; do
+        output3D=${scan}_${condition}_${nm}-${inc}_${hemi}
+        ((inc++))
+    done
+    echo "$output3D ==> ${roi[*]}" >> ${MASK}/readme_ROI.txt
+    3dcopy ${MASK}/${input3D}.nii.gz ${MASK}/${output3D}.nii.gz
+    mv ${MASK}/${input3D}.nii.gz ${MASK}/etc
+}
+
+
+function extractROIMasks() {
+    #------------------------------------------------------------------------
+    #
+    #  Purpose: Extract rois from mask dataset via their value
+    #
+    #
+    #    Input:
+    #
+    #   Output:
+    #
+    #------------------------------------------------------------------------
+
+    local fname output3D
+    local maskList=(`ls ${MASK}/*.HEAD`)
+    mkdir -p ${MASK}/etc
+
+
+    for mask in ${maskList[*]}; do
+        fname=`basename $mask`
+        numROIs=`3dmaskave -mask $mask -max $mask`  # output looks like this: 10 [10419 voxels]
+
+        for (( i = 1; i <= ${numROIs%% [*}; i++ )); do  # substring variable so we just get 10
+            echo ${numROIs%% [*}  $i
+            output3D=rm_mask_${scan}_${condition}_${i}
+            3dcalc -a $mask -expr "within(a,$i,$i)" -prefix ${MASK}/${output3D}.nii.gz
+            renameMask ${output3D}
+        done
+
+        mv ${mask%.HEAD}* ${MASK}/etc/
+
+    done
+
+
+} # End of extractROIMasks
+
+
+
+# 1) get list of mask Images
+# 2) extract each cluster from mask, make own image
+# 3) get center of mass of cluster, identify xyz coords
+# 4) using xyz coords, identify ROI
+# 5) rename cluster mask image by its ROI, followed by side, eg stg_r
 
 function filterSubjectImages() {
     #------------------------------------------------------------------------
@@ -178,16 +290,33 @@ function filterSubjectImages() {
     #------------------------------------------------------------------------
 
     local input3D=$1
+    local input4D=$2
     local maskList=(`ls ${MASK}/*.nii.gz`)
+
     local output3D
+    local output4D
+    local region
 
     for maskImg in ${maskList[*]}; do
-      statements
+        region=`basename ${maskImg}`
+        region=${region##*${condition}_}
+        region=${region%%.nii*}
+
+
+        output3D=${runsub}_${task}_${condition}_${region}
+        output4D=${runsub}_${task}_${condition}_${region}
+
+        3dcalc \
+            -a ${RDATA}/${input3D}.nii.gz \
+            -b $maskImg \
+            -expr 'a*b'
+            -prefix
+            ${SUBFILTER}
+
+        3dROIstats -1Dformat -mask $maskImg $input4D.nii | sed '/#/d' >> ${SUBFILTER}/${output4D}.txt
     done
 
 } # End of filterSubjectImages
-
-
 
 
 function HelpMessage ()
@@ -240,11 +369,11 @@ function Main() {
     #   Output:
     #
     #------------------------------------------------------------------------
-    scan=run$2
-    RUN=Run$2
-    cond=$3
-    task=$4
-    operation=$5
+    scan=run$1
+    RUN=Run$1
+    cond=$2
+    task=$3
+    operation=$4
 
 
     case $cond in
@@ -269,32 +398,39 @@ function Main() {
             ;;
     esac
 
-    for subj in ${subjList[*]}; do
+    BASE="/Exps/Analysis/HuanpingWB1/${condition}/${RUN}"
+    MASK="${BASE}/Masks"
+    TTEST="${BASE}/Ttest"
 
+    for subj in ${subjList[*]}; do
         runsub=${scan}_${subj}
         output3D=${runsub}_${task}_${condition}
 
-        SDATA="/Volumes/Data/WordBoundary1/GLM/${subj}/Glm/${RUN}/Stats"
-
-        BASE="/Exps/Analysis/HuanpingWB1/${condition}/${RUN}"
+        SDATA="/Exps/Data/WordBoundary1/GLM/${subj}/Glm/${RUN}/Stats"
+        RDATA="/Exps/Data/WordBoundary1/${subj}/Func/${RUN}"
         SUB="${BASE}/${subj}"   # This contains the raw sub
         SUBNEG="${SUB}/NoNeg"  #
         SUBSTATS="${SUB}/Stats"  #
         SUBFILTER="${SUB}/Filtered"  # once we have masks to filter the subject data, they will go here
-        MASK="${BASE}/Masks"
-        TTEST="${BASE}/Ttest"
 
         # -----------------
         # Execute Functions
         # -----------------
         case $operation in
+            "test" )
+                break
+                ;;
+
             "group" )
-                tTestImages
+                # tTestImages
+                extractROIMasks
+                break
                 ;;
 
             "filter" )
-                echo "theres is nothing here!"
-                # filterSubjectImages
+                filterSubjectImages \
+                    ${runsub}_${task}_${condition}_co-tt_stats \
+                    ${runsub}_tshift_volreg_despike_mni_7mm_164tr
                 ;;
 
             * )
@@ -330,32 +466,8 @@ oper=$3    # This determines whether we should be processing the individual subj
            # the group tTest, or filter masks through single subject data.
 
 
-
-case $cond in
-    "learn"|"learnable" )
-        condition="learnable"
-        subjList=( sub013 sub016 sub019 sub021 \
-                   sub023 sub027 sub028 sub033 \
-                   sub035 sub039 sub046 sub050 \
-                   sub057 sub067 sub069 sub073 )
-        ;;
-
-    "unlearn"|"unlearnable" )
-        condition="unlearnable"
-        subjList=( sub009 sub011 sub012 sub018 \
-                   sub022 sub030 sub031 sub032 \
-                   sub038 sub045 sub047 sub048 \
-                   sub049 sub051 sub059 sub060 )
-        ;;
-
-    * )
-        HelpMessage
-        ;;
-esac
-
-
 for r in {1..3}; do
-    Main $r $condition $task $oper
+    Main $r $cond $task $oper
 done
 
 #================================================================================
