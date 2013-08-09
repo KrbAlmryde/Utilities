@@ -66,7 +66,6 @@ function getStatImages() {
     fi
 
     3dbucket \
-        -fbuc \
         -prefix "${SUBSTATS}/${output3D}_co-tt_stats.nii.gz" \
                 "${SDATA}/${input3D}.nii.gz[${coef},${tstat}]"
 
@@ -76,6 +75,40 @@ function getStatImages() {
     echo -e "\tOutput: ${SUBSTATS}/${output3D}_co-tt_stats.nii.gz"
     echo -e "\t========================\n"
 } # End of getStatImage
+
+
+
+function getTstatImages() {
+    #------------------------------------------------------------------------
+    #
+    #  Purpose: Pulls out just the tstat images from the single subject image
+    #
+    #
+    #    Input:
+    #
+    #   Output:
+    #
+    #------------------------------------------------------------------------
+
+    local input3D=$1
+
+    if [[ $task == "sent" ]]; then
+        tstat=13
+    else
+        tstat=10
+    fi
+
+    3dbucket \
+        -fbuc \
+        -prefix "${SUBSTATS}/${output3D}_tt.nii.gz" \
+                "${SDATA}/${input3D}.nii.gz[${tstat}]"
+
+    echo -e "\t++++++++++++++++++++++++"
+    echo -e "\tgetStatImages has been called! ${runsub} "
+    echo -e "\tInput: ${SDATA}/${input3D}.nii.gz[${tstat}]"
+    echo -e "\tOutput: ${SUBSTATS}/${output3D}_co-tt_stats.nii.gz"
+    echo -e "\t========================\n"
+} # End of getTstatImages
 
 
 
@@ -406,7 +439,7 @@ function Main() {
         runsub=${scan}_${subj}
         output3D=${runsub}_${task}_${condition}
 
-        SDATA="/Exps/Data/WordBoundary1/GLM/${subj}/Glm/${RUN}/Stats"
+        SDATA="/Volumes/Data/WordBoundary1/GLM/${subj}/Glm/${RUN}/Stats"
         RDATA="/Exps/Data/WordBoundary1/${subj}/Func/${RUN}"
         SUB="${BASE}/${subj}"   # This contains the raw sub
         SUBNEG="${SUB}/NoNeg"  #
@@ -418,7 +451,7 @@ function Main() {
         # -----------------
         case $operation in
             "test" )
-                break
+                getTstatImages ${runsub}_tshift_volreg_despike_mni_7mm_164tr_0sec_${condition}.stats  # Get the stat images
                 ;;
 
             "group" )

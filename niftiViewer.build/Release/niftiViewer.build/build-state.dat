@@ -1,0 +1,1444 @@
+TniftiViewer
+v5
+r1
+cCheck dependencies
+cCompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/CocoaGL.o /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../CocoaGL.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Basic.o /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/Basic.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/RendererOSX.o /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../RendererOSX.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/VideoPlayer.o /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../VideoPlayer.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/znzlib.o /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/znzlib.c normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/MeshBuffer.o /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/MeshBuffer.cpp normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/nifti1_io.o /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/nifti1_io.c normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Behavior.o /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Behavior.cpp normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Camera.o /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Camera.cpp normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/FBO.o /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/FBO.cpp normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Font.o /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Font.cpp normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/MeshData.o /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/MeshData.cpp normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/MeshUtils.o /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/MeshUtils.cpp normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Program.o /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Program.cpp normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Shapes.o /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Shapes.cpp normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Texture.o /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Texture.cpp normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Utils.o /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Utils.cpp normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Slices.o /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/Slices.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/NiftiUtils.o /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/NiftiUtils.h normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/ActionProxy-ED7499BC89F61356.o /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/ActionProxy.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/ActionProxy-74F33A92587E0355.o /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/ActionProxy.h normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Main.o /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/Main.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+cLd /usr/local/utilities/Release/niftiViewer normal x86_64
+cGenerateDSYMFile /usr/local/utilities/Release/niftiViewer.dSYM /usr/local/utilities/Release/niftiViewer
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk
+c000000004F90F72900000000000000CC
+t1334900521
+s204
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/AVFoundation.framework/AVFoundation
+c0000000051D1A8130000000000068C50
+t1372694547
+s429136
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/AppKit.framework/AppKit
+c0000000051D1A81200000000002274A0
+t1372694546
+s2258080
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/Carbon.framework/Carbon
+c0000000051D1A8130000000000002A30
+t1372694547
+s10800
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/Cocoa.framework/Cocoa
+c0000000051D1A8130000000000002470
+t1372694547
+s9328
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/CoreMedia.framework/CoreMedia
+c0000000051D1A8130000000000029924
+t1372694547
+s170276
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/Foundation.framework/Foundation
+c0000000051D1A81300000000000AE03C
+t1372694547
+s712764
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/OpenGL
+c0000000051D1A815000000000000A518
+t1372694549
+s42264
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/QuartzCore.framework/QuartzCore
+c0000000051D1A81500000000000462F4
+t1372694549
+s287476
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/usr/include/stdio.h
+c0000000051D1A8190000000000004763
+t1372694553
+s18275
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/usr/include/stdlib.h
+c0000000051D1A81900000000000030A7
+t1372694553
+s12455
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/usr/include/string.h
+c0000000051D1A8190000000000001A3A
+t1372694553
+s6714
+
+N/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Behavior.cpp
+c0000000051DB20210000000000001992
+t1373315105
+s6546
+
+N/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Behavior.hpp
+c0000000051ED92FE00000000000018EB
+t1374524158
+s6379
+
+N/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Camera.cpp
+c0000000051E458B40000000000001CD3
+t1373919412
+s7379
+
+N/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Camera.hpp
+c0000000051ED92FE0000000000000722
+t1374524158
+s1826
+
+N/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/FBO.cpp
+c000000005202A5CB00000000000041E6
+t1375905227
+s16870
+
+N/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/FBO.hpp
+c000000005202A5CB00000000000004D3
+t1375905227
+s1235
+
+N/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Font.cpp
+c0000000051DB202100000000000067B2
+t1373315105
+s26546
+
+N/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Font.hpp
+c000000005202A5CB0000000000002582
+t1375905227
+s9602
+
+N/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/MeshBuffer.cpp
+c000000005202A5CB000000000000117A
+t1375905227
+s4474
+
+N/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/MeshBuffer.hpp
+c000000005202A5CB000000000000048F
+t1375905227
+s1167
+
+N/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/MeshData.cpp
+c000000005202A5CB0000000000001238
+t1375905227
+s4664
+
+N/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/MeshData.hpp
+c000000005202A5CB000000000000177F
+t1375905227
+s6015
+
+N/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/MeshUtils.cpp
+c000000005202A5CB00000000000037FE
+t1375905227
+s14334
+
+N/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/MeshUtils.hpp
+c000000005202A5CB0000000000000BBB
+t1375905227
+s3003
+
+N/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Program.cpp
+c000000005202E50E0000000000001EC4
+t1375921422
+s7876
+
+N/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Program.hpp
+c000000005202E50E00000000000007B4
+t1375921422
+s1972
+
+N/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Shapes.cpp
+c0000000051ED92860000000000002510
+t1374524038
+s9488
+
+N/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Shapes.hpp
+c0000000051DB20210000000000000545
+t1373315105
+s1349
+
+N/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Texture.cpp
+c000000005202A5CB00000000000033AD
+t1375905227
+s13229
+
+N/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Texture.hpp
+c000000005202A5CB000000000000085D
+t1375905227
+s2141
+
+N/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Utils.cpp
+c0000000051DB20210000000000000AFC
+t1373315105
+s2812
+
+N/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Utils.hpp
+c0000000051DB202100000000000003BD
+t1373315105
+s957
+
+N/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../CocoaGL.h
+c000000005202A75D00000000000004AD
+t1375905629
+s1197
+
+N/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../CocoaGL.mm
+c000000005202A5CB0000000000003614
+t1375905227
+s13844
+
+N/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../Includes.hpp
+c000000005202A5CC00000000000006FC
+t1375905228
+s1788
+
+N/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../RendererOSX.h
+c000000005202A5CB00000000000008CD
+t1375905227
+s2253
+
+N/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../RendererOSX.mm
+c000000005202A5CC000000000000115C
+t1375905228
+s4444
+
+N/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../VideoPlayer.h
+c000000005202A5CB0000000000000584
+t1375905227
+s1412
+
+N/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../VideoPlayer.mm
+c000000005202A5CB0000000000001408
+t1375905227
+s5128
+
+N/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/ActionProxy.h
+c000000005202E50E0000000000000264
+t1375921422
+s612
+
+N/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/ActionProxy.mm
+c000000005202E50E0000000000000480
+t1375921422
+s1152
+
+N/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/Basic.mm
+c000000005202E50E0000000000002592
+t1375921422
+s9618
+i"Includes.hpp"
+i"RendererOSX.h"
+i"MeshBuffer.hpp"
+i"MeshData.hpp"
+i"MeshUtils.hpp"
+i"Program.hpp"
+i"Shapes.hpp"
+i"Texture.hpp"
+i"ActionProxy.h"
+i"nifti1.h"
+i"nifti1_io.h"
+i<stdio.h>
+i<stdlib.h>
+i<string.h>
+
+N/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/Main.mm
+c000000005202E50E00000000000007F1
+t1375921422
+s2033
+
+N/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/NiftiUtils.h
+c000000005202E50E000000000000244F
+t1375921422
+s9295
+
+N/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/Slices.mm
+c000000005202E50E0000000000006ECA
+t1375921422
+s28362
+
+N/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/nifti1.h
+c0000000051DB201D0000000000010E70
+t1373315101
+s69232
+
+N/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/nifti1_io.c
+c0000000051DB201D0000000000042524
+t1373315101
+s271652
+
+N/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/nifti1_io.h
+c0000000051DB201D000000000000659E
+t1373315101
+s26014
+
+N/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/znzlib.c
+c0000000051DB201D000000000000200F
+t1373315101
+s8207
+
+N/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/znzlib.h
+c0000000051DB201D0000000000000BF0
+t1373315101
+s3056
+
+N/opt/local/include/FreeImage.h
+c0000000051D70D23000000000000D648
+t1373048099
+s54856
+
+N/opt/local/include/assimp/./Compiler/poppack1.h
+c0000000049696E500000000000000318
+t1231646288
+s792
+
+N/opt/local/include/assimp/./Compiler/pushpack1.h
+c0000000049696E500000000000000445
+t1231646288
+s1093
+
+N/opt/local/include/assimp/Importer.hpp
+c000000004F951152000000000000704D
+t1335169362
+s28749
+
+N/opt/local/include/assimp/anim.h
+c000000004F2CA0280000000000003801
+t1328324648
+s14337
+
+N/opt/local/include/assimp/camera.h
+c000000004F2CA0280000000000001D04
+t1328324648
+s7428
+
+N/opt/local/include/assimp/cimport.h
+c000000004F2CA02800000000000052BF
+t1328324648
+s21183
+
+N/opt/local/include/assimp/color4.h
+c000000004F400FE80000000000000DE4
+t1329598440
+s3556
+
+N/opt/local/include/assimp/color4.inl
+c000000004F2CA0280000000000001F42
+t1328324648
+s8002
+
+N/opt/local/include/assimp/config.h
+c000000004FCC250E0000000000007C3A
+t1338778894
+s31802
+
+N/opt/local/include/assimp/defs.h
+c000000004F2CA028000000000000248C
+t1328324648
+s9356
+
+N/opt/local/include/assimp/light.h
+c000000004F2CA0280000000000001EDD
+t1328324648
+s7901
+
+N/opt/local/include/assimp/material.h
+c000000004F2CA028000000000000C5BF
+t1328324648
+s50623
+
+N/opt/local/include/assimp/material.inl
+c000000004F2CA02800000000000022DC
+t1328324648
+s8924
+
+N/opt/local/include/assimp/matrix3x3.h
+c000000004F2CA028000000000000188B
+t1328324648
+s6283
+
+N/opt/local/include/assimp/matrix3x3.inl
+c000000004F2CA0280000000000002C1A
+t1328324648
+s11290
+
+N/opt/local/include/assimp/matrix4x4.h
+c000000004F2CA02800000000000022AF
+t1328324648
+s8879
+
+N/opt/local/include/assimp/matrix4x4.inl
+c000000004F2CA028000000000000466C
+t1328324648
+s18028
+
+N/opt/local/include/assimp/mesh.h
+c000000004F2CA0280000000000005F37
+t1328324648
+s24375
+
+N/opt/local/include/assimp/postprocess.h
+c000000004F950C9200000000000073C6
+t1335168146
+s29638
+
+N/opt/local/include/assimp/quaternion.h
+c000000004F2CA0280000000000001040
+t1328324648
+s4160
+
+N/opt/local/include/assimp/quaternion.inl
+c000000004F2CA0280000000000002690
+t1328324648
+s9872
+
+N/opt/local/include/assimp/scene.h
+c000000004F2CA0280000000000003045
+t1328324648
+s12357
+
+N/opt/local/include/assimp/texture.h
+c000000004F2CA0280000000000001937
+t1328324648
+s6455
+
+N/opt/local/include/assimp/types.h
+c000000004F2CA0280000000000003A0F
+t1328324648
+s14863
+
+N/opt/local/include/assimp/vector2.h
+c000000004F2CA0280000000000000D2D
+t1328324648
+s3373
+
+N/opt/local/include/assimp/vector2.inl
+c000000004F2CA0280000000000001EA9
+t1328324648
+s7849
+
+N/opt/local/include/assimp/vector3.h
+c000000004F2CA0280000000000001092
+t1328324648
+s4242
+
+N/opt/local/include/assimp/vector3.inl
+c000000004F2CA02800000000000027DC
+t1328324648
+s10204
+
+N/opt/local/include/glm/./core/_detail.hpp
+c0000000051A48C7800000000000028ED
+t1369738360
+s10477
+
+N/opt/local/include/glm/./core/_vectorize.hpp
+c0000000051A48C780000000000001109
+t1369738360
+s4361
+
+N/opt/local/include/glm/./core/func_common.hpp
+c0000000051A48C78000000000000501B
+t1369738360
+s20507
+
+N/opt/local/include/glm/./core/func_exponential.hpp
+c0000000051A477AC000000000000192F
+t1369733036
+s6447
+
+N/opt/local/include/glm/./core/func_geometric.hpp
+c0000000051A48C780000000000001801
+t1369738360
+s6145
+
+N/opt/local/include/glm/./core/func_integer.hpp
+c0000000051A48C780000000000002692
+t1369738360
+s9874
+
+N/opt/local/include/glm/./core/func_matrix.hpp
+c0000000051A48C780000000000001B7C
+t1369738360
+s7036
+
+N/opt/local/include/glm/./core/func_noise.hpp
+c0000000051A48C78000000000000101F
+t1369738360
+s4127
+
+N/opt/local/include/glm/./core/func_packing.hpp
+c0000000051A48C7800000000000031C8
+t1369738360
+s12744
+
+N/opt/local/include/glm/./core/func_trigonometric.hpp
+c0000000051A477AC00000000000027BD
+t1369733036
+s10173
+
+N/opt/local/include/glm/./core/func_vector_relational.hpp
+c0000000051A48C780000000000001B96
+t1369738360
+s7062
+
+N/opt/local/include/glm/./core/type.hpp
+c0000000051A48C780000000000003679
+t1369738360
+s13945
+
+N/opt/local/include/glm/core/_fixes.hpp
+c00000000514E397A000000000000077A
+t1364081018
+s1914
+
+N/opt/local/include/glm/core/_swizzle.hpp
+c0000000051A48C78000000000000CA23
+t1369738360
+s51747
+
+N/opt/local/include/glm/core/_swizzle_func.hpp
+c0000000051A48C78000000000000F89F
+t1369738360
+s63647
+
+N/opt/local/include/glm/core/func_common.inl
+c0000000051A48C780000000000006B6D
+t1369738360
+s27501
+
+N/opt/local/include/glm/core/func_exponential.inl
+c0000000051A477AC0000000000001113
+t1369733036
+s4371
+
+N/opt/local/include/glm/core/func_geometric.inl
+c0000000051A48C7800000000000021AF
+t1369738360
+s8623
+
+N/opt/local/include/glm/core/func_integer.inl
+c0000000051A48C78000000000000412E
+t1369738360
+s16686
+
+N/opt/local/include/glm/core/func_matrix.inl
+c0000000051A48C780000000000004320
+t1369738360
+s17184
+
+N/opt/local/include/glm/core/func_noise.inl
+c0000000051A48C780000000000003547
+t1369738360
+s13639
+
+N/opt/local/include/glm/core/func_packing.inl
+c0000000051A48C780000000000001889
+t1369738360
+s6281
+
+N/opt/local/include/glm/core/func_trigonometric.inl
+c0000000051A48C7800000000000017D0
+t1369738360
+s6096
+
+N/opt/local/include/glm/core/func_vector_relational.inl
+c0000000051A48C780000000000001AB7
+t1369738360
+s6839
+
+N/opt/local/include/glm/core/setup.hpp
+c0000000051A48C780000000000006577
+t1369738360
+s25975
+
+N/opt/local/include/glm/core/type_float.hpp
+c0000000051A48C780000000000000F8B
+t1369738360
+s3979
+
+N/opt/local/include/glm/core/type_gentype.hpp
+c0000000051A48C78000000000000139B
+t1369738360
+s5019
+
+N/opt/local/include/glm/core/type_half.hpp
+c0000000051A48C780000000000000E6A
+t1369738360
+s3690
+
+N/opt/local/include/glm/core/type_half.inl
+c0000000051A48C780000000000002589
+t1369738360
+s9609
+
+N/opt/local/include/glm/core/type_int.hpp
+c0000000051A48C780000000000001982
+t1369738360
+s6530
+
+N/opt/local/include/glm/core/type_mat.hpp
+c0000000051A48C7800000000000006A7
+t1369738360
+s1703
+
+N/opt/local/include/glm/core/type_mat2x2.hpp
+c0000000051A48C780000000000002C39
+t1369738360
+s11321
+
+N/opt/local/include/glm/core/type_mat2x2.inl
+c0000000051A48C780000000000003966
+t1369738360
+s14694
+
+N/opt/local/include/glm/core/type_mat2x3.hpp
+c0000000051A48C780000000000002302
+t1369738360
+s8962
+
+N/opt/local/include/glm/core/type_mat2x3.inl
+c0000000051A48C78000000000000390B
+t1369738360
+s14603
+
+N/opt/local/include/glm/core/type_mat2x4.hpp
+c0000000051A48C780000000000002362
+t1369738360
+s9058
+
+N/opt/local/include/glm/core/type_mat2x4.inl
+c0000000051A48C780000000000003D8F
+t1369738360
+s15759
+
+N/opt/local/include/glm/core/type_mat3x2.hpp
+c0000000051A48C780000000000002332
+t1369738360
+s9010
+
+N/opt/local/include/glm/core/type_mat3x2.inl
+c0000000051A48C780000000000003B86
+t1369738360
+s15238
+
+N/opt/local/include/glm/core/type_mat3x3.hpp
+c0000000051A48C780000000000002D06
+t1369738360
+s11526
+
+N/opt/local/include/glm/core/type_mat3x3.inl
+c0000000051A48C780000000000004BE4
+t1369738360
+s19428
+
+N/opt/local/include/glm/core/type_mat3x4.hpp
+c0000000051A48C7800000000000024E9
+t1369738360
+s9449
+
+N/opt/local/include/glm/core/type_mat3x4.inl
+c0000000051A48C780000000000004571
+t1369738360
+s17777
+
+N/opt/local/include/glm/core/type_mat4x2.hpp
+c0000000051A48C7800000000000023EF
+t1369738360
+s9199
+
+N/opt/local/include/glm/core/type_mat4x2.inl
+c0000000051A48C7800000000000043FD
+t1369738360
+s17405
+
+N/opt/local/include/glm/core/type_mat4x3.hpp
+c0000000051A48C7800000000000024C7
+t1369738360
+s9415
+
+N/opt/local/include/glm/core/type_mat4x3.inl
+c0000000051A48C780000000000004A01
+t1369738360
+s18945
+
+N/opt/local/include/glm/core/type_mat4x4.hpp
+c0000000051A48C780000000000002EB3
+t1369738360
+s11955
+
+N/opt/local/include/glm/core/type_mat4x4.inl
+c0000000051A48C78000000000000762D
+t1369738360
+s30253
+
+N/opt/local/include/glm/core/type_size.hpp
+c0000000051A48C7800000000000006DA
+t1369738360
+s1754
+
+N/opt/local/include/glm/core/type_vec.hpp
+c0000000051A48C7800000000000006A7
+t1369738360
+s1703
+
+N/opt/local/include/glm/core/type_vec1.hpp
+c0000000051A48C780000000000001D2A
+t1369738360
+s7466
+
+N/opt/local/include/glm/core/type_vec1.inl
+c0000000051A48C780000000000003EA7
+t1369738360
+s16039
+
+N/opt/local/include/glm/core/type_vec2.hpp
+c0000000051A48C780000000000003372
+t1369738360
+s13170
+
+N/opt/local/include/glm/core/type_vec2.inl
+c0000000051A48C780000000000004398
+t1369738360
+s17304
+
+N/opt/local/include/glm/core/type_vec3.hpp
+c0000000051A48C780000000000003765
+t1369738360
+s14181
+
+N/opt/local/include/glm/core/type_vec3.inl
+c0000000051A48C780000000000004C90
+t1369738360
+s19600
+
+N/opt/local/include/glm/core/type_vec4.hpp
+c0000000051A48C7800000000000044F2
+t1369738360
+s17650
+
+N/opt/local/include/glm/core/type_vec4.inl
+c0000000051A48C780000000000005DD1
+t1369738360
+s24017
+
+N/opt/local/include/glm/glm.hpp
+c0000000051A48C7800000000000016AA
+t1369738360
+s5802
+
+N/opt/local/include/glm/gtc/matrix_access.hpp
+c0000000051A48C780000000000000B82
+t1369738360
+s2946
+
+N/opt/local/include/glm/gtc/matrix_transform.hpp
+c0000000051A48C780000000000002CD5
+t1369738360
+s11477
+
+N/opt/local/include/glm/gtc/type_ptr.hpp
+c0000000051A48C7800000000000015D0
+t1369738360
+s5584
+
+N/opt/local/include/glm/gtx/../gtc/../gtc/constants.hpp
+c0000000051A477AC000000000000148C
+t1369733036
+s5260
+
+N/opt/local/include/glm/gtx/../gtc/constants.inl
+c00000000514E397A000000000000133E
+t1364081018
+s4926
+
+N/opt/local/include/glm/gtx/../gtc/half_float.hpp
+c0000000051A48C7800000000000042BA
+t1369738360
+s17082
+
+N/opt/local/include/glm/gtx/../gtc/half_float.inl
+c0000000051A48C780000000000004AA2
+t1369738360
+s19106
+
+N/opt/local/include/glm/gtx/../gtc/matrix_access.inl
+c0000000051A48C7800000000000009EA
+t1369738360
+s2538
+
+N/opt/local/include/glm/gtx/../gtc/matrix_transform.inl
+c0000000051A48C780000000000003123
+t1369738360
+s12579
+
+N/opt/local/include/glm/gtx/../gtc/quaternion.hpp
+c0000000051A48C780000000000002CFB
+t1369738360
+s11515
+
+N/opt/local/include/glm/gtx/../gtc/quaternion.inl
+c0000000051A48C780000000000004D17
+t1369738360
+s19735
+
+N/opt/local/include/glm/gtx/../gtc/random.hpp
+c0000000051A48C780000000000000F2A
+t1369738360
+s3882
+
+N/opt/local/include/glm/gtx/../gtc/random.inl
+c0000000051A48C780000000000001298
+t1369738360
+s4760
+
+N/opt/local/include/glm/gtx/../gtc/type_ptr.inl
+c0000000051A48C780000000000002D07
+t1369738360
+s11527
+
+N/opt/local/include/glm/gtx/../gtx/integer.hpp
+c00000000514E397A0000000000000E07
+t1364081018
+s3591
+
+N/opt/local/include/glm/gtx/../gtx/quaternion.hpp
+c0000000051A48C7800000000000017AA
+t1369738360
+s6058
+
+N/opt/local/include/glm/gtx/integer.inl
+c0000000051A48C78000000000000133D
+t1369738360
+s4925
+
+N/opt/local/include/glm/gtx/quaternion.inl
+c0000000051A48C78000000000000133E
+t1369738360
+s4926
+
+N/opt/local/include/glm/gtx/random.hpp
+c00000000514E397A0000000000000621
+t1364081018
+s1569
+
+N/opt/local/include/glm/gtx/string_cast.hpp
+c0000000051A48C7800000000000009F5
+t1369738360
+s2549
+
+N/opt/local/include/glm/gtx/string_cast.inl
+c0000000051A48C78000000000000383F
+t1369738360
+s14399
+
+N/opt/local/lib/libassimp.3.0.0.dylib
+c000000005018418E0000000000875EE4
+t1343766926
+s8871652
+
+N/opt/local/lib/libfreeimage.3.15.3.dylib
+c000000005020BB840000000000307638
+t1344322436
+s3175992
+
+N/usr/local/utilities/Release/niftiViewer
+t1375908712
+s496160
+
+N/usr/local/utilities/Release/niftiViewer.dSYM
+t1375908712
+s102
+
+N/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/ActionProxy-74F33A92587E0355.o
+t1375908710
+s2044
+
+N/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/ActionProxy-ED7499BC89F61356.o
+t1375908710
+s228276
+
+N/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Basic.o
+t1375908710
+s2032
+
+N/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Behavior.o
+t1375907272
+s72808
+
+N/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Camera.o
+t1375907272
+s99724
+
+N/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/CocoaGL.o
+t1375907272
+s93048
+
+N/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/FBO.o
+t1375907272
+s188640
+
+N/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Font.o
+t1375907275
+s842616
+
+N/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Main.o
+t1375908711
+s540536
+
+N/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/MeshBuffer.o
+t1375907272
+s164948
+
+N/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/MeshData.o
+t1375907275
+s166268
+
+N/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/MeshUtils.o
+t1375907275
+s387976
+
+N/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/NiftiUtils.o
+t1375908710
+s2040
+
+N/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Program.o
+t1375908710
+s313280
+
+N/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/RendererOSX.o
+t1375907272
+s73284
+
+N/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Shapes.o
+t1375907275
+s216116
+
+N/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Slices.o
+t1375908710
+s2036
+
+N/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Texture.o
+t1375907274
+s73672
+
+N/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Utils.o
+t1375907275
+s120728
+
+N/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/VideoPlayer.o
+t1375907272
+s64852
+
+N/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/nifti1_io.o
+t1375907265
+s319520
+
+N/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/niftiViewer.LinkFileList
+c000000005202ADBF0000000000000882
+t1375907263
+s2178
+
+N/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/znzlib.o
+t1375907264
+s13508
+
+CCheck dependencies
+r0
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies8a74eb5e1db3b741^00e61e5f1db3b741^---0#1#0#--18"Check dependencies36"241F0963-BA6B-4B18-BF11-E2B05EDFE8EE-
+
+CCompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/ActionProxy-74F33A92587E0355.o /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/ActionProxy.h normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+s397614431.136364
+e397614433.335612
+r1
+xCompileC
+x/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/ActionProxy-74F33A92587E0355.o
+x/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/ActionProxy.h
+xnormal
+xx86_64
+xobjective-c++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/ActionProxy.h:4:
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../Includes.hpp:11:
+o/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h:5:2: warning: gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. [-W#warnings]
+o#warning gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality.
+o ^
+o1 warning generated.
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection108"Compile /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/ActionProxy.ha73f235f1db3b741^14ea55611db3b741^-675"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/ActionProxy.h:4:In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../Includes.hpp:11:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h:5:2: warning: gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. [-W#warnings]#warning gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. ^1 warning generated.1(36%IDEClangDiagnosticActivityLogMessage2@105"Gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality.-397614433#18446744073709551615#0#2(2@125"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/ActionProxy.h:4:-397614433#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@116"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/ActionProxy.h0000000000000000^3#8#3#8#53#0#21"Clang LLVM 1.0 Notice--2@119"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../Includes.hpp:11:-397614433#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@82"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/Includes.hpp0000000000000000^10#8#10#8#141#0#21"Clang LLVM 1.0 Notice--1#27"com.apple.dt.IDE.diagnostic3@171"file://localhost/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h0000000000000000^4#1#4#1#122#0#18"#warning Directive--0#0#0#-19%DVTDocumentLocation4@116"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/ActionProxy.h0000000000000000^2740"CompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/ActionProxy-74F33A92587E0355.o niftiViewer/ActionProxy.h normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c++ -arch x86_64 -fmessage-length=0 -std=gnu++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-generated-files.hmap -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-own-target-headers.hmap -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-all-target-headers.hmap -iquote /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-project-headers.hmap -I/usr/local/utilities/Release/include -I/opt/local/include -I/usr/local/include -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/DerivedSources/x86_64 -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/DerivedSources -F/usr/local/utilities/Release -MMD -MT dependencies -MF /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/ActionProxy-74F33A92587E0355.d --serialize-diagnostics /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/ActionProxy-74F33A92587E0355.dia -c /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/ActionProxy.h -o /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/ActionProxy-74F33A92587E0355.o36"DBB41A8B-7831-4074-9F49-946244A2C23A-
+
+CCompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/ActionProxy-ED7499BC89F61356.o /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/ActionProxy.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+s397614431.135258
+e397614433.462639
+r1
+xCompileC
+x/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/ActionProxy-ED7499BC89F61356.o
+x/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/ActionProxy.mm
+xnormal
+xx86_64
+xobjective-c++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/ActionProxy.mm:10:
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/ActionProxy.h:4:
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../Includes.hpp:11:
+o/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h:5:2: warning: gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. [-W#warnings]
+o#warning gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality.
+o ^
+o1 warning generated.
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection109"Compile /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/ActionProxy.mm6dff225f1db3b741^eb6e76611db3b741^-803"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/ActionProxy.mm:10:In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/ActionProxy.h:4:In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../Includes.hpp:11:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h:5:2: warning: gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. [-W#warnings]#warning gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. ^1 warning generated.1(36%IDEClangDiagnosticActivityLogMessage2@105"Gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality.-397614433#18446744073709551615#0#3(2@127"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/ActionProxy.mm:10:-397614433#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@117"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/ActionProxy.mm0000000000000000^9#8#9#8#321#0#21"Clang LLVM 1.0 Notice--2@125"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/ActionProxy.h:4:-397614433#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@116"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/ActionProxy.h0000000000000000^3#8#3#8#53#0#21"Clang LLVM 1.0 Notice--2@119"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../Includes.hpp:11:-397614433#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@82"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/Includes.hpp0000000000000000^10#8#10#8#141#0#21"Clang LLVM 1.0 Notice--1#27"com.apple.dt.IDE.diagnostic3@171"file://localhost/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h0000000000000000^4#1#4#1#122#0#18"#warning Directive--0#0#0#-19%DVTDocumentLocation4@117"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/ActionProxy.mm0000000000000000^2742"CompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/ActionProxy-ED7499BC89F61356.o niftiViewer/ActionProxy.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c++ -arch x86_64 -fmessage-length=0 -std=gnu++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-generated-files.hmap -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-own-target-headers.hmap -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-all-target-headers.hmap -iquote /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-project-headers.hmap -I/usr/local/utilities/Release/include -I/opt/local/include -I/usr/local/include -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/DerivedSources/x86_64 -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/DerivedSources -F/usr/local/utilities/Release -MMD -MT dependencies -MF /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/ActionProxy-ED7499BC89F61356.d --serialize-diagnostics /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/ActionProxy-ED7499BC89F61356.dia -c /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/ActionProxy.mm -o /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/ActionProxy-ED7499BC89F61356.o36"370F9325-9B9D-4343-A781-18FFF06FDA04-
+
+CCompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Basic.o /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/Basic.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+s397614431.132426
+e397614433.312692
+r1
+xCompileC
+x/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Basic.o
+x/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/Basic.mm
+xnormal
+xx86_64
+xobjective-c++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/Basic.mm:2:
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../Includes.hpp:11:
+o/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h:5:2: warning: gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. [-W#warnings]
+o#warning gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality.
+o ^
+o1 warning generated.
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection103"Compile /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/Basic.mm9c52225f1db3b741^0f0c50611db3b741^-670"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/Basic.mm:2:In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../Includes.hpp:11:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h:5:2: warning: gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. [-W#warnings]#warning gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. ^1 warning generated.1(36%IDEClangDiagnosticActivityLogMessage2@105"Gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality.-397614433#18446744073709551615#0#2(2@120"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/Basic.mm:2:-397614433#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@111"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/Basic.mm0000000000000000^1#9#1#9#10#0#21"Clang LLVM 1.0 Notice--2@119"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../Includes.hpp:11:-397614433#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@82"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/Includes.hpp0000000000000000^10#8#10#8#141#0#21"Clang LLVM 1.0 Notice--1#27"com.apple.dt.IDE.diagnostic3@171"file://localhost/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h0000000000000000^4#1#4#1#122#0#18"#warning Directive--0#0#0#-19%DVTDocumentLocation4@111"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/Basic.mm0000000000000000^2638"CompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Basic.o niftiViewer/Basic.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c++ -arch x86_64 -fmessage-length=0 -std=gnu++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-generated-files.hmap -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-own-target-headers.hmap -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-all-target-headers.hmap -iquote /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-project-headers.hmap -I/usr/local/utilities/Release/include -I/opt/local/include -I/usr/local/include -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/DerivedSources/x86_64 -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/DerivedSources -F/usr/local/utilities/Release -MMD -MT dependencies -MF /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Basic.d --serialize-diagnostics /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Basic.dia -c /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/Basic.mm -o /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Basic.o36"5F3A7916-ED40-4529-9344-83DB842209A7-
+
+CCompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Behavior.o /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Behavior.cpp normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+s397600063.955928
+e397600072.333047
+r1
+xCompileC
+x/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Behavior.o
+x/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Behavior.cpp
+xnormal
+xx86_64
+xobjective-c++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Behavior.cpp:2:
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Behavior.hpp:4:
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../Includes.hpp:11:
+o/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h:5:2: warning: gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. [-W#warnings]
+o#warning gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality.
+o ^
+o1 warning generated.
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection108"Compile /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Behavior.cpp3acaf53fe5b2b741^ec505548e5b2b741^-801"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Behavior.cpp:2:In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Behavior.hpp:4:In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../Includes.hpp:11:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h:5:2: warning: gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. [-W#warnings]#warning gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. ^1 warning generated.1(36%IDEClangDiagnosticActivityLogMessage2@105"Gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality.-397600072#18446744073709551615#0#3(2@125"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Behavior.cpp:2:-397600072#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@82"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/src/Behavior.cpp0000000000000000^1#9#1#9#10#0#21"Clang LLVM 1.0 Notice--2@125"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Behavior.hpp:4:-397600072#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@82"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/src/Behavior.hpp0000000000000000^3#9#3#9#76#0#21"Clang LLVM 1.0 Notice--2@119"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../Includes.hpp:11:-397600072#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@82"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/Includes.hpp0000000000000000^10#8#10#8#141#0#21"Clang LLVM 1.0 Notice--1#27"com.apple.dt.IDE.diagnostic3@171"file://localhost/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h0000000000000000^4#1#4#1#122#0#18"#warning Directive--0#0#0#-19%DVTDocumentLocation4@116"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Behavior.cpp0000000000000000^2660"CompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Behavior.o ../../../src/Behavior.cpp normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c++ -arch x86_64 -fmessage-length=0 -std=gnu++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-generated-files.hmap -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-own-target-headers.hmap -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-all-target-headers.hmap -iquote /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-project-headers.hmap -I/usr/local/utilities/Release/include -I/opt/local/include -I/usr/local/include -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/DerivedSources/x86_64 -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/DerivedSources -F/usr/local/utilities/Release -MMD -MT dependencies -MF /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Behavior.d --serialize-diagnostics /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Behavior.dia -c /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Behavior.cpp -o /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Behavior.o36"DC17188A-05A1-4036-B031-9FCD3E70A7FA-
+
+CCompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Camera.o /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Camera.cpp normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+s397600064.583840
+e397600072.456412
+r1
+xCompileC
+x/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Camera.o
+x/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Camera.cpp
+xnormal
+xx86_64
+xobjective-c++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Camera.cpp:1:
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Camera.hpp:9:
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../Includes.hpp:11:
+o/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h:5:2: warning: gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. [-W#warnings]
+o#warning gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality.
+o ^
+o1 warning generated.
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection106"Compile /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Camera.cppd2c69540e5b2b741^f5d67448e5b2b741^-797"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Camera.cpp:1:In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Camera.hpp:9:In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../Includes.hpp:11:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h:5:2: warning: gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. [-W#warnings]#warning gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. ^1 warning generated.1(36%IDEClangDiagnosticActivityLogMessage2@105"Gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality.-397600072#18446744073709551615#0#3(2@123"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Camera.cpp:1:-397600072#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@80"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/src/Camera.cpp0000000000000000^0#9#0#9#9#0#21"Clang LLVM 1.0 Notice--2@123"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Camera.hpp:9:-397600072#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@80"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/src/Camera.hpp0000000000000000^8#9#8#9#148#0#21"Clang LLVM 1.0 Notice--2@119"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../Includes.hpp:11:-397600072#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@82"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/Includes.hpp0000000000000000^10#8#10#8#141#0#21"Clang LLVM 1.0 Notice--1#27"com.apple.dt.IDE.diagnostic3@171"file://localhost/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h0000000000000000^4#1#4#1#122#0#18"#warning Directive--0#0#0#-19%DVTDocumentLocation4@114"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Camera.cpp0000000000000000^2648"CompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Camera.o ../../../src/Camera.cpp normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c++ -arch x86_64 -fmessage-length=0 -std=gnu++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-generated-files.hmap -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-own-target-headers.hmap -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-all-target-headers.hmap -iquote /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-project-headers.hmap -I/usr/local/utilities/Release/include -I/opt/local/include -I/usr/local/include -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/DerivedSources/x86_64 -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/DerivedSources -F/usr/local/utilities/Release -MMD -MT dependencies -MF /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Camera.d --serialize-diagnostics /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Camera.dia -c /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Camera.cpp -o /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Camera.o36"E1F93665-8337-44A7-899A-96F7451EAC92-
+
+CCompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/CocoaGL.o /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../CocoaGL.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+s397600063.951384
+e397600072.304406
+r1
+xCompileC
+x/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/CocoaGL.o
+x/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../CocoaGL.mm
+xnormal
+xx86_64
+xobjective-c++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../CocoaGL.mm:8:
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../Includes.hpp:11:
+o/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h:5:2: warning: gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. [-W#warnings]
+o#warning gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality.
+o ^
+o1 warning generated.
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection99"Compile /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../CocoaGL.mmb3b7f43fe5b2b741^bf0c4e48e5b2b741^-666"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../CocoaGL.mm:8:In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../Includes.hpp:11:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h:5:2: warning: gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. [-W#warnings]#warning gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. ^1 warning generated.1(36%IDEClangDiagnosticActivityLogMessage2@105"Gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality.-397600072#18446744073709551615#0#2(2@116"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../CocoaGL.mm:8:-397600072#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@80"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/CocoaGL.mm0000000000000000^7#8#7#8#126#0#21"Clang LLVM 1.0 Notice--2@119"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../Includes.hpp:11:-397600072#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@82"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/Includes.hpp0000000000000000^10#8#10#8#141#0#21"Clang LLVM 1.0 Notice--1#27"com.apple.dt.IDE.diagnostic3@171"file://localhost/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h0000000000000000^4#1#4#1#122#0#18"#warning Directive--0#0#0#-19%DVTDocumentLocation4@107"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../CocoaGL.mm0000000000000000^2638"CompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/CocoaGL.o ../../CocoaGL.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c++ -arch x86_64 -fmessage-length=0 -std=gnu++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-generated-files.hmap -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-own-target-headers.hmap -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-all-target-headers.hmap -iquote /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-project-headers.hmap -I/usr/local/utilities/Release/include -I/opt/local/include -I/usr/local/include -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/DerivedSources/x86_64 -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/DerivedSources -F/usr/local/utilities/Release -MMD -MT dependencies -MF /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/CocoaGL.d --serialize-diagnostics /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/CocoaGL.dia -c /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../CocoaGL.mm -o /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/CocoaGL.o36"7434AF90-887F-431F-96A9-445926CC9A4B-
+
+CCompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/FBO.o /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/FBO.cpp normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+s397600065.674422
+e397600072.516663
+r1
+xCompileC
+x/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/FBO.o
+x/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/FBO.cpp
+xnormal
+xx86_64
+xobjective-c++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/FBO.cpp:1:
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/FBO.hpp:6:
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Texture.hpp:5:
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../Includes.hpp:11:
+o/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h:5:2: warning: gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. [-W#warnings]
+o#warning gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality.
+o ^
+o1 warning generated.
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection103"Compile /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/FBO.cpp78efac41e5b2b741^dd458448e5b2b741^-916"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/FBO.cpp:1:In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/FBO.hpp:6:In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Texture.hpp:5:In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../Includes.hpp:11:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h:5:2: warning: gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. [-W#warnings]#warning gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. ^1 warning generated.1(36%IDEClangDiagnosticActivityLogMessage2@105"Gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality.-397600072#18446744073709551615#0#4(2@120"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/FBO.cpp:1:-397600072#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@77"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/src/FBO.cpp0000000000000000^0#9#0#9#9#0#21"Clang LLVM 1.0 Notice--2@120"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/FBO.hpp:6:-397600072#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@77"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/src/FBO.hpp0000000000000000^5#9#5#9#112#0#21"Clang LLVM 1.0 Notice--2@124"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Texture.hpp:5:-397600072#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@81"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/src/Texture.hpp0000000000000000^4#9#4#9#94#0#21"Clang LLVM 1.0 Notice--2@119"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../Includes.hpp:11:-397600072#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@82"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/Includes.hpp0000000000000000^10#8#10#8#141#0#21"Clang LLVM 1.0 Notice--1#27"com.apple.dt.IDE.diagnostic3@171"file://localhost/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h0000000000000000^4#1#4#1#122#0#18"#warning Directive--0#0#0#-19%DVTDocumentLocation4@111"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/FBO.cpp0000000000000000^2630"CompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/FBO.o ../../../src/FBO.cpp normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c++ -arch x86_64 -fmessage-length=0 -std=gnu++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-generated-files.hmap -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-own-target-headers.hmap -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-all-target-headers.hmap -iquote /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-project-headers.hmap -I/usr/local/utilities/Release/include -I/opt/local/include -I/usr/local/include -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/DerivedSources/x86_64 -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/DerivedSources -F/usr/local/utilities/Release -MMD -MT dependencies -MF /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/FBO.d --serialize-diagnostics /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/FBO.dia -c /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/FBO.cpp -o /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/FBO.o36"F1FB8574-DE69-48A0-B6D3-6C958B49BE96-
+
+CCompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Font.o /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Font.cpp normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+s397614431.134008
+e397614434.378841
+r1
+xCompileC
+x/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Font.o
+x/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Font.cpp
+xnormal
+xx86_64
+xobjective-c++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Font.cpp:1:
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Font.hpp:5:
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Texture.hpp:5:
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../Includes.hpp:11:
+o/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h:5:2: warning: gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. [-W#warnings]
+o#warning gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality.
+o ^
+o1 warning generated.
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection104"Compile /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Font.cppe4a2225f1db3b741^cefa60621db3b741^-918"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Font.cpp:1:In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Font.hpp:5:In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Texture.hpp:5:In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../Includes.hpp:11:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h:5:2: warning: gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. [-W#warnings]#warning gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. ^1 warning generated.1(36%IDEClangDiagnosticActivityLogMessage2@105"Gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality.-397614434#18446744073709551615#0#4(2@121"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Font.cpp:1:-397614434#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@78"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/src/Font.cpp0000000000000000^0#9#0#9#9#0#21"Clang LLVM 1.0 Notice--2@121"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Font.hpp:5:-397614434#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@78"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/src/Font.hpp0000000000000000^4#9#4#9#69#0#21"Clang LLVM 1.0 Notice--2@124"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Texture.hpp:5:-397614434#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@81"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/src/Texture.hpp0000000000000000^4#9#4#9#94#0#21"Clang LLVM 1.0 Notice--2@119"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../Includes.hpp:11:-397614434#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@82"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/Includes.hpp0000000000000000^10#8#10#8#141#0#21"Clang LLVM 1.0 Notice--1#27"com.apple.dt.IDE.diagnostic3@171"file://localhost/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h0000000000000000^4#1#4#1#122#0#18"#warning Directive--0#0#0#-19%DVTDocumentLocation4@112"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Font.cpp0000000000000000^2636"CompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Font.o ../../../src/Font.cpp normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c++ -arch x86_64 -fmessage-length=0 -std=gnu++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-generated-files.hmap -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-own-target-headers.hmap -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-all-target-headers.hmap -iquote /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-project-headers.hmap -I/usr/local/utilities/Release/include -I/opt/local/include -I/usr/local/include -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/DerivedSources/x86_64 -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/DerivedSources -F/usr/local/utilities/Release -MMD -MT dependencies -MF /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Font.d --serialize-diagnostics /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Font.dia -c /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Font.cpp -o /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Font.o36"B36F9F01-26F5-446B-A607-17FFC3453008-
+
+CCompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Main.o /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/Main.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+s397614431.136370
+e397614434.126349
+r1
+xCompileC
+x/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Main.o
+x/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/Main.mm
+xnormal
+xx86_64
+xobjective-c++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/Main.mm:9:
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/Basic.mm:2:
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../Includes.hpp:11:
+o/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h:5:2: warning: gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. [-W#warnings]
+o#warning gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality.
+o ^
+o1 warning generated.
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection102"Compile /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/Main.mm4a45235f1db3b741^c15720621db3b741^-790"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/Main.mm:9:In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/Basic.mm:2:In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../Includes.hpp:11:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h:5:2: warning: gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. [-W#warnings]#warning gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. ^1 warning generated.1(36%IDEClangDiagnosticActivityLogMessage2@105"Gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality.-397614434#18446744073709551615#0#3(2@119"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/Main.mm:9:-397614434#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@110"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/Main.mm0000000000000000^8#9#8#9#145#0#21"Clang LLVM 1.0 Notice--2@120"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/Basic.mm:2:-397614434#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@111"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/Basic.mm0000000000000000^1#9#1#9#10#0#21"Clang LLVM 1.0 Notice--2@119"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../Includes.hpp:11:-397614434#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@82"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/Includes.hpp0000000000000000^10#8#10#8#141#0#21"Clang LLVM 1.0 Notice--1#27"com.apple.dt.IDE.diagnostic3@171"file://localhost/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h0000000000000000^4#1#4#1#122#0#18"#warning Directive--0#0#0#-19%DVTDocumentLocation4@110"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/Main.mm0000000000000000^2632"CompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Main.o niftiViewer/Main.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c++ -arch x86_64 -fmessage-length=0 -std=gnu++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-generated-files.hmap -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-own-target-headers.hmap -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-all-target-headers.hmap -iquote /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-project-headers.hmap -I/usr/local/utilities/Release/include -I/opt/local/include -I/usr/local/include -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/DerivedSources/x86_64 -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/DerivedSources -F/usr/local/utilities/Release -MMD -MT dependencies -MF /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Main.d --serialize-diagnostics /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Main.dia -c /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/Main.mm -o /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Main.o36"5BBD707A-ABD2-4683-BDBF-372B2A121755-
+
+CCompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/MeshBuffer.o /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/MeshBuffer.cpp normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+s397600063.954744
+e397600072.494764
+r1
+xCompileC
+x/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/MeshBuffer.o
+x/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/MeshBuffer.cpp
+xnormal
+xx86_64
+xobjective-c++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/MeshBuffer.cpp:2:
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/MeshBuffer.hpp:4:
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/MeshData.hpp:18:
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../Includes.hpp:11:
+o/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h:5:2: warning: gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. [-W#warnings]
+o#warning gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality.
+o ^
+o1 warning generated.
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection110"Compile /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/MeshBuffer.cppc87bf53fe5b2b741^4bae7e48e5b2b741^-932"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/MeshBuffer.cpp:2:In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/MeshBuffer.hpp:4:In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/MeshData.hpp:18:In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../Includes.hpp:11:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h:5:2: warning: gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. [-W#warnings]#warning gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. ^1 warning generated.1(36%IDEClangDiagnosticActivityLogMessage2@105"Gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality.-397600072#18446744073709551615#0#4(2@127"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/MeshBuffer.cpp:2:-397600072#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@84"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/src/MeshBuffer.cpp0000000000000000^1#9#1#9#10#0#21"Clang LLVM 1.0 Notice--2@127"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/MeshBuffer.hpp:4:-397600072#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@84"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/src/MeshBuffer.hpp0000000000000000^3#9#3#9#80#0#21"Clang LLVM 1.0 Notice--2@126"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/MeshData.hpp:18:-397600072#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@82"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/src/MeshData.hpp0000000000000000^17#9#17#9#338#0#21"Clang LLVM 1.0 Notice--2@119"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../Includes.hpp:11:-397600072#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@82"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/Includes.hpp0000000000000000^10#8#10#8#141#0#21"Clang LLVM 1.0 Notice--1#27"com.apple.dt.IDE.diagnostic3@171"file://localhost/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h0000000000000000^4#1#4#1#122#0#18"#warning Directive--0#0#0#-19%DVTDocumentLocation4@118"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/MeshBuffer.cpp0000000000000000^2672"CompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/MeshBuffer.o ../../../src/MeshBuffer.cpp normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c++ -arch x86_64 -fmessage-length=0 -std=gnu++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-generated-files.hmap -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-own-target-headers.hmap -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-all-target-headers.hmap -iquote /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-project-headers.hmap -I/usr/local/utilities/Release/include -I/opt/local/include -I/usr/local/include -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/DerivedSources/x86_64 -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/DerivedSources -F/usr/local/utilities/Release -MMD -MT dependencies -MF /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/MeshBuffer.d --serialize-diagnostics /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/MeshBuffer.dia -c /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/MeshBuffer.cpp -o /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/MeshBuffer.o36"31D953F4-5C56-44FA-A4D7-BDCA630F4EF0-
+
+CCompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/MeshData.o /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/MeshData.cpp normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+s397600072.282974
+e397600075.123609
+r1
+xCompileC
+x/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/MeshData.o
+x/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/MeshData.cpp
+xnormal
+xx86_64
+xobjective-c++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/MeshData.cpp:3:
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/MeshData.hpp:18:
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../Includes.hpp:11:
+o/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h:5:2: warning: gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. [-W#warnings]
+o#warning gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality.
+o ^
+o1 warning generated.
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection108"Compile /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/MeshData.cpp66bd4848e5b2b741^92b01f4be5b2b741^-802"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/MeshData.cpp:3:In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/MeshData.hpp:18:In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../Includes.hpp:11:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h:5:2: warning: gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. [-W#warnings]#warning gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. ^1 warning generated.-0#0#0#-19%DVTDocumentLocation2@116"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/MeshData.cpp0000000000000000^2660"CompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/MeshData.o ../../../src/MeshData.cpp normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c++ -arch x86_64 -fmessage-length=0 -std=gnu++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-generated-files.hmap -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-own-target-headers.hmap -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-all-target-headers.hmap -iquote /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-project-headers.hmap -I/usr/local/utilities/Release/include -I/opt/local/include -I/usr/local/include -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/DerivedSources/x86_64 -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/DerivedSources -F/usr/local/utilities/Release -MMD -MT dependencies -MF /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/MeshData.d --serialize-diagnostics /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/MeshData.dia -c /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/MeshData.cpp -o /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/MeshData.o36"02641C2C-1F57-4C11-8F96-9DC44112DD5B-
+
+CCompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/MeshUtils.o /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/MeshUtils.cpp normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+s397600072.306231
+e397600075.426936
+r1
+xCompileC
+x/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/MeshUtils.o
+x/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/MeshUtils.cpp
+xnormal
+xx86_64
+xobjective-c++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/MeshUtils.cpp:1:
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/MeshUtils.hpp:34:
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/MeshBuffer.hpp:4:
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/MeshData.hpp:18:
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../Includes.hpp:11:
+o/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h:5:2: warning: gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. [-W#warnings]
+o#warning gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality.
+o ^
+o1 warning generated.
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection109"Compile /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/MeshUtils.cppccb74e48e5b2b741^ec4c6d4be5b2b741^-1059"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/MeshUtils.cpp:1:In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/MeshUtils.hpp:34:In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/MeshBuffer.hpp:4:In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/MeshData.hpp:18:In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../Includes.hpp:11:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h:5:2: warning: gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. [-W#warnings]#warning gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. ^1 warning generated.-0#0#0#-19%DVTDocumentLocation2@117"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/MeshUtils.cpp0000000000000000^2666"CompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/MeshUtils.o ../../../src/MeshUtils.cpp normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c++ -arch x86_64 -fmessage-length=0 -std=gnu++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-generated-files.hmap -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-own-target-headers.hmap -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-all-target-headers.hmap -iquote /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-project-headers.hmap -I/usr/local/utilities/Release/include -I/opt/local/include -I/usr/local/include -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/DerivedSources/x86_64 -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/DerivedSources -F/usr/local/utilities/Release -MMD -MT dependencies -MF /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/MeshUtils.d --serialize-diagnostics /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/MeshUtils.dia -c /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/MeshUtils.cpp -o /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/MeshUtils.o36"772F8F26-909F-4179-ACF7-3C72AB816CE7-
+
+CCompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/NiftiUtils.o /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/NiftiUtils.h normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+s397614431.135205
+e397614433.274531
+r1
+xCompileC
+x/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/NiftiUtils.o
+x/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/NiftiUtils.h
+xnormal
+xx86_64
+xobjective-c++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/NiftiUtils.h:5:
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../Includes.hpp:11:
+o/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h:5:2: warning: gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. [-W#warnings]
+o#warning gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality.
+o ^
+o1 warning generated.
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection107"Compile /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/NiftiUtils.h0c06235f1db3b741^454746611db3b741^-674"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/NiftiUtils.h:5:In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../Includes.hpp:11:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h:5:2: warning: gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. [-W#warnings]#warning gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. ^1 warning generated.1(36%IDEClangDiagnosticActivityLogMessage2@105"Gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality.-397614433#18446744073709551615#0#2(2@124"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/NiftiUtils.h:5:-397614433#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@115"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/NiftiUtils.h0000000000000000^4#8#4#8#157#0#21"Clang LLVM 1.0 Notice--2@119"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../Includes.hpp:11:-397614433#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@82"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/Includes.hpp0000000000000000^10#8#10#8#141#0#21"Clang LLVM 1.0 Notice--1#27"com.apple.dt.IDE.diagnostic3@171"file://localhost/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h0000000000000000^4#1#4#1#122#0#18"#warning Directive--0#0#0#-19%DVTDocumentLocation4@115"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/NiftiUtils.h0000000000000000^2666"CompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/NiftiUtils.o niftiViewer/NiftiUtils.h normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c++ -arch x86_64 -fmessage-length=0 -std=gnu++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-generated-files.hmap -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-own-target-headers.hmap -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-all-target-headers.hmap -iquote /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-project-headers.hmap -I/usr/local/utilities/Release/include -I/opt/local/include -I/usr/local/include -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/DerivedSources/x86_64 -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/DerivedSources -F/usr/local/utilities/Release -MMD -MT dependencies -MF /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/NiftiUtils.d --serialize-diagnostics /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/NiftiUtils.dia -c /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/NiftiUtils.h -o /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/NiftiUtils.o36"ED687A5C-1DAF-4DBA-A901-DF2F77D2E44A-
+
+CCompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Program.o /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Program.cpp normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+s397614431.134062
+e397614433.608006
+r1
+xCompileC
+x/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Program.o
+x/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Program.cpp
+xnormal
+xx86_64
+xobjective-c++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Program.cpp:1:
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Program.hpp:6:
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../Includes.hpp:11:
+o/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h:5:2: warning: gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. [-W#warnings]
+o#warning gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality.
+o ^
+o1 warning generated.
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection107"Compile /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Program.cppa2b5225f1db3b741^09a59b611db3b741^-799"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Program.cpp:1:In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Program.hpp:6:In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../Includes.hpp:11:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h:5:2: warning: gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. [-W#warnings]#warning gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. ^1 warning generated.1(36%IDEClangDiagnosticActivityLogMessage2@105"Gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality.-397614433#18446744073709551615#0#3(2@124"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Program.cpp:1:-397614433#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@81"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/src/Program.cpp0000000000000000^0#9#0#9#9#0#21"Clang LLVM 1.0 Notice--2@124"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Program.hpp:6:-397614433#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@81"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/src/Program.hpp0000000000000000^5#9#5#9#111#0#21"Clang LLVM 1.0 Notice--2@119"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../Includes.hpp:11:-397614433#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@82"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/Includes.hpp0000000000000000^10#8#10#8#141#0#21"Clang LLVM 1.0 Notice--1#27"com.apple.dt.IDE.diagnostic3@171"file://localhost/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h0000000000000000^4#1#4#1#122#0#18"#warning Directive--0#0#0#-19%DVTDocumentLocation4@115"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Program.cpp0000000000000000^2654"CompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Program.o ../../../src/Program.cpp normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c++ -arch x86_64 -fmessage-length=0 -std=gnu++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-generated-files.hmap -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-own-target-headers.hmap -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-all-target-headers.hmap -iquote /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-project-headers.hmap -I/usr/local/utilities/Release/include -I/opt/local/include -I/usr/local/include -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/DerivedSources/x86_64 -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/DerivedSources -F/usr/local/utilities/Release -MMD -MT dependencies -MF /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Program.d --serialize-diagnostics /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Program.dia -c /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Program.cpp -o /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Program.o36"34EE60F8-FD84-4915-9CA5-18BACEB4AFAC-
+
+CCompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/RendererOSX.o /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../RendererOSX.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+s397600063.952475
+e397600072.281610
+r1
+xCompileC
+x/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/RendererOSX.o
+x/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../RendererOSX.mm
+xnormal
+xx86_64
+xobjective-c++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../RendererOSX.mm:2:
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../Includes.hpp:11:
+o/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h:5:2: warning: gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. [-W#warnings]
+o#warning gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality.
+o ^
+o1 warning generated.
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection103"Compile /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../RendererOSX.mm6c7af43fe5b2b741^f1294848e5b2b741^-670"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../RendererOSX.mm:2:In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../Includes.hpp:11:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h:5:2: warning: gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. [-W#warnings]#warning gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. ^1 warning generated.1(36%IDEClangDiagnosticActivityLogMessage2@105"Gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality.-397600072#18446744073709551615#0#2(2@120"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../RendererOSX.mm:2:-397600072#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@84"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/RendererOSX.mm0000000000000000^1#9#1#9#10#0#21"Clang LLVM 1.0 Notice--2@119"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../Includes.hpp:11:-397600072#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@82"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/Includes.hpp0000000000000000^10#8#10#8#141#0#21"Clang LLVM 1.0 Notice--1#27"com.apple.dt.IDE.diagnostic3@171"file://localhost/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h0000000000000000^4#1#4#1#122#0#18"#warning Directive--0#0#0#-19%DVTDocumentLocation4@111"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../RendererOSX.mm0000000000000000^2662"CompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/RendererOSX.o ../../RendererOSX.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c++ -arch x86_64 -fmessage-length=0 -std=gnu++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-generated-files.hmap -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-own-target-headers.hmap -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-all-target-headers.hmap -iquote /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-project-headers.hmap -I/usr/local/utilities/Release/include -I/opt/local/include -I/usr/local/include -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/DerivedSources/x86_64 -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/DerivedSources -F/usr/local/utilities/Release -MMD -MT dependencies -MF /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/RendererOSX.d --serialize-diagnostics /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/RendererOSX.dia -c /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../RendererOSX.mm -o /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/RendererOSX.o36"4E6CAE5D-F25B-42E5-89E9-97674C10D928-
+
+CCompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Shapes.o /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Shapes.cpp normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+s397600072.334518
+e397600075.123621
+r1
+xCompileC
+x/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Shapes.o
+x/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Shapes.cpp
+xnormal
+xx86_64
+xobjective-c++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Shapes.cpp:2:
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Shapes.hpp:4:
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/MeshData.hpp:18:
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../Includes.hpp:11:
+o/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h:5:2: warning: gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. [-W#warnings]
+o#warning gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality.
+o ^
+o1 warning generated.
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection106"Compile /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Shapes.cppe2e95548e5b2b741^abae1f4be5b2b741^-924"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Shapes.cpp:2:In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Shapes.hpp:4:In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/MeshData.hpp:18:In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../Includes.hpp:11:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h:5:2: warning: gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. [-W#warnings]#warning gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. ^1 warning generated.-0#0#0#-19%DVTDocumentLocation2@114"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Shapes.cpp0000000000000000^2648"CompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Shapes.o ../../../src/Shapes.cpp normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c++ -arch x86_64 -fmessage-length=0 -std=gnu++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-generated-files.hmap -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-own-target-headers.hmap -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-all-target-headers.hmap -iquote /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-project-headers.hmap -I/usr/local/utilities/Release/include -I/opt/local/include -I/usr/local/include -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/DerivedSources/x86_64 -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/DerivedSources -F/usr/local/utilities/Release -MMD -MT dependencies -MF /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Shapes.d --serialize-diagnostics /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Shapes.dia -c /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Shapes.cpp -o /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Shapes.o36"3AA0D995-CEE3-4D08-90E9-A1C39DB21226-
+
+CCompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Slices.o /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/Slices.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+s397614431.135198
+e397614433.395061
+r1
+xCompileC
+x/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Slices.o
+x/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/Slices.mm
+xnormal
+xx86_64
+xobjective-c++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/Slices.mm:1:
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../Includes.hpp:11:
+o/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h:5:2: warning: gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. [-W#warnings]
+o#warning gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality.
+o ^
+o1 warning generated.
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection104"Compile /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/Slices.mm55f9225f1db3b741^422265611db3b741^-671"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/Slices.mm:1:In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../Includes.hpp:11:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h:5:2: warning: gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. [-W#warnings]#warning gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. ^1 warning generated.1(36%IDEClangDiagnosticActivityLogMessage2@105"Gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality.-397614433#18446744073709551615#0#2(2@121"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/Slices.mm:1:-397614433#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@112"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/Slices.mm0000000000000000^0#8#0#8#8#0#21"Clang LLVM 1.0 Notice--2@119"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../Includes.hpp:11:-397614433#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@82"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/Includes.hpp0000000000000000^10#8#10#8#141#0#21"Clang LLVM 1.0 Notice--1#27"com.apple.dt.IDE.diagnostic3@171"file://localhost/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h0000000000000000^4#1#4#1#122#0#18"#warning Directive--0#0#0#-19%DVTDocumentLocation4@112"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/Slices.mm0000000000000000^2644"CompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Slices.o niftiViewer/Slices.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c++ -arch x86_64 -fmessage-length=0 -std=gnu++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-generated-files.hmap -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-own-target-headers.hmap -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-all-target-headers.hmap -iquote /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-project-headers.hmap -I/usr/local/utilities/Release/include -I/opt/local/include -I/usr/local/include -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/DerivedSources/x86_64 -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/DerivedSources -F/usr/local/utilities/Release -MMD -MT dependencies -MF /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Slices.d --serialize-diagnostics /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Slices.dia -c /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/Slices.mm -o /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Slices.o36"4BF45A69-0D50-479D-B721-13289FE57B40-
+
+CCompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Texture.o /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Texture.cpp normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+s397600072.458211
+e397600075.023420
+r1
+xCompileC
+x/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Texture.o
+x/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Texture.cpp
+xnormal
+xx86_64
+xobjective-c++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Texture.cpp:1:
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Texture.hpp:5:
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../Includes.hpp:11:
+o/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h:5:2: warning: gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. [-W#warnings]
+o#warning gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality.
+o ^
+o1 warning generated.
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection107"Compile /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Texture.cppfca57548e5b2b741^7efc054be5b2b741^-799"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Texture.cpp:1:In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Texture.hpp:5:In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../Includes.hpp:11:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h:5:2: warning: gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. [-W#warnings]#warning gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. ^1 warning generated.-0#0#0#-19%DVTDocumentLocation2@115"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Texture.cpp0000000000000000^2654"CompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Texture.o ../../../src/Texture.cpp normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c++ -arch x86_64 -fmessage-length=0 -std=gnu++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-generated-files.hmap -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-own-target-headers.hmap -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-all-target-headers.hmap -iquote /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-project-headers.hmap -I/usr/local/utilities/Release/include -I/opt/local/include -I/usr/local/include -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/DerivedSources/x86_64 -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/DerivedSources -F/usr/local/utilities/Release -MMD -MT dependencies -MF /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Texture.d --serialize-diagnostics /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Texture.dia -c /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Texture.cpp -o /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Texture.o36"21F096EA-CEFF-4299-B900-25E39B7FAD9D-
+
+CCompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Utils.o /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Utils.cpp normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+s397600072.496846
+e397600075.123574
+r1
+xCompileC
+x/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Utils.o
+x/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Utils.cpp
+xnormal
+xx86_64
+xobjective-c++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Utils.cpp:7:
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Utils.hpp:4:
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../Includes.hpp:11:
+o/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h:5:2: warning: gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. [-W#warnings]
+o#warning gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality.
+o ^
+o1 warning generated.
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection105"Compile /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Utils.cpp058b7f48e5b2b741^2eac1f4be5b2b741^-795"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Utils.cpp:7:In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Utils.hpp:4:In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../Includes.hpp:11:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h:5:2: warning: gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. [-W#warnings]#warning gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. ^1 warning generated.-0#0#0#-19%DVTDocumentLocation2@113"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Utils.cpp0000000000000000^2642"CompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Utils.o ../../../src/Utils.cpp normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c++ -arch x86_64 -fmessage-length=0 -std=gnu++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-generated-files.hmap -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-own-target-headers.hmap -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-all-target-headers.hmap -iquote /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-project-headers.hmap -I/usr/local/utilities/Release/include -I/opt/local/include -I/usr/local/include -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/DerivedSources/x86_64 -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/DerivedSources -F/usr/local/utilities/Release -MMD -MT dependencies -MF /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Utils.d --serialize-diagnostics /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Utils.dia -c /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../../src/Utils.cpp -o /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/Utils.o36"22D92D7D-494D-4700-B01C-5164E5DD8BD7-
+
+CCompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/VideoPlayer.o /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../VideoPlayer.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler
+s397600063.951823
+e397600072.263858
+r1
+xCompileC
+x/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/VideoPlayer.o
+x/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../VideoPlayer.mm
+xnormal
+xx86_64
+xobjective-c++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../VideoPlayer.mm:2:
+oIn file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../Includes.hpp:11:
+o/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h:5:2: warning: gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. [-W#warnings]
+o#warning gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality.
+o ^
+o1 warning generated.
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection103"Compile /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../VideoPlayer.mm66a2f43fe5b2b741^8ecc4348e5b2b741^-670"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../VideoPlayer.mm:2:In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../Includes.hpp:11:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h:5:2: warning: gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. [-W#warnings]#warning gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality. ^1 warning generated.1(36%IDEClangDiagnosticActivityLogMessage2@105"Gl.h and gl3.h are both included.  Compiler will not invoke errors if using removed OpenGL functionality.-397600072#18446744073709551615#0#2(2@120"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../VideoPlayer.mm:2:-397600072#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@84"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/VideoPlayer.mm0000000000000000^1#9#1#9#10#0#21"Clang LLVM 1.0 Notice--2@119"In file included from /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../Includes.hpp:11:-397600072#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@82"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/Includes.hpp0000000000000000^10#8#10#8#141#0#21"Clang LLVM 1.0 Notice--1#27"com.apple.dt.IDE.diagnostic3@171"file://localhost/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl3.h0000000000000000^4#1#4#1#122#0#18"#warning Directive--0#0#0#-19%DVTDocumentLocation4@111"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../VideoPlayer.mm0000000000000000^2662"CompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/VideoPlayer.o ../../VideoPlayer.mm normal x86_64 objective-c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c++ -arch x86_64 -fmessage-length=0 -std=gnu++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-generated-files.hmap -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-own-target-headers.hmap -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-all-target-headers.hmap -iquote /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-project-headers.hmap -I/usr/local/utilities/Release/include -I/opt/local/include -I/usr/local/include -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/DerivedSources/x86_64 -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/DerivedSources -F/usr/local/utilities/Release -MMD -MT dependencies -MF /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/VideoPlayer.d --serialize-diagnostics /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/VideoPlayer.dia -c /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../VideoPlayer.mm -o /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/VideoPlayer.o36"086C7D07-1EFD-4AA7-96CD-4D43AA598A4A-
+
+CCompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/nifti1_io.o /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/nifti1_io.c normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler
+s397600063.952704
+e397600065.672686
+r1
+xCompileC
+x/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/nifti1_io.o
+x/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/nifti1_io.c
+xnormal
+xx86_64
+xc
+xcom.apple.compilers.llvm.clang.1_0.compiler
+o/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/nifti1_io.c:2600:11: warning: unused variable 'extgz' [-Wunused-variable]
+o   char   extgz[4]  = ".gz";
+o          ^
+o/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/nifti1_io.c:4403:11: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]
+o   posn = znztell(fp);
+o        ~ ^~~~~~~~~~~
+o/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/nifti1_io.c:7042:10: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]
+o  return bytes;
+o  ~~~~~~ ^~~~~
+o/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/nifti1_io.c:7275:17: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]
+o         ibot = strtol( str+ipos , &cpt , 10 ) ;
+o              ~ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+o/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/nifti1_io.c:7286:22: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]
+o         nused = (cpt-(str+ipos)) ;
+o               ~  ~~~^~~~~~~~~~~
+o/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/nifti1_io.c:7329:17: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]
+o         itop = strtol( str+ipos , &cpt , 10 ) ;
+o              ~ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+o/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/nifti1_io.c:7340:22: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]
+o         nused = (cpt-(str+ipos)) ;
+o               ~  ~~~^~~~~~~~~~~
+o/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/nifti1_io.c:7358:18: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]
+o         istep = strtol( str+ipos , &cpt , 10 ) ;
+o               ~ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+o/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/nifti1_io.c:7363:22: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]
+o         nused = (cpt-(str+ipos)) ;
+o               ~  ~~~^~~~~~~~~~~
+o9 warnings generated.
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection115"Compile /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/nifti1_io.c46b5f43fe5b2b741^4835ac41e5b2b741^-2470"/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/nifti1_io.c:2600:11: warning: unused variable 'extgz' [-Wunused-variable]   char   extgz[4]  = ".gz";          ^/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/nifti1_io.c:4403:11: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]   posn = znztell(fp);        ~ ^~~~~~~~~~~/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/nifti1_io.c:7042:10: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]  return bytes;  ~~~~~~ ^~~~~/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/nifti1_io.c:7275:17: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]         ibot = strtol( str+ipos , &cpt , 10 ) ;              ~ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/nifti1_io.c:7286:22: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]         nused = (cpt-(str+ipos)) ;               ~  ~~~^~~~~~~~~~~/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/nifti1_io.c:7329:17: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]         itop = strtol( str+ipos , &cpt , 10 ) ;              ~ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/nifti1_io.c:7340:22: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]         nused = (cpt-(str+ipos)) ;               ~  ~~~^~~~~~~~~~~/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/nifti1_io.c:7358:18: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]         istep = strtol( str+ipos , &cpt , 10 ) ;               ~ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/nifti1_io.c:7363:22: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]         nused = (cpt-(str+ipos)) ;               ~  ~~~^~~~~~~~~~~9 warnings generated.9(36%IDEClangDiagnosticActivityLogMessage2@23"Unused variable 'extgz'-397600065#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@123"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/nifti1_io.c0000000000000000^2599#10#2599#10#102175#0#19"Unused Entity Issue--2@60"Implicit conversion loses integer precision: 'long' to 'int'-397600065#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@123"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/nifti1_io.c0000000000000000^4402#10#4402#10#161853#0#14"Semantic Issue2(3@123"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/nifti1_io.c0000000000000000^4402#10#4402#21#161853#10#3@123"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/nifti1_io.c0000000000000000^4402#8#4402#9#161851#0#-2@60"Implicit conversion loses integer precision: 'long' to 'int'-397600065#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@123"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/nifti1_io.c0000000000000000^7041#9#7041#9#255226#0#14"Semantic Issue2(3@123"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/nifti1_io.c0000000000000000^7041#9#7041#14#255226#0#3@123"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/nifti1_io.c0000000000000000^7041#2#7041#8#255219#0#-2@60"Implicit conversion loses integer precision: 'long' to 'int'-397600065#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@123"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/nifti1_io.c0000000000000000^7274#16#7274#16#262902#0#14"Semantic Issue2(3@123"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/nifti1_io.c0000000000000000^7274#16#7274#46#262902#29#3@123"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/nifti1_io.c0000000000000000^7274#14#7274#15#262900#0#-2@60"Implicit conversion loses integer precision: 'long' to 'int'-397600065#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@123"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/nifti1_io.c0000000000000000^7285#21#7285#21#263333#0#14"Semantic Issue2(3@123"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/nifti1_io.c0000000000000000^7285#18#7285#32#263330#13#3@123"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/nifti1_io.c0000000000000000^7285#15#7285#16#263327#0#-2@60"Implicit conversion loses integer precision: 'long' to 'int'-397600065#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@123"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/nifti1_io.c0000000000000000^7328#16#7328#16#264755#0#14"Semantic Issue2(3@123"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/nifti1_io.c0000000000000000^7328#16#7328#46#264755#29#3@123"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/nifti1_io.c0000000000000000^7328#14#7328#15#264753#0#-2@60"Implicit conversion loses integer precision: 'long' to 'int'-397600065#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@123"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/nifti1_io.c0000000000000000^7339#21#7339#21#265176#0#14"Semantic Issue2(3@123"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/nifti1_io.c0000000000000000^7339#18#7339#32#265173#13#3@123"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/nifti1_io.c0000000000000000^7339#15#7339#16#265170#0#-2@60"Implicit conversion loses integer precision: 'long' to 'int'-397600065#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@123"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/nifti1_io.c0000000000000000^7357#17#7357#17#265698#0#14"Semantic Issue2(3@123"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/nifti1_io.c0000000000000000^7357#17#7357#47#265698#29#3@123"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/nifti1_io.c0000000000000000^7357#15#7357#16#265696#0#-2@60"Implicit conversion loses integer precision: 'long' to 'int'-397600065#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@123"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/nifti1_io.c0000000000000000^7362#21#7362#21#265893#0#14"Semantic Issue2(3@123"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/nifti1_io.c0000000000000000^7362#18#7362#32#265890#13#3@123"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/nifti1_io.c0000000000000000^7362#15#7362#16#265887#0#-0#0#0#-19%DVTDocumentLocation4@123"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/nifti1_io.c0000000000000000^2322"CompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/nifti1_io.o niftiViewer/niftilib/nifti1_io.c normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch x86_64 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -mmacosx-version-min=10.7 -g -fvisibility=hidden -Wno-sign-conversion -iquote /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-generated-files.hmap -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-own-target-headers.hmap -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-all-target-headers.hmap -iquote /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-project-headers.hmap -I/usr/local/utilities/Release/include -I/opt/local/include -I/usr/local/include -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/DerivedSources/x86_64 -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/DerivedSources -F/usr/local/utilities/Release -MMD -MT dependencies -MF /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/nifti1_io.d --serialize-diagnostics /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/nifti1_io.dia -c /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/nifti1_io.c -o /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/nifti1_io.o36"72957136-1173-4356-B59F-FD53CCDF73AD-
+
+CCompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/znzlib.o /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/znzlib.c normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler
+s397600063.952689
+e397600064.582267
+r1
+xCompileC
+x/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/znzlib.o
+x/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/znzlib.c
+xnormal
+xx86_64
+xc
+xcom.apple.compilers.llvm.clang.1_0.compiler
+o/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/znzlib.c:300:9: warning: unused variable 'tmpstr' [-Wunused-variable]
+o  char *tmpstr;
+o        ^
+o1 warning generated.
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection112"Compile /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/znzlib.c85b6f43fe5b2b741^ab219540e5b2b741^-213"/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/znzlib.c:300:9: warning: unused variable 'tmpstr' [-Wunused-variable]  char *tmpstr;        ^1 warning generated.1(36%IDEClangDiagnosticActivityLogMessage2@24"Unused variable 'tmpstr'-397600064#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@120"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/znzlib.c0000000000000000^299#8#299#8#7594#0#19"Unused Entity Issue--0#0#0#-19%DVTDocumentLocation4@120"file://localhost/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/znzlib.c0000000000000000^2304"CompileC /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/znzlib.o niftiViewer/niftilib/znzlib.c normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c -arch x86_64 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -mmacosx-version-min=10.7 -g -fvisibility=hidden -Wno-sign-conversion -iquote /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-generated-files.hmap -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-own-target-headers.hmap -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-all-target-headers.hmap -iquote /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/niftiViewer-project-headers.hmap -I/usr/local/utilities/Release/include -I/opt/local/include -I/usr/local/include -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/DerivedSources/x86_64 -I/usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/DerivedSources -F/usr/local/utilities/Release -MMD -MT dependencies -MF /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/znzlib.d --serialize-diagnostics /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/znzlib.dia -c /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib/znzlib.c -o /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/znzlib.o36"5764FA07-48DB-490F-9BA8-4D04E7879F69-
+
+CGenerateDSYMFile /usr/local/utilities/Release/niftiViewer.dSYM /usr/local/utilities/Release/niftiViewer
+s397614434.567361
+e397614434.732342
+r1
+xGenerateDSYMFile
+x/usr/local/utilities/Release/niftiViewer.dSYM
+x/usr/local/utilities/Release/niftiViewer
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection54"Generate /usr/local/utilities/Release/niftiViewer.dSYM247e91621db3b741^317dbb621db3b741^---0#0#0#-19%DVTDocumentLocation2@62"file://localhost/usr/local/utilities/Release/niftiViewer.dSYM/0000000000000000^376"GenerateDSYMFile /usr/local/utilities/Release/niftiViewer.dSYM /usr/local/utilities/Release/niftiViewer    cd /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/dsymutil /usr/local/utilities/Release/niftiViewer -o /usr/local/utilities/Release/niftiViewer.dSYM36"5E4E2AD7-8190-44B6-8AFB-D0BDD5E878DE-
+
+CLd /usr/local/utilities/Release/niftiViewer normal x86_64
+s397614434.386353
+e397614434.560275
+r1
+xLd
+x/usr/local/utilities/Release/niftiViewer
+xnormal
+xx86_64
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection45"Link /usr/local/utilities/Release/niftiViewer5b2263621db3b741^d66e8f621db3b741^---0#0#0#--1103"Ld /usr/local/utilities/Release/niftiViewer normal x86_64    cd /Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer    setenv MACOSX_DEPLOYMENT_TARGET 10.7    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -L/usr/local/utilities/Release -L/opt/local/lib -L/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/../../.. -L/opt/local/lib -L/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer/niftilib -F/usr/local/utilities/Release -filelist /usr/local/utilities/niftiViewer.build/Release/niftiViewer.build/Objects-normal/x86_64/niftiViewer.LinkFileList -mmacosx-version-min=10.7 -stdlib=libc++ -fobjc-link-runtime -lfreeimage.3.15.3 -lassimp.3.0.0 -framework CoreMedia -framework Carbon -framework AVFoundation -framework Foundation -framework AppKit -framework OpenGL -framework QuartzCore -framework Cocoa -o /usr/local/utilities/Release/niftiViewer36"BE1855F7-1C27-4704-844D-6BC3243F604A-
+
