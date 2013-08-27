@@ -13,36 +13,43 @@ Program: color.py
 import itertools
 
 
+COLORS_COMPONENT = ['red', 'rbgyr20_14', 'yell-oran', 'green', 'purple']
+COLORS_OVERLAP = ['blue-cyan', 'lt-blue1', 'dk-blue', 'navy']
+VALUES_COMPONENT = [1.01, 1.02, 1.03, 1.04, 1.05]
+VALUES_OVERLAP = [2.03, 3.06, 4.1, 5.15]
+
 class ColorPallet(object):
     """docstring for ColorPallet"""
-    def __init__(self, maxRange, limit=5):
+
+    def __init__(self, _maxRange, _limit=5):
         super(ColorPallet, self).__init__()
-        self.maxRange = maxRange  # The highest overlap value
-        self.limit = limit  # The number of components
-        self.length = 0
+        self.maxRange = _maxRange  # The highest overlap value
+        self.limit = _limit  # The number of components
         self.pallet = ''
-        self.overlap = []  # [2,3,4]
+        self.overlap = [2.03, 3.06, 4.1, 5.15]  # These are the basal values for each overlap
         self.compValue = []  # [1.01, 1.02, 1.03, 1.04, 1.05]
         self.comboValues = set()  # [1.01, 1.02, 1.03, 1.04, 1.05, 2.0300000000000002, 2.04, 2.05, 2.06...]
         self.palletValues = set()  # [2.5495049504950495, 2.0495049504950495, 2.0445544554455446, 2.0396039603960396...]
-        self.colorNames = ['navy', 'dk-blue', 'lt-blue1', 'blue-cyan', 'purple', 'green', 'yell-oran', 'rbgyr20_14', 'red']
-        # self.colorCodes = ['navyblue', '#0069ff', '#00ccff', '#6600cc', '#00ff00', '#ffcc00', '#ccff00', '#ff0000']
+        self.colorNames = []
+        self.colorOverlap = []
+
         # Set the value lists
         self.setCompValues()
         self.setComboValues()
         self.setPalletValues()
-        # self.trimValueLists()
+        self.trimValueLists()
 
     def setCompValues(self):
         """Sets the total number of possible component
            values to that of limit, so that we dont
            produce extra computations
         """
-        for x in [1.01, 1.02, 1.03, 1.04, 1.05]:
+        for i, x in enumerate(VALUES_COMPONENT):
             if len(self.compValue) is self.limit:
                 break
             else:
                 self.compValue.append(x)
+                self.colorNames.append(COLORS_COMPONENT[i])
 
     def setComboValues(self):
         """Populates the comboValues attribute with the
@@ -50,12 +57,14 @@ class ColorPallet(object):
         """
         for i in range(1, len(self.compValue) + 1):
             for x in itertools.combinations(self.compValue, i):
-                val = round(sum(x), 4)
+                val = round(sum(x), 4)  # compute the sum of values, then round up to decimals
+                # print x, val
                 if val > self.maxRange:
                     break
                 else:
                     self.comboValues.add(val)
         self.comboValues = sorted(list(self.comboValues))
+        # print self.comboValues
 
     def setPalletValues(self):
         """Sets the Pallet values for each of the individual
@@ -67,9 +76,11 @@ class ColorPallet(object):
                 break
             else:
                 palletValue = v/self.maxRange
+                # print v, palletValue, self.maxRange
                 self.palletValues.add(palletValue)
         self.palletValues = sorted(list(self.palletValues))
         self.palletValues.reverse()
+
 
     def getComboValues(self):
         return self.comboValues
@@ -77,40 +88,52 @@ class ColorPallet(object):
     def getPalletValues(self):
         return self.palletValues
 
+    def getColorNames(self):
+        return self.colorNames
+
     def trimValueLists(self):
-        for check in self.getComboValues():
-            print check, "bigger than 1.05?", check >= 2.0, self.comboValues
+        el = 0
+        i = 0
+        print len(self.comboValues), self.comboValues
+        print len(self.palletValues), self.palletValues
+        self.palletValues.reverse()
+        while len(self.getComboValues()) != 0:
+            if el >= len(self.getComboValues()):
+                break
+            check = self.comboValues[el]
             if check > 1.05:
-                if int(check) not in self.overlap:
-                    self.overlap.append(int(check))
+                if check not in VALUES_OVERLAP:
+                    self.comboValues.pop(el),
+                    self.palletValues.pop(el)
                 else:
-                    index = self.comboValues.index(check)
-                    print "\n--->", self.comboValues.index(check), self.comboValues[index],
-                    print self.comboValues.pop(index)
-                    self.palletValues.pop(index)
-        # for i in range(len(self.getComboValues())):
-        #     print self.comboValues[i], self.palletValues[i]
-            # if self.comboValues[index] == check:
-            #     self.comboValues.pop(index)
+                    self.colorNames.append(COLORS_OVERLAP[i])
+                    el += 1
+                    i += 1
+            else:
+                el += 1
+        self.palletValues.reverse()
 
     def buildPallet(self, palletName):
         template = "#--------------------------------------\n#   Component colors\n#      1 - Red     ==> 1.01\n#      2 - Yellow  ==> 1.02\n#      3 - Orange  ==> 1.03\n#      4 - Green   ==> 1.04\n#      5 - Purple  ==> 1.05\n#\n#   Overlapping Component colors\n#      2 - Cyan blue   ==> 2.0[3-9]\n#      3 - Light blue  ==> 3.[06-12]\n#      4 - Dark Blue   ==> 4.1[0-4]\n#      5 - Navy blue   ==> 5.15\n#--------------------------------------\n\n"
         COLORS = "***COLORS\n\tnavy = navyblue\n\tdk-blue = #0000ff\n\tlt-blue1 = #0069ff\n\tblue-cyan = #00ccff\n\tpurple = #6600cc\n\tgreen = #00ff00\n\tyell-oran = #ffcc00\n\trbgyr20_14 = #ccff00\n\tred = #ff0000\n"
-        self.pallet = "{}\n{}\n***PALETTES {} [{}+]".format(template, COLORS, palletName, self.length)
         # self.trimValueLists()
+        self.pallet = "{}\n{}\n***PALETTES {} [{}+]".format(template, COLORS, palletName, len(self.palletValues))
+        self.colorNames.reverse()
         for i, val in enumerate(self.getPalletValues()):
-            self.pallet += "\n\t{:0.4f} -> {}".format(val, self.colorNames[i])
+            self.pallet += "\n\t{:0.8f} -> {}".format(val, self.colorNames[i])
+
+        fout = open(palletName + '.pal', 'a+')
+        fout.write(self.pallet)
         return self.pallet
 
 #=============================== START OF MAIN ===============================
 
 
 def main():
-    iceR1 = ColorPallet(4.1)
-    iceR1.trimValueLists()
-    print len(iceR1.getComboValues()), iceR1.getComboValues()
-    print len(iceR1.getPalletValues()), iceR1.getPalletValues()
-    # print iceR1.buildPallet('iceR1')
+    print ColorPallet(2.06, 4).buildPallet('iceR1')
+    print ColorPallet(3.09, 4).buildPallet('iceR2')
+    print ColorPallet(3.08, 4).buildPallet('iceR3')
+    print ColorPallet(4.1, 4).buildPallet('iceR4')
 
 
 if __name__ == '__main__':

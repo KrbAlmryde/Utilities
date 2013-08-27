@@ -1,33 +1,36 @@
-Subject	Left Prefontal	Left Temporal	Right Prefrontal	Right Temporal
-run3_sub009_sent_unlearnable_co-tt_stats.nii.gz[1]	-0.123477	0.120459	-0.258581	-0.026037	
-run3_sub011_sent_unlearnable_co-tt_stats.nii.gz[1]	0.063077	0.755889	0.639345	0.983779	
-run3_sub012_sent_unlearnable_co-tt_stats.nii.gz[1]	2.295223	2.625061	1.798508	1.699458	
-run3_sub018_sent_unlearnable_co-tt_stats.nii.gz[1]	0.477099	0.211794	0.137306	0.049134	
-run3_sub022_sent_unlearnable_co-tt_stats.nii.gz[1]	-0.045402	0.449896	-0.057407	0.802283	
-run3_sub030_sent_unlearnable_co-tt_stats.nii.gz[1]	0.122652	0.133843	-0.304807	-0.271016	
-run3_sub031_sent_unlearnable_co-tt_stats.nii.gz[1]	-0.581244	1.168329	0.140601	1.053980	
-run3_sub032_sent_unlearnable_co-tt_stats.nii.gz[1]	2.369405	1.053737	0.914653	0.838395	
-run3_sub038_sent_unlearnable_co-tt_stats.nii.gz[1]	-0.240772	0.108406	0.066491	0.404410	
-run3_sub045_sent_unlearnable_co-tt_stats.nii.gz[1]	-1.436259	-0.121693	-0.600748	0.002407	
-run3_sub047_sent_unlearnable_co-tt_stats.nii.gz[1]	-0.340950	-0.189202	-0.230264	-0.298938	
-run3_sub048_sent_unlearnable_co-tt_stats.nii.gz[1]	-0.013818	-0.009498	0.373592	-0.300215	
-run3_sub049_sent_unlearnable_co-tt_stats.nii.gz[1]	0.389014	1.203704	0.743149	0.989844	
-run3_sub051_sent_unlearnable_co-tt_stats.nii.gz[1]	-0.663169	0.044896	-1.354845	-0.308933	
-run3_sub059_sent_unlearnable_co-tt_stats.nii.gz[1]	0.810757	0.747581	0.809833	0.869151	
-run3_sub060_sent_unlearnable_co-tt_stats.nii.gz[1]	0.149111	0.350912	0.209737	0.294014	
-run3_sub009_sent_unlearnable_tt_nn.nii.gz	0.432454	0.634807	0.320692	0.667753	
-run3_sub011_sent_unlearnable_tt_nn.nii.gz	0.649925	1.610720	0.898278	1.879373	
-run3_sub012_sent_unlearnable_tt_nn.nii.gz	2.298121	2.705559	1.823713	1.817040	
-run3_sub018_sent_unlearnable_tt_nn.nii.gz	0.724268	0.923217	0.432140	0.913286	
-run3_sub022_sent_unlearnable_tt_nn.nii.gz	0.511648	1.362640	0.486613	1.570725	
-run3_sub030_sent_unlearnable_tt_nn.nii.gz	0.688715	1.082173	0.516889	0.858470	
-run3_sub031_sent_unlearnable_tt_nn.nii.gz	0.357936	1.603463	0.849589	1.590976	
-run3_sub032_sent_unlearnable_tt_nn.nii.gz	2.373431	1.080137	0.999741	0.962463	
-run3_sub038_sent_unlearnable_tt_nn.nii.gz	0.217760	0.536068	0.342304	0.690226	
-run3_sub045_sent_unlearnable_tt_nn.nii.gz	0.077823	0.643772	0.196300	0.704882	
-run3_sub047_sent_unlearnable_tt_nn.nii.gz	0.211823	0.705256	0.500627	0.557062	
-run3_sub048_sent_unlearnable_tt_nn.nii.gz	0.403756	0.524611	0.614091	0.357162	
-run3_sub049_sent_unlearnable_tt_nn.nii.gz	0.586811	1.365536	0.832091	1.169895	
-run3_sub051_sent_unlearnable_tt_nn.nii.gz	0.184304	0.845823	0.038106	0.579710	
-run3_sub059_sent_unlearnable_tt_nn.nii.gz	0.847815	1.080463	0.841034	1.163506	
-run3_sub060_sent_unlearnable_tt_nn.nii.gz	0.502407	0.727290	0.692841	0.830517	
+Subject	    Left Prefontal	Left Temporal	Right Prefrontal	Right Temporal
+sub009  run3_sub009_sent_unlearnable_co-tt_stats.nii.gz[1]	-0.123477	0.120459	-0.258581	-0.026037
+sub011  run3_sub011_sent_unlearnable_co-tt_stats.nii.gz[1]	0.063077	0.755889	0.639345	0.983779
+sub012  run3_sub012_sent_unlearnable_co-tt_stats.nii.gz[1]	2.295223	2.625061	1.798508	1.699458
+sub018  run3_sub018_sent_unlearnable_co-tt_stats.nii.gz[1]	0.477099	0.211794	0.137306	0.049134
+sub022  run3_sub022_sent_unlearnable_co-tt_stats.nii.gz[1]	-0.045402	0.449896	-0.057407	0.802283
+sub030  run3_sub030_sent_unlearnable_co-tt_stats.nii.gz[1]	0.122652	0.133843	-0.304807	-0.271016
+sub031  run3_sub031_sent_unlearnable_co-tt_stats.nii.gz[1]	-0.581244	1.168329	0.140601	1.053980
+sub032  run3_sub032_sent_unlearnable_co-tt_stats.nii.gz[1]	2.369405	1.053737	0.914653	0.838395
+sub038  run3_sub038_sent_unlearnable_co-tt_stats.nii.gz[1]	-0.240772	0.108406	0.066491	0.404410
+sub045  run3_sub045_sent_unlearnable_co-tt_stats.nii.gz[1]	-1.436259	-0.121693	-0.600748	0.002407
+sub047  run3_sub047_sent_unlearnable_co-tt_stats.nii.gz[1]	-0.340950	-0.189202	-0.230264	-0.298938
+sub048  run3_sub048_sent_unlearnable_co-tt_stats.nii.gz[1]	-0.013818	-0.009498	0.373592	-0.300215
+sub049  run3_sub049_sent_unlearnable_co-tt_stats.nii.gz[1]	0.389014	1.203704	0.743149	0.989844
+sub051  run3_sub051_sent_unlearnable_co-tt_stats.nii.gz[1]	-0.663169	0.044896	-1.354845	-0.308933
+sub059  run3_sub059_sent_unlearnable_co-tt_stats.nii.gz[1]	0.810757	0.747581	0.809833	0.869151
+sub060  run3_sub060_sent_unlearnable_co-tt_stats.nii.gz[1]	0.149111	0.350912	0.209737	0.294014
+Mean
+
+sub009  run3_sub009_sent_unlearnable_tt_nn.nii.gz	0.432454	0.634807	0.320692	0.667753
+sub011  run3_sub011_sent_unlearnable_tt_nn.nii.gz	0.649925	1.610720	0.898278	1.879373
+sub012  run3_sub012_sent_unlearnable_tt_nn.nii.gz	2.298121	2.705559	1.823713	1.817040
+sub018  run3_sub018_sent_unlearnable_tt_nn.nii.gz	0.724268	0.923217	0.432140	0.913286
+sub022  run3_sub022_sent_unlearnable_tt_nn.nii.gz	0.511648	1.362640	0.486613	1.570725
+sub030  run3_sub030_sent_unlearnable_tt_nn.nii.gz	0.688715	1.082173	0.516889	0.858470
+sub031  run3_sub031_sent_unlearnable_tt_nn.nii.gz	0.357936	1.603463	0.849589	1.590976
+sub032  run3_sub032_sent_unlearnable_tt_nn.nii.gz	2.373431	1.080137	0.999741	0.962463
+sub038  run3_sub038_sent_unlearnable_tt_nn.nii.gz	0.217760	0.536068	0.342304	0.690226
+sub045  run3_sub045_sent_unlearnable_tt_nn.nii.gz	0.077823	0.643772	0.196300	0.704882
+sub047  run3_sub047_sent_unlearnable_tt_nn.nii.gz	0.211823	0.705256	0.500627	0.557062
+sub048  run3_sub048_sent_unlearnable_tt_nn.nii.gz	0.403756	0.524611	0.614091	0.357162
+sub049  run3_sub049_sent_unlearnable_tt_nn.nii.gz	0.586811	1.365536	0.832091	1.169895
+sub051  run3_sub051_sent_unlearnable_tt_nn.nii.gz	0.184304	0.845823	0.038106	0.579710
+sub059  run3_sub059_sent_unlearnable_tt_nn.nii.gz	0.847815	1.080463	0.841034	1.163506
+sub060  run3_sub060_sent_unlearnable_tt_nn.nii.gz	0.502407	0.727290	0.692841	0.830517
+Mean

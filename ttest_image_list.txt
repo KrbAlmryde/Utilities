@@ -1,0 +1,8 @@
+Run1/tTest_run1_Lsn-Ctr_0sec.nii.gz
+Run1/tTest_run1_Rsp-Lsn_0sec.nii.gz
+Run2/tTest_run2_Lsn-Ctr_0sec.nii.gz
+Run2/tTest_run2_Rsp-Lsn_0sec.nii.gz
+Run3/tTest_run3_Lsn-Ctr_0sec.nii.gz
+Run3/tTest_run3_Rsp-Lsn_0sec.nii.gz
+Run4/tTest_run4_Lsn-Ctr_0sec.nii.gz
+Run4/tTest_run4_Rsp-Lsn_0sec.nii.gz
