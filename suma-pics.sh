@@ -7,7 +7,7 @@ maps=$( cat ttest_image_list.txt )
 function dataLoop() {
     fname=$1
     while read image; do
-        fImage=`echo $image | cut -d '.' -f 1 | cut -d '/' -f2`
+        map=`echo $image | cut -d '.' -f 1 | cut -d '/' -f2`
 
         plugout_drive \
               -com "SWITCH_FUNCTION ${image}" \
@@ -16,7 +16,7 @@ function dataLoop() {
 
         sleep 2
         DriveSuma \
-            -com recorder_cont -save_as ${fname}_${fImage}.jpg
+            -com recorder_cont -save_as ${fname}_${map}.jpg
 
     done <ttest_image_list.txt
 
@@ -31,34 +31,27 @@ plugout_drive -com "SWITCH_UNDERLAY MNI_N27_SurfVol.nii" \
               -com "SET_PBAR_SIGN +" \
               -quit
 
-## CHANGE SUMA OPTIONS
+# Connect Suma to afni
 DriveSuma -com viewer_cont -key t
 
-#size of window
+# Set the size of window
 DriveSuma -com viewer_cont -viewer_size 1920 1200
 
-#Turn the background colors and crosshair to OFF
+# Turn the background colors and crosshair to OFF
 DriveSuma -com viewer_cont -key b -key F3
 
-
-# Remove the Right Hemisphere for Left Medial Shot
+# Move brain to show right lateral side and start recorder
 DriveSuma -com viewer_cont -key 'ctrl+right' -key R
 dataLoop R-Lat
 
-# # Remove the Left Hemisphere for Right Medial Shot
+# Remove the Right Hemisphere for Left Medial Shot
 DriveSuma -com viewer_cont -key ']'
 dataLoop L-Med
 
+# Move brain for Left lateral shot
 DriveSuma -com viewer_cont -key 'ctrl+left'
 dataLoop L-Lat
 
-
+# Restore Right hemisphere and Remove the Left Hemisphere for Right Medial Shot
 DriveSuma -com viewer_cont -key ']' -key '['
 dataLoop R-Med
-
-# #start recorder
-# # DriveSuma -com viewer_cont -key R
-
-# # MAP RESULTS
-
-# #talk to AFNI *NB Must have pressed NIML button on AFNI

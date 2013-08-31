@@ -8,12 +8,10 @@
 #                 Iceword data.
 #
 #        Updates: Tue 04/23/2013 @ 01:51:35 PM
-#                 In the past there was an issue with
-#   Deficiencies: Currently there is an issue with AFNI's 3dClustSim tool, which
-#                 renders the function 'regress_alphacor' unusable. This issue is
-#                 presently beyond my control. Until I can find a solution to the
-#                 issue, that process has to be skipped. Otherwise, this program
-#                 meets specifications.
+#                 In the past there was an issue with performing 3dClustSim. It
+#                 has since been resolved via a patch from the folks at AFNI
+#
+#   Deficiencies: None, this program meets specification
 #
 # set -n    # Uncomment to check command syntax without any execution
 # set -x    # Uncomment to debug this script
