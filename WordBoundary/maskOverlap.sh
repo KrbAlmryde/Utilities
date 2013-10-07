@@ -31,9 +31,9 @@ for task in {un,}learnable; do
 
         cmd="3dcalc "
 
-        cmd+=3dcalcInputBuilder ${MASK}/overlapMask.nii
+        cmd+=$(3dcalcInputBuilder ${MASK}/overlapMask.nii)
 
-        cmd+=3dcalcExprBuilder
+        cmd+=$(3dcalcExprBuilder)
 
         echo $RUN
         echo $BASE
