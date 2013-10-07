@@ -121,7 +121,8 @@ def getClusterStats(imgFile):   # This has potential to be very Modular, I just 
     xyz = flipXYZ(tempXyz)  # Use the flipXYZ function to flip the x and y coordinates (name is a bit misleading)
     roi = whereAmI(xyz)  # Extract the Region of Interest based on the supplied xyz coordinates
 
-    return mean + ' ' + peak + ' ' + xyz + ' ' + roi
+    # return mean + ' ' + peak + ' ' + xyz + ' ' + roi
+    return ' '.join([mean, peak, xyz, roi])
 
 
 def getIndex(condition='', component=''):

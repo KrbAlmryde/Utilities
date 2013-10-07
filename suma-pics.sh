@@ -12,7 +12,16 @@ function dataLoop() {
         plugout_drive \
               -com "SWITCH_FUNCTION ${image}" \
               -com "SET_PBAR_SIGN +" \
-              -com "SET_THRESHNEW A 0.05 *p" -quit
+              -com "SET_THRESHNEW A 0.05 *p" \
+              -com "SET_PBAR_ALL A +7
+                    1.000000=#3300CC
+                    0.962264=#330099
+                    0.720755=#330066
+                    0.267568=#0000FF
+                    0.245676=#0066FF
+                    0.243487=#0099FF
+                    0.243268=#0066CC" \
+              -quit
 
         sleep 2
         DriveSuma \
@@ -55,3 +64,4 @@ dataLoop L-Lat
 # Restore Right hemisphere and Remove the Left Hemisphere for Right Medial Shot
 DriveSuma -com viewer_cont -key ']' -key '['
 dataLoop R-Med
+
