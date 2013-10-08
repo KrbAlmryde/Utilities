@@ -62,6 +62,16 @@ function 3dcalcExprBuilder() {
     echo "$cmd"
 }
 
+
+function filterMask() {
+    local infile=$1
+    local prefix=$2
+    local rmm=$3
+
+    3dmerge -dxyz=1 -1clust_max 1 $rmm -prefix $prefix.rm.nii $infile
+    3dcalc -a $prefix.rm.nii -prefix $prefix.nii -expr "within(a,2,3)"
+    rm $prefix.rm.nii
+}
 #================================================================================
 #                                START OF MAIN
 #================================================================================
@@ -88,5 +98,6 @@ for task in {un,}learnable; do
     cmd=$(3dcalcInputBuilder abc[*] overlapMasks[*])
     cmd+=$(3dcalcExprBuilder abc[*] overlapMasks[*] ${TASKMASK}/${task}_GroupMasks.nii)
     eval $cmd
-done
+    filterMask ${TASKMASK}/${task}_GroupMasks.nii ${TASKMASK}/${task}_filtered 2
 
+done
