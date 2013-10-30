@@ -288,8 +288,8 @@ function extractROIMasks() {
         fname=`basename $mask`
         numROIs=`3dmaskave -mask $mask -max $mask`  # output looks like this: 10 [10419 voxels]
 
-        for (( i = 1; i <= ${numROIs%% [*}; i++ )); do  # substring variable so we just get 10
-            echo ${numROIs%% [*}  $i
+        for (( i = 1; i <= ${numROIs%% [*]}; i++ )); do  # substring variable so we just get 10
+            echo ${numROIs%% [*]}  $i
             output3D=rm_mask_${scan}_${condition}_${i}
             3dcalc -a $mask -expr "within(a,$i,$i)" -prefix ${MASK}/${output3D}.nii.gz
             renameMask ${output3D}
