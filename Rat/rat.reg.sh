@@ -2,7 +2,7 @@
 
 
 
-to3d-fse \
+to3d -fse \
 	-prefix rat.fse.nii \
 	-xSLAB 12.750L-R \
 	-ySLAB 12.750S-I \
@@ -121,10 +121,10 @@ while read hrm; do
 	 1dcat ${subj}.${run}.$hrm.xmat.1D'[16]' > ideal.${subj}.${run}.$hrm.1D
 
 	 mv ${subj}.${run}.$hrm.* BLOCK
-	 
-	 
-	 
-	 
+
+
+
+
 done < RATHRF2.txt
 
 
