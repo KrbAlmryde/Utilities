@@ -69,3 +69,28 @@ for m in m00{1,2}; do
     done
 done
 
+to3d -fse -prefix m003.rare.nii -xSLAB 12.70L-R -ySLAB 12.70S-I -zSLAB 5.50P-A MRIm*
+to3d -epan -prefix ${input}.nii -text_outliers -save_outliers ${input}.outs.txt -xSLAB 12.70L-R -ySLAB 12.70S-I -zSLAB 5.50A-P -time:zt 19 200 1500 seqplus 'MRIm*'
+to3d -epan -prefix ${input}.nii -text_outliers -save_outliers ${input}.outs.txt -xSLAB 12.70L-R -ySLAB 12.70S-I -zSLAB 5.50A-P -time:zt 19 700 1500 seqplus 'MRIm*'
+mv
+
+to3d -fse -prefix ../m004.rare.nii -xSLAB 12.70L-R -ySLAB 12.70S-I -zSLAB 5.50P-A MRIm*
+to3d -epan -prefix m004.base.epan.nii -text_outliers -save_outliers m004.base.epan.outs.txt -xSLAB 12.70L-R -ySLAB 12.70S-I -zSLAB 5.50A-P -time:zt 19 200 1500 seqplus 'MRIm*'
+to3d -epan -prefix m004.treat.epan.nii -text_outliers -save_outliers m004.treat.epan.outs.txt -xSLAB 12.70L-R -ySLAB 12.70S-I -zSLAB 5.50A-P -time:zt 19 700 1500 seqplus 'MRIm*'
+
+to3d -fse -prefix ../m005.rare.nii -xSLAB 12.70L-R -ySLAB 12.70S-I -zSLAB 5.50P-A MRIm*
+to3d -epan -prefix m005.base.epan.nii -text_outliers -save_outliers m005.base.epan.outs.txt -xSLAB 12.70L-R -ySLAB 12.70S-I -zSLAB 5.50A-P -time:zt 19 200 1500 seqplus 'MRIm*'
+to3d -epan -prefix m005.treat.epan.nii -text_outliers -save_outliers m005.treat.epan.outs.txt -xSLAB 12.70L-R -ySLAB 12.70S-I -zSLAB 5.50A-P -time:zt 19 700 1500 seqplus 'MRIm*'
+
+to3d -fse -prefix ../m005.rare.nii -xSLAB 12.70L-R -ySLAB 12.70S-I -zSLAB 5.50P-A MRIm*
+to3d -epan -prefix ${input}.nii -text_outliers -save_outliers ${input}.outs.txt -xSLAB 12.70L-R -ySLAB 12.70S-I -zSLAB 5.50A-P -time:zt 19 700 1500 seqplus 'MRIm*'
+to3d -epan -prefix ${input}.nii -text_outliers -save_outliers ${input}.outs.txt -xSLAB 12.70L-R -ySLAB 12.70S-I -zSLAB 5.50A-P -time:zt 19 700 1500 seqplus 'MRIm*'
+
+to3d -fse -prefix ../m005.rare.nii -xSLAB 12.70L-R -ySLAB 12.70S-I -zSLAB 5.50P-A MRIm*
+to3d -epan -prefix ${input}.nii -text_outliers -save_outliers ${input}.outs.txt -xSLAB 12.70L-R -ySLAB 12.70S-I -zSLAB 5.50A-P -time:zt 19 700 1500 seqplus 'MRIm*'
+to3d -epan -prefix ${input}.nii -text_outliers -save_outliers ${input}.outs.txt -xSLAB 12.70L-R -ySLAB 12.70S-I -zSLAB 5.50A-P -time:zt 19 700 1500 seqplus 'MRIm*'
+
+
+to3d -fse -prefix ${input}.rare.nii -xSLAB 12.70L-R -ySLAB 12.70S-I -zSLAB 5.50P-A MRIm*
+to3d -epan -prefix ${input}.nii -text_outliers -save_outliers ${input}.outs.txt -xSLAB 12.70L-R -ySLAB 12.70S-I -zSLAB 5.50A-P -time:zt 19 700 1500 seqplus 'MRIm*'
+to3d -epan -prefix ${input}.nii -text_outliers -save_outliers ${input}.outs.txt -xSLAB 12.70L-R -ySLAB 12.70S-I -zSLAB 5.50A-P -time:zt 19 700 1500 seqplus 'MRIm*'
