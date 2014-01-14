@@ -1,8 +1,6 @@
-I would like to learn Perl to perform the transcription coding that Elena and Becky are having
-all the pretty undergrad girls do by hand. 
+I would like to learn Perl to perform the transcription coding that Elena and Becky are having all the pretty undergrad girls do by hand.
 
-I suspect if they are looking for specific patterns, then it should be relatively simple to create a 
-regex that can isolate that pattern, and mark it in whatever notation they want.
+I suspect if they are looking for specific patterns, then it should be relatively simple to create a regex that can isolate that pattern, and mark it in whatever notation they want.
 
 Here is an example using sed
 
@@ -25,7 +23,7 @@ else
 
 	# can contain path in name
 	new_script_name=$1
-	
+
 
 cat \
 <<HEADER--
@@ -62,7 +60,7 @@ else
 
 	# can contain path in name
 	new_script_name=$1
-	
+
 
 cat \
 <<HEADER--
@@ -100,7 +98,7 @@ else
 
 	# can contain path in name
 	new_script_name=$1
-	
+
 
 cat \
 <<HEADER--
