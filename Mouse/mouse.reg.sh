@@ -56,107 +56,6 @@ function buildEPI() {
     mv $subj.$run.* $PREP/.
 }
 
-
-function build_struc2stand() {
-    #------------------------------------------------------------------------
-    #       Function    align_struc2stand
-    #------------------------------------------------------------------------
-
-    local subj
-    local STRUC
-
-    subj=$1
-    STRUC=/Volumes/Data/TAP/${subj}/Struc
-
-    if [[ ! -e ${STRUC}/${subj}.spgr.standard+tlrc.HEAD ]]; then
-
-        cd ${STRUC}
-
-        align_epi_anat.py \
-            -dset1to2 -cmass cmass \
-            -dset1 m001.rare.nii \
-            -dset2 m001.rare.nii \
-            -cost lpa -suffix .cmass
-
-        3dSkullStrip \
-            -input ${subj}.spgr.cmass.nii \
-            -prefix ${subj}.spgr.standard
-
-        @auto_tlrc \
-            -no_ss -suffix NONE \
-            -base TT_N27+tlrc \
-            -input ${subj}.spgr.standard.nii
-
-        3drefit -anat ${subj}.spgr.standard+tlrc
-
-    else
-
-        echo "${subj}.spgr.standard+tlrc.HEAD already exists!!"
-
-    fi
-}
-
-
-
-function build_groupStruc() {
-    #------------------------------------------------------------------------
-    #       Function    build_groupStruc
-    #------------------------------------------------------------------------
-
-    local subj i max
-    local STRUC ANAT
-
-    max=${#subj_list[*]}
-    ANAT=/Volumes/Data/TAP/ANAT
-
-    # remove old anatomical buckets, if they exist.
-    if [[ ${ANAT}/TT_tap*.anat.*+tlrc.HEAD != TT_tap${max}.*+tlrc.HEAD ]]; then
-
-        rm TT_tap*.anat.*+tlrc.HEAD
-        rm TT_tap*.anat.*+tlrc.BRIK
-
-    fi
-
-
-    # iterate over each subject, adding each anatomical image to a group bucket
-    for (( i = 0; i < ${#subj_list[*]}; i++ )); do
-
-        subj=${subj_list[$i]}
-        STRUC=/Volumes/Data/TAP/${subj}/Struc
-
-        if [[ ! -e ${ANAT}/TT_tap${max}.anat.stand+tlrc ]]; then
-
-            # construct the bucket file containing each subjects standard spgr
-            3dbucket \
-                -aglueto ${ANAT}/TT_tap${max}.anat.stand+tlrc \
-                ${STRUC}/${subj}.spgr.standard+tlrc
-
-            # construct the bucket file containing each subjects fse
-            3dbucket \
-                -aglueto ${ANAT}/TT_tap${max}.anat.fse+orig \
-                ${STRUC}/${subj}.fse+orig
-
-            # label each subbrik of the spgr bucket with the appropriate subject number
-            3drefit \
-                -sublabel $i ${subj} \
-                ${ANAT}/TT_tap${max}.anat.stand+tlrc
-
-            # Do the same for the fse bucket
-            3drefit \
-                -sublabel $i ${subj} \
-                ${ANAT}/TT_tap${max}.anat.fse+orig
-        fi
-
-    done
-
-    # create a group averaged anatomical image to use are the template
-    3dTstat \
-        -mean -median -stdev \
-        -prefix ${ANAT}/TT_tap${max}.anat.stats \
-        ${ANAT}/TT_tap${max}.anat.stand+tlrc
-
-}
-
 #============================================================
 #                Base registration
 #============================================================
@@ -176,7 +75,7 @@ function qtCheck() {
     dir=$1
     prev=`pwd`
     cd $dir
-    outFiles=(`ls *.{tshift,volreg,scale,$run}.nii`)
+    local outFiles=(`ls *.{tshift,volreg,scale,tstat,$run,fold}.nii`)
 
     for file in ${outFiles[*]}; do
         file=${file%.nii}
@@ -184,6 +83,8 @@ function qtCheck() {
         3dToutcount $file.nii | 1dplot -jpeg $file.outs -stdin
         3dTqual -range $file.nii | 1dplot -jpeg $file.qual -one -stdin
     done
+    mkdir -p Images
+    mv *.{1D,jpg} Images/
     cd $prev
 }
 
@@ -209,12 +110,15 @@ function tshift() {
     inFile=$1
     echo -e "\nVolume Temporal Shift! input File is $inFile\n"
     local outFile=$inFile.tshift
-
-    3dTshift \
-        -verbose \
-        -tzero 0 \
-        -prefix $outFile.nii \
-        $inFile.nii
+    if [[ ! -f $outFile.nii ]]; then
+        3dTshift \
+            -verbose \
+            -tzero 0 \
+            -prefix $outFile.nii \
+            $inFile.nii
+    else
+        echo "$outFile.nii already exists, skipping..."
+    fi
 }
 
 #============================================================
@@ -223,9 +127,9 @@ function tshift() {
 
 function despike() {
 
-    inFile=$1
-    echo -e "\nVolume Despike! input File is $inFile\n"
+    local inFile=$1
     local outFile=$inFile.despike
+    echo -e "\nVolume Despike! input File is $inFile\n"
 
     3dDespike \
         -prefix $outFile.nii \
@@ -240,31 +144,34 @@ function despike() {
 
 function volreg() {
 
-    inFile=$1
+    local inFile=$1
     local outFile=$inFile.volreg
     baseVol=$(base_reg $inFile)
+    if [[ ! -f $outFile.nii ]]; then
+        if [[ $baseVol -le 100000000000000 ]]; then
+            extractBase $inFile $baseVol
 
-    if [[ $baseVol -le 100000000000000 ]]; then
-        extractBase $inFile $baseVol
+           echo -e "\nVolume Registration! input File is $inFile\n"
+            3dvolreg -zpad 4 \
+                -verbose \
+                -base $inFile.nii[$baseVol] \
+                -1Dfile $outFile.dfile.1D \
+                -maxdisp1D  ${outFile}.mm.1D \
+                -prefix $outFile.nii \
+                -Fourier $inFile.nii                     # Read input dataset
+                                                        # Generate graph of realignment
+            1dplot -jpeg \
+                $outFile \
+                -volreg \
+                -xlabel TIME $outFile.dfile.1D
 
-       echo -e "\nVolume Registration! input File is $inFile\n"
-        3dvolreg -zpad 4 \
-            -verbose \
-            -base $inFile.nii[$baseVol] \
-            -1Dfile $outFile.dfile.1D \
-            -maxdisp1D  ${outFile}.mm.1D \
-            -prefix $outFile.nii \
-            -Fourier $inFile.nii                     # Read input dataset
-                                                    # Generate graph of realignment
-        1dplot -jpeg \
-            $outFile \
-            -volreg \
-            -xlabel TIME $outFile.dfile.1D
-
-        echo "base volume = $baseVol" > $subj.$run.baseVol.txt
+            echo "base volume = $baseVol" > $subj.$run.baseVol.txt
+        else
+            echo "There was an error, Base Volume not computed, exiting..."
+            exit
+        fi
     else
-        echo "There was an error, Base Volume not computed, exiting..."
-        exit
+        echo "$outFile.nii already exists, skipping..."
     fi
 }
 
@@ -287,15 +194,16 @@ function extractBase() {
     local outFile=$inFile.BaseVolReg$baseVol
     echo -e "\nExtract Base Volume ${baseVol}! input File is $inFile\n"
 
-    3dbucket \
-        -prefix $outFile.nii \
-        -fbuc $inFile.nii[$baseVol]
+    if [[ ! -f $outFile.nii ]]; then
+        3dbucket \
+            -prefix $outFile.nii \
+            -fbuc $inFile.nii[$baseVol]
 
-    echo $baseVol
+        echo $baseVol
+    else
+        echo "$outFile.nii already exists, skipping..."
+    fi
 }
-
-
-
 
 #============================================================
 #                Masking
@@ -308,32 +216,86 @@ function mask() {
     local outFile=$inFile
     baseVolFile=$(ls *.BaseVolReg*)
 
-    3dAutomask \
-        -dilate 1 \
-        -prefix $outFile.automask.nii \
-        $baseVolFile
+    if [[ -f $outFile.fullmask.nii ]]; then
+        echo "fullmask exists, skipping"
+    else
+        3dAutomask \
+            -dilate 1 \
+            -prefix $outFile.automask.nii \
+            $baseVolFile
 
 
-    3dMean \
-        -datum short \
-        -prefix rm.mean.nii \
-        $outFile.automask.nii
+        3dMean \
+            -datum short \
+            -prefix rm.mean.nii \
+            $outFile.automask.nii
 
 
-    3dcalc \
-        -a rm.mean.nii \
-        -expr 'ispositive(a-0)' \
-        -prefix $outFile.fullmask.nii
+        3dcalc \
+            -a rm.mean.nii \
+            -expr 'ispositive(a-0)' \
+            -prefix $outFile.fullmask.nii
 
+        rm rm.mean.nii
+    fi
 
-    3dTstat \
-        -prefix rm.$outFile.mean.nii \
-        $inFile.nii
-
-
-    rm rm.mean.nii
 }
 
+#============================================================
+#                Folding Average
+#============================================================
+
+function foldingAverage() {
+    #------------------------------------------------------------------------
+    #
+    #  Purpose: Main function to run the script
+    #
+    #
+    #    Input:
+    #
+    #   Output:
+    #
+    #------------------------------------------------------------------------
+
+    local inFile=$1
+    local outFile=$inFile
+    local run=`echo $inFile | cut -d . -f 2`
+    if [[ $run -eq "base" ]]; then
+        local limit=200
+    else
+        local limit=700
+    fi
+
+    for (( i = 0, j = 49 ; j < $limit; i+=25, j+=25 )); do
+        3dtstat -mean -prefix __.${inFile}.${i}-${j}.nii  "$inFile.nii[${i}..${j}]"
+        # 3dbucket -fbuc -aglueto $image.span+orig __.${inFile}.${i}-${j}.nii[0]
+
+        if [[ $i -eq 0 ]]; then
+            3dtcat -relabel -tr 1.5 -prefix __.$outFile.fold+orig __.${inFile}.${i}-${j}.nii
+            i=`echo $i - 1 | bc`
+        else
+            3dtcat -relabel -tr 1.5  -glueto __.$outFile.fold+orig __.${inFile}.${i}-${j}.nii
+        fi
+    done
+    3dAFNItoNIFTI -prefix $outFile.fold.nii __.$outFile.fold+orig
+    # rm __.${subj}.*
+
+} # End of foldingAverage
+
+#============================================================
+#                Tstats
+#============================================================
+
+function tstat() {
+    local inFile=$1
+    local outFile=$inFile
+    rm *{automask,mean}*
+    echo -e "\nGetting Volume average!"
+
+    3dTstat \
+        -prefix $outFile.tstat.nii \
+        $inFile.nii
+}
 
 #============================================================
 #                Scaling
@@ -343,9 +305,7 @@ function scale() {
 
     inFile=$1
     echo -e "\nScale Volume Dataset! input File is $inFile\n"
-    local outFile=$inFile.scale
-
-    mask $inFile
+    local outFile=$inFile.fold.scale
 
     if [[ ! -f $inFile.fullmask.edit.nii ]]; then
         MaskFile=fullmask
@@ -353,19 +313,32 @@ function scale() {
         MaskFile=fullmask.edit
     fi
 
+    tstat $inFile
 
     3dcalc \
         -verbose \
         -float \
         -a $inFile.nii \
-        -b rm.$inFile.mean.nii \
+        -b $inFile.tstat.nii \
         -c $inFile.$MaskFile.nii \
         -expr 'c * min(200, a/b*100)' \
         -prefix $outFile.nii
 
-    rm rm.$inFile.mean.nii
-    cp $inFile.nii $GIFT/$run/.
-    cp $outFile.nii $GIFT/$run/.
+
+    case $run in
+        treat )
+            cp $inFile.nii $GIFT/Treatment/Registered/$subj
+            cp $outFile.nii $GIFT/Treatment/Scaled/$subj
+            cp $inFile.$MaskFile.nii $GIFT/Treatment/Registered/$subj
+            cp $inFile.$MaskFile.nii $GIFT/Treatment/Scaled/$subj
+            ;;
+        base )
+            cp $inFile.nii $GIFT/Baseline/Registered/$subj
+            cp $outFile.nii $GIFT/Baseline/Scaled/$subj
+            cp $inFile.$MaskFile.nii $GIFT/Baseline/Registered/$subj
+            cp $inFile.$MaskFile.nii $GIFT/Baseline/Scaled/$subj
+            ;;
+    esac
 
 }
 
@@ -391,14 +364,15 @@ function main_preprocessing() {
         cd $PREP
         tshift $subj.$run
         # despike $subj.$run.tshift
-        # volreg $subj.$run.tshift.despike
         volreg $subj.$run.tshift
+        mask $subj.$run.tshift.volreg
+        foldingAverage $subj.$run.tshift.volreg
         scale $subj.$run.tshift.volreg
         qtCheck $PREP
+
     done
 
 } # End of main_preprocessing
-
 
 #============================================================
 #                Reset Functions
@@ -420,10 +394,16 @@ function main_reset() {
         ;;
 
         prep )
-            rm $PREP/$subj.*.{outs,tshift,despike,volreg,scale,mean,fullmask}.*
-            rm $PREP/$subj.*.{txt,jpg}
-            rm $STATS/$subj.*.{scale,}.*
+            rm $PREP/$subj.*.tshift.nii
+            rm $PREP/$subj.*.tshift.BaseVolReg*.nii
+            rm $PREP/$subj.*.volreg.nii
+            rm $PREP/$subj.*.scale.nii
+            rm $PREP/$subj.*.tstat.nii
+            rm $PREP/$subj.*.fold.nii
+            rm $PREP/__.*
+            rm $PREP/Images/$subj.*.{txt,jpg,1D}
         ;;
+
     esac
 }
 
@@ -443,7 +423,7 @@ fi
 BASE=/Volumes/Data/MouseHunger
 GIFT=${BASE}/Gift
 
-for subj in m00{1..7}; do
+for subj in m00{5,6}; do
 
     ORIG=${BASE}/${subj}/Orig
     PREP=${BASE}/${subj}/Prep
@@ -456,6 +436,10 @@ for subj in m00{1..7}; do
 
         prep )
             main_preprocessing $subj
+        ;;
+
+        scale )
+            main_scale $subj
         ;;
 
         reset )

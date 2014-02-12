@@ -1,0 +1,12 @@
+{
+	"folders":
+	[
+		{
+			"path": "/usr/local/Utilities",
+			"folder_exclude_patterns": [".idea"]
+		},
+		{
+			"path": "/usr/local/tools"
+		}
+	]
+}
