@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"try",
+				"try	Try/Except/Else"
+			],
+			[
 				"grp",
 				"grpStatsImage"
 			],
@@ -36,10 +40,6 @@
 				"palletName"
 			],
 			[
-				"try",
-				"try	Try/Except/Else"
-			],
-			[
 				"subj",
 				"subjList"
 			],
@@ -64,11 +64,20 @@
 	"buffers":
 	[
 		{
-			"file": "/Volumes/Data/MouseHunger/m006/Stats/m006_treat_scaled.fsf",
+			"file": "dataFix.py",
 			"settings":
 			{
-				"buffer_size": 7040,
-				"line_ending": "Unix"
+				"buffer_size": 1336,
+				"line_ending": "Unix",
+				"name": "\"\"\""
+			}
+		},
+		{
+			"file": "tillsprojectpythoncode/Sub03A_long.txt",
+			"settings":
+			{
+				"buffer_size": 9729,
+				"line_ending": "CR"
 			}
 		}
 	],
@@ -79,12 +88,16 @@
 		"selected_items":
 		[
 			[
-				"py",
+				"pyt",
 				"Set Syntax: Python"
 			],
 			[
 				"pyth",
-				"Set Syntax: Python Improved"
+				"Set Syntax: Python"
+			],
+			[
+				"py",
+				"Set Syntax: Python"
 			],
 			[
 				"bash",
@@ -159,10 +172,6 @@
 				"Set Syntax: XML"
 			],
 			[
-				"pyt",
-				"Set Syntax: Python"
-			],
-			[
 				"repl",
 				"SublimeREPL: Clojure"
 			],
@@ -215,7 +224,7 @@
 				"Set Syntax: MATLAB"
 			]
 		],
-		"width": 579.0
+		"width": 540.0
 	},
 	"console":
 	{
@@ -232,9 +241,23 @@
 	},
 	"file_history":
 	[
-		"/usr/local/Utilities/Mouse/mouse.reg.sh",
+		"/usr/local/Utilities/tillsprojectpythoncode/Sub03A_final.txt",
+		"/usr/local/Utilities/WordBoundary/wb1.glm.sh",
+		"/usr/local/Utilities/Russian/rus.glm.sh",
+		"/usr/local/Utilities/Rat/lst_subj_rat.txt",
+		"/usr/local/Utilities/WorkShop/SHELL/GLMwip.sh",
+		"/usr/local/Utilities/Russian/Mixed/3/rus2_3dd.sh",
+		"/Users/kylealmryde/.bash_profile",
+		"/Users/kylealmryde/.bash_functions",
+		"/Users/kylealmryde/.bash_aliases",
+		"/usr/local/Utilities/WordBoundary2/wb2.glm.sh",
 		"/usr/local/Utilities/WordBoundary/wb2.grp.py",
+		"/usr/local/Utilities/sendEmail.py",
+		"/usr/local/Utilities/emailSubjects.py",
+		"/usr/local/Utilities/Russian/Mixed/rus2.py",
+		"/Volumes/Data/MouseHunger/m006/Stats/m006_treat_scaled.fsf",
 		"/Users/kylealmryde/Library/Application Support/Sublime Text 2/Packages/User/Python.sublime-settings",
+		"/usr/local/Utilities/Mouse/mouse.reg.sh",
 		"/usr/local/Utilities/Mouse/mouse.fold.sh",
 		"/Users/kylealmryde/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
 		"/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/.gitignore",
@@ -242,23 +265,17 @@
 		"/Volumes/USB20FD/MouseHunger/Mouse Pilot Data: 11:18:2013",
 		"/Volumes/Data/MouseHunger/m007/Stats/m007_treat_volreg.fsf",
 		"/Volumes/Data/MouseHunger/m004/Stats/m004_treat_volreg.fsf",
-		"/Volumes/Data/MouseHunger/m006/Stats/m006_treat_scaled.fsf",
 		"/Volumes/Data/MouseHunger/m005/Stats/m005_treat_volreg.fsf",
 		"/Volumes/Data/MouseHunger/m005/Stats/m005_treat_scale.fsf",
 		"/Volumes/Data/Archive/RatPain/ICA/melodic/200.volreg.melodic.fsf",
 		"/Volumes/Data/MouseHunger/Gift/melodic/m005/treat/scale.ica/report_prestats.html",
 		"/Volumes/Data/MouseHunger/Gift/Treatment/Scaled/m006/m006Subject.mat",
 		"/Volumes/Data/MouseHunger/Docs/Input_data_subjects_learn_wb1.m",
-		"/Users/kylealmryde/.bash_functions",
-		"/Users/kylealmryde/.bash_profile",
-		"/Users/kylealmryde/.bash_aliases",
 		"/usr/local/Utilities/Utilities.sublime-project",
 		"/usr/local/Utilities/WorkShop/AFNI/@epi_review.TS004",
 		"/Users/kylealmryde/Dropbox/Work-Projects/EyeTracker/iView X SDK/Examples/Python/GazeContingent/iViewXAPI.py",
-		"/usr/local/Utilities/emailSubjects.py",
 		"/usr/local/tools/PROJECTS/ICEWORD/FUNC/prepf2_ice.sh",
 		"/usr/local/Utilities/Rat/rat_functions.sh",
-		"/usr/local/Utilities/sendEmail.py",
 		"/Users/kylealmryde/Dropbox/Work-Projects/EyeTracker/iView X SDK/Examples/Python/GazeContingent/GazeContingent.py",
 		"/Users/kylealmryde/Dropbox/Packages/User/Projects/Utilities.sublime-project",
 		"/Users/kylealmryde/Dropbox/Work-Projects/Misc/fMRI_checklist_fillable.pdf",
@@ -350,16 +367,8 @@
 		"/Volumes/Data/MouseHunger/Baseline-1.1.mT1/6/pdata/1/2dseq",
 		"/Volumes/Data/MouseHunger/Baseline-1.1.mT1/1/AdjRefgProfiles.dat",
 		"/Exps/Analysis/Ice/Figure/suma-pic-IceWord.sh",
-		"/usr/local/Utilities/WordBoundary/wb1.glm.sh",
 		"/usr/local/Utilities/Iceword/ice.glm.sh",
-		"/usr/local/Utilities/Russian/rus.glm.sh",
-		"/Volumes/Data/Russian/glm/stim/stim.tone_cue.1D",
-		"/Volumes/Data/Russian/glm/stim/stim.tone.1D",
-		"/Volumes/Data/Russian/glm/stim/stim.lang_cue.1D",
-		"/Volumes/Data/Russian/glm/stim/stim.russian.1D",
-		"/Volumes/Data/Iceword/GLM/STIM/stim.control_block.1D",
-		"/usr/local/Utilities/Iceword/ice_examine.py",
-		"/usr/local/Utilities/Iceword/ice_cluster_format.py"
+		"/Volumes/Data/Russian/glm/stim/stim.tone_cue.1D"
 	],
 	"find":
 	{
@@ -367,7 +376,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 98.0,
 		"where_history":
 		[
 			""
@@ -378,6 +387,18 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"subj",
+			"unlearnable",
+			"learnable",
+			"WB1",
+			"wb1",
+			"WB1",
+			"sendEmail",
+			".split('\\n')[:-1]",
+			", c",
+			"sp.check_output('ls', ",
+			"sp.call('",
+			"sp.call",
 			"learn",
 			"Learn",
 			"learn",
@@ -493,19 +514,7 @@
 			"3dcalc",
 			"scanNum",
 			" -",
-			"khaki",
-			"SET_PBAR_ALL A. +7",
-			"0.267568=#0000FF 0.245676=#0066FF 0.243487=#0099FF 0.243268=#0066CC\"",
-			"0.267568=#0000FF 0.245676=#0066FF 0.243487=#0099FF 0.243268=#0066CC",
-			"-all-2.6503.",
-			"ADD_OVERLAY_COLOR ",
-			"ADD_OVERLAY_COLOR",
-			"<td class=\"spot1\"><a href=\"#\" onclick=\"colorpick(",
-			"%s",
-			"IC",
-			"IC${comp}",
-			"input3D",
-			"            \n"
+			"khaki"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -537,23 +546,140 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/Volumes/Data/MouseHunger/m006/Stats/m006_treat_scaled.fsf",
+					"file": "dataFix.py",
 					"settings":
 					{
-						"buffer_size": 7040,
+						"buffer_size": 1336,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2113,
-								2113
+								893,
+								893
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"auto_name": "\"\"\"",
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"spell_check": false,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2.0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": true,
+							"sublimelinter_gutter_marks_theme": "simple",
+							"sublimelinter_mark_style": "none",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 4.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "tillsprojectpythoncode/Sub03A_long.txt",
+					"settings":
+					{
+						"buffer_size": 9729,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								104,
+								104
 							]
 						],
 						"settings":
@@ -647,7 +773,7 @@
 								"Ruby on Rails": "ruby"
 							},
 							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage"
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -703,6 +829,10 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"try",
+				"Utilities/Russian/Mixed/rus2.py"
+			],
 			[
 				"wb2",
 				"Utilities/WordBoundary/wb2.grp.py"

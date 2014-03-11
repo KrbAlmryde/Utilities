@@ -15,6 +15,7 @@
 """
 import sys
 import os
+from glob import glob
 import subprocess as sp
 
 
@@ -351,9 +352,9 @@ def main():
             fout.write('ID\tRun\tCondition\tEvent\tSide\tROI\tVolume\tT-Mean\tT-Stdev\n')
 
             # A list containing statistical masks for the given condition
-            maskImgList = sp.check_output('ls', os.path.join(MASK, '*_', condition, '*')).split('\n')[:-1]
-            ttestInputList = sp.check_output('ls', os.path.join(COMBO, '*sub0*_', condition, '*')).split('\n')[:-1]
-            subjNoNegList = sp.check_output('ls', os.path.join(MERG,'*sub0*_', condition, '*')).split('\n')[:-1]
+            maskImgList = glob(os.path.join(MASK, '*_'+condition+'*'))
+            ttestInputList = glob(os.path.join(COMBO, '*sub0*_'+condition+'*'))
+            subjNoNegList = glob(os.path.join(MERG,'*sub0*_'+condition+'*'))
             print '\n Mask Image List \n', maskImgList
             print '\n Ttest Image List \n', ttestInputList
             print '\n Subject Image List \n', subjNoNegList
