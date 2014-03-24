@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"w",
+				"with"
+			],
+			[
+				"for",
+				"forin	for … in … done"
+			],
+			[
 				"try",
 				"try	Try/Except/Else"
 			],
@@ -14,10 +22,6 @@
 			[
 				"main",
 				"MAIN"
-			],
-			[
-				"for",
-				"for	for … done"
 			],
 			[
 				"Mouse",
@@ -63,30 +67,21 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "dataFix.py",
-			"settings":
-			{
-				"buffer_size": 1336,
-				"line_ending": "Unix",
-				"name": "\"\"\""
-			}
-		},
-		{
-			"file": "tillsprojectpythoncode/Sub03A_long.txt",
-			"settings":
-			{
-				"buffer_size": 9729,
-				"line_ending": "CR"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 375.0,
+		"height": 271.0,
 		"selected_items":
 		[
+			[
+				"bas",
+				"Set Syntax: Shell Script (Bash)"
+			],
+			[
+				"read",
+				"Snippet: Create a new Readme File"
+			],
 			[
 				"pyt",
 				"Set Syntax: Python"
@@ -101,10 +96,6 @@
 			],
 			[
 				"bash",
-				"Set Syntax: Shell Script (Bash)"
-			],
-			[
-				"bas",
 				"Set Syntax: Shell Script (Bash)"
 			],
 			[
@@ -224,7 +215,7 @@
 				"Set Syntax: MATLAB"
 			]
 		],
-		"width": 540.0
+		"width": 579.0
 	},
 	"console":
 	{
@@ -241,15 +232,27 @@
 	},
 	"file_history":
 	[
+		"/Users/kylealmryde/Dropbox/Shared-Projects/Tills_data/dataFix.py",
+		"/usr/local/Utilities/dataFix.py",
+		"/Users/kylealmryde/Dropbox/Shared-Projects/tills_data/README.txt",
+		"/Users/kylealmryde/.bash_profile",
+		"/Users/kylealmryde/.bash_functions",
+		"/Users/kylealmryde/Dropbox/Shared-Projects/tills_data/.dropbox",
+		"/Users/kylealmryde/.bash_aliases",
+		"/Users/kylealmryde/Dropbox/Shared-Projects/Tills_data/final/.DS_Store",
+		"/Users/kylealmryde/Dropbox/Shared-Projects/Tills_data/final/SubTest01_results.txt",
+		"/usr/local/Utilities/extractOnset.sh",
+		"/Users/kylealmryde/Dropbox/Shared-Projects/Tills_data/final/SubTest01_results",
+		"/usr/local/Utilities/untitled.sh",
+		"/Exps/Analysis/WB1/GiftAnalysis/Learnable/Learnable_scaling_components_files/sub001_component_ica_s1_/sub001_s1_IC0.1D",
+		"/usr/local/Utilities/Tap/hrm_peak_tap",
+		"/usr/local/Utilities/tillsprojectpythoncode/Sub03A_long.txt",
 		"/usr/local/Utilities/tillsprojectpythoncode/Sub03A_final.txt",
 		"/usr/local/Utilities/WordBoundary/wb1.glm.sh",
 		"/usr/local/Utilities/Russian/rus.glm.sh",
 		"/usr/local/Utilities/Rat/lst_subj_rat.txt",
 		"/usr/local/Utilities/WorkShop/SHELL/GLMwip.sh",
 		"/usr/local/Utilities/Russian/Mixed/3/rus2_3dd.sh",
-		"/Users/kylealmryde/.bash_profile",
-		"/Users/kylealmryde/.bash_functions",
-		"/Users/kylealmryde/.bash_aliases",
 		"/usr/local/Utilities/WordBoundary2/wb2.glm.sh",
 		"/usr/local/Utilities/WordBoundary/wb2.grp.py",
 		"/usr/local/Utilities/sendEmail.py",
@@ -356,19 +359,7 @@
 		"/Volumes/Data/MouseHunger/Baseline-1.1.mT1/6/spnam1",
 		"/Volumes/Data/MouseHunger/Baseline-1.1.mT1/6/spnam26",
 		"/Volumes/Data/MouseHunger/Baseline-1.1.mT1/6/uxnmr.par",
-		"/Volumes/Data/MouseHunger/Baseline-1.1.mT1/6/method",
-		"/Volumes/Data/MouseHunger/Baseline-1.1.mT1/6/pdata/1/d3proc",
-		"/Volumes/Data/MouseHunger/Baseline-1.1.mT1/6/pdata/1/id",
-		"/Volumes/Data/MouseHunger/Baseline-1.1.mT1/6/pdata/1/meta",
-		"/Volumes/Data/MouseHunger/Baseline-1.1.mT1/6/pdata/1/procs",
-		"/Volumes/Data/MouseHunger/Baseline-1.1.mT1/6/pdata/1/roi",
-		"/Volumes/Data/MouseHunger/Baseline-1.1.mT1/6/pdata/1/visu_pars",
-		"/Volumes/Data/MouseHunger/Baseline-1.1.mT1/6/pdata/1/reco",
-		"/Volumes/Data/MouseHunger/Baseline-1.1.mT1/6/pdata/1/2dseq",
-		"/Volumes/Data/MouseHunger/Baseline-1.1.mT1/1/AdjRefgProfiles.dat",
-		"/Exps/Analysis/Ice/Figure/suma-pic-IceWord.sh",
-		"/usr/local/Utilities/Iceword/ice.glm.sh",
-		"/Volumes/Data/Russian/glm/stim/stim.tone_cue.1D"
+		"/Volumes/Data/MouseHunger/Baseline-1.1.mT1/6/method"
 	],
 	"find":
 	{
@@ -376,7 +367,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 98.0,
+		"height": 0.0,
 		"where_history":
 		[
 			""
@@ -387,6 +378,17 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"dir",
+			"outfn",
+			"Tills_data/",
+			"\"/Users/kylealmryde/Dropbox/Shared-Projects/",
+			"P",
+			"F",
+			"write",
+			"item",
+			"glob(os.path.join(DATA,\"*.txt\"))",
+			"sub001_s1_IC$j.1D",
+			";;",
 			"subj",
 			"unlearnable",
 			"learnable",
@@ -503,18 +505,7 @@
 			" ",
 			"Iceword",
 			"     ",
-			",",
-			"4,",
-			"3dmaskdump",
-			"filterClusters",
-			"3dmerge",
-			"abc",
-			"rois",
-			"-",
-			"3dcalc",
-			"scanNum",
-			" -",
-			"khaki"
+			","
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -546,241 +537,8 @@
 	"groups":
 	[
 		{
-			"selected": 1,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "dataFix.py",
-					"settings":
-					{
-						"buffer_size": 1336,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								893,
-								893
-							]
-						],
-						"settings":
-						{
-							"annotations":
-							[
-								"TODO",
-								"README",
-								"FIXME"
-							],
-							"auto_name": "\"\"\"",
-							"csslint_options":
-							{
-								"adjoining-classes": "warning",
-								"box-model": true,
-								"box-sizing": "warning",
-								"compatible-vendor-prefixes": "warning",
-								"display-property-grouping": true,
-								"duplicate-background-images": "warning",
-								"duplicate-properties": true,
-								"empty-rules": true,
-								"errors": true,
-								"fallback-colors": "warning",
-								"floats": "warning",
-								"font-faces": "warning",
-								"font-sizes": "warning",
-								"gradients": "warning",
-								"ids": "warning",
-								"import": "warning",
-								"important": "warning",
-								"known-properties": true,
-								"outline-none": "warning",
-								"overqualified-elements": "warning",
-								"qualified-headings": "warning",
-								"regex-selectors": "warning",
-								"rules-count": "warning",
-								"shorthand": "warning",
-								"star-property-hack": "warning",
-								"text-indent": "warning",
-								"underscore-property-hack": "warning",
-								"unique-headings": "warning",
-								"universal-selector": "warning",
-								"vendor-prefix": true,
-								"zero-units": "warning"
-							},
-							"gjslint_ignore":
-							[
-								110.0
-							],
-							"gjslint_options":
-							[
-							],
-							"javascript_linter": "jshint",
-							"jshint_options":
-							{
-								"browser": true,
-								"evil": true,
-								"regexdash": true,
-								"sub": true,
-								"trailing": true,
-								"wsh": true
-							},
-							"pep8": true,
-							"pep8_ignore":
-							[
-								"E501"
-							],
-							"perl_linter": "perlcritic",
-							"pyflakes_ignore":
-							[
-							],
-							"pyflakes_ignore_import_*": true,
-							"spell_check": false,
-							"sublimelinter": true,
-							"sublimelinter_delay": 2.0,
-							"sublimelinter_disable":
-							[
-							],
-							"sublimelinter_executable_map":
-							{
-							},
-							"sublimelinter_fill_outlines": false,
-							"sublimelinter_gutter_marks": true,
-							"sublimelinter_gutter_marks_theme": "simple",
-							"sublimelinter_mark_style": "none",
-							"sublimelinter_notes": false,
-							"sublimelinter_objj_check_ascii": false,
-							"sublimelinter_popup_errors_on_save": false,
-							"sublimelinter_syntax_map":
-							{
-								"C++": "c",
-								"Python Django": "python",
-								"Ruby on Rails": "ruby"
-							},
-							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/Python/Python.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 4.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "tillsprojectpythoncode/Sub03A_long.txt",
-					"settings":
-					{
-						"buffer_size": 9729,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								104,
-								104
-							]
-						],
-						"settings":
-						{
-							"annotations":
-							[
-								"TODO",
-								"README",
-								"FIXME"
-							],
-							"csslint_options":
-							{
-								"adjoining-classes": "warning",
-								"box-model": true,
-								"box-sizing": "warning",
-								"compatible-vendor-prefixes": "warning",
-								"display-property-grouping": true,
-								"duplicate-background-images": "warning",
-								"duplicate-properties": true,
-								"empty-rules": true,
-								"errors": true,
-								"fallback-colors": "warning",
-								"floats": "warning",
-								"font-faces": "warning",
-								"font-sizes": "warning",
-								"gradients": "warning",
-								"ids": "warning",
-								"import": "warning",
-								"important": "warning",
-								"known-properties": true,
-								"outline-none": "warning",
-								"overqualified-elements": "warning",
-								"qualified-headings": "warning",
-								"regex-selectors": "warning",
-								"rules-count": "warning",
-								"shorthand": "warning",
-								"star-property-hack": "warning",
-								"text-indent": "warning",
-								"underscore-property-hack": "warning",
-								"unique-headings": "warning",
-								"universal-selector": "warning",
-								"vendor-prefix": true,
-								"zero-units": "warning"
-							},
-							"gjslint_ignore":
-							[
-								110.0
-							],
-							"gjslint_options":
-							[
-							],
-							"javascript_linter": "jshint",
-							"jshint_options":
-							{
-								"browser": true,
-								"evil": true,
-								"regexdash": true,
-								"sub": true,
-								"trailing": true,
-								"wsh": true
-							},
-							"pep8": true,
-							"pep8_ignore":
-							[
-								"E501"
-							],
-							"perl_linter": "perlcritic",
-							"pyflakes_ignore":
-							[
-							],
-							"pyflakes_ignore_import_*": true,
-							"sublimelinter": true,
-							"sublimelinter_delay": 2.0,
-							"sublimelinter_disable":
-							[
-							],
-							"sublimelinter_executable_map":
-							{
-							},
-							"sublimelinter_fill_outlines": false,
-							"sublimelinter_gutter_marks": true,
-							"sublimelinter_gutter_marks_theme": "simple",
-							"sublimelinter_mark_style": "none",
-							"sublimelinter_notes": false,
-							"sublimelinter_objj_check_ascii": false,
-							"sublimelinter_popup_errors_on_save": false,
-							"sublimelinter_syntax_map":
-							{
-								"C++": "c",
-								"Python Django": "python",
-								"Ruby on Rails": "ruby"
-							},
-							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -829,6 +587,10 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"data",
+				"Utilities/dataFix.py"
+			],
 			[
 				"try",
 				"Utilities/Russian/Mixed/rus2.py"
@@ -903,7 +665,7 @@
 		[
 			[
 				"",
-				"/Users/kylealmryde/Dropbox/Class-Projects/Class.sublime-project"
+				"/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/NiftiViewer.sublime-project"
 			]
 		],
 		"width": 380.0
@@ -911,7 +673,7 @@
 	"show_minimap": true,
 	"show_open_files": true,
 	"show_tabs": true,
-	"side_bar_visible": true,
+	"side_bar_visible": false,
 	"side_bar_width": 266.0,
 	"status_bar_visible": true
 }
