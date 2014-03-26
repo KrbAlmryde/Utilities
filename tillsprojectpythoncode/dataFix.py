@@ -37,10 +37,9 @@ def writeResults(outFile, data):
 #=============================== START OF MAIN ===============================
 def main():
     # Several datafiles, each with a long list of subjects
-    DATA = "/Users/kylealmryde/Dropbox/Shared-Projects/Tills_data/data"
-    MEASURE = "/Users/kylealmryde/Dropbox/Shared-Projects/Tills_data/measure"
-    FINAL = "/Users/kylealmryde/Dropbox/Shared-Projects/Tills_data/final"
-
+    DATA = "/Users/krbalmryde/Dropbox/Shared-Projects/Tills_data/data"
+    MEASURE = "/Users/krbalmryde/Dropbox/Shared-Projects/Tills_data/measure"
+    FINAL = "/Users/krbalmryde/Dropbox/Shared-Projects/Tills_data/final"
 
     # Create a dictionary with Subtest #s as the keys and a list of the data
     # file as values. Uses a Dictionary Comprehension
@@ -72,17 +71,17 @@ def main():
                 result = "{0}\t".format(seg[0])
                 # print result
 
-                if persons_ability[i] in ["X","x"]:  # If the ability file has an X, skip it. Subj never took the test
-                    print "Subject didnt take test"
+                if persons_ability[i] in ["X","x","?"]:  # If the ability file has an X, skip it. Subj never took the test
+                    # print "Subject didnt take test"
                     writeResults(outFn, result+data)
                 else:
                     for j, point in enumerate(data):
                         if point != '.':    # If the value is not a '.' write that value
                             result += point
                         else:
-                            if persons_ability[i] < items_measures[j]:  # if ability is less than measure, assign 0
+                            if float(persons_ability[i]) < float(items_measures[j]):  # if ability is less than measure, assign 0
                                 result += '0'
-                            elif persons_ability[i] >  items_measures[j]: # if ability is greater than measure, assign 1
+                            elif float(persons_ability[i]) >  float(items_measures[j]): # if ability is greater than measure, assign 1
                                 result += '1'
                             else:  # if ability is equal to measure...
                                 if random() < 0.5:  # assign a 0 if a randomly generated value between 0-1 is less than 0.5
