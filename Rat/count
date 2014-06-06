@@ -1,4 +1,4 @@
 #!/bin/tcsh
 foreach brik ( `count -digits 1 0 699` )
-1dplot -jpg comp$brik rat.700.ICA.mixmat.1D"[$brik]"
+    1dplot -jpg comp$brik rat.700.ICA.mixmat.1D"[$brik]"
 end

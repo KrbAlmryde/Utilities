@@ -68,10 +68,10 @@
 	"buffers":
 	[
 		{
-			"file": "/opt/local/Utilities/tillsprojectpythoncode/dataFix.py",
+			"file": "/Users/krbalmryde/Dropbox/Shared-Projects/Tills_data/dataFix.py",
 			"settings":
 			{
-				"buffer_size": 4287,
+				"buffer_size": 4214,
 				"line_ending": "Unix"
 			}
 		}
@@ -79,9 +79,17 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 271.0,
+		"height": 375.0,
 		"selected_items":
 		[
+			[
+				"INST",
+				"Package Control: Install Package"
+			],
+			[
+				"BASH",
+				"Set Syntax: Shell Script (Bash)"
+			],
 			[
 				"bas",
 				"Set Syntax: Shell Script (Bash)"
@@ -223,13 +231,14 @@
 				"Set Syntax: MATLAB"
 			]
 		],
-		"width": 579.0
+		"width": 507.0
 	},
 	"console":
 	{
 		"height": 125.0,
 		"history":
 		[
+			"print(\"hello\")",
 			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
 		]
 	},
@@ -244,15 +253,43 @@
 	},
 	"file_history":
 	[
+		"/opt/local/Utilities/tillsprojectpythoncode/dataFix.py",
+		"/Users/krbalmryde/Downloads/fem20_i_262_p_3D.fig",
+		"/Users/krbalmryde/Dropbox/Shared-Projects/Tills_data/README.txt",
+		"/opt/local/Utilities/Iceword/ice.grp.sh",
+		"/opt/local/Utilities/Iceword/ice.elena.sh",
+		"/Volumes/Data/WordBoundary1/GLM/STIM/stim.tone_block.1D",
+		"/Volumes/Data/WordBoundary1/GLM/STIM/stim.sent_block.1D",
+		"/Volumes/Data/WordBoundary1/GLM/STIM/censor.cue_stim.1D",
+		"/opt/local/Utilities/Stroop/Stroop.txt",
+		"/opt/local/Utilities/WordBoundary/wb1.glm.sh",
+		"/opt/local/Utilities/WordBoundary/wb1.gift.sh",
+		"/opt/local/Utilities/Iceword/ice.glm.sh",
+		"/Volumes/Data/WordBoundary1/GLM/sub011/Glm/Run1/1D/motion.run1_sub011_demean.1D",
+		"/Users/krbalmryde/Dropbox/Work-Projects/MousefMRI/Mouse1.fsf",
+		"/Volumes/Data/Archive/RatPain/ETC/rat_regress.sh",
+		"/Volumes/Data/Archive/RatPain/ETC/reg.sh",
+		"/opt/local/Utilities/Mouse/ReadMe2.txt",
+		"/Volumes/Data/Archive/RatPain/r002/ICA/CTR/FSL/Feat/CTR.mat",
+		"/Volumes/Data/Archive/RatPain/Step-by-step",
+		"/Volumes/Data/Archive/RatPain/ICA/melodic/700.con",
+		"/Volumes/Data/Archive/RatPain/ICA/melodic/700/volreg.ica/design.fsf",
+		"/opt/local/Utilities/Rat/count",
+		"/usr/local/afni/3dICA.R",
+		"/Users/krbalmryde/Dropbox/Work-Projects/MousefMRI/3dICA.R",
+		"/Users/krbalmryde/Dropbox/Work-Projects/MousefMRI/_cov.ppm",
+		"/opt/local/Utilities/Mouse/oxygen.txt",
+		"/opt/local/Utilities/Mouse/carboden.txt",
+		"/Users/krbalmryde/.bash_aliases",
+		"/Users/krbalmryde/.bash_functions",
+		"/Users/krbalmryde/Downloads/fslinstaller.py",
+		"/Users/krbalmryde/.bash_profile",
+		"/opt/local/Utilities/NBack/NBack.py",
 		"/opt/local/Utilities/Stroop/DataDump.sh",
 		"/opt/local/Utilities/WorkShop/PYTHON/drtAnalyser.py",
 		"/opt/local/Utilities/Dichotic/dich_profile",
 		"/Users/krbalmryde/Dropbox/Shared-Projects/Kyle_Kory/Tills_data/README.txt",
-		"/opt/local/Utilities/tillsprojectpythoncode/dataFix.py",
 		"/Users/krbalmryde/Dropbox/Shared-Projects/Tills_data/dataFix.py",
-		"/Users/krbalmryde/.bash_profile",
-		"/Users/krbalmryde/.bash_functions",
-		"/Users/krbalmryde/.bash_aliases",
 		"/opt/local/Utilities/tillsprojectpythoncode/Sub06_item_measure.txt",
 		"/Users/krbalmryde/.ipython/profile_default/startup/00-profile.py",
 		"/Users/kylealmryde/Dropbox/Shared-Projects/Tills_data/dataFix.py",
@@ -343,35 +380,7 @@
 		"/Volumes/Data/MouseHunger/m002/Orig/Baseline-1.1.mT1/6/pdata/1/2dseq",
 		"/Volumes/MRIConvert/README.txt",
 		"/Volumes/Data/MouseHunger/m002/Orig/Baseline-1.1.mT1/6/pdata/1/visu_pars",
-		"/Volumes/Data/MouseHunger/m002/Orig/Baseline-1.1.mT1/6/pdata/1/d3proc",
-		"/Volumes/Data/MouseHunger/m002/Orig/Baseline-1.1.mT1/6/pdata/1/meta",
-		"/Volumes/Data/MouseHunger/m002/Orig/Baseline-1.1.mT1/6/pdata/1/id",
-		"/Volumes/Data/MouseHunger/m002/Orig/Baseline-1.1.mT1/6/pdata/1/procs",
-		"/Volumes/Data/MouseHunger/m002/Orig/Baseline-1.1.mT1/6/pdata/1/roi",
-		"/Volumes/MRIConvert/release-notes.txt",
-		"/Volumes/Data/MouseHunger/m002/Orig/Baseline-1.1.mT1/7/pdata/1/reco",
-		"/Volumes/Data/MouseHunger/m002/Orig/Baseline-1.1.mT1/3/pdata/1/d3proc",
-		"/Volumes/Data/MouseHunger/m002/Orig/Baseline-1.1.mT1/3/pdata/1/meta",
-		"/Volumes/Data/MouseHunger/m002/Orig/Baseline-1.1.mT1/3/pdata/1/procs",
-		"/Volumes/Data/MouseHunger/m002/Orig/Baseline-1.1.mT1/3/pdata/1/reco",
-		"/Volumes/Data/MouseHunger/m002/Orig/Baseline-1.1.mT1/3/pdata/1/roi",
-		"/Volumes/Data/MouseHunger/m002/Orig/Baseline-1.1.mT1/3/pdata/1/visu_pars",
-		"/Volumes/Data/MouseHunger/m002/Orig/Baseline-1.1.mT1/3/pdata/1/id",
-		"/Volumes/Data/MouseHunger/m002/Orig/Baseline-1.1.mT1/7/pdata/1/2dseq",
-		"/Volumes/Data/MouseHunger/m002/Func/Prep/2dseq",
-		"/usr/local/Utilities/pfile.sh",
-		"/Volumes/Data/MouseHunger/Mouse Pilot Data: 11:18:2013",
-		"/Users/kylealmryde/Dropbox/Code-Projects/Call/call_system_build_notes2.sh",
-		"/Users/kylealmryde/Dropbox/Code-Projects/Call/call.sh",
-		"/Users/kylealmryde/Dropbox/Code-Projects/Call/call_system_build_notes.sh",
-		"/usr/local/Utilities/WorkShop/SHELL/nwDRIVR.sh",
-		"/Users/kylealmryde/Dropbox/Code-Projects/Call/call_orig.sh",
-		"/Volumes/Data/MouseHunger/Baseline-1.1.mT1/subject",
-		"/Volumes/Data/TAP/ETC/ROIs",
-		"/Volumes/Data/TAP/ETC/ROI_list",
-		"/Volumes/Data/RatPain/ICA/.RData",
-		"/Volumes/Data/TAP/SCRIPTS/proc.TS002",
-		"/Users/kylealmryde/SimpleCLI.props"
+		"/Volumes/Data/MouseHunger/m002/Orig/Baseline-1.1.mT1/6/pdata/1/d3proc"
 	],
 	"find":
 	{
@@ -390,6 +399,17 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"1",
+			"Today",
+			"today",
+			"RESIZE",
+			"Resize",
+			"resize",
+			"RESIZE",
+			"resize",
+			"Resize",
+			"crop",
+			"Crop",
 			"~/Dropbox/Shared-Projects/Tills_data",
 			"0	50.16	43.07	44.75	55.48	56.04	46.08	43.02	50.37	43.99	49.05	50.74	43.13	45.53	44.3	52.73	50.11	46.06	41.88	54.27	52.25	56.49	65.14	0	57.9	100	57.45",
 			"	 ",
@@ -506,18 +526,7 @@
 			"/${subj}",
 			"()",
 			"/Volumes/Data/MouseHunger",
-			"-",
-			"PREP",
-			"m005",
-			"_P1_2",
-			"${subj}.${run}",
-			"m",
-			"b",
-			"B",
-			"b",
-			"B",
-			"64",
-			"64bit"
+			"-"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -554,19 +563,19 @@
 			[
 				{
 					"buffer": 0,
-					"file": "/opt/local/Utilities/tillsprojectpythoncode/dataFix.py",
+					"file": "/Users/krbalmryde/Dropbox/Shared-Projects/Tills_data/dataFix.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4287,
+						"buffer_size": 4214,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3382,
-								3382
+								514,
+								514
 							]
 						],
 						"settings":
@@ -574,14 +583,26 @@
 							"BracketHighlighterBusy": false,
 							"bh_regions":
 							[
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
 								"bh_angle_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
 								"bh_curly",
 								"bh_curly_center",
 								"bh_curly_open",
 								"bh_curly_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
 								"bh_regex",
 								"bh_regex_center",
 								"bh_regex_open",
@@ -590,37 +611,25 @@
 								"bh_square_center",
 								"bh_square_open",
 								"bh_square_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
 								"bh_default_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close"
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close"
 							],
 							"syntax": "Packages/Python/Python.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 110.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -757,7 +766,7 @@
 		[
 			[
 				"",
-				"/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/NiftiViewer.sublime-project"
+				"~/Dropbox/Class-projects/Class.sublime-project"
 			]
 		],
 		"width": 380.0
@@ -776,7 +785,7 @@
 	"show_minimap": true,
 	"show_open_files": true,
 	"show_tabs": true,
-	"side_bar_visible": true,
+	"side_bar_visible": false,
 	"side_bar_width": 266.0,
 	"status_bar_visible": true,
 	"template_settings":

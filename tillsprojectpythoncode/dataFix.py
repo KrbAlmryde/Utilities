@@ -13,7 +13,7 @@ Program: dataFix.py
 ==============================================================================
 """
 
-import os
+import os, sys
 from glob import glob
 from random import random
 
@@ -34,44 +34,100 @@ def writeResults(outFile, data):
     report.close()
 
 
+def writeErrorReport(outFile, data):
+    """ Writes error report with associated problem
+
+    Params:
+        data -- List: Contains tuple of offending Subtest and type of
+                    error, ie size mismatch, order mismatch, etc
+    Returns:
+        None
+    """
+    from datetime import datetime
+    result = ""
+    outFn = outFile+datetime.now().time().isoformat() + ".txt"
+    report = open(outFn, 'w')
+    for test, error in data:
+        result += "{0}:\t {1}\n".format(test, error)
+    report.write(result)
+    report.close()
+
+
+
 #=============================== START OF MAIN ===============================
+
 def main():
     # Several datafiles, each with a long list of subjects
-    DATA = "/Users/krbalmryde/Dropbox/Shared-Projects/Tills_data/data"
-    MEASURE = "/Users/krbalmryde/Dropbox/Shared-Projects/Tills_data/measure"
-    FINAL = "/Users/krbalmryde/Dropbox/Shared-Projects/Tills_data/final"
+    BASE = "/Users/krbalmryde/Dropbox/Shared-Projects/Kyle_Elena/Tills_data"
+    # Directory path variable assignment, assumes script is in working directory!!!
+    DATA = "data"
+    MEASURE = "measure"
+    FINAL = "final"
+
+    # Mainly for testing purposes
+    if len(sys.argv) > 1: 
+        DATA = os.path.join(BASE, sys.argv[1], DATA)
+        MEASURE = os.path.join(BASE, sys.argv[1], MEASURE)
+        FINAL = os.path.join(BASE, sys.argv[1], FINAL)
+
+
+
+    if not os.path.exists(FINAL): os.mkdir(FINAL)  # checks to see if the 'final' directory exists, creating it if necessary
 
     # Create a dictionary with Subtest #s as the keys and a list of the data
     # file as values. Uses a Dictionary Comprehension
-    SubTestIndex = {os.path.split(_file)[1].split('_')[0].split('Test')[1]: [_file] for _file in glob(os.path.join(DATA,"*.txt"))}
-
+    SubTestIndex = {os.path.split(_file)[1].split('_')[0].split('Test')[1]: [_file] for _file in glob(os.path.join(DATA,"*.txt"))}       
 
     for measure in glob(os.path.join(MEASURE,"*.txt")):
-        sn = os.path.split(measure)[1].split('_')[0].split('Sub')[1]
+        sn = os.path.split(measure)[1].split('_')[0].split('Sub')[1] # sn => subtest number
         SubTestIndex[sn].append(measure)  # append the subtest Item and Person
                                           # measure to the SubTestIndex
 
+        # SubTestIndex should look something like this:
+        # {'Sub01': ['SubTest01_SC.txt', 'Sub01_item_meausre.txt', 'Sub01_person_meausre.txt']}
+
+    SubTestErrorIndex = [] # List to keep track of the number of erroneous files that need addressing
+
+
+    # k is the key, ie Sub01, v is a 3 element list containing the filenames associated with each subtest
     for k,v in SubTestIndex.items():
         if len(v) < 2: pass
         else:
             outFn = os.path.join(FINAL,"SubTest{0}_results.txt".format(k))
-            dFn, iFn, aFn = v  # {[d]ata,[i]tem,[a]bility} [F]ile[n]ame
-            items_measures = open(iFn).read().split()
-            persons_ability = open(aFn).read().split()
-
             if os.path.isfile(outFn):
-                os.remove(outFn) # check that the file doenst already exist
                 print "{0} already exists! Removing...".format(outFn)
+                os.remove(outFn) # check that the file doenst already exist
+            
+            dFn, iFn, aFn = v  # [d]ata,[i]tem,[a]bility [F]ile[n]ame
+            subtest_data = open(dFn, 'U').read().strip().split('\n')
+            items_measures = open(iFn, 'U').read().strip().split()
+            persons_ability = open(aFn, 'U').read().strip().split('\n')
 
-            for i, line in enumerate(open(dFn)):
-                seg = line.split()  # Each line represents a single subject
+            if len(subtest_data) != len(persons_ability):
+                SubTestErrorIndex.append((dFn, "Size Mismatch Error"))
+                print "!! Number of entries in SubTest data does not match number of entries in person ability data for: {0}!!".format(k)
+                print "\tThere are currently {0} erroneous SubTests that need to be addressed".format(len(SubTestErrorIndex))
+                break
+
+            for i, line in enumerate(subtest_data):
+                # print "line is", line
+                seg = line.strip().split()  # Each line represents a single subject, strip off any newline characters, the split on whitespace
                 data = "".join(seg[9:])  # some data files have spaces intermixed in the data column, resulting in
-                                         # potentially missed values, this line corrects that.
+                                         # potentially missed values, this line corrects that.subtest_data[i]
+                subtest_data[i] = [seg[0], data]
+                persons_ability[i] = persons_ability[i].split()
 
-                result = "{0}\t".format(seg[0])
+                result = "{0}\t".format(subtest_data[i][0])
+                
                 # print result
+                if subtest_data[i][0] != persons_ability[i][0]:  # if the subtest participant id does not match the person id, log the error!
+                    SubTestErrorIndex.append((dFn, "Participant ID Mismatch Error: line {0}".format(i)))
+                    print "!! {0} participant ID does not match {1} participant ID: line {2}!!".format(dFn, aFn, i)
+                    print "\t",repr(subtest_data[i][0]), repr(persons_ability[i][0])
+                    print "\tThere are currently {0} erroneous SubTests that need to be addressed".format(len(SubTestErrorIndex))
+                    break
 
-                if persons_ability[i] in ["X","x","?"]:  # If the ability file has an X, skip it. Subj never took the test
+                if persons_ability[i][1] in ["X","x","?"]:  # If the ability file has an X, skip it. Subj never took the test
                     # print "Subject didnt take test"
                     writeResults(outFn, result+data)
                 else:
@@ -79,9 +135,9 @@ def main():
                         if point != '.':    # If the value is not a '.' write that value
                             result += point
                         else:
-                            if float(persons_ability[i]) < float(items_measures[j]):  # if ability is less than measure, assign 0
+                            if float(persons_ability[i][1]) < float(items_measures[j]):  # if ability is less than measure, assign 0
                                 result += '0'
-                            elif float(persons_ability[i]) >  float(items_measures[j]): # if ability is greater than measure, assign 1
+                            elif float(persons_ability[i][1]) >  float(items_measures[j]): # if ability is greater than measure, assign 1
                                 result += '1'
                             else:  # if ability is equal to measure...
                                 if random() < 0.5:  # assign a 0 if a randomly generated value between 0-1 is less than 0.5
@@ -90,7 +146,13 @@ def main():
                                     result += "1"  # Passed
 
                     writeResults(outFn, result)  # write final results to file
-
+            
+    if SubTestErrorIndex:
+        print "There were errors in the program! Writing error report..."
+        errorFN = os.path.join(FINAL,"ErrorReport")
+        writeErrorReport(errorFN, SubTestErrorIndex) # Write 
+    else:
+        print "There were no errors detected! Be sure to look over your results for accuracy!"
 
 if __name__ == '__main__':
     main()
