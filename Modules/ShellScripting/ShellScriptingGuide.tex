@@ -1,0 +1,82 @@
+\title How to be a command-line ninja
+
+
+The intent of this guide is to inform the reader (i.e. YOU!) how to not only 
+navigate the command-line (like a ninja), but also to develop a solid foundation
+in UNIX shell scripting in order to write readable and well documented programs
+from which to perform analysis steps using the likes of AFNI and FSL (amongst 
+many others). 
+
+
+Table of Contents:
+    1) The basics
+        -The command line
+        -Bourne, Bash, C, and T? 
+    2) 
+
+
+
+
+
+
+Lets start with some Terminology:
+    GUI: /goo-wee/ - Graphical-User-Interface, AFNI's looks like this <show image of AFNI gui>
+
+    CLI: Command-line-interface, or simply the command-line. This is, for all
+            intents and purpose, the terminal. You will be spending a great deal
+            of time here. Learn it, love it, live it. 
+
+    UNIX: An elegant operating system created long ago which forms the basis for
+            the mac OS 
+
+
+
+
+To really get you moving around the terminal, here are some helpful commands that you may already know. If you dont, you will wonder how you ever managed to get around the terminal.
+
+cd (Think "Change Directory")
+     to move forward in the Directory tree, type cd \it{FolderName}
+     to step out of that directory, type cd ../
+
+pwd (Think "Print Working Directory)
+      This will display the current working directory and every folder you had to get through to get there
+
+ls  (Think "List")
+     This is really helpful for listing the contents of a directory. Simply typing ls by itself is useful, but if you really want to be a file listing ninja, add some flags
+     If you want to list the contents of a folder in "long" format, type ls -l, youll see what I mean
+     You may or may not be familiar with the notion of "hidden" files, often there are many files in a directory, you simply cant see them. To circumvent that annoyance, type ls -a, any file that is hidden will appear with a "." in front of its name ie ".hiddenfile" 
+
+cat  (Technically it stands for concatenate, but thats only one of its many functions)
+      This is a very handy tool for taking a look at the contents of a text file. Navigate to a directory that contains a text file, and type cat filename 
+       Now say you have two files that you wish were 1 file. Type cat file1 file2 > file3     you will find that you now have a single file with the contents of file1 followed by file2 all in one file that you named file3. Note that the ">" is called a redirect. Essentially you are redirecting the 
+             output of file1 and file2 to a new file named file3. If you simply wanted to print the contents of file1 and file2 to the terminal, you would leave the "> file3" bit off. Be careful though, the ">" is essentially creating a new file, and it doesnt give a shit if you already have a file 
+             named file3, so if your old file3 had important shit in it, its all gone now. 
+
+cp (Think Copy)
+     This is great when you need to make copies of files. Using the example above, say you wanted to make a copy of file3 called twat, type the following cp file3 twat. Now you have an identical copy of the 
+           contents of file3 in a file named twat. Woohoo!
+
+rm (Think Remove)
+      Be VERY VERY CAREFUL with this command. What is done cannot be undone when you use this particular tool, which is generally the case when using the terminal anyway. Seriously, be fucking careful, here are some commands that you should NEVER use, unless you are 
+           damn well sure you know what the fuck your doing.
+      rm *      <---- This simple command will delete EVERYTHING in your current working directory except other folders. The * is called a wildcard Glob, its very handy in most circumstances, but can fuck your lifes work if your not careful. 
+      rm -R /*   <----  This will get you fired. Dont do it. It will wipe the root directory. The root directory is the tip top of the tree so to speak. EVERYTHING originates in the root directory. Everything. You wipe that, you wipe EVERYTHING. Get it? 
+
+mkdir ("Make Directory")
+          Need a folder call "Twat" (you know, for all those twat filess), type mkdir Twat or anything else you want to name for that matter. 
+
+echo ("echo") 
+        This is a really handy tool especially for scripts. Essentially, echo repeats whatever you say back to you. For example, type echo "Hello World", you will see "Hello World" appear in your terminal. While that isnt terribly helpful in and of itself, echo is a wonderful tool for testing
+               and "debugging". 
+        It also allows you to see what you have set your variables to. In your terminal type x=foobar, hit enter, then type echo $x you should see "foobar" appear in your terminal. 
+
+man (Manual)
+        If you ever become a terminal Ninja, you will learn that the "man pages" are your first and often last source of information regarding how to use a command. Type man ls will display the manual pages for the ls command! Now being able to decipher the technoSpeak is a whole 
+        different ball game, but on the surface, and for most commands, its pretty easy to use. 
+
+Ill let you digest that for the time being, I strongly encourage you (if you havent already) to play with all of these (except rm, just say no). Thats the best way to learn after all. Next time Ill go into more depth about Variables and for loops. To wet your appetite a bit, copy and paste the following into the terminal (This is an exampled of what is commonly referred to as a one-liner)
+
+for words in This is a for loop mother fucker; do echo $words; done
+
+
+As an exercise, email me the "read-able" for of the above code, when your ready of course. Feel free to hit me up if you ever have any questions on how to do cool shit in the terminal. 

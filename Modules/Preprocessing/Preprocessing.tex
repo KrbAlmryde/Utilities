@@ -1,0 +1,224 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Programming/Coding Assignment
+% LaTeX Template
+%
+% This template has been downloaded from:
+% http://www.latextemplates.com
+%
+% Original author:
+% Ted Pavlic (http://www.tedpavlic.com)
+%
+% Note:
+% The \lipsum[#] commands throughout this template generate dummy text
+% to fill the template out. These commands should all be removed when 
+% writing assignment content.
+%
+% This template uses a Bash script as an example snippet of code, most other
+% languages are also usable. Configure them in the "CODE INCLUSION 
+% CONFIGURATION" section.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%   PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass{article}
+
+\usepackage{fancyhdr} % Required for custom headers
+\usepackage{lastpage} % Required to determine the last page for the footer
+\usepackage{extramarks} % Required for headers and footers
+\usepackage[usenames,dvipsnames]{color} % Required for custom colors
+\usepackage{graphicx} % Required to insert images
+\usepackage{listings} % Required for insertion of code
+\usepackage{courier} % Required for the courier font
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1} % Line spacing
+
+% Set up the header and footer
+\pagestyle{fancy}
+\lhead{\modAuthorName} % Top left header
+\chead{\modClass\ (\modClassInstructor\ \modInstitution): \modTitle} % Top center head
+\rhead{\firstxmark} % Top right header
+\lfoot{\lastxmark} % Bottom left footer
+\cfoot{} % Bottom center footer
+\rfoot{Page\ \thepage\ of\ \protect\pageref{LastPage}} % Bottom right footer
+\renewcommand\headrulewidth{0.4pt} % Size of the header rule
+\renewcommand\footrulewidth{0.4pt} % Size of the footer rule
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+
+%----------------------------------------------------------------------------------------
+%   CODE INCLUSION CONFIGURATION
+%----------------------------------------------------------------------------------------
+
+\definecolor{MyDarkGreen}{rgb}{0.0,0.4,0.0} % This is the color used for comments
+\lstloadlanguages{bash} % Load Bash syntax for listings, for a list of other languages supported see: ftp://ftp.tex.ac.uk/tex-archive/macros/latex/contrib/listings/listings.pdf
+\lstset{language=bash, % Use Bash in this example
+        frame=single, % Single frame around code
+        basicstyle=\small\ttfamily, % Use small true type font
+        keywordstyle=[1]\color{Blue}\bf, % Bash functions bold and blue
+        keywordstyle=[2]\color{Purple}, % Bash function arguments purple
+        keywordstyle=[3]\color{Blue}\underbar, % Custom functions underlined and blue
+        identifierstyle=, % Nothing special about identifiers                                         
+        commentstyle=\usefont{T1}{pcr}{m}{sl}\color{MyDarkGreen}\small, % Comments small dark green courier font
+        stringstyle=\color{Purple}, % Strings are purple
+        showstringspaces=false, % Don't put marks in string spaces
+        tabsize=5, % 5 spaces per tab
+        %
+        % Put standard Bash functions not included in the default language here
+        morekeywords={rand},
+        %
+        % Put Bash function parameters here
+        morekeywords=[2]{on, off, interp},
+        %
+        % Put user defined functions here
+        morekeywords=[3]{test},
+        %
+        morecomment=[l][\color{Blue}]{...}, % Line continuation (...) like blue comment
+        numbers=left, % Line numbers on left
+        firstnumber=1, % Line numbers start with line 1
+        numberstyle=\tiny\color{Blue}, % Line numbers are blue and small
+        stepnumber=5 % Line numbers go in steps of 5
+}
+
+% Creates a new command to include a Bash script, the first parameter is the filename of the script (without .pl), the second parameter is the caption
+\newcommand{\tcshscript}[2]{
+        \begin{itemize}
+                \item[]\lstinputlisting[caption=#2,label=#1]{#1.tcsh}
+        \end{itemize}
+}
+\newcommand{\bashscript}[2]{
+        \begin{itemize}
+                \item[]\lstinputlisting[caption=#2,label=#1]{#1.sh}
+        \end{itemize}
+}
+
+%----------------------------------------------------------------------------------------
+%   DOCUMENT STRUCTURE COMMANDS
+%   Skip this unless you know what you're doing
+%----------------------------------------------------------------------------------------
+
+% Header and footer for when a page split occurs within a problem environment
+\newcommand{\enterProblemHeader}[1]{
+\nobreak\extramarks{#1}{#1 continued on next page\ldots}\nobreak
+\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak
+}
+
+% Header and footer for when a page split occurs between problem environments
+\newcommand{\exitProblemHeader}[1]{
+\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak
+\nobreak\extramarks{#1}{}\nobreak
+}
+
+\setcounter{secnumdepth}{0} % Removes default section numbers
+\newcounter{moduleProblemCounter} % Creates a counter to keep track of the number of problems
+
+\newcommand{\moduleProblemName}{}
+\newenvironment{moduleProblem}[1][Problem \arabic{moduleProblemCounter}]{ % Makes a new environment called moduleProblem which takes 1 argument (custom name) but the default is "Problem #"
+\stepcounter{moduleProblemCounter} % Increase counter for number of problems
+\renewcommand{\moduleProblemName}{#1} % Assign \moduleProblemName the name of the problem
+\section{\moduleProblemName} % Make a section in the document with the custom problem count
+\enterProblemHeader{\moduleProblemName} % Header and footer within the environment
+}{
+\exitProblemHeader{\moduleProblemName} % Header and footer after the environment
+}
+
+\newcommand{\problemAnswer}[1]{ % Defines the problem answer command with the content as the only argument
+\noindent\framebox[\columnwidth][c]{\begin{minipage}{0.98\columnwidth}#1\end{minipage}} % Makes the box around the problem answer and puts the content inside
+}
+
+\newcommand{\moduleSectionName}{}
+\newenvironment{moduleSection}[1]{ % New environment for sections within module problems, takes 1 argument - the name of the section
+\renewcommand{\moduleSectionName}{#1} % Assign \moduleSectionName to the name of the section from the environment argument
+\subsection{\moduleSectionName} % Make a subsection with the custom name of the subsection
+\enterProblemHeader{\moduleProblemName\ [\moduleSectionName]} % Header and footer within the environment
+}{
+\enterProblemHeader{\moduleProblemName} % Header and footer after the environment
+}
+
+%----------------------------------------------------------------------------------------
+%   NAME AND CLASS SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\modTitle}{Preprocessing in \it{AFNI}} % Assignment title
+\newcommand{\modDueDate}{June\ 13,\ 2014} % Due date
+\newcommand{\modClass}{Module\ \#2} % Course/class
+\newcommand{\modInstitution}{University of Arizona} % Class/lecture time
+\newcommand{\modClassInstructor}{Plante Lab} % Teacher/lecturer
+\newcommand{\modAuthorName}{Kyle Reese Almryde} % Your name
+
+%----------------------------------------------------------------------------------------
+%   TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title{
+\vspace{2in}
+\textmd{\textbf{\modClass:\ \modTitle}}\\
+\normalsize\vspace{0.1in}\small{Due\ on\ \modDueDate}\\
+\vspace{0.1in}\large{\textit{\modInstitution,\ \modClassInstructor}}
+\vspace{3in}
+}
+
+\author{\textbf{\modAuthorName}}
+\date{} % Insert date here if you want it to appear below your name
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle
+
+%----------------------------------------------------------------------------------------
+%   TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+%\setcounter{tocdepth}{1} % Uncomment this line if you don't want subsections listed in the ToC
+
+\newpage
+\tableofcontents
+\newpage
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM 1
+%----------------------------------------------------------------------------------------
+
+% To have just one problem per page, simply put a \clearpage after each problem
+
+\begin{moduleProblem}[The Code]
+Listing \ref{scripts/wb1.reg} shows an example Bash script written to perform preprocessing
+steps for the entire dataset. This script 
+
+\bashscript{scripts/wb1.reg}{Sample Bash Script With Highlighting}
+
+\lipsum[1]
+\end{moduleProblem}
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM 2
+%----------------------------------------------------------------------------------------
+
+% \begin{moduleProblem}
+% \lipsum[2]
+
+% \problemAnswer{
+% \begin{center}
+% \includegraphics[width=0.75\columnwidth]{example_figure} % Example image
+% \end{center}
+
+% \lipsum[3-5]
+% }
+% \end{moduleProblem}
+
+%----------------------------------------------------------------------------------------
+
+\end{document}

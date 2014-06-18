@@ -68,10 +68,29 @@
 	"buffers":
 	[
 		{
-			"file": "/Users/krbalmryde/Dropbox/Shared-Projects/Tills_data/dataFix.py",
+			"contents": "#================================================================================\n# Directory Name: Russian-Scanner\n#         Author: Kyle Reese Almryde\n#           Host: Hagar@128.196.62.95\n#           Date: today\n#\n#        Project: Russian Language Learning\n#             PI: Elena Plante\n#          Grant:\n#\n#    Description: This Directory contains the DirectRT experiment data necessary\n#                 for running the fMRI experiment on the scanner. \n#\n#       Contents: \n#               Data:\n#                   RussianBlockLearnable/\n#                   RussianBlockUNLearnable/\n#                   RussianPretest/\n#       \n#               Docs:\n#                   Russian Learnable Block design v3.docx\n#                   Russian UNLearnable Block design v3.docx\n#                   Scanner stimuli\n#                   Version1_and_2\n#                   drt2012.4.164.exe\n#       \n#               sounds:\n#                   correct_double/\n#       \n#                   correct_single/\n#       \n#                   Incorrect_single/\n#       \n#                   incorrect_double/\n#       \n#                   Postscan_listening_instructions.wav\n#                   Postsscan_test_instructions.wav\n#                   Pretest_instructions.wav\n#                   RussianLearnable_v3.wav\n#                   RussianTraining.wav\n#                   RussianUNLearnable_v3.wav\n#                   SoundCheck.wav\n#                   brjunetkau2.wav\n#                   chistotaoj2.wav\n#                   devushkoj2.wav\n#                   kartofelyem2.wav\n#                   korenya2.wav\n#                   ljubitelyem2.wav\n#                   makakaoj2.wav\n#                   osvezhitelya2.wav\n#                   pokupatelya2.wav\n#                   urovenyem2.wav\n#                   voronu2.wav\n#                   zabavoj2.wav\n#\n#               RussianBlockLearnable_v3.csv\n#               RussianBlockUNLearnable_v3.csv\n#               RussianLearnable_v3.wav\n#               RussianPretest_v3.csv\n#               RussianUNLearnable_v3.wav\n#               styles.drt\n#               Russian.sublime-project\n#               Russian.sublime-workspace\n#       \n#          Tools:\n#  Current State:\n#\n#================================================================================\n\nHISTORY:\n\nToday is today\n\n",
 			"settings":
 			{
-				"buffer_size": 4214,
+				"buffer_size": 2324,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "\\title How to be a command-line ninja\n\n\nThe intent of this guide is to inform the reader (i.e. YOU!) how to not only \nnavigate the command-line (like a ninja), but also to develop a solid foundation\nin UNIX shell scripting in order to write readable and well documented programs\nfrom which to perform analysis steps using the likes of AFNI and FSL (amongst \nmany others). \n\n\nTable of Contents:\n    1) The basics\n        -The command line\n        -Bourne, Bash, C, and T? \n    2) \n\n\n\n\n\n\nLets start with some Terminology:\n    GUI: /goo-wee/ - Graphical-User-Interface, AFNI's looks like this <show image of AFNI gui>\n\n    CLI: Command-line-interface, or simply the command-line. This is, for all\n            intents and purpose, the terminal. You will be spending a great deal\n            of time here. Learn it, love it, live it. \n\n    UNIX: An elegant operating system created long ago which forms the basis for\n            the mac OS \n\n\n\n\nTo really get you moving around the terminal, here are some helpful commands that you may already know. If you dont, you will wonder how you ever managed to get around the terminal.\n\ncd (Think \"Change Directory\")\n     to move forward in the Directory tree, type cd \\it{FolderName}\n     to step out of that directory, type cd ../\n\npwd (Think \"Print Working Directory)\n      This will display the current working directory and every folder you had to get through to get there\n\nls  (Think \"List\")\n     This is really helpful for listing the contents of a directory. Simply typing ls by itself is useful, but if you really want to be a file listing ninja, add some flags.\n     If you want to list the contents of a folder in \"long\" format, type ls -l, youll see what I mean\n     You may or may not be familiar with the notion of \"hidden\" files, often there are many files in a directory, you simply cant see them. To circumvent that annoyance, type ls -a, any file that is hidden will appear with a \".\" in front of its name ie \".hiddenfile\" \n\ncat  (Technically it stands for concatenate, but thats only one of its many functions)\n      This is a very handy tool for taking a look at the contents of a text file. Navigate to a directory that contains a text file, and type cat filename \n       Now say you have two files that you wish were 1 file. Type cat file1 file2 > file3     you will find that you now have a single file with the contents of file1 followed by file2 all in one file that you named file3. Note that the \\\">\\\" is called a redirect. Essentially you are redirecting the \n             output of file1 and file2 to a new file named file3. If you simply wanted to print the contents of file1 and file2 to the terminal, you would leave the \\\"> file3\\\" bit off. Be careful though, the \\\">\\\" is essentially creating a new file, and it doesnt give a shit if you already have a file \n             named file3, so if your old file3 had important shit in it, its all gone now. \n\ncp (Think Copy)\n     This is great when you need to make copies of files. Using the example above, say you wanted to make a copy of file3 called twat, type the following cp file3 twat. Now you have an identical copy of the \n           contents of file3 in a file named twat. Woohoo!\n\nrm (Think Remove)\n      Be VERY VERY CAREFUL with this command. What is done cannot be undone when you use this particular tool, which is generally the case when using the terminal anyway. Seriously, be fucking careful, here are some commands that you should NEVER use, unless you are \n           damn well sure you know what the fuck your doing.\n      rm *      <---- This simple command will delete EVERYTHING in your current working directory except other folders. The * is called a wildcard Glob, its very handy in most circumstances, but can fuck your lifes work if your not careful. \n      rm -R /*   <----  This will get you fired. Dont do it. It will wipe the root directory. The root directory is the tip top of the tree so to speak. EVERYTHING originates in the root directory. Everything. You wipe that, you wipe EVERYTHING. Get it? \n\nmkdir (\"Make Directory\")\n          Need a folder call \"Twat\" (you know, for all those twat filess), type mkdir Twat or anything else you want to name for that matter. \n\necho (\"echo\") \n        This is a really handy tool especially for scripts. Essentially, echo repeats whatever you say back to you. For example, type echo \"Hello World\", you will see \"Hello World\" appear in your terminal. While that isnt terribly helpful in and of itself, echo is a wonderful tool for testing\n               and \"debugging\". \n        It also allows you to see what you have set your variables to. In your terminal type x=foobar, hit enter, then type echo $x you should see \"foobar\" appear in your terminal. \n\nman (Manual)\n        If you ever become a terminal Ninja, you will learn that the \"man pages\" are your first and often last source of information regarding how to use a command. Type man ls will display the manual pages for the ls command! Now being able to decipher the technoSpeak is a whole \n        different ball game, but on the surface, and for most commands, its pretty easy to use. \n\nIll let you digest that for the time being, I strongly encourage you (if you havent already) to play with all of these (except rm, just say no). Thats the best way to learn after all. Next time Ill go into more depth about Variables and for loops. To wet your appetite a bit, copy and paste the following into the terminal (This is an exampled of what is commonly referred to as a one-liner)\n\nfor words in This is a for loop mother fucker; do echo $words; done\n\n\nAs an exercise, email me the \"read-able\" for of the above code, when your ready of course. Feel free to hit me up if you ever have any questions on how to do cool shit in the terminal. ",
+			"file": "Modules/ShellScripting/ShellScriptingGuide.tex",
+			"file_size": 5780,
+			"file_write_time": 130475042400000000,
+			"settings":
+			{
+				"buffer_size": 5787,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "WorkShop/AWK-SED/Awk_and_sed_notes.sh",
+			"settings":
+			{
+				"buffer_size": 9422,
 				"line_ending": "Unix"
 			}
 		}
@@ -79,9 +98,21 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 375.0,
+		"height": 247.0,
 		"selected_items":
 		[
+			[
+				"latex",
+				"Set Syntax: LaTeX"
+			],
+			[
+				"bash",
+				"Set Syntax: Shell Script (Bash)"
+			],
+			[
+				"py",
+				"Set Syntax: Python"
+			],
 			[
 				"INST",
 				"Package Control: Install Package"
@@ -105,14 +136,6 @@
 			[
 				"pyth",
 				"Set Syntax: Python"
-			],
-			[
-				"py",
-				"Set Syntax: Python"
-			],
-			[
-				"bash",
-				"Set Syntax: Shell Script (Bash)"
 			],
 			[
 				"mat",
@@ -253,7 +276,24 @@
 	},
 	"file_history":
 	[
+		"/Users/krbalmryde/.bash_aliases",
+		"/Users/krbalmryde/Dropbox/Code-Projects/adrenaline.j",
+		"/Users/krbalmryde/Dropbox/Code-Projects/Python/PGen/pickle-pass",
+		"/Users/krbalmryde/.bash_profile",
+		"/Users/krbalmryde/.bash_functions",
+		"/opt/local/Utilities/Modules/Preprocessing/scripts/wb1.reg.sh",
+		"/opt/local/Utilities/Modules/GLMAnalysis/GlmAnalysis.tex",
+		"/opt/local/Utilities/Modules/Preprocessing/Preprocessing.tex",
+		"/Users/krbalmryde/Downloads/assignment_2/assignment_2.tex",
+		"/opt/local/Utilities/Utilities.sublime-project",
+		"/Users/krbalmryde/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/krbalmryde/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/Users/krbalmryde/Dropbox/Code-Projects/UnPw.txt",
+		"/opt/local/Utilities/Modules/Preprocessing.tex",
+		"/Users/krbalmryde/Dropbox/Shared-Projects/Kyle_Elena/Tills_data/README.txt",
+		"/opt/local/Utilities/tillsprojectpythoncode/dataPrep.py",
 		"/opt/local/Utilities/tillsprojectpythoncode/dataFix.py",
+		"/Users/krbalmryde/Dropbox/Shared-Projects/Tills_data/dataFix.py",
 		"/Users/krbalmryde/Downloads/fem20_i_262_p_3D.fig",
 		"/Users/krbalmryde/Dropbox/Shared-Projects/Tills_data/README.txt",
 		"/opt/local/Utilities/Iceword/ice.grp.sh",
@@ -280,16 +320,12 @@
 		"/Users/krbalmryde/Dropbox/Work-Projects/MousefMRI/_cov.ppm",
 		"/opt/local/Utilities/Mouse/oxygen.txt",
 		"/opt/local/Utilities/Mouse/carboden.txt",
-		"/Users/krbalmryde/.bash_aliases",
-		"/Users/krbalmryde/.bash_functions",
 		"/Users/krbalmryde/Downloads/fslinstaller.py",
-		"/Users/krbalmryde/.bash_profile",
 		"/opt/local/Utilities/NBack/NBack.py",
 		"/opt/local/Utilities/Stroop/DataDump.sh",
 		"/opt/local/Utilities/WorkShop/PYTHON/drtAnalyser.py",
 		"/opt/local/Utilities/Dichotic/dich_profile",
 		"/Users/krbalmryde/Dropbox/Shared-Projects/Kyle_Kory/Tills_data/README.txt",
-		"/Users/krbalmryde/Dropbox/Shared-Projects/Tills_data/dataFix.py",
 		"/opt/local/Utilities/tillsprojectpythoncode/Sub06_item_measure.txt",
 		"/Users/krbalmryde/.ipython/profile_default/startup/00-profile.py",
 		"/Users/kylealmryde/Dropbox/Shared-Projects/Tills_data/dataFix.py",
@@ -367,20 +403,7 @@
 		"/usr/local/Utilities/WorkShop/PYTHON/PalletBuilder.py",
 		"/Users/krbalmryde/Desktop/MouseHunger/README.txt",
 		"/Users/krbalmryde/Desktop/MouseHunger/Mouse/mouse.reg.sh",
-		"/Users/krbalmryde/Downloads/StereographicXV_SPI_2013E/article.tex",
-		"/usr/local/Utilities/Rat/rat.reg.sh",
-		"/Volumes/Data/RatPain/ETC/rat_offsets_even.1D",
-		"/Volumes/Data/RatPain/ETC/rat_offsets.1D",
-		"/usr/local/Utilities/CanopyFix.sh",
-		"/usr/local/Utilities/Rat/Rat 1:20:12 README.txt",
-		"/usr/local/Utilities/Russian/KyleParadigm.m",
-		"/Volumes/Data/MouseHunger/Mouse Pilot Data: 11:18:2013.txt",
-		"/Volumes/Data/MouseHunger/m002/Orig/Baseline-1.1.mT1/6/acqp",
-		"/Volumes/Data/MouseHunger/m002/Orig/Baseline-1.1.mT1/6/pdata/1/reco",
-		"/Volumes/Data/MouseHunger/m002/Orig/Baseline-1.1.mT1/6/pdata/1/2dseq",
-		"/Volumes/MRIConvert/README.txt",
-		"/Volumes/Data/MouseHunger/m002/Orig/Baseline-1.1.mT1/6/pdata/1/visu_pars",
-		"/Volumes/Data/MouseHunger/m002/Orig/Baseline-1.1.mT1/6/pdata/1/d3proc"
+		"/Users/krbalmryde/Downloads/StereographicXV_SPI_2013E/article.tex"
 	],
 	"find":
 	{
@@ -388,7 +411,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 95.0,
 		"where_history":
 		[
 			""
@@ -399,6 +422,34 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"flip",
+			"moduleProblem",
+			"moduleProblemName",
+			"3in",
+			"modClassTime",
+			",\\",
+			"homework",
+			"homeworkProblem",
+			"\\hmwk",
+			"\\homework",
+			"hmwkDueDate",
+			"COMPSCI 101",
+			"COMPSCI 101:",
+			"bashscript",
+			"pl",
+			"perl",
+			"wb1.reg.sh",
+			"homework_example",
+			"\\Bashscript",
+			"Bash",
+			"Perl",
+			"perl",
+			"Perl",
+			"perl",
+			"Perl",
+			"sys",
+			"/Users/krbalmryde/Dropbox/Shared-Projects/Kyle_Elena/Tills_data/",
+			"sys",
 			"1",
 			"Today",
 			"today",
@@ -498,35 +549,7 @@
 			" ()\n{",
 			"FUNCTIONAL_D",
 			"mango",
-			"MANGOBIN",
-			"back",
-			"dir",
-			"'\n",
-			"here",
-			".gz",
-			"despike",
-			"rep",
-			"step",
-			"outFile=$2",
-			"outname",
-			"function rat",
-			"Dicom",
-			"dicom",
-			"Dicom",
-			"dicom",
-			"Dicom",
-			"dicom",
-			"Dicom",
-			"dicom",
-			"DICOM",
-			"dicom",
-			"Dicom",
-			"dicom",
-			"Dicom",
-			"/${subj}",
-			"()",
-			"/Volumes/Data/MouseHunger",
-			"-"
+			"MANGOBIN"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -558,24 +581,23 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/Users/krbalmryde/Dropbox/Shared-Projects/Tills_data/dataFix.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4214,
+						"buffer_size": 2324,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								514,
-								514
+								941,
+								941
 							]
 						],
 						"settings":
@@ -583,38 +605,42 @@
 							"BracketHighlighterBusy": false,
 							"bh_regions":
 							[
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
 								"bh_curly",
 								"bh_curly_center",
 								"bh_curly_open",
 								"bh_curly_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
 								"bh_regex",
 								"bh_regex_center",
 								"bh_regex_open",
 								"bh_regex_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
 								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
 								"bh_double_quote",
 								"bh_double_quote_center",
 								"bh_double_quote_open",
@@ -624,12 +650,165 @@
 								"bh_tag_open",
 								"bh_tag_close"
 							],
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "Modules/ShellScripting/ShellScriptingGuide.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5787,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1466,
+								1473
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close"
+							],
+							"spell_check": true,
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 110.0,
+						"translation.y": 447.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "WorkShop/AWK-SED/Awk_and_sed_notes.sh",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 9422,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close"
+							],
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1632.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -785,7 +964,7 @@
 	"show_minimap": true,
 	"show_open_files": true,
 	"show_tabs": true,
-	"side_bar_visible": false,
+	"side_bar_visible": true,
 	"side_bar_width": 266.0,
 	"status_bar_visible": true,
 	"template_settings":
