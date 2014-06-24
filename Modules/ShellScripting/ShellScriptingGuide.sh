@@ -9,10 +9,45 @@ echo 'I have $aNumber ${fruit}!'  # What do you notice?
 
 # File paths and variables
 aDIR=BootCamp/Examples
+bDIR="BootCamp/Examples/scripts"  # Recall, everything is a string
+cDIR=${aDIR}/data              # What does this evaluate to?
 
-# Lets make a directory
-makdir $aDIR
+# Lets make a directory!
+mkdir $aDIR
 
+# Now we are going to jump ahead for a moment and introduce some wild concepts
+# We will start by making a directory, and introducing a useful flag
+
+mkdir -p $aDIR/{data, docs, utils}   # Oh snap! What did I just do?!
+
+# The '-p' is a "flag" (think option) for mkdir which will, in addition to creating the
+# desired directory, will also create any intermediate dirctories as needed.
+
+# The {data, docs, utils}, is what is known as a brace expansion. On its own
+# {data, docs, utils} isnt particularly useful, but when you combine it to make
+# mkdir -p $aDIR/{data, docs, utils}, suddenly you have a Proejct directory structure!
+# The best part is, you can nest brace expansions to get REALLY crazy. For example
+
+mkdir -p $aDIR/{data/{sub00{1..9}/{PREP,GLM},Group/{ANOVA,TTEST,STATS}},docs,utils}
+
+# And just like that, you have an ENTIRE project directory structure, loaded with
+# subject folders and all! Your program should create something that looks like this:
+# |-- BootCamp
+# |   `-- Examples
+# |       |-- data
+# |       |   |-- Group
+# |       |   |   |-- ANOVA
+# |       |   |   |-- STATS
+# |       |   |   `-- TTEST
+# |       |   |-- sub001
+# |       |   |   |-- GLM
+# |       |   |   `-- PREP
+# |       |   |-- sub002
+# |       |   |   |-- GLM
+# |       |   |   `-- PREP
+# |       |   |-- sub003
+# |       |   |   |-- GLM
+# |       |   |   `-- PREP
 #=====================================================================================
 
 # NB: You'll notice I am not terribly consistent with the the 'curly brackets' around
