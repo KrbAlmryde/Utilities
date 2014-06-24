@@ -68,18 +68,32 @@
 	"buffers":
 	[
 		{
-			"contents": "#================================================================================\n# Directory Name: Russian-Scanner\n#         Author: Kyle Reese Almryde\n#           Host: Hagar@128.196.62.95\n#           Date: today\n#\n#        Project: Russian Language Learning\n#             PI: Elena Plante\n#          Grant:\n#\n#    Description: This Directory contains the DirectRT experiment data necessary\n#                 for running the fMRI experiment on the scanner. \n#\n#       Contents: \n#               Data:\n#                   RussianBlockLearnable/\n#                   RussianBlockUNLearnable/\n#                   RussianPretest/\n#       \n#               Docs:\n#                   Russian Learnable Block design v3.docx\n#                   Russian UNLearnable Block design v3.docx\n#                   Scanner stimuli\n#                   Version1_and_2\n#                   drt2012.4.164.exe\n#       \n#               sounds:\n#                   correct_double/\n#       \n#                   correct_single/\n#       \n#                   Incorrect_single/\n#       \n#                   incorrect_double/\n#       \n#                   Postscan_listening_instructions.wav\n#                   Postsscan_test_instructions.wav\n#                   Pretest_instructions.wav\n#                   RussianLearnable_v3.wav\n#                   RussianTraining.wav\n#                   RussianUNLearnable_v3.wav\n#                   SoundCheck.wav\n#                   brjunetkau2.wav\n#                   chistotaoj2.wav\n#                   devushkoj2.wav\n#                   kartofelyem2.wav\n#                   korenya2.wav\n#                   ljubitelyem2.wav\n#                   makakaoj2.wav\n#                   osvezhitelya2.wav\n#                   pokupatelya2.wav\n#                   urovenyem2.wav\n#                   voronu2.wav\n#                   zabavoj2.wav\n#\n#               RussianBlockLearnable_v3.csv\n#               RussianBlockUNLearnable_v3.csv\n#               RussianLearnable_v3.wav\n#               RussianPretest_v3.csv\n#               RussianUNLearnable_v3.wav\n#               styles.drt\n#               Russian.sublime-project\n#               Russian.sublime-workspace\n#       \n#          Tools:\n#  Current State:\n#\n#================================================================================\n\nHISTORY:\n\nToday is today\n\n",
+			"file": "WordBoundary/wb1.laterality.sh",
 			"settings":
 			{
-				"buffer_size": 2324,
+				"buffer_size": 5193,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "WordBoundary/wb1_grp.py",
+			"contents": "#!/bin/bash\n#================================================================================\n#    Program Name: .sh\n#          Author: Kyle Reese Almryde\n#            Date: \n#\n#     Description: The goal of this guide is to act as a primer for both your\n#                  shell scripting AND your AFNI scripting. I will do my best\n#                  to demonstrate for you what I consider best practices when\n#                  you are writing your own programs, as well as how to perform\n#                  common tasks using AFNI that you will likely be performing\n#                  again and again. \n#                \n#    Deficiencies: I want to be clear that while I have a pretty good idea of \n#                  what I am doing when it comes to scripting and using AFNI\n#                  I am by no means an expert. Furthermore, this primer is \n#                  only a GUIDE, not a set of hard and fast rules. At the end\n#                  of the day, the onus is on you to make sure you \n#\n#================================================================================\n#                            TABLE OF CONTENTS\n#================================================================================\n\n0) General Tips and Tricks\n1) Variables\n2) Common Commands\n3) \n\nLoops and Iterations\nLogic operations\nFunctions\nGotchas\n\n\n\n#==============================================================================\n# 0                         GENERAL TIPS AND TRICKS\n#==============================================================================\nWhen writing a program or script there are two things that I find to be \nabsolutely CRITICAL in terms of the speed at which I develop as well as the \naccuracy of the programs that I write. \n\n1) Always have a TERMINAL open. Bash is a first and foremost a command-line \nutility, it was built with the use of the terminal in mind. So USE IT! Cant \nremember how a particular command works? Test it out in your terminal first. \n\n2) Take advantage of a dedicated editor. People that claim you can write code \nusing apple\\'s default text editor are technically correct andtechnically \nmasochistic. Mondern text editors, specifaclly those geared towards writing \ncode are designed to make writing code easier. Among their most valuable \nfeatures include Syntax highliting, code-completion, and a myriad of other \nfeatures that just make the job easier. I personally recommend Sublime Text \n<http://www.sublimetext.com/> trust me, you will be glad you did.\n\n3) Print statements (or echo statements), echo statements everywhere! A slient\nprogram is both a deadly one and a bitch to debug. Do yourself a favor and \nthrow an echo statement \n\n#==============================================================================\n# 1                             VARIABLES\n#==============================================================================\n\naNumber=10  # A number!\nfruit=\"apples\"  # a Word\n\necho \"I have $aNumber ${fruit}!\"  # evaluate the expression!\necho I have $aNumber $fruit!      # You dont NEED quotes, but they are helpful\necho 'I have $aNumber ${fruit}!'  # What do you notice?\n\n# File paths and variables\naDIR=BootCamp/Examples\nbDIR=\"BootCamp/Examples/scripts\"  # Recall, everything is a string\ncDIR=${aDIR}/data              # What does this evaluate to?\n\n\n#==============================================================================\n#  Exercise: \n#   \n#  \n#\n#\n#==============================================================================\n\n\n\n#==============================================================================\n#                              Common Commands\n#==============================================================================\n\n# Lets make a directory!\nmkdir $aDIR\n\n# Now we are going to jump ahead for a moment and introduce some wild concepts\n# We will start by making a directory, and introducing a useful flag\n\nmkdir -p $aDIR/{data,docs,utils}   # Oh snap! What did I just do?!\n\n# The '-p' is a \"flag\" (think option) for mkdir which will, in addition to creating the\n# desired directory, will also create any intermediate dirctories as needed.\n\n# The {data, docs, utils}, is what is known as a brace expansion. On its own\n# {data, docs, utils} isnt particularly useful, but when you combine it to make\n# mkdir -p $aDIR/{data, docs, utils}, suddenly you have a Proejct directory structure!\n# The best part is, you can nest brace expansions to get REALLY crazy. For example\n\nmkdir -p $aDIR/{data/{sub00{1..9}/{PREP,GLM},Group/{ANOVA,TTEST,STATS}},docs,utils}\n\n# And just like that, you have an ENTIRE project directory structure, loaded with\n# subject folders and all! Your program should create something that looks like this:\n# |-- BootCamp\n# |   `-- Examples\n# |       |-- data\n# |       |   |-- Group\n# |       |   |   |-- ANOVA\n# |       |   |   |-- STATS\n# |       |   |   `-- TTEST\n# |       |   |-- sub001\n# |       |   |   |-- GLM\n# |       |   |   `-- PREP\n# |       |   |-- sub002\n# |       |   |   |-- GLM\n# |       |   |   `-- PREP\n# |       |   |-- sub003\n# |       |   |   |-- GLM\n# |       |   |   `-- PREP\n#=====================================================================================\n\n# NB: You'll notice I am not terribly consistent with the the 'curly brackets' around\n# variable names. This is because they arent `technically` necessary...They just \"protect\"\n# the variable name. This is especially relevant when you incorporate the variables name\n# in another variable, as Ill demonstrate below...\n\n# A real world example...\n\nsubj=sub001\nrun='run2'\ncond=\"learnable\"\n\n# I have assigned three variables: subj, run, and cond (short for condition). Each variable\n# contains a string. In bash, everything is technically a string, you dont NEED to include\n# the quotation marks around a term. All three variable assignments are valid statements.\n\n# Let make a file name\nfName=${subj}_${run}_${cond}.nii  # again, the brackets here arent necessarily needed, but\n                                  # they demonstrate good form, and cleaner code which is\n                                  # less likely to contain bugs, just do it.\n\necho $fname  # see how nice variables are? So much less typing!\n             # sub001_run2_learnable.nii\n\n\n\n\n\n\n\n\n\n#==============================================================================\n#  Exercise: \n#   \n#  \n#\n#\n#==============================================================================\n",
+			"file": "Modules/ShellScripting/ShellScriptingGuide.sh",
+			"file_size": 5309,
+			"file_write_time": 130481125150000000,
 			"settings":
 			{
-				"buffer_size": 10450,
+				"buffer_size": 6437,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "# Xcode\n.DS_Store\n*/build/*\n*.pbxuser\n!default.pbxuser\n*.mode1v3\n!default.mode1v3\n*.mode2v3\n!default.mode2v3\n*.perspectivev3\n!default.perspectivev3\nxcuserdata\nprofile\n*.moved-aside\nDerivedData\n.idea/\n*.hmap\n*.framework\n\n\n# Compiled Object files\n*.slo\n*.lo\n*.o\n*.obj\n\n# Precompiled Headers\n*.hpp.gch\n*.pch\n\n# Compiled Dynamic libraries\n*.so\n*.dylib\n\n# Compiled Static libraries\n*.lai\n*.la\n*.a\n*.lib\n\n# vi swps\n.*.s[a-w][a-z]\n*.un~\nSession.vim\n.netrwhist\n*~\n\n# Kyle's stuff\nmanuscript*/\nPresentation/\nSPIE_Pres/\n*sublime-workspace\n*.nii\nnifti/\n\n\n# Visual Studio stuff\n",
+			"file": "/Users/krbalmryde/Dropbox/XCodeProjects/aluminum/.gitignore",
+			"file_size": 544,
+			"file_write_time": 130476737580000000,
+			"settings":
+			{
+				"buffer_size": 566,
 				"line_ending": "Unix"
 			}
 		}
@@ -265,13 +279,16 @@
 	},
 	"file_history":
 	[
-		"/Users/krbalmryde/.afnirc",
 		"/Users/krbalmryde/.bash_aliases",
+		"/opt/local/Utilities/README.md",
+		"/Users/krbalmryde/.bash_profile",
 		"/Users/krbalmryde/.bash_functions",
+		"/opt/local/Utilities/.gitignore",
+		"/opt/local/Utilities/LICENSE.txt",
+		"/Users/krbalmryde/.afnirc",
 		"/opt/local/Utilities/Modules/ShellScripting/ShellScriptingGuide.tex",
 		"/opt/local/Utilities/bash_profile",
 		"/opt/local/Utilities/Iceword/ice.prep.sh",
-		"/Users/krbalmryde/.bash_profile",
 		"/Users/krbalmryde/Dropbox/Code-Projects/adrenaline.j",
 		"/Users/krbalmryde/Dropbox/Code-Projects/Python/PGen/pickle-pass",
 		"/opt/local/Utilities/Modules/Preprocessing/scripts/wb1.reg.sh",
@@ -389,10 +406,7 @@
 		"/Volumes/Data/MouseHunger/m004/m004.profile",
 		"/Volumes/Data/MouseHunger/m005/m005.profile",
 		"/Volumes/USB20FD/MouseHunger/Mouse/mouse.reg.sh",
-		"/Volumes/USB20FD/MouseHunger/README.txt",
-		"/usr/local/Utilities/Rat/rat_script.sh",
-		"/Volumes/Data/MouseHunger/README.txt",
-		"/usr/local/Utilities/README.md"
+		"/Volumes/USB20FD/MouseHunger/README.txt"
 	],
 	"find":
 	{
@@ -570,23 +584,24 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"semi_transient": false,
+					"file": "WordBoundary/wb1.laterality.sh",
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 2324,
+						"buffer_size": 5193,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								941,
-								941
+								2856,
+								2864
 							]
 						],
 						"settings":
@@ -598,34 +613,38 @@
 								"bh_c_define_center",
 								"bh_c_define_open",
 								"bh_c_define_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
 								"bh_single_quote_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
 								"bh_default_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
@@ -633,36 +652,111 @@
 								"bh_regex",
 								"bh_regex_center",
 								"bh_regex_open",
-								"bh_regex_close",
+								"bh_regex_close"
+							],
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 500.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "Modules/ShellScripting/ShellScriptingGuide.sh",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6437,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2679,
+								2679
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
 								"bh_round",
 								"bh_round_center",
 								"bh_round_open",
-								"bh_round_close"
+								"bh_round_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close"
 							],
+							"spell_check": true,
 							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 437.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "WordBoundary/wb1_grp.py",
-					"semi_transient": true,
+					"buffer": 2,
+					"file": "/Users/krbalmryde/Dropbox/XCodeProjects/aluminum/.gitignore",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 10450,
+						"buffer_size": 566,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1342,
-								1342
+								566,
+								566
 							]
 						],
 						"settings":
@@ -674,34 +768,38 @@
 								"bh_c_define_center",
 								"bh_c_define_open",
 								"bh_c_define_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
 								"bh_single_quote_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
 								"bh_default_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
@@ -709,15 +807,9 @@
 								"bh_regex",
 								"bh_regex_center",
 								"bh_regex_open",
-								"bh_regex_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close"
+								"bh_regex_close"
 							],
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -857,7 +949,7 @@
 		[
 			[
 				"",
-				"~/Dropbox/XCodeProjects/aluminum/osx/examples/visCog/VisCog.sublime-project"
+				"~/Dropbox/XCodeProjects/Aluminum.sublime-project"
 			]
 		],
 		"width": 380.0
