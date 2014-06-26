@@ -83,7 +83,6 @@ export MOUSEHUNGER=/Volumes/Data/MouseHunger
 PATH=$PATH:/opt/local/bin:/opt/local/sbin:/sw/bin
 PATH=$PATH:/Developer/usr/bin
 PATH=$PATH:/bin:/sbin:/usr/bin:/usr/sbin
-PATH=$PATH:/opt/local/bin:/opt/local/sbin
 PATH=$PATH:/opt/local/Utilities
 PATH=$PATH:/opt/local/pin
 PATH=$PATH:/opt/local/lib:/usr/lib     # DYLD Library files
