@@ -1,0 +1,11 @@
+#!/bin/sh
+
+cat word_fvfw_stim.txt word_mvmw_stim.txt > wcong_temp.txt
+cat word_fvmw_stim.txt word_mvfw_stim.txt > wincong_temp.txt
+cat voice_fvnw_stim.txt voice_mvnw_stim.txt > vnull_temp.txt
+cat word_fvnw_stim.txt word_mvnw_stim.txt > wnull_temp.txt
+< wcong_temp.txt awk '1' RS=" " > w_cong.txt
+< wincong_temp.txt awk '1' RS=" " > w_incong.txt
+< vnull_temp.txt awk '1' RS=" " > v_null.txt
+< Wnull_temp.txt awk '1' RS=" " > w_null.txt
+rm *temp.txt

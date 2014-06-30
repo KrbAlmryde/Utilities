@@ -324,6 +324,55 @@ function upafni() {
 } # End of upafni
 
 
+function split() {
+    #------------------------------------------------------------------------
+    #
+    #  Purpose: Simple function to split a word based on delimiter, returning
+    #           input to an array (if desired) or the word as a string 
+    #           separated by white-space
+    #
+    #    Input: $1 should be the delimiter eg. '.'
+    #           $2 should be the word you wish to split
+    #   
+    #   Output: If everything works, it should be the word split on the chosen
+    #           delimiter. Otherwise an error code will appear
+    #
+    #------------------------------------------------------------------------
+
+    local delim=$1
+    local word=$2
+    local STOP=0
+    local EXIT=1 # By default set Exit code to 1, presumes bad exit. 
+    local f=1 # field index
+    local i=0 # array index
+    declare -a splitList
+
+    if [[ $# -ne 2 ]]; then
+        echo "Requires two arguments, received ${#}! Exiting..."
+        return $EXIT
+    fi
+
+    while [[ $STOP -ne 1 ]]; do
+        
+        temp=$(echo $word | cut -d "${delim}" -f$f)
+
+        case $temp in
+            $word ) 
+                    STOP=1
+                    return $EXIT; # "Bad delimiter, exiting..."
+                ;;
+               "" ) 
+                    echo ${splitList[*]} # reached end of splits
+                    STOP=1
+                ;;
+                * )
+                    splitList[$i]=$temp
+                    ((i++,f++))
+                ;;
+        esac
+    done
+}
+
 
 function hidden() {
     #------------------------------------------------------------------------

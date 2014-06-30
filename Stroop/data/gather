@@ -1,0 +1,13 @@
+#!/usr/bin/env tcsh
+# execute via : tcsh -x S#-run-script |& tee output.S#-run-script
+
+# --------------------------------------------------
+# script setup
+
+set subj = $1
+set images_home = /Volumes/Data/Stroop
+set results_dir = $images_home/WorkShop/Compare
+set subj_dir = $images_home/${subj}
+cd ${results_dir}
+echo "spgr"
+cp $subj_dir/struct/spgr/*spgr+orig* ${results_dir}

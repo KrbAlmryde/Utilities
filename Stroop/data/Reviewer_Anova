@@ -1,0 +1,214 @@
+#!/usr/bin/env tcsh
+echo "./Anova group voice"
+# --------------------------------------------------
+# Script Setup
+
+
+set images_home = /Volumes/Maxtor/Data/Stroop/AnovaData
+
+#set type = Group/Female/Male
+set type = $1      
+
+#set run = voice/word      
+set run = $2      
+
+echo "Setting Directory Paths"
+# assign output directory name
+set results_dir = $images_home/${type}_${run}_Anova_results
+
+# verify that the results directory does not yet exist
+if ( -d $results_dir ) then 
+    echo output dir "${type}_${run}_Anova_results" already exists
+   
+
+  endif
+
+echo "Making $results_dir directory"
+# create results and group analysis directory
+mkdir $results_dir
+
+echo "Enter results directory"
+#change directory to results
+cd $results_dir
+
+echo "Let the ANOVA begin!"
+echo "ANOVA follows this pattern...C C I I N N"
+3dANOVA2 -type 3 -alevels 6 -blevels 12							\
+-dset 1 1 $images_home/00_Prep/S19_${run}_fvfw_peak_irf+tlrc		\
+-dset 1 2 $images_home/00_Prep/S19_${run}_mvmw_peak_irf+tlrc		\
+-dset 1 3 $images_home/00_Prep/S19_${run}_fvmw_peak_irf+tlrc		\
+-dset 1 4 $images_home/00_Prep/S19_${run}_mvfw_peak_irf+tlrc		\
+-dset 1 5 $images_home/00_Prep/S19_${run}_fvnw_peak_irf+tlrc		\
+-dset 1 6 $images_home/00_Prep/S19_${run}_mvnw_peak_irf+tlrc		\
+-dset 2 1 $images_home/00_Prep/S20_${run}_fvfw_peak_irf+tlrc		\
+-dset 2 2 $images_home/00_Prep/S20_${run}_mvmw_peak_irf+tlrc		\
+-dset 2 3 $images_home/00_Prep/S20_${run}_fvmw_peak_irf+tlrc		\
+-dset 2 4 $images_home/00_Prep/S20_${run}_mvfw_peak_irf+tlrc		\
+-dset 2 5 $images_home/00_Prep/S20_${run}_fvnw_peak_irf+tlrc		\
+-dset 2 6 $images_home/00_Prep/S20_${run}_mvnw_peak_irf+tlrc		\
+-dset 3 1 $images_home/00_Prep/S21_${run}_fvfw_peak_irf+tlrc		\
+-dset 3 2 $images_home/00_Prep/S21_${run}_mvmw_peak_irf+tlrc		\
+-dset 3 3 $images_home/00_Prep/S21_${run}_fvmw_peak_irf+tlrc		\
+-dset 3 4 $images_home/00_Prep/S21_${run}_mvfw_peak_irf+tlrc		\
+-dset 3 5 $images_home/00_Prep/S21_${run}_fvnw_peak_irf+tlrc		\
+-dset 3 6 $images_home/00_Prep/S21_${run}_mvnw_peak_irf+tlrc		\
+-dset 4 1 $images_home/00_Prep/S24_${run}_fvfw_peak_irf+tlrc		\
+-dset 4 2 $images_home/00_Prep/S24_${run}_mvmw_peak_irf+tlrc		\
+-dset 4 3 $images_home/00_Prep/S24_${run}_fvmw_peak_irf+tlrc		\
+-dset 4 4 $images_home/00_Prep/S24_${run}_mvfw_peak_irf+tlrc		\
+-dset 4 5 $images_home/00_Prep/S24_${run}_fvnw_peak_irf+tlrc		\
+-dset 4 6 $images_home/00_Prep/S24_${run}_mvnw_peak_irf+tlrc		\
+-dset 5 1 $images_home/00_Prep/S26_${run}_fvfw_peak_irf+tlrc		\
+-dset 5 2 $images_home/00_Prep/S26_${run}_mvmw_peak_irf+tlrc		\
+-dset 5 3 $images_home/00_Prep/S26_${run}_fvmw_peak_irf+tlrc		\
+-dset 5 4 $images_home/00_Prep/S26_${run}_mvfw_peak_irf+tlrc		\
+-dset 5 5 $images_home/00_Prep/S26_${run}_fvnw_peak_irf+tlrc		\
+-dset 5 6 $images_home/00_Prep/S26_${run}_mvnw_peak_irf+tlrc		\
+-dset 6 1 $images_home/00_Prep/S28_${run}_fvfw_peak_irf+tlrc		\
+-dset 6 2 $images_home/00_Prep/S28_${run}_mvmw_peak_irf+tlrc		\
+-dset 6 3 $images_home/00_Prep/S28_${run}_fvmw_peak_irf+tlrc		\
+-dset 6 4 $images_home/00_Prep/S28_${run}_mvfw_peak_irf+tlrc		\
+-dset 6 5 $images_home/00_Prep/S28_${run}_fvnw_peak_irf+tlrc		\
+-dset 6 6 $images_home/00_Prep/S28_${run}_mvnw_peak_irf+tlrc		\
+-dset 7 1 $images_home/00_Prep/S29_${run}_fvfw_peak_irf+tlrc		\
+-dset 7 2 $images_home/00_Prep/S29_${run}_mvmw_peak_irf+tlrc		\
+-dset 7 3 $images_home/00_Prep/S29_${run}_fvmw_peak_irf+tlrc		\
+-dset 7 4 $images_home/00_Prep/S29_${run}_mvfw_peak_irf+tlrc		\
+-dset 7 5 $images_home/00_Prep/S29_${run}_fvnw_peak_irf+tlrc		\
+-dset 7 6 $images_home/00_Prep/S29_${run}_mvnw_peak_irf+tlrc		\
+-dset 8 1 $images_home/00_Prep/S32_${run}_fvfw_peak_irf+tlrc		\
+-dset 8 2 $images_home/00_Prep/S32_${run}_mvmw_peak_irf+tlrc		\
+-dset 8 3 $images_home/00_Prep/S32_${run}_fvmw_peak_irf+tlrc		\
+-dset 8 4 $images_home/00_Prep/S32_${run}_mvfw_peak_irf+tlrc		\
+-dset 8 5 $images_home/00_Prep/S32_${run}_fvnw_peak_irf+tlrc		\
+-dset 8 6 $images_home/00_Prep/S32_${run}_mvnw_peak_irf+tlrc		\
+-dset 9 1 $images_home/00_Prep/S33_${run}_fvfw_peak_irf+tlrc		\
+-dset 9 2 $images_home/00_Prep/S33_${run}_mvmw_peak_irf+tlrc		\
+-dset 9 3 $images_home/00_Prep/S33_${run}_fvmw_peak_irf+tlrc		\
+-dset 9 4 $images_home/00_Prep/S33_${run}_mvfw_peak_irf+tlrc		\
+-dset 9 5 $images_home/00_Prep/S33_${run}_fvnw_peak_irf+tlrc		\
+-dset 9 6 $images_home/00_Prep/S33_${run}_mvnw_peak_irf+tlrc		\
+-dset 10 1 $images_home/00_Prep/S34_${run}_fvfw_peak_irf+tlrc		\
+-dset 10 2 $images_home/00_Prep/S34_${run}_mvmw_peak_irf+tlrc		\
+-dset 10 3 $images_home/00_Prep/S34_${run}_fvmw_peak_irf+tlrc		\
+-dset 10 4 $images_home/00_Prep/S34_${run}_mvfw_peak_irf+tlrc		\
+-dset 10 5 $images_home/00_Prep/S34_${run}_fvnw_peak_irf+tlrc		\
+-dset 10 6 $images_home/00_Prep/S34_${run}_mvnw_peak_irf+tlrc		\
+-dset 11 1 $images_home/00_Prep/S35_${run}_fvfw_peak_irf+tlrc		\
+-dset 11 2 $images_home/00_Prep/S35_${run}_mvmw_peak_irf+tlrc		\
+-dset 11 3 $images_home/00_Prep/S35_${run}_fvmw_peak_irf+tlrc		\
+-dset 11 4 $images_home/00_Prep/S35_${run}_mvfw_peak_irf+tlrc		\
+-dset 11 5 $images_home/00_Prep/S35_${run}_fvnw_peak_irf+tlrc		\
+-dset 11 6 $images_home/00_Prep/S35_${run}_mvnw_peak_irf+tlrc		\
+-dset 12 1 $images_home/00_Prep/S37_${run}_fvfw_peak_irf+tlrc		\
+-dset 12 2 $images_home/00_Prep/S37_${run}_mvmw_peak_irf+tlrc		\
+-dset 12 3 $images_home/00_Prep/S37_${run}_fvmw_peak_irf+tlrc		\
+-dset 12 4 $images_home/00_Prep/S37_${run}_mvfw_peak_irf+tlrc		\
+-dset 12 5 $images_home/00_Prep/S37_${run}_fvnw_peak_irf+tlrc		\
+-dset 12 6 $images_home/00_Prep/S37_${run}_mvnw_peak_irf+tlrc		\
+-dset 13 1 $images_home/00_Prep/S40_${run}_fvfw_peak_irf+tlrc		\
+-dset 13 2 $images_home/00_Prep/S40_${run}_mvmw_peak_irf+tlrc		\
+-dset 13 3 $images_home/00_Prep/S40_${run}_fvmw_peak_irf+tlrc		\
+-dset 13 4 $images_home/00_Prep/S40_${run}_mvfw_peak_irf+tlrc		\
+-dset 13 5 $images_home/00_Prep/S40_${run}_fvnw_peak_irf+tlrc		\
+-dset 13 6 $images_home/00_Prep/S40_${run}_mvnw_peak_irf+tlrc		\
+-dset 14 1 $images_home/00_Prep/S44_${run}_fvfw_peak_irf+tlrc		\
+-dset 14 2 $images_home/00_Prep/S44_${run}_mvmw_peak_irf+tlrc		\
+-dset 14 3 $images_home/00_Prep/S44_${run}_fvmw_peak_irf+tlrc		\
+-dset 14 4 $images_home/00_Prep/S44_${run}_mvfw_peak_irf+tlrc		\
+-dset 14 5 $images_home/00_Prep/S44_${run}_fvnw_peak_irf+tlrc		\
+-dset 14 6 $images_home/00_Prep/S44_${run}_mvnw_peak_irf+tlrc		\
+-dset 15 1 $images_home/00_Prep/S45_${run}_fvfw_peak_irf+tlrc		\
+-dset 15 2 $images_home/00_Prep/S45_${run}_mvmw_peak_irf+tlrc		\
+-dset 15 3 $images_home/00_Prep/S45_${run}_fvmw_peak_irf+tlrc		\
+-dset 15 4 $images_home/00_Prep/S45_${run}_mvfw_peak_irf+tlrc		\
+-dset 15 5 $images_home/00_Prep/S45_${run}_fvnw_peak_irf+tlrc		\
+-dset 15 6 $images_home/00_Prep/S45_${run}_mvnw_peak_irf+tlrc		\
+-dset 16 1 $images_home/00_Prep/S22_${run}_fvfw_peak_irf+tlrc		\
+-dset 16 2 $images_home/00_Prep/S22_${run}_mvmw_peak_irf+tlrc		\
+-dset 16 3 $images_home/00_Prep/S22_${run}_fvmw_peak_irf+tlrc		\
+-dset 16 4 $images_home/00_Prep/S22_${run}_mvfw_peak_irf+tlrc		\
+-dset 16 5 $images_home/00_Prep/S22_${run}_fvnw_peak_irf+tlrc		\
+-dset 16 6 $images_home/00_Prep/S22_${run}_mvnw_peak_irf+tlrc		\
+-dset 17 1 $images_home/00_Prep/S23_${run}_fvfw_peak_irf+tlrc		\
+-dset 17 2 $images_home/00_Prep/S23_${run}_mvmw_peak_irf+tlrc		\
+-dset 17 3 $images_home/00_Prep/S23_${run}_fvmw_peak_irf+tlrc		\
+-dset 17 4 $images_home/00_Prep/S23_${run}_mvfw_peak_irf+tlrc		\
+-dset 17 5 $images_home/00_Prep/S23_${run}_fvnw_peak_irf+tlrc		\
+-dset 17 6 $images_home/00_Prep/S23_${run}_mvnw_peak_irf+tlrc		\
+-dset 18 1 $images_home/00_Prep/S27_${run}_fvfw_peak_irf+tlrc		\
+-dset 18 2 $images_home/00_Prep/S27_${run}_mvmw_peak_irf+tlrc		\
+-dset 18 3 $images_home/00_Prep/S27_${run}_fvmw_peak_irf+tlrc		\
+-dset 18 4 $images_home/00_Prep/S27_${run}_mvfw_peak_irf+tlrc		\
+-dset 18 5 $images_home/00_Prep/S27_${run}_fvnw_peak_irf+tlrc		\
+-dset 18 6 $images_home/00_Prep/S27_${run}_mvnw_peak_irf+tlrc		\
+-dset 19 1 $images_home/00_Prep/S30_${run}_fvfw_peak_irf+tlrc		\
+-dset 19 2 $images_home/00_Prep/S30_${run}_mvmw_peak_irf+tlrc		\
+-dset 19 3 $images_home/00_Prep/S30_${run}_fvmw_peak_irf+tlrc		\
+-dset 19 4 $images_home/00_Prep/S30_${run}_mvfw_peak_irf+tlrc		\
+-dset 19 5 $images_home/00_Prep/S30_${run}_fvnw_peak_irf+tlrc		\
+-dset 19 6 $images_home/00_Prep/S30_${run}_mvnw_peak_irf+tlrc		\
+-dset 20 1 $images_home/00_Prep/S31_${run}_fvfw_peak_irf+tlrc		\
+-dset 20 2 $images_home/00_Prep/S31_${run}_mvmw_peak_irf+tlrc		\
+-dset 20 3 $images_home/00_Prep/S31_${run}_fvmw_peak_irf+tlrc		\
+-dset 20 4 $images_home/00_Prep/S31_${run}_mvfw_peak_irf+tlrc		\
+-dset 20 5 $images_home/00_Prep/S31_${run}_fvnw_peak_irf+tlrc		\
+-dset 20 6 $images_home/00_Prep/S31_${run}_mvnw_peak_irf+tlrc		\
+-dset 21 1 $images_home/00_Prep/S36_${run}_fvfw_peak_irf+tlrc		\
+-dset 21 2 $images_home/00_Prep/S36_${run}_mvmw_peak_irf+tlrc		\
+-dset 21 3 $images_home/00_Prep/S36_${run}_fvmw_peak_irf+tlrc		\
+-dset 21 4 $images_home/00_Prep/S36_${run}_mvfw_peak_irf+tlrc		\
+-dset 21 5 $images_home/00_Prep/S36_${run}_fvnw_peak_irf+tlrc		\
+-dset 21 6 $images_home/00_Prep/S36_${run}_mvnw_peak_irf+tlrc		\
+-dset 22 1 $images_home/00_Prep/S38_${run}_fvfw_peak_irf+tlrc		\
+-dset 22 2 $images_home/00_Prep/S38_${run}_mvmw_peak_irf+tlrc		\
+-dset 22 3 $images_home/00_Prep/S38_${run}_fvmw_peak_irf+tlrc		\
+-dset 22 4 $images_home/00_Prep/S38_${run}_mvfw_peak_irf+tlrc		\
+-dset 22 5 $images_home/00_Prep/S38_${run}_fvnw_peak_irf+tlrc		\
+-dset 22 6 $images_home/00_Prep/S38_${run}_mvnw_peak_irf+tlrc		\
+-dset 23 1 $images_home/00_Prep/S39_${run}_fvfw_peak_irf+tlrc		\
+-dset 23 2 $images_home/00_Prep/S39_${run}_mvmw_peak_irf+tlrc		\
+-dset 23 3 $images_home/00_Prep/S39_${run}_fvmw_peak_irf+tlrc		\
+-dset 23 4 $images_home/00_Prep/S39_${run}_mvfw_peak_irf+tlrc		\
+-dset 23 5 $images_home/00_Prep/S39_${run}_fvnw_peak_irf+tlrc		\
+-dset 23 6 $images_home/00_Prep/S39_${run}_mvnw_peak_irf+tlrc		\
+-dset 24 1 $images_home/00_Prep/S41_${run}_fvfw_peak_irf+tlrc		\
+-dset 24 2 $images_home/00_Prep/S41_${run}_mvmw_peak_irf+tlrc		\
+-dset 24 3 $images_home/00_Prep/S41_${run}_fvmw_peak_irf+tlrc		\
+-dset 24 4 $images_home/00_Prep/S41_${run}_mvfw_peak_irf+tlrc		\
+-dset 24 5 $images_home/00_Prep/S41_${run}_fvnw_peak_irf+tlrc		\
+-dset 24 6 $images_home/00_Prep/S41_${run}_mvnw_peak_irf+tlrc		\
+-dset 25 1 $images_home/00_Prep/S42_${run}_fvfw_peak_irf+tlrc		\
+-dset 25 2 $images_home/00_Prep/S42_${run}_mvmw_peak_irf+tlrc		\
+-dset 25 3 $images_home/00_Prep/S42_${run}_fvmw_peak_irf+tlrc		\
+-dset 25 4 $images_home/00_Prep/S42_${run}_mvfw_peak_irf+tlrc		\
+-dset 25 5 $images_home/00_Prep/S42_${run}_fvnw_peak_irf+tlrc		\
+-dset 25 6 $images_home/00_Prep/S42_${run}_mvnw_peak_irf+tlrc		\
+-dset 26 1 $images_home/00_Prep/S43_${run}_fvfw_peak_irf+tlrc		\
+-dset 26 2 $images_home/00_Prep/S43_${run}_mvmw_peak_irf+tlrc		\
+-dset 26 3 $images_home/00_Prep/S43_${run}_fvmw_peak_irf+tlrc		\
+-dset 26 4 $images_home/00_Prep/S43_${run}_mvfw_peak_irf+tlrc		\
+-dset 26 5 $images_home/00_Prep/S43_${run}_fvnw_peak_irf+tlrc		\
+-dset 26 6 $images_home/00_Prep/S43_${run}_mvnw_peak_irf+tlrc		\
+-dset 27 1 $images_home/00_Prep/S46_${run}_fvfw_peak_irf+tlrc		\
+-dset 27 2 $images_home/00_Prep/S46_${run}_mvmw_peak_irf+tlrc		\
+-dset 27 3 $images_home/00_Prep/S46_${run}_fvmw_peak_irf+tlrc		\
+-dset 27 4 $images_home/00_Prep/S46_${run}_mvfw_peak_irf+tlrc		\
+-dset 27 5 $images_home/00_Prep/S46_${run}_fvnw_peak_irf+tlrc		\
+-dset 27 6 $images_home/00_Prep/S46_${run}_mvnw_peak_irf+tlrc		\
+-voxel 2000 							\
+-fa Fstat_all 							\
+-fa Fstat_all 							\
+-amean 1 mean_${type}_${run}_fvfw 				\
+-amean 2 mean_${type}_${run}_mvmw 				\
+-amean 3 mean_${type}_${run}_fvmw 				\
+-amean 4 mean_${type}_${run}_mvfw 				\
+-amean 5 mean_${type}_${run}_fvnw 				\
+-amean 6 mean_${type}_${run}_mvnw 				\
+-acontr -1 -1 1 1 0 0 Incongruent_vs_Congruent	\
+-acontr 1 1 -1 -1 0 0 Congruent_vs_Incongruent	\
+-acontr 0 0 1 1 -1 -1 Incongruent_vs_Neutral   \
+-acontr 0 0 -1 -1 1 1 Neutral_vs_Incongruent   \
+-acontr 1 1 0 0 -1 -1 Congruent_vs_Neutral     \
+-acontr -1 -1 0 0 1 1 Neutral_vs_Congruent     \
+-fa Fstat_mean

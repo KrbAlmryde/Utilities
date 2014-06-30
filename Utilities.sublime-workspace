@@ -80,53 +80,10 @@
 	"buffers":
 	[
 		{
-			"contents": "#!/bin/bash\n#================================================================================\n#    Program Name: ShellScriptingGuide.sh\n#          Author: Kyle Reese Almryde\n#            Date: \n#\n#     Description: The goal of this guide is to act as a primer for both your\n#                  shell scripting AND your AFNI scripting. I will do my best\n#                  to demonstrate for you what I consider best practices when\n#                  you are writing your own programs, as well as how to perform\n#                  common tasks using AFNI that you will likely be performing\n#                  again and again. \n#                \n#           Notes: I want to be clear that while I have a pretty good idea of \n#                  what I am doing when it comes to scripting and using AFNI\n#                  I am by no means an expert. Furthermore, this primer is \n#                  only a GUIDE, not a set of hard and fast rules. At the end\n#                  of the day, the onus is on you to make sure you know what\n#                  you are doing. When in doubt, use your resources, ASK FOR \n#                  HELP, and read the literature!\n#\n#                  I STRONGLY recommend you give the \"Advanced Bash Scripting- \n#                  Guide\" a solid look through. Many of the tips and tricks I \n#                  demonstrate in this guide and in my own code were inspired \n#                  after reading that guide and are explained in greater \n#                  detail and with fantastic examples. To that end I would also\n#                  encourage you to really take the time to DO THE EXAMPLES!\n#                \n#       Last Word: At the time of this writing Bash is up to version 4.3, \n#                  however Apple (Mac OS) only ships Bash version 3.2, which \n#                  is what your shell uses by default. Dont upgrade unless the\n#                  whole lab upgrades, otherwise you risk breaking code and \n#                  causing a whole bunch of headache because your program uses\n#                  associative arrays and none of the lab computers support \n#                  them.\n#================================================================================\n#                            TABLE OF CONTENTS\n#================================================================================\n\n0) General Tips and Tricks\n1) Variables\n2) Common Commands\n3) \n\nLoops and Iterations\nLogic operations\nFunctions\nGotchas\n\n\n\n#==============================================================================\n#                         GENERAL TIPS AND TRICKS\n#==============================================================================\n# When writing a program or script there are several things that I find to be \n# absolutely CRITICAL in terms of the speed at which I develop as well as the \n# accuracy of the programs that I write. \n#\n# 1) Always have a TERMINAL open. Bash is first and foremost a command-line \n# utility, it was built with the use of the terminal in mind. So USE IT! Cant \n# remember how a particular command works? Test it out in your terminal first. \n#\n# 2) Take advantage of a dedicated editor. People that claim you can write code \n# using apple's default text editor are technically correct and technically \n# masochistic. Modern text editors, specifically those geared towards writing \n# code are designed to make writing code easier. Among their most valuable \n# features include Syntax highlighting, code-completion, and a myriad of other \n# features that just make the job easier. I personally recommend Sublime Text \n# http://www.sublimetext.com trust me, you will be glad you did.\n#\n# 3) echo statements (or print statements), echo statements everywhere! A silent\n# program is both a deadly one and a bitch to debug. Do yourself a favor and \n# throw in an echo statement or three\n#\n# 4) Use your resources! The World Wide Web is a wonderful thing, and I wouldnt\n# have learned as much as I have without it. The following sites have proven\n# CRITICAL time and again when I have run into a problem or when I am trying to \n# figure something out. Use them, that is what they are there for!\n#     http://www.unix.com/\n#     http://stackoverflow.com/\n#     http://afni.nimh.nih.gov/afni/community/board/index.php\n#\n# 5) Practice makes perfect! Rome wasn't built in a day, neither will your \n# coding or AFNI skills. Personally I found I enjoyed scripting and coming up \n# with neat little utilities to make boring and repetitive tasks quicker and\n# easier. WWhich frees up your time to do more interesting tasks.\n#\n# 6) Document your code. Document your code. DOCUMENT YOUR CODE!\n# Think you will remember why you named that variable 'aa' next week? Why \n# do you create a folder only to remove it later. What the hell does this \n# command do again?!: \n#\n#     clust=$(awk 'match($1,'${plvl}'0000 ) {print $11}' ${ETC}/ClustSim.NN1.1D)\n#\n# You think you will remember, but I promise, you wont. Always document your \n# code. Both as a courtesy to yourself when 5 months down the line you have to \n# revisit your old script and have NO idea what it does, and for the poor fool \n# who has to take over after you're gone. It will happen to you!!\n#\n# 7) Use MEANINGFUL variable and function names! Trust me, 'input3d' is a much\n# better name than 'ip3d', or worse 'v'. As a general rule, unless it is \n# absolutely crystal clear, the context of the code SCREAMS its meaning, DO \n# NOT use single characters as variable names. The only exception to this rule \n# is when you are using a counter in a for-loop, or some kind of indexing \n# variable. Even then, make sure it makes sense in context, when in doubt \n# give it a name! You'll thank yourself later that you did.\n#\n#==============================================================================\n#                             VARIABLES\n#==============================================================================\n\naNumber=10  # A number!\nfruit=\"apples\"  # a Word\n\necho \"I have $aNumber ${fruit}!\"  # evaluate the expression!\necho I have $aNumber $fruit!      # You dont NEED quotes, but they are helpful\necho 'I have $aNumber ${fruit}!'  # What do you notice?\n\n# File paths and variables\naDIR=BootCamp/Examples\nbDIR=\"BootCamp/Examples/scripts\"  # Recall, everything is a string\ncDIR=\"${aDIR}/data\"              # What does this evaluate to?\n\n\n#---------------------------\n#   A real world example...\n#---------------------------\nsubj=sub001        # Notice the various levels of quotations\nrun='run2'          \ncond=\"learnable\"    \n\n# I have assigned three variables: subj, run, and cond (short for condition).\n# Each variable contains a string. In bash, everything is technically a \n# string, you dont NEED to include the quotation marks around a term. All \n# three variable assignments are valid statements.\n\n\n# Let make a file name\nfName=${subj}_${run}_${cond}.nii  # again, the brackets here arent necessarily needed, but\n                                  # they demonstrate good form, and cleaner code which is\n                                  # less likely to contain bugs, just do it.\n\necho $fname  # see how nice variables are? So much less typing!\n             # sub001_run2_learnable.nii\n\nfName2=${subj}_${run}_${cond}  # A slight variation on the previous example\necho ${fname2}.nii             # Can you tell the difference?\n\n#==============================================================================\n#                      Arrays: Advanced Variables\n#==============================================================================\n# Arrays are powerful tools which allow one to store lots of data in a nicely\n# wrapped up package. As you look through my old scripts and code you will \n# see frequent use of Arrays. \n\n# You can declare arrays in a number of ways, the first by using 'declare -a' \ndeclare -a groceryList  # However this isn't required\n\n# to populate the array you can assign a value to each index\ngroceryList[0]=\"oranges\"       # remember, wrapping strings in quotes isnt\ngroceryList[1]=rice            # necessary, but its good practice\ngroceryList[2]=\"beans\" \ngroceryList[3]='steak'         # If you're not using variables, single quotes\ngroceryList[4]='beer'          # work just fine. \ngroceryList[5]=lime\ngroceryList[6]=$fruit          # There is nothing stopping you from adding \n                               # variables to your array\n\n# You can also declare and initialize an array like this as well (I prefer this)\ngroceryList=( oranges rice beans steak beer lime $fruit ) # This is fine too\n\n#------------------\n# Indexing Arrays \n#------------------\n# To access elements in the array, you give it the index of the element you \n# want\n\necho ${groceryList[0]}  # Gives us \"oranges\"\necho ${groceryList[1]}  # Gives us \"rice\"\necho ${groceryList[6]}  # Gives us \"apples\", It evaluates variables too!\n\n# Arrays in Bash (and most programming languages for that matter) are Zero-based\n# That is, the first element in the array is accessed by the value 0, the next\n# element is accessed by 1, the third by 2, and so on\n\necho $groceryList     # Gives us \"oranges\", if no index is given, defaults to \n                      # 0th element\necho ${groceryList}   # Same thing\n\necho $groceryList[1]  # What happens?\n\n# To see all the elements in the array at once, try the following\necho ${groceryList[*]} # oranges rice beans steak beer lime apples\necho ${groceryList[@]} # This also works too\n\n\n# To determine the length of the array,e.g. or how many elements it contains,  \n# append the '#' to the front of the name, like so:\necho ${#groceryList[*]}  # 7 elements\n\n# However, dont be fooled into doing something like this\necho ${groceryList[7]}  # \"\" no element at index 7!! Remember we are Zero-based\n\n# However, this works!\necho ${groceryList[7-1]}\n\necho ${groceryList[${#groceryList[*]}-1]}  # Even this mess is legal! I \n                                           # would avoid doing this however\n#------------------\n# Modifying Arrays \n#------------------\n# Say we want to add 'mustard' to our grocery list, well thats easy:\ngroceryList[7]=\"mustard\"\necho ${#groceryList[*]}  # 8 elements\necho ${groceryList[*]} # oranges rice beans steak beer lime apples mustard\necho ${groceryList[7]}  # 'mustard'\n\n# We can just as easily replace an element of the array by doing this:\ngroceryList[7]='relish'\necho ${groceryList[7]}  # 'relish'\n\n#----------------------\n# FYI\n#----------------------\n# Unfortunately you cannot create multidimensional arrays, that is, arrays \n# within arrays. It is not supported and isnt really necessary anyway. \n\n#-----------------------------------------------------------------------------\n#                 Some gotchas and advanced bash functionality\n#-----------------------------------------------------------------------------\n# Before I demonstrated how you could get the length of your array, its worth\n# mentioning that the syntax for evaluating the length of your array works \n# the same when determining the length of a String! Observe...\n\necho ${#groceryList}  # Gives us 7?! \n\n# recall that evaluating the array without an index results in the 0th element\n# In this case, our 0th element is 'oranges'\necho ${groceryList}  # oranges\n\n# Guess how many characters are in the word 'oranges'. If you guessed 7, Bingo!\n# you guessed right (If you guessed something else, stop reading and go home)\n\n\n#==============================================================================\n#                           STRING MANIPULATION\n#==============================================================================\n# Bash offers a surprising number of string manipulation operation. However \n# these tools tend to lack a unified focus and the syntax gets muddled between\n# different types of manipulations making them confusing and their functions\n# inconsistent. That being said I am presenting them here so you know how to \n# do them so you know NOT to do them. \n\n# Lets start by making a variable containing the string \"Happy Birthday!\" \naString=\"Happy Birthday!\"\n\n#----------------------\n# String Length\n#----------------------\necho ${#aString}\n\n#==============================================================================\n#                           BRACE EXPANSIONS\n#==============================================================================\n\n\n\n\n\n#==============================================================================\n#                        LOOPS: While, For, and Until\n#==============================================================================\n\nfor (( number = 0; number < 10; number++ )); do\n    echo $i\ndone\n\nfor letter in {a..k}; do   # You can use brace expansions in for loops!\n    echo $letter\ndone\n\nfor word in This is a 'for' loop son; do   # why did I put 'for' in quotes?\n    echo $word\ndone\n\n\n\n\n\n\n#==============================================================================\n#                      LOGIC OPERATORS: If, Test, and Case\n#==============================================================================\n\n\n#==============================================================================\n#  Exercise: \n#   \n#  \n#\n#\n#==============================================================================\n\n\n\n\n\n#==============================================================================\n#                              Common Commands\n#==============================================================================\n\n# Lets make a directory!\nmkdir $aDIR\n\n# Now we are going to jump ahead for a moment and introduce some wild concepts\n# We will start by making a directory, and introducing a useful flag\n\nmkdir -p $aDIR/{data,docs,utils}   # Oh snap! What did I just do?!\n\n# The '-p' is a \"flag\" (think option) for mkdir which will, in addition to creating the\n# desired directory, will also create any intermediate dirctories as needed.\n\n# The {data, docs, utils}, is what is known as a brace expansion. On its own\n# {data, docs, utils} isnt particularly useful, but when you combine it to make\n# mkdir -p $aDIR/{data, docs, utils}, suddenly you have a Proejct directory structure!\n# The best part is, you can nest brace expansions to get REALLY crazy. For example\n\nmkdir -p $aDIR/{data/{sub00{1..9}/{PREP,GLM},Group/{ANOVA,TTEST,STATS}},docs,utils}\n\n# And just like that, you have an ENTIRE project directory structure, loaded with\n# subject folders and all! Your program should create something that looks like this:\n# |-- BootCamp\n# |   `-- Examples\n# |       |-- data\n# |       |   |-- Group\n# |       |   |   |-- ANOVA\n# |       |   |   |-- STATS\n# |       |   |   `-- TTEST\n# |       |   |-- sub001\n# |       |   |   |-- GLM\n# |       |   |   `-- PREP\n# |       |   |-- sub002\n# |       |   |   |-- GLM\n# |       |   |   `-- PREP\n# |       |   |-- sub003\n# |       |   |   |-- GLM\n# |       |   |   `-- PREP\n#=====================================================================================\n\n# NB: You'll notice I am not terribly consistent with the the '{curly brackets}' around\n# variable names. This is because they arent `technically` necessary...They just \"protect\"\n# the variable name. This is especially relevant when you incorporate the variables name\n# in another variable, as Ill demonstrate below...\n\n\n\n\n\n\n\n\n\n\n#==============================================================================\n#  Exercise: \n#   \n#  \n#\n#\n#==============================================================================\n",
 			"file": "Modules/ShellScripting/ShellScriptingGuide.sh",
-			"file_size": 14911,
-			"file_write_time": 130482896480000000,
 			"settings":
 			{
 				"buffer_size": 15444,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/Users/krbalmryde/.bash_profile",
-			"settings":
-			{
-				"buffer_size": 6265,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/Users/krbalmryde/.bash_functions",
-			"settings":
-			{
-				"buffer_size": 18244,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/Users/krbalmryde/.bash_aliases",
-			"settings":
-			{
-				"buffer_size": 6638,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "WorkShop/SHELL/Notes, Tips, and Tricks.sh",
-			"settings":
-			{
-				"buffer_size": 6838,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/etc/shells",
-			"settings":
-			{
-				"buffer_size": 190,
 				"line_ending": "Unix"
 			}
 		}
@@ -312,6 +269,11 @@
 	},
 	"file_history":
 	[
+		"/etc/shells",
+		"/Users/krbalmryde/.bash_profile",
+		"/Users/krbalmryde/.bash_functions",
+		"/Users/krbalmryde/.bash_aliases",
+		"/opt/local/Utilities/Mouse/mouse.reg.sh",
 		"/opt/local/Utilities/.git/config",
 		"/opt/local/Utilities/WorkShop/PYTHON/ColorSchemes_To_Languages.py",
 		"/opt/local/Utilities/WorkShop/Figure_Color_table.txt",
@@ -319,10 +281,7 @@
 		"/opt/local/Utilities/AttnMem/Commands",
 		"/opt/local/Utilities/CanopyFix.sh",
 		"/Users/krbalmryde/Dropbox/XCodeProjects/aluminum/.gitignore",
-		"/Users/krbalmryde/.bash_aliases",
 		"/opt/local/Utilities/README.md",
-		"/Users/krbalmryde/.bash_profile",
-		"/Users/krbalmryde/.bash_functions",
 		"/opt/local/Utilities/.gitignore",
 		"/opt/local/Utilities/LICENSE.txt",
 		"/Users/krbalmryde/.afnirc",
@@ -437,9 +396,7 @@
 		"/usr/local/Utilities/Rat/Step-by-step",
 		"/MATLAB/mind/GroupICATv3.0a/icatb/icatb_defaults.m",
 		"/usr/local/Utilities/Mouse/ReadMe.txt",
-		"/usr/local/Utilities/WorkShop/SHELL/Coding Goals",
-		"/Volumes/Data/MouseHunger/m001/m001.profile",
-		"/Volumes/Data/MouseHunger/m002/m002.profile"
+		"/usr/local/Utilities/WorkShop/SHELL/Coding Goals"
 	],
 	"find":
 	{
@@ -617,7 +574,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -633,8 +590,8 @@
 						"selection":
 						[
 							[
-								12116,
-								12132
+								2433,
+								2433
 							]
 						],
 						"settings":
@@ -642,46 +599,46 @@
 							"BracketHighlighterBusy": false,
 							"bh_regions":
 							[
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
 								"bh_curly",
 								"bh_curly_center",
 								"bh_curly_open",
 								"bh_curly_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
 								"bh_unmatched_close",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
 								"bh_c_define",
 								"bh_c_define_center",
 								"bh_c_define_open",
@@ -691,345 +648,10 @@
 							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 4094.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/Users/krbalmryde/.bash_profile",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 6265,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close"
-							],
-							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 515.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/Users/krbalmryde/.bash_functions",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 18244,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "/Users/krbalmryde/.bash_aliases",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 6638,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close"
-							],
-							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "WorkShop/SHELL/Notes, Tips, and Tricks.sh",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 6838,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close"
-							],
-							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 899.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "/etc/shells",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 190,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								124,
-								124
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close"
-							],
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
 					"type": "text"
 				}
 			]
@@ -1163,7 +785,7 @@
 		[
 			[
 				"",
-				"~/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/NiftiViewer.sublime-project"
+				"~/Dropbox/XCodeProjects/aluminum/osx/examples/visCog/VisCog.sublime-project"
 			]
 		],
 		"width": 380.0

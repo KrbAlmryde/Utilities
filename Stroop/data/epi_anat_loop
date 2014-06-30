@@ -1,0 +1,37 @@
+#!/usr/bin/env tcsh
+# execute via : tcsh -x S#-run-script |& tee output.S#-run-script
+# --------------------------------------------------
+set images_home = /Volumes/Data/Stroop
+
+echo "Count Down Begins"
+
+foreach subj (S20 S21 S22 S23 S24 S49)
+
+set subj_dir = $images_home/${subj}
+
+set results_dir = $subj_dir/struct/Align
+
+mkdir ${results_dir}
+
+echo "spgr"
+cp $subj_dir/struct/spgr/*spgr+orig* ${results_dir}
+echo "voice epan"
+cp $subj_dir/*run1_voice/${subj}_voice_epan+orig* ${results_dir}
+echo "word epan"
+cp $subj_dir/*run2_word/${subj}_word_epan+orig* ${results_dir}
+
+echo "auto tlrc-ing"
+cd ${results_dir}
+
+echo "auto"
+@auto_tlrc -base TT_N27+tlrc -input ${subj}_spgr+orig
+align_epi_anat.py -anat ${subj}_spgr+orig -epi ${subj}_voice_epan+orig -epi_base 0 \
+-child_epi ${subj}_word_epan+orig.HEAD \
+-epi2anat -suffix _epi2anat \
+-big_move	\
+-epi2anat -suffix al2anat	\
+-volreg_method 3dvolreg	\
+-ex_mode echo	\
+-cost lpa	\
+-tlrc_apar ${subj}_spgr+tlrc
+end
