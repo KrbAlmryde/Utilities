@@ -63,5 +63,5 @@ Please dont expect examples of mind numbingly beautiful code or examples of how 
 - **NiftiViewer**
     > A long term project that doesnt really have a presence in here. For more details on this project, check out the dedicated github papge [**here**](https://github.com/CreativeCodingLab/aluminum/tree/master/osx/examples/niftiViewer)
 
-- **tillsprojectpythoncode**
+- **Tills**
     > Scripts for  
