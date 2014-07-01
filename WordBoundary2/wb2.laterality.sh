@@ -18,10 +18,28 @@
 #                            FUNCTION DEFINITIONS 
 #================================================================================
 
+
 function laterality() {
-    local input3D=$1
-    local outFile=$2
-    local mask=$3
+    #------------------------------------------------------------------------
+    #
+    #  Purpose: To determine the laterality of supplied mask values
+    #
+    #
+    #    Input: input3D -- is the data file you wish to get your laterality 
+    #                      scores from. Can contain multiple subbricks if so
+    #                      desired.
+    #           mask -- is the masked roi(s) you wish to use to determine the
+    #                   the laterality value. Can contain multiple ROIs which
+    #                   must be (ideally) different whole integers
+    #
+    #   Output: a tab seperated document with the following form:
+    #           sub_run_condition.nii:Coef\tmaskValue0\tmaskValue1\tmaskValue2\tmaskValue3
+    #           sub_run_condition.nii:Tstat   maskValue0   maskValue1   maskValue2   maskValue3
+    #
+    #------------------------------------------------------------------------
+
+    local mask=$1
+    local input3D=$2
     local inFileName=$(basename ${input3D})
 
     results=$(3dROIstats -quiet -mask $mask $input3D)
@@ -36,6 +54,7 @@ function laterality() {
     # subbrick0  maskValue0   maskValue1   maskValue2   maskValue3 subbrick1  maskValue0   maskValue1   maskValue2   maskValue3
 
     report=""
+    
     for((i=0; i<${#results[*]}; i++)); do
         case $i in
             0 ) 
@@ -50,6 +69,8 @@ function laterality() {
     done
     
     printf "${report}\n"  
+
+    # The output of this function will be 
 }
 
 # All three functions will strip negative activation from datasets, all you

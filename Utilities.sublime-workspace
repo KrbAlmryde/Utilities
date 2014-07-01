@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"out",
+				"output"
+			],
+			[
+				"split",
+				"splitList"
+			],
+			[
+				"spli",
+				"splitList"
+			],
+			[
 				"groce",
 				"groceryList"
 			],
@@ -80,23 +92,43 @@
 	"buffers":
 	[
 		{
-			"file": "Modules/ShellScripting/ShellScriptingGuide.sh",
+			"file": "WordBoundary2/wb2.laterality.sh",
 			"settings":
 			{
-				"buffer_size": 15444,
+				"buffer_size": 4531,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "WordBoundary/wb1.laterality.sh",
+			"settings":
+			{
+				"buffer_size": 5193,
 				"line_ending": "Unix"
 			}
 		}
 	],
-	"build_system": "",
+	"build_system": "Packages/Markdown Preview/Markdown.sublime-build",
 	"command_palette":
 	{
-		"height": 313.0,
+		"height": 375.0,
 		"selected_items":
 		[
 			[
+				"dis",
+				"Package Control: Disable Package"
+			],
+			[
 				"bash",
 				"Set Syntax: Shell Script (Bash)"
+			],
+			[
+				"mar",
+				"Markdown Preview: Github Flavored Markdown: Preview in Browser"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
 			],
 			[
 				"latex",
@@ -199,10 +231,6 @@
 				"SublimeREPL: Clojure"
 			],
 			[
-				"insta",
-				"Package Control: Install Package"
-			],
-			[
 				"pow",
 				"Set Syntax: Powershell v2"
 			],
@@ -269,10 +297,19 @@
 	},
 	"file_history":
 	[
-		"/etc/shells",
+		"/opt/local/Utilities/WordBoundary2/wb2.laterality.sh",
+		"/Volumes/Data/WordBoundary1/ANOVA/Mean/Run1/Run1_learnable_sent_StatsMean+tlrc.HEAD",
+		"/Volumes/Data/WordBoundary1/ANOVA/Combo/Run1/Run1_unlearnable_tone_ComboStat+tlrc.HEAD",
+		"/Volumes/Data/Stroop/extras/Analysis/Anova.Female.Voice",
+		"/Users/krbalmryde/.bash_aliases",
+		"/opt/local/Utilities/README.md",
+		"/opt/local/Utilities/Modules/ShellScripting/ShellScriptingGuide.sh",
+		"/opt/local/Utilities/Utilities.sublime-project",
 		"/Users/krbalmryde/.bash_profile",
 		"/Users/krbalmryde/.bash_functions",
-		"/Users/krbalmryde/.bash_aliases",
+		"/Users/krbalmryde/Library/Application Support/Sublime Text 3/Packages/User/MarkdownPreview.sublime-settings",
+		"/Users/krbalmryde/Library/Application Support/Sublime Text 3/Packages/Markdown Preview/MarkdownPreview.sublime-settings",
+		"/etc/shells",
 		"/opt/local/Utilities/Mouse/mouse.reg.sh",
 		"/opt/local/Utilities/.git/config",
 		"/opt/local/Utilities/WorkShop/PYTHON/ColorSchemes_To_Languages.py",
@@ -281,7 +318,6 @@
 		"/opt/local/Utilities/AttnMem/Commands",
 		"/opt/local/Utilities/CanopyFix.sh",
 		"/Users/krbalmryde/Dropbox/XCodeProjects/aluminum/.gitignore",
-		"/opt/local/Utilities/README.md",
 		"/opt/local/Utilities/.gitignore",
 		"/opt/local/Utilities/LICENSE.txt",
 		"/Users/krbalmryde/.afnirc",
@@ -294,7 +330,6 @@
 		"/opt/local/Utilities/Modules/GLMAnalysis/GlmAnalysis.tex",
 		"/opt/local/Utilities/Modules/Preprocessing/Preprocessing.tex",
 		"/Users/krbalmryde/Downloads/assignment_2/assignment_2.tex",
-		"/opt/local/Utilities/Utilities.sublime-project",
 		"/Users/krbalmryde/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
 		"/Users/krbalmryde/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
 		"/Users/krbalmryde/Dropbox/Code-Projects/UnPw.txt",
@@ -389,14 +424,7 @@
 		"/Users/kylealmryde/Dropbox/Work-Projects/Misc/fMRI_checklist_fillable.pdf",
 		"/Users/kylealmryde/Dropbox/Work-Projects/Misc/Hippa_consent_2013.pdf",
 		"/Users/kylealmryde/Dropbox/Work-Projects/Misc/InformationForm_Feb2013.pdf",
-		"/Users/kylealmryde/Dropbox/Work-Projects/Misc/Lang_Hand Form.pdf",
-		"/Users/kylealmryde/Dropbox/Work-Projects/Misc/MRI_consent_2013.pdf",
-		"/usr/local/Utilities/Tap/study_functions.sh",
-		"/Users/kylealmryde/.ipython/profile_default/startup/00-profile.py",
-		"/usr/local/Utilities/Rat/Step-by-step",
-		"/MATLAB/mind/GroupICATv3.0a/icatb/icatb_defaults.m",
-		"/usr/local/Utilities/Mouse/ReadMe.txt",
-		"/usr/local/Utilities/WorkShop/SHELL/Coding Goals"
+		"/Users/kylealmryde/Dropbox/Work-Projects/Misc/Lang_Hand Form.pdf"
 	],
 	"find":
 	{
@@ -415,6 +443,15 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"   ",
+			"memory",
+			"___::",
+			"/**",
+			"/opt/local/Utilities/",
+			"/opt/local",
+			"Dichotic",
+			"{",
+			"egrep: ",
 			", ",
 			"numROIs",
 			"flip",
@@ -533,16 +570,7 @@
 			"echo -e \"\\n",
 			".scale",
 			"HOME",
-			"#============================================================\n",
-			".volreg",
-			".despike",
-			"/Users/kylealmryde",
-			"=${BASE}",
-			"-prefix $subj.$run",
-			"prefix $subj.$run",
-			" () {",
-			" ()\n{",
-			"FUNCTIONAL_D"
+			"#============================================================\n"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -579,19 +607,19 @@
 			[
 				{
 					"buffer": 0,
-					"file": "Modules/ShellScripting/ShellScriptingGuide.sh",
+					"file": "WordBoundary2/wb2.laterality.sh",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 15444,
+						"buffer_size": 4531,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2433,
-								2433
+								2283,
+								2283
 							]
 						],
 						"settings":
@@ -599,14 +627,10 @@
 							"BracketHighlighterBusy": false,
 							"bh_regions":
 							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
 								"bh_round",
 								"bh_round_center",
 								"bh_round_open",
@@ -615,43 +639,132 @@
 								"bh_single_quote_center",
 								"bh_single_quote_open",
 								"bh_single_quote_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
 								"bh_unmatched_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
 								"bh_regex",
 								"bh_regex_center",
 								"bh_regex_open",
 								"bh_regex_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
-								"bh_angle_close",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close"
+								"bh_angle_close"
 							],
-							"spell_check": true,
-							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage"
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 665.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 1,
+					"file": "WordBoundary/wb1.laterality.sh",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5193,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								696,
+								696
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close"
+							],
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 12.0,
+						"translation.y": 1091.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -674,6 +787,12 @@
 				0,
 				1,
 				1
+			],
+			[
+				0,
+				1,
+				1,
+				2
 			]
 		],
 		"cols":
@@ -684,6 +803,7 @@
 		"rows":
 		[
 			0.0,
+			0.5,
 			1.0
 		]
 	},
@@ -695,6 +815,10 @@
 	"output.find_results":
 	{
 		"height": 0.0
+	},
+	"output.markdown":
+	{
+		"height": 120.0
 	},
 	"project": "Utilities.sublime-project",
 	"replace":
@@ -785,7 +909,7 @@
 		[
 			[
 				"",
-				"~/Dropbox/XCodeProjects/aluminum/osx/examples/visCog/VisCog.sublime-project"
+				"~/Dropbox/XCodeProjects/Aluminum.sublime-project"
 			]
 		],
 		"width": 380.0
