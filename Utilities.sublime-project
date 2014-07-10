@@ -13,10 +13,6 @@
 		{
 			"follow_symlinks": true,
 			"path": "/usr/local/tools"
-		},
-		{
-			"follow_symlinks": true,
-			"path": "/Volumes/Data/Stroop"
 		}
 	]
 }

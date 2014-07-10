@@ -4,6 +4,58 @@
 		"selected_items":
 		[
 			[
+				"tt",
+				"ttestList"
+			],
+			[
+				"cond",
+				"condition"
+			],
+			[
+				"upda",
+				"updateReviewList"
+			],
+			[
+				"Review",
+				"Review_Main"
+			],
+			[
+				"upd",
+				"updateReviewList"
+			],
+			[
+				"review",
+				"reviewList"
+			],
+			[
+				"E",
+				"ERRTS"
+			],
+			[
+				"Word",
+				"WordBoundary1"
+			],
+			[
+				"Learnable_",
+				"learnable_Sentences"
+			],
+			[
+				"L",
+				"Learnable"
+			],
+			[
+				"Un",
+				"Unlearnable_Sentences"
+			],
+			[
+				"run",
+				"runsub"
+			],
+			[
+				"b",
+				"BASE"
+			],
+			[
 				"out",
 				"output"
 			],
@@ -52,10 +104,6 @@
 				"MouseHunger"
 			],
 			[
-				"b",
-				"bfunc	new bash function"
-			],
-			[
 				"build",
 				"buildEPI"
 			],
@@ -92,18 +140,34 @@
 	"buffers":
 	[
 		{
-			"file": "WordBoundary2/wb2.laterality.sh",
+			"file": "Russian/rus.grp.sh",
 			"settings":
 			{
-				"buffer_size": 4531,
+				"buffer_size": 5278,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "WordBoundary/wb1.laterality.sh",
+			"file": "Iceword/ice.glm.sh",
 			"settings":
 			{
-				"buffer_size": 5193,
+				"buffer_size": 26865,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Russian/rus.glm.sh",
+			"settings":
+			{
+				"buffer_size": 36821,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "suma-pics.sh",
+			"settings":
+			{
+				"buffer_size": 1972,
 				"line_ending": "Unix"
 			}
 		}
@@ -111,16 +175,20 @@
 	"build_system": "Packages/Markdown Preview/Markdown.sublime-build",
 	"command_palette":
 	{
-		"height": 375.0,
+		"height": 313.0,
 		"selected_items":
 		[
 			[
-				"dis",
-				"Package Control: Disable Package"
-			],
-			[
 				"bash",
 				"Set Syntax: Shell Script (Bash)"
+			],
+			[
+				"c++",
+				"Set Syntax: C++11"
+			],
+			[
+				"dis",
+				"Package Control: Disable Package"
 			],
 			[
 				"mar",
@@ -297,20 +365,91 @@
 	},
 	"file_history":
 	[
+		"/opt/local/Utilities/Iceword/suma-pics.sh",
+		"/opt/local/Utilities/suma-pics.sh",
+		"/opt/local/Utilities/Dichotic/stim_UF_binaural.1D",
+		"/opt/local/Utilities/sendEmail.py",
+		"/opt/local/Utilities/Iceword/ice.glm.sh",
+		"/opt/local/Utilities/Iceword/ice.elena.sh",
+		"/opt/local/Utilities/Iceword/ice_examine.py",
+		"/Users/krbalmryde/Dropbox/Code-Projects/BASH/Call/call_orig.sh",
+		"/Users/krbalmryde/Dropbox/Code-Projects/BASH/Call/call.sh",
+		"/opt/local/Utilities/Modules/GLMAnalysis/scripts/wb1.glm.sh",
+		"/opt/local/Utilities/WordBoundary/wb1.grp.py",
+		"/Users/krbalmryde/Dropbox/Code-Projects/BASH/Call/PROFILE/exp_profile.tcsh",
+		"/Users/krbalmryde/Dropbox/Code-Projects/BASH/Call/exp_profile.sh",
+		"/opt/local/Utilities/emailSubjects.py",
+		"/opt/local/Utilities/WordBoundary/wb1.reg.sh",
+		"/opt/local/Utilities/WordBoundary/wb1.glm.sh",
+		"/opt/local/Utilities/WordBoundary2/wb2.glm.sh",
+		"/opt/local/Utilities/Russian/rus.glm.sh",
+		"/opt/local/Utilities/ttest_image_list.txt",
+		"/Volumes/Data/Exps/Data/Archive/TAP/TS004/Test/test/TS004.results/@epi_review.TS004",
+		"/Volumes/Data/Exps/Data/Archive/TAP/TS004/Test/test/TS004.results/@ss_review_basic",
+		"/Volumes/Data/Exps/Data/Archive/TAP/TS004/Test/test/TS004.results/@ss_review_driver",
+		"/Users/krbalmryde/.bash_profile",
+		"/Users/krbalmryde/.bash_functions",
+		"/Users/krbalmryde/.bash_aliases",
+		"/Volumes/Data/.Trashes/506/sub111/Run1/Stats/ClustSim.debugging.NN3.1D",
+		"/Volumes/Data/Exps/Analysis/Russian/GLM/log.GLM.txt",
+		"/Volumes/Data/Exps/Analysis/Russian/GLM/sub100/Run1/Stats/ClustSim.debugging.NN1.niml",
+		"/opt/local/Utilities/Tap/study_functions.sh",
+		"/Volumes/Data/Exps/Data/Archive/TAP/TS004/Test/test/proc.TS004",
+		"/Volumes/Data/Exps/Data/Archive/TAP/TS004/Test/test/TS004.results/out.ss_review.TS004.txt",
+		"/Volumes/Data/Exps/Data/Archive/TAP/TS004/Test/test/TS004.results/stats.TS004+tlrc.HEAD",
+		"/Volumes/Data/Exps/Data/Archive/TAP/study_profile",
+		"/Volumes/Data/Exps/Analysis/Russian/GLM/sub100/Run1/Stats/ClustSim.debugging.mask",
+		"/Volumes/Data/Exps/Data/WordBoundary1/sub009/Func/Run1/RealignDetails/run1_sub009_tshift_mm.1D",
+		"/Volumes/Data/Exps/Analysis/Russian/GLM/sub100/Run1/Stats/run1_sub100_volreg_despike_mni_5mm_176tr_2sec_debugging.REML_cmd",
+		"/Volumes/Data/Exps/Analysis/Russian/GLM/sub100/Run1/Stats/ClustSim.debugging.NN3.1D",
+		"/opt/local/Utilities/WorkShop/etc/sed_test.sh",
+		"/Volumes/Data/Exps/Data/Russian/sub084/Func/Run4/run4_sub084_dfile.1D",
+		"/opt/local/Utilities/Iceword/ice.ss-gift.sh",
+		"/Volumes/Data/Exps/Analysis/Russian/GLM/STIM/censor.cue_stim.1D",
+		"/Volumes/Data/Exps/Analysis/Russian/GLM/STIM/stim.tone_cue.1D",
+		"/Volumes/Data/Exps/Analysis/Russian/GLM/STIM/stim.tone_block.1D",
+		"/Volumes/Data/Exps/Analysis/Russian/GLM/STIM/stim.sent_block.1D",
+		"/Volumes/Data/Exps/Analysis/Russian/GLM/STIM/stim.lang_cue.1D",
+		"/usr/local/tools/PROJECTS/WB1/FUNC/prepf2.sh",
+		"/usr/local/tools/PROJECTS/RUSSIAN/prep_ru_2.sh",
+		"/usr/local/tools/MISC/linux_bin/Recon/prep",
+		"/opt/local/Utilities/Rat/rat_profile.sh",
+		"/opt/local/Utilities/Stroop/RunItScript.txt",
+		"/opt/local/Utilities/AttnMem/RunItScript3.txt",
+		"/opt/local/Utilities/AttnMem/RunItScript2.txt",
+		"/opt/local/Utilities/AttnMem/RunItScript1.txt",
+		"/opt/local/Utilities/WorkShop/AFNI/ROIspheresUNIX",
+		"/opt/local/Utilities/README.html",
+		"/opt/local/Utilities/WordBoundary/wb1.ss-gift.sh",
+		"/Volumes/Data/WordBoundary1/GLM/STIM/censor.cue_stim.1D",
+		"/Volumes/Data/WordBoundary1/GLM/STIM/stim.sent_block.1D",
+		"/Volumes/Data/WordBoundary1/GLM/STIM/stim.tone_block.1D",
+		"/Volumes/Data/KyleRussian/glm/stim/stim.russian.1D",
+		"/usr/local/tools/LIBRARY/ireg.sh",
+		"/usr/local/tools/PROJECTS/IJN/ijn_reg.sh",
+		"/Volumes/Data/KyleRussian/glm/stim/stim.tone_cue.1D",
+		"/Volumes/Data/WordBoundary1/GLM/sub009/Glm/Run1/Stats/3dDeconvolve.err",
+		"/opt/local/Utilities/WordBoundary/wb1.hp.sh",
+		"/opt/local/Utilities/WordBoundary/wb1.laterality.sh",
+		"/Volumes/Data/WordBoundary1/MiloTrainData/README.txt",
+		"/opt/local/Utilities/WordBoundary/milo.trainCp.sh",
+		"/opt/local/Utilities/WordBoundary/wb1.wordCount.sh",
+		"/opt/local/Utilities/WordBoundary/README.txt",
+		"/opt/local/Utilities/Mouse/mouse.reg.sh",
 		"/opt/local/Utilities/WordBoundary2/wb2.laterality.sh",
+		"/Users/krbalmryde/simple.cpp",
+		"/Volumes/Data/AttnMem/s8/s8_results/02_OutCount/postcount_s8_mem1.1D",
+		"/opt/local/Utilities/Mouse/mouse.fold.sh",
+		"/opt/local/Utilities/AttnMem/Mem1script.txt",
 		"/Volumes/Data/WordBoundary1/ANOVA/Mean/Run1/Run1_learnable_sent_StatsMean+tlrc.HEAD",
 		"/Volumes/Data/WordBoundary1/ANOVA/Combo/Run1/Run1_unlearnable_tone_ComboStat+tlrc.HEAD",
 		"/Volumes/Data/Stroop/extras/Analysis/Anova.Female.Voice",
-		"/Users/krbalmryde/.bash_aliases",
 		"/opt/local/Utilities/README.md",
 		"/opt/local/Utilities/Modules/ShellScripting/ShellScriptingGuide.sh",
 		"/opt/local/Utilities/Utilities.sublime-project",
-		"/Users/krbalmryde/.bash_profile",
-		"/Users/krbalmryde/.bash_functions",
 		"/Users/krbalmryde/Library/Application Support/Sublime Text 3/Packages/User/MarkdownPreview.sublime-settings",
 		"/Users/krbalmryde/Library/Application Support/Sublime Text 3/Packages/Markdown Preview/MarkdownPreview.sublime-settings",
 		"/etc/shells",
-		"/opt/local/Utilities/Mouse/mouse.reg.sh",
 		"/opt/local/Utilities/.git/config",
 		"/opt/local/Utilities/WorkShop/PYTHON/ColorSchemes_To_Languages.py",
 		"/opt/local/Utilities/WorkShop/Figure_Color_table.txt",
@@ -341,14 +480,8 @@
 		"/Users/krbalmryde/Downloads/fem20_i_262_p_3D.fig",
 		"/Users/krbalmryde/Dropbox/Shared-Projects/Tills_data/README.txt",
 		"/opt/local/Utilities/Iceword/ice.grp.sh",
-		"/opt/local/Utilities/Iceword/ice.elena.sh",
-		"/Volumes/Data/WordBoundary1/GLM/STIM/stim.tone_block.1D",
-		"/Volumes/Data/WordBoundary1/GLM/STIM/stim.sent_block.1D",
-		"/Volumes/Data/WordBoundary1/GLM/STIM/censor.cue_stim.1D",
 		"/opt/local/Utilities/Stroop/Stroop.txt",
-		"/opt/local/Utilities/WordBoundary/wb1.glm.sh",
 		"/opt/local/Utilities/WordBoundary/wb1.gift.sh",
-		"/opt/local/Utilities/Iceword/ice.glm.sh",
 		"/Volumes/Data/WordBoundary1/GLM/sub011/Glm/Run1/1D/motion.run1_sub011_demean.1D",
 		"/Users/krbalmryde/Dropbox/Work-Projects/MousefMRI/Mouse1.fsf",
 		"/Volumes/Data/Archive/RatPain/ETC/rat_regress.sh",
@@ -359,72 +492,7 @@
 		"/Volumes/Data/Archive/RatPain/ICA/melodic/700.con",
 		"/Volumes/Data/Archive/RatPain/ICA/melodic/700/volreg.ica/design.fsf",
 		"/opt/local/Utilities/Rat/count",
-		"/usr/local/afni/3dICA.R",
-		"/Users/krbalmryde/Dropbox/Work-Projects/MousefMRI/3dICA.R",
-		"/Users/krbalmryde/Dropbox/Work-Projects/MousefMRI/_cov.ppm",
-		"/opt/local/Utilities/Mouse/oxygen.txt",
-		"/opt/local/Utilities/Mouse/carboden.txt",
-		"/Users/krbalmryde/Downloads/fslinstaller.py",
-		"/opt/local/Utilities/NBack/NBack.py",
-		"/opt/local/Utilities/Stroop/DataDump.sh",
-		"/opt/local/Utilities/WorkShop/PYTHON/drtAnalyser.py",
-		"/opt/local/Utilities/Dichotic/dich_profile",
-		"/Users/krbalmryde/Dropbox/Shared-Projects/Kyle_Kory/Tills_data/README.txt",
-		"/opt/local/Utilities/tillsprojectpythoncode/Sub06_item_measure.txt",
-		"/Users/krbalmryde/.ipython/profile_default/startup/00-profile.py",
-		"/Users/kylealmryde/Dropbox/Shared-Projects/Tills_data/dataFix.py",
-		"/usr/local/Utilities/dataFix.py",
-		"/Users/kylealmryde/Dropbox/Shared-Projects/tills_data/README.txt",
-		"/Users/kylealmryde/.bash_profile",
-		"/Users/kylealmryde/.bash_functions",
-		"/Users/kylealmryde/Dropbox/Shared-Projects/tills_data/.dropbox",
-		"/Users/kylealmryde/.bash_aliases",
-		"/Users/kylealmryde/Dropbox/Shared-Projects/Tills_data/final/.DS_Store",
-		"/Users/kylealmryde/Dropbox/Shared-Projects/Tills_data/final/SubTest01_results.txt",
-		"/usr/local/Utilities/extractOnset.sh",
-		"/Users/kylealmryde/Dropbox/Shared-Projects/Tills_data/final/SubTest01_results",
-		"/usr/local/Utilities/untitled.sh",
-		"/Exps/Analysis/WB1/GiftAnalysis/Learnable/Learnable_scaling_components_files/sub001_component_ica_s1_/sub001_s1_IC0.1D",
-		"/usr/local/Utilities/Tap/hrm_peak_tap",
-		"/usr/local/Utilities/tillsprojectpythoncode/Sub03A_long.txt",
-		"/usr/local/Utilities/tillsprojectpythoncode/Sub03A_final.txt",
-		"/usr/local/Utilities/WordBoundary/wb1.glm.sh",
-		"/usr/local/Utilities/Russian/rus.glm.sh",
-		"/usr/local/Utilities/Rat/lst_subj_rat.txt",
-		"/usr/local/Utilities/WorkShop/SHELL/GLMwip.sh",
-		"/usr/local/Utilities/Russian/Mixed/3/rus2_3dd.sh",
-		"/usr/local/Utilities/WordBoundary2/wb2.glm.sh",
-		"/usr/local/Utilities/WordBoundary/wb2.grp.py",
-		"/usr/local/Utilities/sendEmail.py",
-		"/usr/local/Utilities/emailSubjects.py",
-		"/usr/local/Utilities/Russian/Mixed/rus2.py",
-		"/Volumes/Data/MouseHunger/m006/Stats/m006_treat_scaled.fsf",
-		"/Users/kylealmryde/Library/Application Support/Sublime Text 2/Packages/User/Python.sublime-settings",
-		"/usr/local/Utilities/Mouse/mouse.reg.sh",
-		"/usr/local/Utilities/Mouse/mouse.fold.sh",
-		"/Users/kylealmryde/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
-		"/Users/kylealmryde/Dropbox/XCodeProjects/aluminum/.gitignore",
-		"/Volumes/Data/MouseHunger/m006/Stats/m006_treat_volreg.fsf",
-		"/Volumes/USB20FD/MouseHunger/Mouse Pilot Data: 11:18:2013",
-		"/Volumes/Data/MouseHunger/m007/Stats/m007_treat_volreg.fsf",
-		"/Volumes/Data/MouseHunger/m004/Stats/m004_treat_volreg.fsf",
-		"/Volumes/Data/MouseHunger/m005/Stats/m005_treat_volreg.fsf",
-		"/Volumes/Data/MouseHunger/m005/Stats/m005_treat_scale.fsf",
-		"/Volumes/Data/Archive/RatPain/ICA/melodic/200.volreg.melodic.fsf",
-		"/Volumes/Data/MouseHunger/Gift/melodic/m005/treat/scale.ica/report_prestats.html",
-		"/Volumes/Data/MouseHunger/Gift/Treatment/Scaled/m006/m006Subject.mat",
-		"/Volumes/Data/MouseHunger/Docs/Input_data_subjects_learn_wb1.m",
-		"/usr/local/Utilities/Utilities.sublime-project",
-		"/usr/local/Utilities/WorkShop/AFNI/@epi_review.TS004",
-		"/Users/kylealmryde/Dropbox/Work-Projects/EyeTracker/iView X SDK/Examples/Python/GazeContingent/iViewXAPI.py",
-		"/usr/local/tools/PROJECTS/ICEWORD/FUNC/prepf2_ice.sh",
-		"/usr/local/Utilities/Rat/rat_functions.sh",
-		"/Users/kylealmryde/Dropbox/Work-Projects/EyeTracker/iView X SDK/Examples/Python/GazeContingent/GazeContingent.py",
-		"/Users/kylealmryde/Dropbox/Packages/User/Projects/Utilities.sublime-project",
-		"/Users/kylealmryde/Dropbox/Work-Projects/Misc/fMRI_checklist_fillable.pdf",
-		"/Users/kylealmryde/Dropbox/Work-Projects/Misc/Hippa_consent_2013.pdf",
-		"/Users/kylealmryde/Dropbox/Work-Projects/Misc/InformationForm_Feb2013.pdf",
-		"/Users/kylealmryde/Dropbox/Work-Projects/Misc/Lang_Hand Form.pdf"
+		"/usr/local/afni/3dICA.R"
 	],
 	"find":
 	{
@@ -443,6 +511,103 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"--------------------",
+			"updateReviewList",
+			"updateReviewList ",
+			"#",
+			"TTEST}/REVIEW",
+			"${output4d}",
+			"${output3D}",
+			"i",
+			"updateReviewList",
+			";",
+			"EPI_Review",
+			"error",
+			"index",
+			"reviewList",
+			"ReviewList",
+			"reviewList",
+			"    reviewList[index]=${input4D}\n",
+			"reviewList",
+			"error",
+			"ClustSim.${condition}",
+			"_${delay}sec",
+			"ANOVA",
+			"output1D",
+			"input1D",
+			"ClustSim",
+			"CLUSTSIM",
+			"ClustSim",
+			"CLUSTSIM",
+			"ClustSim",
+			"fullmask",
+			"MAIN",
+			"Main",
+			"runsub}",
+			"\\'",
+			"${IM}",
+			"IM",
+			"${runsub}_volreg_despike_mni_5mm_176tr",
+			"runsub}_volreg_despike_mni_5mm_176tr",
+			"${runsub}_volreg_despike_mni_5mm_176tr",
+			"_tshift_volreg_despike_mni_7mm_214tr",
+			"ARCHIVE",
+			"tshift_dfile",
+			"    ",
+			"   ",
+			"runsub[r]",
+			"ANALYSIS}/GLM/${sub}/${RUN",
+			"ANALYSIS}/",
+			"/Volumes/Data",
+			"/Exps",
+			"0",
+			", ",
+			" ",
+			"${RUN}",
+			"${run}",
+			"run",
+			"-#",
+			"/Volumes/Data/Analysis/Russian",
+			"/Volumes/Data/Exps/Analysis/",
+			"/Volumes/Data/Exps/Analysis/Russian",
+			"/Volumes/Data/Exps/Data/Russian",
+			"data",
+			"Data",
+			"DATA",
+			"BASE",
+			"/Volumes/Data/Russian",
+			"/Volumes/Data/WordBoundary1",
+			"Volumes/Data/WB1",
+			"WB1",
+			"wb1",
+			"WB1",
+			"\n\n\n\n\n\n\n\n\n\n\n",
+			"\n\n\n\n\n\n\n\n\n\n",
+			"\n\n\n\n\n\n\n\n\n",
+			"\n\n\n\n\n\n\n\n",
+			"\n\n\n\n\n\n\n",
+			"\n\n\n\n\n\n",
+			"\n\n\n\n\n",
+			"\n\n\n\n",
+			"\n\n\n",
+			" ",
+			"run1",
+			"run#_sub0##_tshift_volreg_despike_mni_7mm_214tr.nii.gz",
+			"3dToutcount",
+			"runsub[r]",
+			"RUN[r]",
+			"WB1",
+			"SliceTiming",
+			"RmIf",
+			"MkRealignLog",
+			"Learnable_Count.txt",
+			"file",
+			"${learn}",
+			"$learn",
+			"learn",
+			"sub",
+			" ",
+			"infile",
 			"   ",
 			"memory",
 			"___::",
@@ -473,104 +638,7 @@
 			"wb1.reg.sh",
 			"homework_example",
 			"\\Bashscript",
-			"Bash",
-			"Perl",
-			"perl",
-			"Perl",
-			"perl",
-			"Perl",
-			"sys",
-			"/Users/krbalmryde/Dropbox/Shared-Projects/Kyle_Elena/Tills_data/",
-			"sys",
-			"1",
-			"Today",
-			"today",
-			"RESIZE",
-			"Resize",
-			"resize",
-			"RESIZE",
-			"resize",
-			"Resize",
-			"crop",
-			"Crop",
-			"~/Dropbox/Shared-Projects/Tills_data",
-			"0	50.16	43.07	44.75	55.48	56.04	46.08	43.02	50.37	43.99	49.05	50.74	43.13	45.53	44.3	52.73	50.11	46.06	41.88	54.27	52.25	56.49	65.14	0	57.9	100	57.45",
-			"	 ",
-			"/Users/kylealmryde",
-			"/usr/local",
-			"/usr/local/",
-			"/usr/local/Utilities",
-			"dir",
-			"outfn",
-			"Tills_data/",
-			"\"/Users/kylealmryde/Dropbox/Shared-Projects/",
-			"P",
-			"F",
-			"write",
-			"item",
-			"glob(os.path.join(DATA,\"*.txt\"))",
-			"sub001_s1_IC$j.1D",
-			";;",
-			"subj",
-			"unlearnable",
-			"learnable",
-			"WB1",
-			"wb1",
-			"WB1",
-			"sendEmail",
-			".split('\\n')[:-1]",
-			", c",
-			"sp.check_output('ls', ",
-			"sp.call('",
-			"sp.call",
-			"learn",
-			"Learn",
-			"learn",
-			"os.popen",
-			"= ",
-			"getSubjStats_ROI",
-			"x",
-			"subprocess",
-			"check_output",
-			"run",
-			"tshift",
-			"subj",
-			"qtCheck",
-			"Images",
-			"treat",
-			"nii",
-			"Main",
-			"MAIN",
-			"$image.span.tcat+orig",
-			"m006",
-			"Treatment",
-			"/*",
-			"Treatment",
-			"outFile",
-			"outfile",
-			"outFile",
-			"outfile",
-			"outFile",
-			"ret",
-			"res = iViewXAPI.iV_Connect(c_char_p('127.0.0.1'), c_int(4444), c_char_p('127.0.0.1'), c_int(5555))",
-			"res = iViewXAPI.iV_SetLogger(c_int(1), c_char_p(\"iViewXSDK_Python_SimpleExperiment.txt\"))",
-			"res = iViewXAPI.iV_GetSystemInfo(byref(systemData))",
-			"print \"iViewX API Verion: \" + str(systemData.API_MajorVersion) + \".\" + str(systemData.API_MinorVersion) + \".\" + str(systemData.API_Buildnumber)",
-			"print \"iViewX Verion: \" + str(systemData.iV_MajorVersion) + \".\" + str(systemData.iV_MinorVersion) + \".\" + str(systemData.iV_Buildnumber)",
-			"print \"Samplerate: \" + str(systemData.samplerate)",
-			"print \"iV_GetSystemInfo: \" + str(res)",
-			"print \"iV_GetSystemInfo: \" + str(res)\nprint \"Samplerate: \" + str(systemData.samplerate)\nprint \"iViewX Verion: \" + str(systemData.iV_MajorVersion) + \".\" + str(systemData.iV_MinorVersion) + \".\" + str(systemData.iV_Buildnumber)\nprint \"iViewX API Verion: \" + str(systemData.API_MajorVersion) + \".\" + str(systemData.API_MinorVersion) + \".\" + str(systemData.API_Buildnumber)\n",
-			"sampleData",
-			"exit()",
-			";",
-			"${subj}",
-			"+orig",
-			" ()\n{",
-			"outFile=",
-			"echo -e \"\\n",
-			".scale",
-			"HOME",
-			"#============================================================\n"
+			"Bash"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -602,24 +670,24 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "WordBoundary2/wb2.laterality.sh",
+					"file": "Russian/rus.grp.sh",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4531,
+						"buffer_size": 5278,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2283,
-								2283
+								1348,
+								1347
 							]
 						],
 						"settings":
@@ -651,14 +719,90 @@
 								"bh_regex_center",
 								"bh_regex_open",
 								"bh_regex_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
 								"bh_curly",
 								"bh_curly_center",
 								"bh_curly_open",
 								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close"
+							],
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 64.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "Iceword/ice.glm.sh",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 26865,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								23289,
+								23289
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
 								"bh_double_quote",
 								"bh_double_quote_center",
 								"bh_double_quote_open",
@@ -677,33 +821,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 665.0,
+						"translation.y": 10386.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 0,
-			"sheets":
-			[
+				},
 				{
-					"buffer": 1,
-					"file": "WordBoundary/wb1.laterality.sh",
+					"buffer": 2,
+					"file": "Russian/rus.glm.sh",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5193,
+						"buffer_size": 36821,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								696,
-								696
+								4285,
+								4285
 							]
 						],
 						"settings":
@@ -735,14 +873,14 @@
 								"bh_regex_center",
 								"bh_regex_open",
 								"bh_regex_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
 								"bh_curly",
 								"bh_curly_center",
 								"bh_curly_open",
 								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
 								"bh_double_quote",
 								"bh_double_quote_center",
 								"bh_double_quote_open",
@@ -760,11 +898,89 @@
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
-						"translation.x": 12.0,
-						"translation.y": 1091.0,
+						"translation.x": 0.0,
+						"translation.y": 1445.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "suma-pics.sh",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1972,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								612,
+								649
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close"
+							],
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -772,7 +988,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 0.0
+		"height": 26.0
 	},
 	"input":
 	{
@@ -787,12 +1003,6 @@
 				0,
 				1,
 				1
-			],
-			[
-				0,
-				1,
-				1,
-				2
 			]
 		],
 		"cols":
@@ -803,7 +1013,6 @@
 		"rows":
 		[
 			0.0,
-			0.5,
 			1.0
 		]
 	},
@@ -823,7 +1032,7 @@
 	"project": "Utilities.sublime-project",
 	"replace":
 	{
-		"height": 72.0
+		"height": 48.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -832,16 +1041,68 @@
 		"selected_items":
 		[
 			[
+				"sum",
+				"Utilities/suma-pics.sh"
+			],
+			[
+				"rus",
+				"Utilities/Russian/rus.glm.sh"
+			],
+			[
+				"wb1.grp",
+				"Utilities/WordBoundary/wb1.grp.py"
+			],
+			[
+				"study",
+				"Utilities/Tap/study_functions.sh"
+			],
+			[
+				"ice.gl",
+				"Utilities/Iceword/ice.glm.sh"
+			],
+			[
+				"wb2",
+				"Utilities/WordBoundary2/wb2.glm.sh"
+			],
+			[
+				"rprep2f",
+				"tools/PROJECTS/WB1/FUNC/prepf2.sh"
+			],
+			[
+				"wb1.reg",
+				"Utilities/WordBoundary/wb1.reg.sh"
+			],
+			[
+				"wb1.glm",
+				"Utilities/Modules/GLMAnalysis/scripts/wb1.glm.sh"
+			],
+			[
+				"wb1.r",
+				"Utilities/WordBoundary/wb1.reg.sh"
+			],
+			[
+				"ireg",
+				"tools/LIBRARY/ireg.sh"
+			],
+			[
+				"wb1",
+				"Utilities/WordBoundary/wb1.glm.sh"
+			],
+			[
+				"wb1.re",
+				"Utilities/WordBoundary/wb1.reg.sh"
+			],
+			[
+				"mouse",
+				"Utilities/Mouse/mouse.reg.sh"
+			],
+			[
 				"data",
 				"tillsprojectpythoncode/dataFix.py"
 			],
 			[
 				"try",
 				"Utilities/Russian/Mixed/rus2.py"
-			],
-			[
-				"wb2",
-				"Utilities/WordBoundary/wb2.grp.py"
 			],
 			[
 				"rat",
@@ -909,7 +1170,7 @@
 		[
 			[
 				"",
-				"~/Dropbox/XCodeProjects/Aluminum.sublime-project"
+				"~/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/NiftiViewer.sublime-project"
 			]
 		],
 		"width": 380.0
@@ -929,7 +1190,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 266.0,
+	"side_bar_width": 212.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

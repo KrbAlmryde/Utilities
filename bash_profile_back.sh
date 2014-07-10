@@ -49,8 +49,12 @@ source $FSLDIR/etc/fslconf/fsl.sh
 
 
 # DYLD Path
-# export DYLD_VERSIONED_LIBRARY_PATH=/opt/X11/lib:/opt/lib:/opt/local/lib
-# export DYLD_LIBRARY_PATH=${AFNI_HOME}
+export DYLD_LIBRARY_PATH=""
+export DYLD_VERSIONED_LIBRARY_PATH= # ${AFNI_HOME} #:/opt/X11/lib:/opt/lib:/opt/local/lib
+export DYLD_FALLBACK_LIBRARY_PATH=${AFNI_HOME}:/opt/local/lib:/usr/lib #:/opt/lib:/opt/X11/lib #/opt/local/lib
+
+
+
 
 # Kyle's enviornment variables
 export UTL=/opt/local/Utilities         #The directory where I house all my scripts
@@ -80,7 +84,7 @@ export MOUSEHUNGER=/Volumes/Data/MouseHunger
 
 
 # path additions
-PATH=$PATH:/opt/local/bin:/opt/local/sbin:/sw/bin
+PATH=$PATH:/opt/local/bin:/opt/local/sbin
 PATH=$PATH:/Developer/usr/bin
 PATH=$PATH:/bin:/sbin:/usr/bin:/usr/sbin
 PATH=$PATH:/opt/local/Utilities
@@ -170,7 +174,8 @@ fi
 
 # Added by Canopy installer on 2013-06-12
 # VIRTUAL_ENV_DISABLE_PROMPT can be '' to make bashprompt show that Canopy is active, otherwise 1
-VIRTUAL_ENV_DISABLE_PROMPT=1 source /Users/krbalmryde/Library/Enthought/Canopy_32bit/User/bin/activate
+VIRTUAL_ENV_DISABLE_PROMPT=1 
+source /Users/krbalmryde/Library/Enthought/Canopy_32bit/User/bin/activate
 
 # Backup .bash_profile into one big aggregate file
 cat ~/.bash_{profile,functions,aliases} > $UTL/bash_profile_back.sh
@@ -186,7 +191,7 @@ source ~/.bash_aliases
 #          Author: Kyle Reese Almryde
 #            Date: 7/12/13 @ 10:59am
 #
-#   Defines frequently used aliases that make my life easier
+#   Defines frequently used functions that make my life easier
 #================================================================================
 
 #================================================================================
@@ -229,7 +234,36 @@ function geta () { scp -p auk:/Users/dpat/temp/ $* . ; }
 function puta () { scp -p $* auk:/Users/dpat/temp/ ; }
 
 
+function cutn () { 
+    local d=$1
+    local f=$2
+    case $# in
+        0 )
+            d=' '
+            f=1 
+        ;;
+        1 )  
+            f=1
+        ;;
+    esac
+    cut -d $d -f $f 
+}
+
+
 function maker () {
+    #------------------------------------------------------------------------
+    #
+    #  Purpose: This function executes make on an existing make file for a
+    #           c++ program. It will perform the following steps in order:
+    #           clean, make, and execute project
+    #
+    #    Input: compile -- should be the executable name in the targeted 
+    #                      makefile.
+    #
+    #   usage: make homework4
+    #
+    #------------------------------------------------------------------------
+
     local compile=$1
     make clean
     make
@@ -242,14 +276,12 @@ function cxx () {
     #------------------------------------------------------------------------
     #
     #  Purpose: This function allows me to compile AND run a simple c++
-    #            program.
+    #            program using g++ compiler
     #
     #    Input: infile should be a C++ source file of the form infile.cpp
     #           or infile.cxx
     #
-    #   Output:
-    #
-    #   usage: g++ Arrow.cpp  || g++ Arrow.cxx
+    #   usage: cxx Arrow.cpp
     #
     #------------------------------------------------------------------------
 
@@ -261,8 +293,8 @@ function cxx () {
     fi
 
     if [[ $(echo $infile | grep '\.') ]]; then
-        cc -framework GLUT -framework OpenGL -framework Cocoa $infile -o $compile.o
-        # g++ $infile -o $compile.o
+        # cc -framework GLUT -framework OpenGL -framework Cocoa $infile -o $compile.o
+        g++ -Wall $infile -o $compile.o
     fi
 
     ./${compile}.o
@@ -301,15 +333,10 @@ function upafni() {
     #
     #  Purpose: Check for updates and if necessary update afni.
     #
-    #
-    #    Input:
-    #
-    #   Output:
-    #
     #------------------------------------------------------------------------
 
     # take note of the AFNI version and compile date
-    date=$(echo `afni -ver` | awk '{print $6,$7,$8}' | sed 's/]//g')
+    date=$(echo `afni -ver` | awk '{print $6,$7,$8}' | sed 's/]//g' | awk '{print $2,$1,$3}')
 
     # check that the current AFNI version is recent enough
     afni_history -check_date ${date}
@@ -378,11 +405,6 @@ function hidden() {
     #------------------------------------------------------------------------
     #
     #  Purpose: Shows or Hides hidden files on Mac
-    #
-    #
-    #    Input:
-    #
-    #   Output:
     #
     #------------------------------------------------------------------------
 
@@ -640,12 +662,12 @@ function mkprj() {
 
     local project=$1
     local shortcut=$2
-    local fnStart=$3
+    local fnStart=$3  # Start with a newly generated file
 
-    local prjDir="/Users/krbalmryde/Dropbox/Code-Projects/${project}"
+    local prjDir=`pwd`
     local srcDir="${prjDir}/src"
 
-    mkdir -p ${prjDir}/{doc,src,test}
+    mkdir -p ${prjDir}/{doc,src,"test"}
     echo -e "\tCreated ${project} project sucessfully"
     echo -e "\tpreparing to build git repository now..."
 
@@ -671,136 +693,6 @@ function mkprj() {
     . ~/.bash_profile
 
 } # End of mkprj
-
-
-function deploy () {
-    #------------------------------------------------------------------------
-    #
-    #  Purpose:
-    #
-    #
-    #    Input:
-    #
-    #   Output:
-    #
-    #------------------------------------------------------------------------
-
-    local base, target, appDir
-    cd $1
-    base=`pwd`
-    target=$(basename `pwd`)
-    buildDir=`ls | grep *[bB]uild`
-    appDir="${base}/${buildDir}/${target}.app/Contents/MacOS"
-
-    check_appDir () {
-        if [[ -d $appDir ]]; then
-            echo -e "\n\tappDir exists!"
-            echo -e $appDir/$target
-            $appDir/$target
-        else
-            echo -e "\n\tappDir doesnt!!!"
-            pwd
-            cmake ..
-            make
-            $appDir/$target
-        fi
-    }
-
-    if [[ -d `ls | grep *[bB]uild` ]]; then
-        cd $buildDir
-        echo -e "\n\tfirst if"
-        pwd
-        check_appDir
-    else
-        check_appDir
-    fi
-
-    cd $base/..
-
-} # End of deploy
-
-
-function makelib() {
-    #------------------------------------------------------------------------
-    #
-    #  Purpose:
-    #
-    #
-    #    Input:
-    #
-    #   Output:
-    #
-    #------------------------------------------------------------------------
-
-    BASE_DIR="/Users/krbalmryde/Dropbox/XCodeProjects/aluminum"
-    OSX_DIR="$BASE_DIR/osx"
-    SRC_DIR="$BASE_DIR/src"
-    INCLUDE_DIR="/opt/local/include"
-
-    INCLUDE="-I$SRC_DIR -I$OSX_DIR -I$INCLUDE_DIR"
-    #SRC="$SRC_DIR/*.cpp"
-    SRC="$SRC_DIR/*.cpp $OSX_DIR/*.mm"
-    #SRC="$SRC_DIR/*.cpp $OSX_DIR/RendererOSX.mm $OSX_DIR/CocoaGL.mm"
-    OSX_SRC="$OSX_DIR/*.mm"
-
-    cd $BASE_DIR;
-
-    ### 1. COMPILE
-    echo -e "\n\n\n*** In makeStaticLibrary.sh "
-    echo -e "\nBUILDING obj files for static library... \n\nc++ -std=c++11 -stdlib=libc++ $INCLUDE $SRC "
-
-    # use -H below to double check if the headers have been precompiled
-    time c++ -c -x objective-c++ -include $OSX_DIR/Includes.hpp -std=c++11 -stdlib=libc++ $INCLUDE $SRC
-
-    ### 2. ARCHIVE
-    echo -e "\n\n\nARCHIVING obj files into static library aluminum.a..."
-
-    time ar rs $BASE_DIR/aluminum.a $BASE_DIR/*.o
-
-    ### 3. CLEAN UP
-    rm $BASE_DIR/*.o
-    rm $OSX_DIR/*.o
-
-} # End of makelib
-
-
-function precompile () {
-    #------------------------------------------------------------------------
-    #
-    #  Purpose:
-    #
-    #
-    #    Input:
-    #
-    #   Output:
-    #
-    #------------------------------------------------------------------------
-
-    BASE_DIR="/Users/krbalmryde/Dropbox/XCodeProjects/aluminum"
-    SRC_DIR="$BASE_DIR/src"
-    OSX_DIR="$BASE_DIR/osx"
-    LIB_DIR="/opt/local/lib"
-    INCLUDE_DIR="/opt/local/include"
-    ASSIMP="$LIB_DIR/libassimp.dylib"
-    CPP_LIB="/usr/lib/c++/v1"
-    NIFTI_LIB="$EXAMPLE_DIR/niftilib"
-    FREEIMAGE="$LIB_DIR/libfreeimage.dylib"
-    LIBS="$ASSIMP $FREEIMAGE"
-    INCLUDE="-I./ -I$OSX_DIR -I$SRC_DIR -I$NIFTI_LIB -I$INCLUDE_DIR -I$CPP_LIB"
-
-    SRC="$SRC_DIR/*.cpp $OSX_DIR/*.mm"
-
-    cd $BASE_DIR;
-
-    ### 1. PRE-COMPILE into Includes.hpp.gch
-
-    echo -e "\nPRE-COMPILING HEADERS... \n\nc++ -x objective-c++-header -std=c++11 -stdlib=libc++ $INCLUDE $OSX_DIR/Includes.hpp "
-
-    # time c++ -x objective-c++-header -std=c++11 -stdlib=libc++ $INCLUDE $OSX_DIR/Includes.hpp
-    time c++ -c -x objective-c++ -include $OSX_DIR/Includes.hpp -std=c++11 -stdlib=libc++ $INCLUDE $SRC
-    time ar rs $BASE_DIR/aluminum.a $BASE_DIR/*.o
-
-} # End of precompile
 
 
 
@@ -888,6 +780,40 @@ function xnii () {
     cd $EXAMPLE_DIR && ./$APP && rm ./$APP
 
 } # End of xnii
+
+
+
+function messWithYou() {
+    #------------------------------------------------------------------------
+    #
+    #  Purpose: All your bases are belong to us!
+    #
+    #   Output: messWithYou & disown to detach it from the terminal ;)
+    #
+    #------------------------------------------------------------------------
+
+    index=0
+    incFlag=1
+    while [[ 1 -eq 1 ]]; do
+        rand=$RANDOM
+        osascript -e "set volume ${index}"
+        say "all your bases are belong to us"
+        if [[ incFlag -eq 1 ]]; then
+            ((index++))
+        else
+            ((index--))
+        fi
+        if [[ $index -eq 10 ]]; then
+            incFlag=0
+            sleep ${rand:0:1}
+        elif [[ $index -eq 0 ]]; then
+            incFlag=1
+            sleep ${rand:0:1}
+        fi
+    done    
+
+} # End of messWithYou
+
 #!/usr/bin/env bash
 #================================================================================
 #    Program Name: .bash_aliases
@@ -914,15 +840,13 @@ alias ted2='ssh kalmryde@128.196.112.121' #password is zeebob15
 alias afnir='afni -R -yesplugouts'
 alias 3di='3dinfo'
 alias 3div='3dinfo -verb'
-alias suuma='afnir -yesplugouts -niml & suma -spec /usr/local/suma_MNI_N27/MNI_N27_both.spec -sv /usr/local/suma_MNI_N27/MNI_N27_SurfVol.nii &'    #'afni -niml & suma -spec /opt/local/suuma/N27_both_tlrc.spec -sv /opt/local/afni/TT_N27+tlrc &'
+alias suuma='afnir -niml & suma -spec /usr/local/suma_MNI_N27/MNI_N27_both.spec -sv /usr/local/suma_MNI_N27/MNI_N27_SurfVol.nii &'    #'afni -niml & suma -spec /opt/local/suuma/N27_both_tlrc.spec -sv /opt/local/afni/TT_N27+tlrc &'
 
 
 # Common Directories
 alias db='cd /Users/krbalmryde/Dropbox'
 alias dl='cd /Users/krbalmryde/Downloads'
 alias home='cd /Users/krbalmryde'
-alias expa='cd /Exps/Analysis'
-alias expd='cd /Exps/Data'
 alias eye='cd /Users/krbalmryde/Dropbox/Work-Projects/EyeTracker'
 alias nii='cd /Users/krbalmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer; ls -Flt; pwd'
 alias opl='cd /opt/local; pwd; ls -Flt'
@@ -978,25 +902,24 @@ alias gpull='git pull'
 
 
 # Data related
-alias exp='cd /Exps; pwd; ls -Flt'
-alias expd='cd /Exps/Data; pwd; ls -Flt'
-alias expa='cd /Exps/Analysis; pwd; ls -Flt'
+alias exp='cd /Volumes/Data/Exps; pwd; ls -Flt'
+alias expd='cd /Volumes/Data/Exps/Data; pwd; ls -Flt'
+alias expa='cd /Volumes/Data/Exps/Analysis; pwd; ls -Flt'
 alias vol='cd /Volumes; pwd; ls -Flt'
 alias data='cd /Volumes/Data; pwd; ls -Flt'
-alias dic='cd /Volumes/Data/Dichotic; ls -Flt; pwd'
-alias etc='cd /Volumes/Data/ETC; ls -Flt; pwd'
-alias ice='cd /Volumes/Data/Iceword; ls -Flt; pwd'
-alias mse='cd /Volumes/Data/MouseHunger; ls -Flt; pwd'
-alias rat='cd /Volumes/Data/RatPain; ls -Flt; pwd'
-alias rus='cd /Volumes/Data/Russian; ls -Flt; pwd'
-alias stp1='cd /Volumes/Data/Stroop1; ls -Flt; pwd'
-alias stp2='cd /Volumes/Data/Stroop2; ls -Flt; pwd'
-alias struc='cd /Volumes/Data/StructuralImage; ls -Flt; pwd'
-alias tbi='cd /Volumes/Data/TBI; ls -Flt; pwd'
-alias tst='cd /Volumes/Data/TEST; ls -Flt; pwd'
-alias tap='cd /Volumes/Data/TransferAppropriateProcessing; ls -Flt; pwd'
-alias wb1='cd /Volumes/Data/WordBoundary1; ls -Flt; pwd'
-alias wb2='cd /Volumes/Data/WordBoundary2; ls -Flt; pwd'
+alias mse='cd /Volumes/Data/Exps/Data/MouseHunger; ls -Flt; pwd'
+alias rat='cd /Volumes/Data/Exps/Data/RatPain; ls -Flt; pwd'
+alias strp='cd /Volumes/Data/Exps/Data/Stroop; ls -Flt; pwd'
+alias attm='cd /Volumes/Data/Exps/Data/AttnMem; ls -Flt; pwd'
+alias struc='cd /Volumes/Data/GlobalSession; ls -Flt; pwd'
+alias ice='cd /Volumes/Data/Exps/Data/Iceword; ls -Flt; pwd'
+alias icea='cd /Volumes/Data/Exps/Analysis/Iceword; ls -Flt; pwd'
+alias rus='cd /Volumes/Data/Exps/Data/Russian; ls -Flt; pwd'
+alias rusa='cd /Volumes/Data/Exps/Analysis/Russian; ls -Flt; pwd'
+alias wb1='cd /Volumes/Data/Exps/Data/WordBoundary1; ls -Flt; pwd'
+alias wb1a='cd /Volumes/Data/Exps/Analysis/WordBoundary1; ls -Flt; pwd'
+alias wb2='cd /Volumes/Data/Exps/Data/WordBoundary2; ls -Flt; pwd'
+alias wb2a='cd /Volumes/Data/Exps/Analysis/WordBoundary2; ls -Flt; pwd'
 
 
 # language Interpreters
@@ -1023,17 +946,24 @@ alias pass='cat /Users/krbalmryde/Dropbox/Code-Projects/UnPw.txt'
 alias total='ls -Flt . | egrep -c '^-'' # Counts the number of files in a directory
 alias up='cd ..; pwd; ls -Flt'
 alias unlock='chmod -R a+rwx \!*'
+alias mkdir='mkdir -p'
+alias h='history'
+alias j='jobs -l'
+alias which='type -a'
+alias ..='cd ..'
+
+# Pretty-print of some PATH variables:
+alias path='echo -e ${PATH//:/\\n}'
+alias libpath='echo -e ${LD_LIBRARY_PATH//:/\\n}'
 
 
 # Dianne's Aliases
 alias color='export CLICOLOR yes'
 alias cut3='cut -d " " -f 3'
 
-function cutn () { cut -d " " -f $1 ; }
-
 
 alias dir='ls -F'
-alias fe_dtierp='fe /Exps/Data/dti_erp lst_subj_dtierp.txt '
+alias fe_dtierp='fe /Volumes/Data/Exps/Data/dti_erp lst_subj_dtierp.txt '
 alias fe_ice='fe /Exps/Data/IceIJN lst_subj_ice.txt '
 alias fe_ijn='fe /Exps/Data/ijn lst_subj_ijn.txt '
 alias fe_plante='fe /Exps/Data/plante lst_subj_plante.txt '
