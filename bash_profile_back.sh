@@ -794,22 +794,46 @@ function messWithYou() {
 
     index=0
     incFlag=1
+    counter=0
+    statements=(
+                "All your bases are belong to us"
+                "smelly cat, smelly cat, what are they feeding you?"
+                "R O C K in the USA, R O C K in the USA"
+                "Never gonna give you up, never gonna let you down"
+                "Im sorry dave, I cant do that"
+                "Destroy all humans, destroy all humans, destroy all...what?"
+                "Hello Kyle, lets play a game"
+                "Toto, I've got a feeling we're not in Kansas anymore."
+                "I love the smell of napalm in the morning."
+                "I'm as mad as hell, and I'm not going to take this anymore!"
+                )
+
     while [[ 1 -eq 1 ]]; do
-        rand=$RANDOM
+        rand=${RANDOM:0:1}
         osascript -e "set volume ${index}"
-        say "all your bases are belong to us"
+        say ${statements[0]}
+
+        if [[ counter -eq 100 ]]; then
+            osascript -e "set volume 10"
+            say "I'll be back."
+            exit
+        fi
+
         if [[ incFlag -eq 1 ]]; then
             ((index++))
         else
             ((index--))
         fi
+
         if [[ $index -eq 10 ]]; then
             incFlag=0
-            sleep ${rand:0:1}
+            sleep ${rand}
         elif [[ $index -eq 0 ]]; then
             incFlag=1
-            sleep ${rand:0:1}
+            sleep ${rand}
         fi
+
+        ((counter++))
     done    
 
 } # End of messWithYou
