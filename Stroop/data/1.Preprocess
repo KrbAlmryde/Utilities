@@ -1,0 +1,116 @@
+#!/usr/bin/env tcsh
+echo "The New, The Improved, Stroop Script"
+echo "This script was designed to Tread water where no one has tread before."
+echo "(version 1.0, May 22, 2009)"
+echo "Command line conforms to following: ./Preprocess S# condition Base# "
+# execute via : tcsh -x S#-run-script |& tee output.S#-run-script
+
+# --------------------------------------------------
+# script setup
+
+
+set images_home = /Volumes/BLAM2
+
+foreach run (voice word)
+
+echo "Count Down Begins"
+
+if ( $#argv > 0 ) then  
+    set subj = $argv[1] 
+else                    
+# specify subject = S19
+set subj = $1
+
+endif
+
+echo "Assigning Variables"
+
+#set base = 42
+set base = $2
+
+echo "Setting Directory Paths"
+
+# assign anchor directory name
+set subj_dir = ${images_home}/${subj}
+
+echo "results"
+
+# assign output directory name
+set results_dir = $subj_dir/${subj}_${run}_Preprocess
+
+echo "group"
+
+# assign group directory name
+set group_dir = $images_home/AnovaData/00_Prep
+
+# verify that the results directory does not yet exist
+if ( -d $results_dir ) then 
+    echo output dir "${subj}_${run}_results" already exists
+   
+   exit
+
+  endif
+
+echo "Enter ${subj} directory"
+# change directories to subject directory
+cd $subj_dir
+
+echo "Making $results_dir directory"
+# create results and group analysis directory
+mkdir $results_dir
+
+echo "Enter $results_dir directory"
+#change directory to results
+cd $results_dir
+
+echo "Making Data directory"
+#create data storage directory
+mkdir $results_dir/00_Data
+
+cp $subj_dir/run1_${run}/${subj}_${run}_epan* $results_dir/00_Data
+cp $subj_dir/run2_${run}/${subj}_${run}_epan* $results_dir/00_Data
+cp $subj_dir/struct/Tal/*spgr* $results_dir/00_Data
+
+mkdir $results_dir/01_Tcat
+#-------------------------------------------------------
+echo "apply 3dTcat to copy input dsets to results dir, while removing the first 4 TRs"
+
+3dTcat -prefix 01_Tcat/${subj}_${run}_tcat 00_Data/${subj}_${run}_epan+orig'[4..$]'
+
+mkdir $results_dir/02_Tshift
+
+
+#-------------------------------------------------------
+echo "run 3dToutcount and 3dTshift for BRIK and HEAD File"
+
+3dToutcount 01_Tcat/${subj}_${run}_tcat+orig > 02_Tshift/precount_${subj}_${run}.1D
+
+1dplot -one   02_Tshift/precount_${subj}_${run}.1D
+
+#-------------------------------------------------------
+echo "Create Automask, then open afni to check artifacts"
+#create automask from epan data
+
+3dAutomask -prefix 00_Data/${subj}_${run}_Spiralmask 01_Tcat/${subj}_${run}_tcat+orig
+
+afni
+
+3dcalc -a 00_Data/${subj}_${run}_Spiralmask+orig -b 01_Tcat/${subj}_${run}_tcat+orig -expr '(a*b)' -prefix 01_Tcat/${subj}_${run}_clean_tcat
+
+#-------------------------------------------------------
+echo "run 3dToutcount and 3dTshift for BRIK and HEAD File"
+
+3dTshift -tzero 0 -rlt+ -quintic -prefix 02_Tshift/${subj}_${run}_tshift      \
+             01_Tcat/${subj}_${run}_clean_tcat+orig
+
+3dToutcount 02_Tshift/${subj}_${run}_tshift+orig > 02_Tshift/postcount_${subj}_${run}.1D
+
+1dplot -one 02_Tshift/postcount_${subj}_${run}.1D
+
+pwd
+cp 01_Tcat/${subj}_${run}_clean_tcat* ../run1_${run}
+cp 01_Tcat/${subj}_${run}_clean_tcat* ../run2_${run}
+
+end
+
+adwarp -overwrite -apar ${subj}_spgr_auto+orig -dpar ${subj}_spgr+orig

@@ -2,8 +2,17 @@
 	"folders":
 	[
 		{
-			"path": "/opt/local/Utilities",
-			"folder_exclude_patterns": [".idea"]
+			"folder_exclude_patterns":
+			[
+				".idea",
+				".gitignore"
+			],
+			"follow_symlinks": true,
+			"path": "."
+		},
+		{
+			"follow_symlinks": true,
+			"path": "/usr/local/tools"
 		}
 	]
 }

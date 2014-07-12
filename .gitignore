@@ -7,3 +7,6 @@ bin
 *.HEAD
 *.BRIK
 *.wav
+*.sublime-workspace
+.idea
+.DS_Store

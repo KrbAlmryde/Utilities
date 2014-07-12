@@ -1,0 +1,128 @@
+#!/usr/bin/env tcsh
+echo "The Glorious ANOVA"
+echo "(version 1.0, June 4th, 2009)"
+echo "This Script was designed to Tread water where no one has tread before."
+echo "The Command line reflects a form of the following"  
+echo "./Anova group voice"
+# --------------------------------------------------
+# Script Setup
+
+
+set images_home = /Network/Servers/reckless.convert.slhs.arizona.edu/Volumes/NetUsers/rita/Stroop/AnovaData
+
+#set type = Group/Female/Male
+set type = $1      
+
+#set run = voice/word      
+set run = $2      
+
+echo "Setting Directory Paths"
+# assign output directory name
+set results_dir = $images_home/${type}_${run}_Anova_results
+
+# verify that the results directory does not yet exist
+if ( -d $results_dir ) then 
+    echo output dir "${type}_${run}_Anova_results" already exists
+   
+
+  endif
+
+echo "Making $results_dir directory"
+# create results and group analysis directory
+mkdir $results_dir
+
+echo "Enter results directory"
+#change directory to results
+cd $results_dir
+
+echo "Let the ANOVA begin!"
+
+3dANOVA2 -type 3 -alevels 6 -blevels 13							\
+-dset 1 1 $images_home/00_Prep/S20_voice_mvfw_peak_irf+tlrc		\
+-dset 2 1 $images_home/00_Prep/S20_voice_fvmw_peak_irf+tlrc		\
+-dset 3 1 $images_home/00_Prep/S20_voice_mvmw_peak_irf+tlrc		\
+-dset 4 1 $images_home/00_Prep/S20_voice_mvnw_peak_irf+tlrc		\
+-dset 5 1 $images_home/00_Prep/S20_voice_fvnw_peak_irf+tlrc		\
+-dset 6 1 $images_home/00_Prep/S20_voice_fvfw_peak_irf+tlrc		\
+-dset 1 2 $images_home/00_Prep/S21_voice_mvfw_peak_irf+tlrc		\
+-dset 2 2 $images_home/00_Prep/S21_voice_fvmw_peak_irf+tlrc		\
+-dset 3 2 $images_home/00_Prep/S21_voice_mvmw_peak_irf+tlrc		\
+-dset 4 2 $images_home/00_Prep/S21_voice_mvnw_peak_irf+tlrc		\
+-dset 5 2 $images_home/00_Prep/S21_voice_fvnw_peak_irf+tlrc		\
+-dset 6 2 $images_home/00_Prep/S21_voice_fvfw_peak_irf+tlrc		\
+-dset 1 3 $images_home/00_Prep/S24_voice_mvfw_peak_irf+tlrc		\
+-dset 2 3 $images_home/00_Prep/S24_voice_fvmw_peak_irf+tlrc		\
+-dset 3 3 $images_home/00_Prep/S24_voice_mvmw_peak_irf+tlrc		\
+-dset 4 3 $images_home/00_Prep/S24_voice_mvnw_peak_irf+tlrc		\
+-dset 5 3 $images_home/00_Prep/S24_voice_fvnw_peak_irf+tlrc		\
+-dset 6 3 $images_home/00_Prep/S24_voice_fvfw_peak_irf+tlrc		\
+-dset 1 4 $images_home/00_Prep/S26_voice_mvfw_peak_irf+tlrc		\
+-dset 2 4 $images_home/00_Prep/S26_voice_fvmw_peak_irf+tlrc		\
+-dset 3 4 $images_home/00_Prep/S26_voice_mvmw_peak_irf+tlrc		\
+-dset 4 4 $images_home/00_Prep/S26_voice_mvnw_peak_irf+tlrc		\
+-dset 5 4 $images_home/00_Prep/S26_voice_fvnw_peak_irf+tlrc		\
+-dset 6 4 $images_home/00_Prep/S26_voice_fvfw_peak_irf+tlrc		\
+-dset 1 5 $images_home/00_Prep/S28_voice_mvfw_peak_irf+tlrc		\
+-dset 2 5 $images_home/00_Prep/S28_voice_fvmw_peak_irf+tlrc		\
+-dset 3 5 $images_home/00_Prep/S28_voice_mvmw_peak_irf+tlrc		\
+-dset 4 5 $images_home/00_Prep/S28_voice_mvnw_peak_irf+tlrc		\
+-dset 5 5 $images_home/00_Prep/S28_voice_fvnw_peak_irf+tlrc		\
+-dset 6 5 $images_home/00_Prep/S28_voice_fvfw_peak_irf+tlrc		\
+-dset 1 6 $images_home/00_Prep/S32_voice_mvfw_peak_irf+tlrc		\
+-dset 2 6 $images_home/00_Prep/S32_voice_fvmw_peak_irf+tlrc		\
+-dset 3 6 $images_home/00_Prep/S32_voice_mvmw_peak_irf+tlrc		\
+-dset 4 6 $images_home/00_Prep/S32_voice_mvnw_peak_irf+tlrc		\
+-dset 5 6 $images_home/00_Prep/S32_voice_fvnw_peak_irf+tlrc		\
+-dset 6 6 $images_home/00_Prep/S32_voice_fvfw_peak_irf+tlrc		\
+-dset 1 7 $images_home/00_Prep/S35_voice_mvfw_peak_irf+tlrc		\
+-dset 2 7 $images_home/00_Prep/S35_voice_fvmw_peak_irf+tlrc		\
+-dset 3 7 $images_home/00_Prep/S35_voice_mvmw_peak_irf+tlrc		\
+-dset 4 7 $images_home/00_Prep/S35_voice_mvnw_peak_irf+tlrc		\
+-dset 5 7 $images_home/00_Prep/S35_voice_fvnw_peak_irf+tlrc		\
+-dset 6 7 $images_home/00_Prep/S35_voice_fvfw_peak_irf+tlrc		\
+-dset 1 8 $images_home/00_Prep/S40_voice_mvfw_peak_irf+tlrc		\
+-dset 2 8 $images_home/00_Prep/S40_voice_fvmw_peak_irf+tlrc		\
+-dset 3 8 $images_home/00_Prep/S40_voice_mvmw_peak_irf+tlrc		\
+-dset 4 8 $images_home/00_Prep/S40_voice_mvnw_peak_irf+tlrc		\
+-dset 5 8 $images_home/00_Prep/S40_voice_fvnw_peak_irf+tlrc		\
+-dset 6 8 $images_home/00_Prep/S40_voice_fvfw_peak_irf+tlrc		\
+-dset 1 9 $images_home/00_Prep/S22_voice_mvfw_peak_irf+tlrc		\
+-dset 2 9 $images_home/00_Prep/S22_voice_fvmw_peak_irf+tlrc		\
+-dset 3 9 $images_home/00_Prep/S22_voice_mvmw_peak_irf+tlrc		\
+-dset 4 9 $images_home/00_Prep/S22_voice_mvnw_peak_irf+tlrc		\
+-dset 5 9 $images_home/00_Prep/S22_voice_fvnw_peak_irf+tlrc		\
+-dset 6 9 $images_home/00_Prep/S22_voice_fvfw_peak_irf+tlrc		\
+-dset 1 10 $images_home/00_Prep/S27_voice_mvfw_peak_irf+tlrc		\
+-dset 2 10 $images_home/00_Prep/S27_voice_fvmw_peak_irf+tlrc		\
+-dset 3 10 $images_home/00_Prep/S27_voice_mvmw_peak_irf+tlrc		\
+-dset 4 10 $images_home/00_Prep/S27_voice_mvnw_peak_irf+tlrc		\
+-dset 5 10 $images_home/00_Prep/S27_voice_fvnw_peak_irf+tlrc		\
+-dset 6 10 $images_home/00_Prep/S27_voice_fvfw_peak_irf+tlrc		\
+-dset 1 11 $images_home/00_Prep/S30_voice_mvfw_peak_irf+tlrc		\
+-dset 2 11 $images_home/00_Prep/S30_voice_fvmw_peak_irf+tlrc		\
+-dset 3 11 $images_home/00_Prep/S30_voice_mvmw_peak_irf+tlrc		\
+-dset 4 11 $images_home/00_Prep/S30_voice_mvnw_peak_irf+tlrc		\
+-dset 5 11 $images_home/00_Prep/S30_voice_fvnw_peak_irf+tlrc		\
+-dset 6 11 $images_home/00_Prep/S30_voice_fvfw_peak_irf+tlrc		\
+-dset 1 12 $images_home/00_Prep/S38_voice_mvfw_peak_irf+tlrc		\
+-dset 2 12 $images_home/00_Prep/S38_voice_fvmw_peak_irf+tlrc		\
+-dset 3 12 $images_home/00_Prep/S38_voice_mvmw_peak_irf+tlrc		\
+-dset 4 12 $images_home/00_Prep/S38_voice_mvnw_peak_irf+tlrc		\
+-dset 5 12 $images_home/00_Prep/S38_voice_fvnw_peak_irf+tlrc		\
+-dset 6 12 $images_home/00_Prep/S38_voice_fvfw_peak_irf+tlrc		\
+-dset 1 13 $images_home/00_Prep/S39_voice_mvfw_peak_irf+tlrc		\
+-dset 2 13 $images_home/00_Prep/S39_voice_fvmw_peak_irf+tlrc		\
+-dset 3 13 $images_home/00_Prep/S39_voice_mvmw_peak_irf+tlrc		\
+-dset 4 13 $images_home/00_Prep/S39_voice_mvnw_peak_irf+tlrc		\
+-dset 5 13 $images_home/00_Prep/S39_voice_fvnw_peak_irf+tlrc		\
+-dset 6 13 $images_home/00_Prep/S39_voice_fvfw_peak_irf+tlrc		\
+-voxel 2000 							\
+-fa Fstat_all 							\
+-acontr 1 1 0 -1 -1 0 conflictvscontrol 				\
+-acontr 1 1 -1 0 0 -1 conflictvscongruent				\
+-acontr 0 0 1 -1 -1 1 congrentvscontrol				\
+-fa Fstat_mean   
+	
+	
+       
+

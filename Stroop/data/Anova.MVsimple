@@ -1,0 +1,81 @@
+#!/usr/bin/env tcsh
+echo "The Glorious ANOVA"
+echo "(version 1.0, June 4th, 2009)"
+echo "This Script was designed to Tread water where no one has tread before."
+echo "The Command line reflects a form of the following"  
+echo "./Anova Male voice"
+# --------------------------------------------------
+# Script Setup
+
+
+set images_home = /Network/Servers/reckless.convert.slhs.arizona.edu/Volumes/NetUsers/rita/Stroop/AnovaData
+
+#set type = Group/Female/Male
+set type = $1      
+
+#set run = voice/word      
+set run = $2      
+
+echo "Setting Directory Paths"
+# assign output directory name
+set results_dir = $images_home/${type}_${run}_Anova_results
+
+# verify that the results directory does not yet exist
+if ( -d $results_dir ) then 
+    echo output dir "${type}_${run}_Anova_results" already exists
+   
+
+  endif
+
+echo "Making $results_dir directory"
+# create results and group analysis directory
+mkdir $results_dir
+
+echo "Enter results directory"
+#change directory to results
+cd $results_dir
+
+echo "Let the ANOVA begin!"
+
+3dANOVA2 -type 3 -alevels 6 -blevels 5							\
+-dset 1 1 $images_home/00_Prep/S22_voice_mvfw_peak_irf+tlrc		\
+-dset 2 1 $images_home/00_Prep/S22_voice_fvmw_peak_irf+tlrc		\
+-dset 3 1 $images_home/00_Prep/S22_voice_mvmw_peak_irf+tlrc		\
+-dset 4 1 $images_home/00_Prep/S22_voice_mvnw_peak_irf+tlrc		\
+-dset 5 1 $images_home/00_Prep/S22_voice_fvnw_peak_irf+tlrc		\
+-dset 6 1 $images_home/00_Prep/S22_voice_fvfw_peak_irf+tlrc		\
+-dset 1 2 $images_home/00_Prep/S27_voice_mvfw_peak_irf+tlrc		\
+-dset 2 2 $images_home/00_Prep/S27_voice_fvmw_peak_irf+tlrc		\
+-dset 3 2 $images_home/00_Prep/S27_voice_mvmw_peak_irf+tlrc		\
+-dset 4 2 $images_home/00_Prep/S27_voice_mvnw_peak_irf+tlrc		\
+-dset 5 2 $images_home/00_Prep/S27_voice_fvnw_peak_irf+tlrc		\
+-dset 6 2 $images_home/00_Prep/S27_voice_fvfw_peak_irf+tlrc		\
+-dset 1 3 $images_home/00_Prep/S30_voice_mvfw_peak_irf+tlrc		\
+-dset 2 3 $images_home/00_Prep/S30_voice_fvmw_peak_irf+tlrc		\
+-dset 3 3 $images_home/00_Prep/S30_voice_mvmw_peak_irf+tlrc		\
+-dset 4 3 $images_home/00_Prep/S30_voice_mvnw_peak_irf+tlrc		\
+-dset 5 3 $images_home/00_Prep/S30_voice_fvnw_peak_irf+tlrc		\
+-dset 6 3 $images_home/00_Prep/S30_voice_fvfw_peak_irf+tlrc		\
+-dset 1 4 $images_home/00_Prep/S38_voice_mvfw_peak_irf+tlrc		\
+-dset 2 4 $images_home/00_Prep/S38_voice_fvmw_peak_irf+tlrc		\
+-dset 3 4 $images_home/00_Prep/S38_voice_mvmw_peak_irf+tlrc		\
+-dset 4 4 $images_home/00_Prep/S38_voice_mvnw_peak_irf+tlrc		\
+-dset 5 4 $images_home/00_Prep/S38_voice_fvnw_peak_irf+tlrc		\
+-dset 6 4 $images_home/00_Prep/S38_voice_fvfw_peak_irf+tlrc		\
+-dset 1 5 $images_home/00_Prep/S39_voice_mvfw_peak_irf+tlrc		\
+-dset 2 5 $images_home/00_Prep/S39_voice_fvmw_peak_irf+tlrc		\
+-dset 3 5 $images_home/00_Prep/S39_voice_mvmw_peak_irf+tlrc		\
+-dset 4 5 $images_home/00_Prep/S39_voice_mvnw_peak_irf+tlrc		\
+-dset 5 5 $images_home/00_Prep/S39_voice_fvnw_peak_irf+tlrc		\
+-dset 6 5 $images_home/00_Prep/S39_voice_fvfw_peak_irf+tlrc		\
+-voxel 2000 							\
+-fa Fstat_all 							\
+-acontr 1 1 0 -1 -1 0 conflictvscontrol 				\
+-acontr 1 1 -1 0 0 -1 conflictvscongruent				\
+-acontr 0 0 1 -1 -1 1 congruentvscontrol				\
+-acontr 1 -1 1 1 -1 -1 malevsfemale
+-fa Fstat_mean   
+	
+	
+       
+

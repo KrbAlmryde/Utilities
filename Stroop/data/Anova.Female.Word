@@ -1,0 +1,133 @@
+#!/usr/bin/env tcsh
+echo "The Glorious ANOVA"
+echo "(version 1.0, June 4th, 2009)"
+echo "This Script was designed to Tread water where no one has tread before."
+echo "The Command line reflects a form of the following"  
+echo "./Anova group word"
+# --------------------------------------------------
+# Script Setup
+
+
+set images_home = /Network/Servers/reckless.convert.slhs.arizona.edu/Volumes/NetUsers/rita/Stroop/AnovaData
+
+#set type = Group/Female/Male
+set type = $1      
+
+#set run = word/word      
+set run = $2      
+
+echo "Setting Directory Paths"
+# assign output directory name
+set results_dir = $images_home/${type}_${run}_Anova_results
+
+# verify that the results directory does not yet exist
+if ( -d $results_dir ) then 
+    echo output dir "${type}_${run}_Anova_results" already exists
+   
+
+  endif
+
+echo "Making $results_dir directory"
+# create results and group analysis directory
+mkdir $results_dir
+
+echo "Enter results directory"
+#change directory to results
+cd $results_dir
+
+echo "Let the ANOVA begin!"
+
+3dANOVA2 -type 3 -alevels 6 -blevels 7							\
+-dset 1 1 $images_home/00_Prep/S20_word_mvfw_peak_irf+tlrc		\
+-dset 2 1 $images_home/00_Prep/S20_word_fvmw_peak_irf+tlrc		\
+-dset 3 1 $images_home/00_Prep/S20_word_mvmw_peak_irf+tlrc		\
+-dset 4 1 $images_home/00_Prep/S20_word_mvnw_peak_irf+tlrc		\
+-dset 5 1 $images_home/00_Prep/S20_word_fvnw_peak_irf+tlrc		\
+-dset 6 1 $images_home/00_Prep/S20_word_fvfw_peak_irf+tlrc		\
+-dset 1 2 $images_home/00_Prep/S21_word_mvfw_peak_irf+tlrc		\
+-dset 2 2 $images_home/00_Prep/S21_word_fvmw_peak_irf+tlrc		\
+-dset 3 2 $images_home/00_Prep/S21_word_mvmw_peak_irf+tlrc		\
+-dset 4 2 $images_home/00_Prep/S21_word_mvnw_peak_irf+tlrc		\
+-dset 5 2 $images_home/00_Prep/S21_word_fvnw_peak_irf+tlrc		\
+-dset 6 2 $images_home/00_Prep/S21_word_fvfw_peak_irf+tlrc		\
+-dset 1 3 $images_home/00_Prep/S24_word_mvfw_peak_irf+tlrc		\
+-dset 2 3 $images_home/00_Prep/S24_word_fvmw_peak_irf+tlrc		\
+-dset 3 3 $images_home/00_Prep/S24_word_mvmw_peak_irf+tlrc		\
+-dset 4 3 $images_home/00_Prep/S24_word_mvnw_peak_irf+tlrc		\
+-dset 5 3 $images_home/00_Prep/S24_word_fvnw_peak_irf+tlrc		\
+-dset 6 3 $images_home/00_Prep/S24_word_fvfw_peak_irf+tlrc		\
+-dset 1 4 $images_home/00_Prep/S26_word_mvfw_peak_irf+tlrc		\
+-dset 2 4 $images_home/00_Prep/S26_word_fvmw_peak_irf+tlrc		\
+-dset 3 4 $images_home/00_Prep/S26_word_mvmw_peak_irf+tlrc		\
+-dset 4 4 $images_home/00_Prep/S26_word_mvnw_peak_irf+tlrc		\
+-dset 5 4 $images_home/00_Prep/S26_word_fvnw_peak_irf+tlrc		\
+-dset 6 4 $images_home/00_Prep/S26_word_fvfw_peak_irf+tlrc		\
+-dset 1 5 $images_home/00_Prep/S28_word_mvfw_peak_irf+tlrc		\
+-dset 2 5 $images_home/00_Prep/S28_word_fvmw_peak_irf+tlrc		\
+-dset 3 5 $images_home/00_Prep/S28_word_mvmw_peak_irf+tlrc		\
+-dset 4 5 $images_home/00_Prep/S28_word_mvnw_peak_irf+tlrc		\
+-dset 5 5 $images_home/00_Prep/S28_word_fvnw_peak_irf+tlrc		\
+-dset 6 5 $images_home/00_Prep/S28_word_fvfw_peak_irf+tlrc		\
+-dset 1 6 $images_home/00_Prep/S32_word_mvfw_peak_irf+tlrc		\
+-dset 2 6 $images_home/00_Prep/S32_word_fvmw_peak_irf+tlrc		\
+-dset 3 6 $images_home/00_Prep/S32_word_mvmw_peak_irf+tlrc		\
+-dset 4 6 $images_home/00_Prep/S32_word_mvnw_peak_irf+tlrc		\
+-dset 5 6 $images_home/00_Prep/S32_word_fvnw_peak_irf+tlrc		\
+-dset 6 6 $images_home/00_Prep/S32_word_fvfw_peak_irf+tlrc		\
+-dset 1 7 $images_home/00_Prep/S40_word_mvfw_peak_irf+tlrc		\
+-dset 2 7 $images_home/00_Prep/S40_word_fvmw_peak_irf+tlrc		\
+-dset 3 7 $images_home/00_Prep/S40_word_mvmw_peak_irf+tlrc		\
+-dset 4 7 $images_home/00_Prep/S40_word_mvnw_peak_irf+tlrc		\
+-dset 5 7 $images_home/00_Prep/S40_word_fvnw_peak_irf+tlrc		\
+-dset 6 7 $images_home/00_Prep/S40_word_fvfw_peak_irf+tlrc		\
+-voxel 2000 							\
+-fa Fstat_all 							\
+-amean 1 mean_${type}_${run}_mvfw 				\
+-amean 2 mean_${type}_${run}_fvmw 				\
+-amean 3 mean_${type}_${run}_mvmw 				\
+-amean 4 mean_${type}_${run}_mvnw 				\
+-amean 5 mean_${type}_${run}_fvnw 				\
+-amean 6 mean_${type}_${run}_fvfw 				\
+-acontr 1 -1 0 0 0 0 1vs2 				\
+-acontr 1 0 -1 0 0 0 1vs3				\
+-acontr 1 0 0 -1 0 0 1vs4				\
+-acontr 1 0 0 0 -1 0 1vs5				\
+-acontr 1 0 0 0 0 -1 1vs6				\
+-acontr -1 1 0 0 0 0 2vs1				\
+-acontr 0 1 -1 0 0 0 2vs3				\
+-acontr 0 1 0 -1 0 0 2vs4				\
+-acontr 0 1 0 0 -1 0 2vs5				\
+-acontr 0 1 0 0 0 -1 2vs6				\
+-acontr -1 0 1 0 0 0 3vs1				\
+-acontr 0 -1 1 0 0 0 3vs2				\
+-acontr 0 0 1 -1 0 0 3vs4				\
+-acontr 0 0 1 0 -1 0 3vs5				\
+-acontr 0 0 1 0 0 -1 3vs6				\
+-acontr -1 0 0 1 0 0 4vs1				\
+-acontr 0 -1 0 1 0 0 4vs2				\
+-acontr 0 0 -1 1 0 0 4vs3				\
+-acontr 0 0 0 1 -1 0 4vs5				\
+-acontr 0 0 0 1 0 -1 4vs6				\
+-acontr -1 0 0 0 1 0 5vs1				\
+-acontr 0 -1 0 0 1 0 5vs2				\
+-acontr 0 0 -1 0 1 0 5vs3				\
+-acontr 0 0 0 -1 1 0 5vs4				\
+-acontr 0 0 0 0 1 -1 5vs6				\
+-acontr -1 0 0 0 1 0 6vs1				\
+-acontr 0 -1 0 0 1 0 6vs2				\
+-acontr 0 0 -1 0 1 0 6vs3				\
+-acontr 0 0 0 -1 1 0 6vs4				\
+-acontr 0 0 0 0 1 -1 6vs5				\
+-acontr 1 -1 1 1 -1 -1 MVvsFV           \
+-acontr -1 1 -1 -1 1 1 FVvsMV           \
+-acontr -1 1 1  0 0 -1 MWvsFW           \
+-acontr 0 1 1 -1 -1 0 MWvsNW            \
+-acontr 1 -1 -1 0 0 1 FWvsMW            \
+-acontr 1 0 0 -1 -1 1 FWvsNW	        \
+-acontr -1 0 0 1 1 -1 NWvsFW            \
+-acontr 0 -1 -1 1 1 0 NWvsMW            \
+-fa Fstat_mean   
+	
+	
+       
+

@@ -43,7 +43,7 @@
 #------------------------------------------------------------------------
 
 function setup_subjdir () {
-    mkdir -p /Volumes/Data/WB1/${subj}/Glm/${RUN[r]}/{1D,Images,Stats,Fitts}
+    mkdir -p /Volumes/Data/WordBoundary1/GLM/${subj}/Glm/${RUN}/{1D,Images,Stats,Fitts}
 }
 
 
@@ -181,7 +181,7 @@ function regress_motion () {
 
 function regress_convolve () {
     echo -e "\nregress_convolve has been called\n"          # This is will display a message in the terminal which will help to keep
-                                                            # track of what function is being run.
+    echo -e "\t$1\n"                                        # track of what function is being run.
 
     for delay in {0..7}; do                                 # This is a loop which runs the deconvolution at each delay (in seconds)
                                                             # the result of which is 8 seperate processes run.
@@ -195,12 +195,12 @@ function regress_convolve () {
         output4d=${input4d}_${delay}sec_${condition}        # <= run#_sub0##_tshift_volreg_despike_mni_7mm_164tr_#sec_
 
         input1D=( cue_stim.1D tone_block.1D sent_block.1D \
-                  ${runsub[r]}_demean.1D\'[0]\' ${runsub[r]}_demean.1D\'[1]\' \
-                  ${runsub[r]}_demean.1D\'[2]\' ${runsub[r]}_demean.1D\'[3]\' \
-                  ${runsub[r]}_demean.1D\'[4]\' ${runsub[r]}_demean.1D\'[5]\' \
-                  ${runsub[r]}_deriv.1D\'[0]\'  ${runsub[r]}_deriv.1D\'[1]\' \
-                  ${runsub[r]}_deriv.1D\'[2]\'  ${runsub[r]}_deriv.1D\'[3]\' \
-                  ${runsub[r]}_deriv.1D\'[4]\'  ${runsub[r]}_deriv.1D\'[5]\' )
+                  ${runsub}_demean.1D\'[0]\' ${runsub}_demean.1D\'[1]\' \
+                  ${runsub}_demean.1D\'[2]\' ${runsub}_demean.1D\'[3]\' \
+                  ${runsub}_demean.1D\'[4]\' ${runsub}_demean.1D\'[5]\' \
+                  ${runsub}_deriv.1D\'[0]\'  ${runsub}_deriv.1D\'[1]\' \
+                  ${runsub}_deriv.1D\'[2]\'  ${runsub}_deriv.1D\'[3]\' \
+                  ${runsub}_deriv.1D\'[4]\'  ${runsub}_deriv.1D\'[5]\' )
 
         #-------------------------------------------------#
         #         On to the real processing, woo!         #
@@ -374,12 +374,12 @@ function regress_alphcor () {
                 -mask ${FUNC}/${input4d}.fullmask.nii.gz \
                 -combine -detrend)
 
-        echo ${fwhmx} >> ${STIM}/${RUN[r]}_${condition}.FWHMx.txt
+        echo ${fwhmx} >> ${STIM}/${RUN}_${condition}.FWHMx.txt
 
 
         3dClustSim \
             -both -NN 123 \
-            -mask ${FUNC}/${runsub[r]}.fullmask.nii.gz \
+            -mask ${FUNC}/${runsub}.fullmask.nii.gz \
             -fwhm "${fwhmx}" -prefix ${STATS}/ClustSim.${condition}
 
 
@@ -418,18 +418,18 @@ function Test_Main () {
 
     input4d=$1
     input1D=( cue_stim.1D tone_block.1D sent_block.1D \
-          ${runsub[r]}_demean.1D\'[0]\' ${runsub[r]}_demean.1D\'[1]\' \
-          ${runsub[r]}_demean.1D\'[2]\' ${runsub[r]}_demean.1D\'[3]\' \
-          ${runsub[r]}_demean.1D\'[4]\' ${runsub[r]}_demean.1D\'[5]\' \
-          ${runsub[r]}_deriv.1D\'[0]\'  ${runsub[r]}_deriv.1D\'[1]\' \
-          ${runsub[r]}_deriv.1D\'[2]\'  ${runsub[r]}_deriv.1D\'[3]\' \
-          ${runsub[r]}_deriv.1D\'[4]\'  ${runsub[r]}_deriv.1D\'[5]\' )
+              ${runsub}_demean.1D\'[0]\' ${runsub}_demean.1D\'[1]\' \
+              ${runsub}_demean.1D\'[2]\' ${runsub}_demean.1D\'[3]\' \
+              ${runsub}_demean.1D\'[4]\' ${runsub}_demean.1D\'[5]\' \
+              ${runsub}_deriv.1D\'[0]\'  ${runsub}_deriv.1D\'[1]\' \
+              ${runsub}_deriv.1D\'[2]\'  ${runsub}_deriv.1D\'[3]\' \
+              ${runsub}_deriv.1D\'[4]\'  ${runsub}_deriv.1D\'[5]\' )
 
     echo "============================Begin Testing============================"
     echo "Subject = ${subj} "
-    echo "runsub[r] = ${runsub[r]}"
+    echo "runsub = ${runsub}"
     echo "condition = ${condition}"
-    echo "RUN = ${RUN[r]} "
+    echo "RUN = ${RUN} "
     echo -e "\n File Names ============================\n"
     echo "censor.${input1D[0]}"
     echo "stim.${input1D[1]} "
@@ -499,36 +499,36 @@ function Main ()
 {
     echo -e "\nMain has been called\n"
     subj=$1
-    RUN=( Run1 Run2 Run3 )
-    runsub=( run1_${subj} run2_${subj} run3_${subj} )
+    for r in {1..3}; do
+        RUN=Run$r
+        runsub=run${r}_${subj}
 
-    for (( r = 0; r < ${#RUN[*]}; r++ )); do
         #-------------------------------------#
         # Define pointers for Functional data #
         #-------------------------------------#
-        FUNC=/Volumes/Data/WordBoundary1/${subj}/Func/${RUN[r]}
-        RD=/Volumes/Data/WordBoundary1/${subj}/Func/${RUN[r]}/RealignDetails
+        FUNC=/Volumes/Data/WordBoundary1/${subj}/Func/${RUN}
+        RD=/Volumes/Data/WordBoundary1/${subj}/Func/${RUN}/RealignDetails
 
         #---------------------------------#
         # Define pointers for GLM results #
         #---------------------------------#
-        STIM=/Volumes/Data/WB1/GLM/STIM
-        GLM=/Volumes/Data/WB1/GLM/${subj}/Glm/${RUN[r]}
-        ID=/Volumes/Data/WB1/GLM/${subj}/Glm/${RUN[r]}/1D
-        IM=/Volumes/Data/WB1/GLM/${subj}/Glm/${RUN[r]}/Images
-        STATS=/Volumes/Data/WB1/GLM/${subj}/Glm/${RUN[r]}/Stats
-        FITTS=/Volumes/Data/WB1/GLM/${subj}/Glm/${RUN[r]}/Fitts
+        STIM=/Volumes/Data/WordBoundary1/GLM/STIM
+        GLM=/Volumes/Data/WordBoundary1/GLM/${subj}/Glm/${RUN}
+        ID=/Volumes/Data/WordBoundary1/GLM/${subj}/Glm/${RUN}/1D
+        IM=/Volumes/Data/WordBoundary1/GLM/${subj}/Glm/${RUN}/Images
+        STATS=/Volumes/Data/WordBoundary1/GLM/${subj}/Glm/${RUN}/Stats
+        FITTS=/Volumes/Data/WordBoundary1/GLM/${subj}/Glm/${RUN}/Fitts
 
         #--------------------#
         # Initiate functions #
         #--------------------#
         setup_subjdir
-        regress_motion ${runsub[r]}
-        regress_convolve ${runsub[r]}_tshift_volreg_despike_mni_7mm_164tr
-        regress_plot ${runsub[r]}_tshift_volreg_despike_mni_7mm_164tr
-        regress_alphcor ${runsub[r]}_tshift_volreg_despike_mni_7mm_164tr
+        regress_motion ${runsub}
+        regress_convolve ${runsub}_tshift_volreg_despike_mni_7mm_164tr
+        regress_plot ${runsub}_tshift_volreg_despike_mni_7mm_164tr
+        regress_alphcor ${runsub}_tshift_volreg_despike_mni_7mm_164tr
 
-        # Test_Main ${runsub[r]}_tshift_volreg_despike_7mm_164tr
+        # Test_Main ${runsub}_tshift_volreg_despike_7mm_164tr
 
     done
 }
@@ -609,10 +609,11 @@ case $condition in
 
 "unlearn"|"unlearnable" )
                           condition="unlearnable"
-                          subj_list=( sub009 sub011 sub012 sub018 \
-                                      sub022 sub030 sub031 sub032 \
-                                      sub038 sub045 sub047 sub048 \
-                                      sub049 sub051 sub059 sub060 )
+                          subj_list=( sub009 sub011 );
+                          # subj_list=( sub009 sub011 sub012 sub018 \
+                          #             sub022 sub030 sub031 sub032 \
+                          #             sub038 sub045 sub047 sub048 \
+                          #             sub049 sub051 sub059 sub060 )
                           ;;
 
 "debug"|"test"          )
@@ -640,18 +641,18 @@ This data is linked and as such has different path names, below are the differen
 between machines.
 
 On Hagar the path names are:
-    FUNC=/Volumes/Data/WordBoundary1/${subj}/Func/${RUN[r]}
-    RD=/Volumes/Data/WordBoundary1/${subj}/Func/${RUN[r]}/RealignDetails
+    FUNC=/Volumes/Data/WordBoundary1/${subj}/Func/${RUN}
+    RD=/Volumes/Data/WordBoundary1/${subj}/Func/${RUN}/RealignDetails
 
     STIM=/Volumes/Data/WB1/GLM/STIM
-    GLM=/Volumes/Data/WB1/GLM/${subj}/Glm/${RUN[r]}
-    ID=/Volumes/Data/WB1/GLM/${subj}/Glm/${RUN[r]}/Ideal
+    GLM=/Volumes/Data/WB1/GLM/${subj}/Glm/${RUN}
+    ID=/Volumes/Data/WB1/GLM/${subj}/Glm/${RUN}/Ideal
 
 On Auk the path names are:
-    FUNC=/Exps/Data/WordBoundary1/${subj}/Func/${RUN[r]}
-    RD=/Exps/Data/WordBoundary1/${subj}/Func/${RUN[r]}/RealignDetails
+    FUNC=/Exps/Data/WordBoundary1/${subj}/Func/${RUN}
+    RD=/Exps/Data/WordBoundary1/${subj}/Func/${RUN}/RealignDetails
 
     STIM=/Exps/Analysis/WordBoundary1/STIM
-    GLM=/Exps/Analysis/WordBoundary1/${subj}/Glm/${RUN[r]}
-    ID=/Exps/Analysis/WordBoundary1/${subj}/Glm/${RUN[r]}/Ideal
+    GLM=/Exps/Analysis/WordBoundary1/${subj}/Glm/${RUN}
+    ID=/Exps/Analysis/WordBoundary1/${subj}/Glm/${RUN}/Ideal
 NOTE

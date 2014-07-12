@@ -43,7 +43,7 @@
 #------------------------------------------------------------------------
 
 function setup_subjdir () {
-    mkdir -p /Volumes/Data/WB1/${subj}/Glm/${RUN[r]}/{1D,Images,Stats,Fitts}
+    mkdir -p /Volumes/Data/Exps/Analysis/WordBoundary1/${subj}/Glm/${RUN[r]}/{1D,Images,Stats,Fitts}
 }
 
 
@@ -506,18 +506,18 @@ function Main ()
         #-------------------------------------#
         # Define pointers for Functional data #
         #-------------------------------------#
-        FUNC=/Volumes/Data/WordBoundary1/${subj}/Func/${RUN[r]}
-        RD=/Volumes/Data/WordBoundary1/${subj}/Func/${RUN[r]}/RealignDetails
+        FUNC=/Volumes/Data/Exps/Data/WordBoundary1/${subj}/Func/${RUN[r]}
+        RD=/Volumes/Data/Exps/Data/WordBoundary1/${subj}/Func/${RUN[r]}/RealignDetails
 
         #---------------------------------#
         # Define pointers for GLM results #
         #---------------------------------#
-        STIM=/Volumes/Data/WB1/GLM/STIM
-        GLM=/Volumes/Data/WB1/GLM/${subj}/Glm/${RUN[r]}
-        ID=/Volumes/Data/WB1/GLM/${subj}/Glm/${RUN[r]}/1D
-        IM=/Volumes/Data/WB1/GLM/${subj}/Glm/${RUN[r]}/Images
-        STATS=/Volumes/Data/WB1/GLM/${subj}/Glm/${RUN[r]}/Stats
-        FITTS=/Volumes/Data/WB1/GLM/${subj}/Glm/${RUN[r]}/Fitts
+        STIM=/Volumes/Data/Exps/Analysis/WordBoundary1/GLM/STIM
+        GLM=/Volumes/Data/Exps/Analysis/WordBoundary1/GLM/${subj}/Glm/${RUN[r]}
+        ID=/Volumes/Data/Exps/Analysis/WordBoundary1/GLM/${subj}/Glm/${RUN[r]}/1D
+        IM=/Volumes/Data/Exps/Analysis/WordBoundary1/GLM/${subj}/Glm/${RUN[r]}/Images
+        STATS=/Volumes/Data/Exps/Analysis/WordBoundary1/GLM/${subj}/Glm/${RUN[r]}/Stats
+        FITTS=/Volumes/Data/Exps/Analysis/WordBoundary1/GLM/${subj}/Glm/${RUN[r]}/Fitts
 
         #--------------------#
         # Initiate functions #
@@ -640,12 +640,12 @@ This data is linked and as such has different path names, below are the differen
 between machines.
 
 On Hagar the path names are:
-    FUNC=/Volumes/Data/WordBoundary1/${subj}/Func/${RUN[r]}
-    RD=/Volumes/Data/WordBoundary1/${subj}/Func/${RUN[r]}/RealignDetails
+    FUNC=/Volumes/Data/Exps/Data/WordBoundary1/${subj}/Func/${RUN[r]}
+    RD=/Volumes/Data/Exps/Data/WordBoundary1/${subj}/Func/${RUN[r]}/RealignDetails
 
-    STIM=/Volumes/Data/WB1/GLM/STIM
-    GLM=/Volumes/Data/WB1/GLM/${subj}/Glm/${RUN[r]}
-    ID=/Volumes/Data/WB1/GLM/${subj}/Glm/${RUN[r]}/Ideal
+    STIM=/Volumes/Data/Exps/Analysis/WordBoundary1/GLM/STIM
+    GLM=/Volumes/Data/Exps/Analysis/WordBoundary1/GLM/${subj}/Glm/${RUN[r]}
+    ID=/Volumes/Data/Exps/Analysis/WordBoundary1/GLM/${subj}/Glm/${RUN[r]}/Ideal
 
 On Auk the path names are:
     FUNC=/Exps/Data/WordBoundary1/${subj}/Func/${RUN[r]}
