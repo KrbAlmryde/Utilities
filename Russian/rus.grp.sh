@@ -70,12 +70,12 @@ function setup_resultsdir() {
 function group_tTest() {
     #------------------------------------------------------------------------
     #
-    #  Purpose: Performs a group one sample tTest on 
+    #  Purpose: Performs a one sample tTest on the collective GLM results
     #
+    #    Input: An array of filenames to be used in the group analysis
+    #           Output filename for the resulting output of the tTest
     #
-    #    Input:
-    #
-    #   Output:
+    #   Output: A single 3D[2] fitt dataset.
     #
     #------------------------------------------------------------------------
     local astr="$1[*]"; local inputArray=(${!astr})
@@ -101,6 +101,8 @@ function group_mergeThresh() {
     #           and cluster correction.
     #
     #------------------------------------------------------------------------
+    
+    echo -e "\ngroup_mergeThresh $RUN $delay $task ${plvl} ${clust} has been called!\n"
 
     input3D=$1
     output3D=${2}
@@ -120,17 +122,12 @@ function group_mergeThresh() {
         ${MEAN}/${input3D}.nii.gz
 
     # Threshold via tStat, write tStats to file
+
     3dmerge -dxyz=1 \
         -1noneg \
         -1dindex 1 \
         -1tindex 1 \
         -1clust 1 ${clust} \
-        -1thresh ${thresh} \
-        -prefix ${MERGE}/${output3D}_tStat.nii.gz \
-        ${MEAN}/${input3D}.nii.gz 
-
-
-    3dmerge -dxyz=1 -1noneg -1dindex 1 -1tindex 1 -1clust 1 ${clust} \
         -1thresh ${thresh} \
         -prefix ${MERGE}/${output3D}_tStat.nii.gz \
         ${MEAN}/${input3D}.nii.gz 
@@ -160,22 +157,35 @@ function group_mergeThresh() {
 
 
 
-function group_() {
+function group_roiMask() {
     #------------------------------------------------------------------------
     #
-    #  Purpose: 
-    #
-    #
-    #    Input:
-    #
-    #   Output:
+    #  Purpose: Create binary mask images of the corrected thresholded data
     #
     #------------------------------------------------------------------------
 
-    local DIRNAME=/path/
-    local var=param1
+    input3D=$1
+    output3D=$2
 
-} # End of group_
+    3dCalc \
+        -a ${MERGE}/${input3D}.nii.gz \
+        -expr "step(a)" \
+        -prefix ${MASK}/${output3D}.nii.gz
+
+} # End of group_roiMask
+
+
+
+
+function Reset_Main() {
+    #------------------------------------------------------------------------
+    #
+    #  Purpose: Resets the entire project
+    #
+    #------------------------------------------------------------------------
+
+    echo "implement me!"
+} # End of Reset_Main
 
 
 
@@ -276,7 +286,9 @@ function Main() {
                               condition="debugging"
                               subjList=( sub100 sub111 )
                               ;;
-
+    "reset"                 )
+                              Reset_Main
+                              ;;
     *                       )
                               HelpMessage
                               ;;
@@ -309,8 +321,8 @@ function Main() {
         #-------------------------
         statName=volreg_despike_mni_5mm_176tr_${delay}sec_${condition}_${task}Stats
         tTestName=${run}_${delay}sec_${condition}_${task}_tTest
-        mergeName=${tTestName}_mergeNN_p${plvl}_vmul${clust}
-        maskName=mask_${mergeName}_orderd
+        mergeName=${tTestName}_mergeNN_p${plvl}_${clust}vmul
+        maskName=mask_${mergeName}
 
         #---------------------------
         # Setup ttest subject array
@@ -327,6 +339,7 @@ function Main() {
         setup_resultsdir     
         group_tTest ttestList ${tTestName}
         group_mergeThresh ${tTestName} ${mergeName}
+        group_roiMask ${mergeName} ${maskName}
 
     done
 
@@ -338,7 +351,7 @@ function Main() {
 
 cond=$1
 
-Main $cond 2>&1 | tee /Volumes/Data/Exps/Analysis/Russian/TTEST/log.GROUP.txt
+Main $cond 2>&1 | tee /Volumes/Data/Exps/Analysis/Russian/TTEST/log.GROUP.$cond.txt
 
 exit
 #================================================================================

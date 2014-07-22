@@ -3,12 +3,43 @@
 Program: dataFix.py
  Author: Kyle Reese Almryde
    Date: 03/11/2014
+Updated: 06/06/2014
 
  Description: Replaces missing values in a behavioral score report based on
               scaled difficulty ratings and weighted "ability" metrics for
               subjects who have participated in a behavioral research
               experiment. If a subject has not taken then entire battery of
               tests they will not have scores computed for them.
+
+              Program will check that datasets match in both length and via
+              subject IDs. In the event that an error is encountered, the 
+              program will do 1 of the following: 
+                1) If the Dataset does not match the person_measure in terms
+                   of the number of entries, an error will be reported, and
+                   no corrections will be made to that dataset.
+                2) If there is a mismatch in terms of subject IDs in the 
+                   dataset against the person_measure, the program will log
+                   an error, but WILL report corrections made up to the point
+                   of mismatch in the file.
+              In all cases, the program will indicate which Subtest it 
+              encountered the error and in the case of subject ID mismatch, 
+              will also identify the entry number. 
+
+          NB: If you encounter a strange error, bug, or problem that you cant
+              (or wont) resolve, feel free to contact me via email at:
+               
+               kyle.almryde@gmail.com 
+
+       Usage: Two options, you may navigate to the parent directory of the 
+              files in question, that is, the directory which contains the 
+              data, measure, and final folders and type the following:
+
+                python dataFix.py
+
+              Alternatively, you can provide the path to the directory which
+              contains those folders ala:
+
+                python dataFix.py /Path/To/Parent/Folder
 
 ==============================================================================
 """
@@ -53,12 +84,36 @@ def writeErrorReport(outFile, data):
     report.close()
 
 
+def getModelColumn(subtest_data):
+    """ Computes the modal number of columns extracted from the supplied list
+
+    Params:
+        subtest_data -- List: Contains list of white-space delimited data
+                        columns which can be split. Columns represent subject
+                        metadata as well as testing metrics.
+    Returns:
+        Int -- An integer relaying the modal column length of the data file. 
+               The value is subtracted by 1 to allow for immediate usage as
+               an index to a List.
+    """
+    from collections import Counter
+
+    columnLengths=[]
+    for line in subtest_data:
+        columnLengths.append(len(line.strip().split()))
+    data = Counter(columnLengths)
+    length = data.most_common(1)[0][0]-1
+    print "Modal column length is {0}".format(length)
+    return length  # get the 1st most common item, access
+                                        # the count, which is in index 0 and 0 
+                                        # respectively of a list->tuple pair
+
 
 #=============================== START OF MAIN ===============================
 
 def main():
     # Several datafiles, each with a long list of subjects
-    BASE = "/Users/krbalmryde/Dropbox/Shared-Projects/Kyle_Elena/Tills_data"
+
     # Directory path variable assignment, assumes script is in working directory!!!
     DATA = "data"
     MEASURE = "measure"
@@ -66,9 +121,9 @@ def main():
 
     # Mainly for testing purposes
     if len(sys.argv) > 1: 
-        DATA = os.path.join(BASE, sys.argv[1], DATA)
-        MEASURE = os.path.join(BASE, sys.argv[1], MEASURE)
-        FINAL = os.path.join(BASE, sys.argv[1], FINAL)
+        DATA = os.path.join(sys.argv[1], DATA)
+        MEASURE = os.path.join(sys.argv[1], MEASURE)
+        FINAL = os.path.join(sys.argv[1], FINAL)
 
 
 
@@ -109,11 +164,12 @@ def main():
                 print "\tThere are currently {0} erroneous SubTests that need to be addressed".format(len(SubTestErrorIndex))
                 break
 
+            index = getModelColumn(subtest_data) # get the modal column length by which to index the data 
             for i, line in enumerate(subtest_data):
                 # print "line is", line
-                seg = line.strip().split()  # Each line represents a single subject, strip off any newline characters, the split on whitespace
-                data = "".join(seg[9:])  # some data files have spaces intermixed in the data column, resulting in
-                                         # potentially missed values, this line corrects that.subtest_data[i]
+                seg = line.strip().split()   # Each line represents a single subject, strip off any newline characters, the split on whitespace
+                data = "".join(seg[9:])  #+ some data files have spaces intermixed in the data column, resulting in
+                                             #+ potentially missed values, this line corrects that.subtest_data[i]
                 subtest_data[i] = [seg[0], data]
                 persons_ability[i] = persons_ability[i].split()
 
@@ -149,7 +205,7 @@ def main():
             
     if SubTestErrorIndex:
         print "There were errors in the program! Writing error report..."
-        errorFN = os.path.join(FINAL,"ErrorReport")
+        errorFN = os.path.join(FINAL,"ErrorReport_")
         writeErrorReport(errorFN, SubTestErrorIndex) # Write 
     else:
         print "There were no errors detected! Be sure to look over your results for accuracy!"
