@@ -99,6 +99,23 @@ def writeErrorReport(data):
         report.write(result)
 
 
+class Subject(object):
+    """docstring for Subject"""
+    def __init__(self, ID):
+        super(Subject, self).__init__()
+        self.ID = ID
+        self.ability = None
+        self.performance = None
+
+    def __call__(self, _ability, _perfomance):
+        self.ability = _ability
+        self.performance = _perfomance
+
+    def hasMatchingSubjects(self):
+        if self.ability is None:
+            return False
+
+
 class ErrorLogger(object):
     """Tracks errors and creates log detailing problems that occurred"""
     def __init__(self):
@@ -181,13 +198,13 @@ class SubTestManager(object):
     def __init__(self, _dFile, _mDIR):
         super(SubTestManager, self).__init__()
 
-        self.DATA = os.path.split(_dFile)[0]
         self.MEASURE = _mDIR
+        self.dataFile = _dFile
 
         self.ID = self.getTestID(_dFile)
-        self.pattern = self.makePattern()
+        self.DATA = os.path.split(_dFile)[0]
 
-        self.dataFile = _dFile
+        self.pattern = self.makePattern()
         self.dataScores = self.loadDataScores()
 
         self.itemFile = None
@@ -262,18 +279,18 @@ class SubTestManager(object):
         return _data
 
     def loadItemMeasure(self):
-        if self.ErrorLog.has_Error:
-            return ""
+        if self.itemFile is None:
+            return None
         else:
             with open(self.itemFile, 'U') as i:
                 _item = i.read().rstrip('\r\n').split()
             return _item
 
     def loadAbilityMeasure(self):
-        _ability = []
-        if self.ErrorLog.has_Error:
-            return ""
+        if self.personFile is None:
+            return None
         else:
+            _ability = []
             with open(self.personFile, 'U') as p:
                 for line in p:
                     rline = line.rstrip('\r\n')
@@ -285,19 +302,20 @@ class SubTestManager(object):
 
     def hasMatchingLengths(self):
         # Check that subtest_data is the same size as the persons_ability
-        if len(self.dataScores) != len(self.abilityMeasure):
+        if self.abilityMeasure is None:
             return False
-        else:
+        elif len(self.dataScores) is not len(self.abilityMeasure):
+            return False
+        else:  # They do!
             return True
 
     def hasMatchingSubjects(self):
-        index = 0
-        for dSub, aSub in zip(self.dataScores, self.abilityMeasure):
-            if dSub[0] != aSub[0]:
-                self.ErrorLog('B0', index, dSub[0], aSub[0])
-                return False
+        index = 1
+        for dataSub, abilSub in zip(self.dataScores, self.abilityMeasure):
+            if dataSub[0] != abilSub[0]:
+                return (False, index)
             index += 1
-        return True
+        return (True, index)
 
     def hasMatchingItemLengths(self):
         for index, scores in enumerate(self.dataScores):
@@ -383,8 +401,9 @@ def main():
 
         if not subTest.hasFiles():
             errorLog('001', subTest)
-        # elif not subTest.hasMatchingLengths():
-        #     errorLog('002', subTest)
+        elif not subTest.hasMatchingLengths():
+            errorLog('002', subTest)
+        elif not subTest.hasMatchingSubjects()[0]:
 
     print "There was {} Error(s)! See {} for more details".format(errorLog.numErrors, errorLog.outFile)
 
