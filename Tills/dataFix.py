@@ -103,22 +103,26 @@ class ErrorLogger(object):
     """Tracks errors and creates log detailing problems that occurred"""
     def __init__(self):
         super(ErrorLogger, self).__init__()
-        self.has_Error = 0
+        from datetime import datetime
+
+        self.log = []
+        self.numErrors = 0
+        self.outFile = "ErrorReport_{}.txt".format(datetime.now().time().isoformat())
         self.ErrorIndex = {
-            "001": "Missing SubTest Files!",
+            "001": "Missing SubTest Files",
             "002": "Size Mismatch! Data has {0}, Person has {0} entries",
             "003": "Participant ID Mismatch Error! Data {0} != Person {0}",
             "004": "Item/Data Size Mismatch!"
         }
-        self.log = []
 
     def __call__(self, errorCode, sub_test):
         """ errorCode will act as key to ErrorIndex, which will report Error
             type and call appropriate message function. *arguments will be
             supplied to respective function
         """
+        self.numErrors += 1
         error = self.ErrorIndex[errorCode]
-        print "{:>26} !! {} for SubtTest{}".format('ERROR', error, sub_test.ID)
+        print "{:>10} !! {} !!".format('ERROR', error)
 
         if error is '001':
             self.error001(sub_test)
@@ -375,12 +379,14 @@ def main():
     # Start main loop
     for st in glob(os.path.join(DATA, '[Ss]ub[Tt]est*.txt')):
         subTest = SubTestManager(st, MEASURE)
+        print "\n{:*>30}".format(" Now Processing SubTest{} ".format(subTest.ID))
 
         if not subTest.hasFiles():
             errorLog('001', subTest)
         # elif not subTest.hasMatchingLengths():
         #     errorLog('002', subTest)
 
+    print "There was {} Error(s)! See {} for more details".format(errorLog.numErrors, errorLog.outFile)
 
 if __name__ == '__main__':
     main()
