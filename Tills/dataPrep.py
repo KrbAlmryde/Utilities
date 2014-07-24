@@ -20,7 +20,7 @@ from glob import glob
 
 def main():
     # Several datafiles, each with a long list of subjects
-    BASE = "/Users/krbalmryde/Dropbox/Shared-Projects/Kyle_Elena/Tills_data"
+
     # Directory path variable assignment, assumes script is in working directory!!!
     DATA = "data"
     MEASURE = "measure"
@@ -28,9 +28,9 @@ def main():
 
     # Mainly for testing purposes
     if len(sys.argv) > 1: 
-        DATA = os.path.join(BASE, sys.argv[1], DATA)
-        MEASURE = os.path.join(BASE, sys.argv[1], MEASURE)
-        FINAL = os.path.join(BASE, sys.argv[1], FINAL)
+        DATA = os.path.join(sys.argv[1], DATA)
+        MEASURE = os.path.join(sys.argv[1], MEASURE)
+        FINAL = os.path.join(sys.argv[1], FINAL)
 
 
     # Create a dictionary with Subtest #s as the keys and a list of the data

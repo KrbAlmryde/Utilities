@@ -811,11 +811,12 @@ function messWithYou() {
     while [[ 1 -eq 1 ]]; do
         rand=${RANDOM:0:1}
         osascript -e "set volume ${index}"
-        say ${statements[0]}
+        # say ${statements[0]}
 
         if [[ counter -eq 100 ]]; then
             osascript -e "set volume 10"
-            say "I'll be back."
+            say "All your bases are belong to us"
+            # say "I'll be back."
             exit
         fi
 
