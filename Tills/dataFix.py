@@ -212,18 +212,16 @@ class SubTestManager(object):
                 ability = self.abilityScores[i][1]
             except IndexError:
                 ability = 'x'
-
-            if re.search('[xX? ]', ability):  # If the ability file has an X, a ?, or is simply blank, skip it. Subj never took the test
-                result += "{0}".format(scores)
-            elif re.search('[0-9]+', ability):
-                for j, value in enumerate(scores):
-                    item = self.itemScores[j]
-                    if re.search('[xX? ]', item):
-                        result += " "
-                    elif value != '.':
-                        result += value
-                    else:
-                        result += self.getPerformanceScore(item, ability)
+            for j, point in enumerate(scores):
+                item = self.itemScores[j]
+                if re.search('[xX? ]', item):
+                    result += "-"
+                elif re.search('[xX? ]', ability):  # If the ability file has an X, a ?, or is simply blank, skip it. Subj never took the test
+                    result += "."  # "{0}".format(scores)
+                elif point != '.':
+                    result += point
+                else:
+                    result += self.getPerformanceScore(item, ability)
             if len(result) != len(scores):
                 print "\tProblems!!", len(result), len(scores)
                 return False
@@ -320,8 +318,6 @@ class SubTestManager(object):
             return _ability
 
     def getPerformanceScore(self, item, ability):
-        if re.search('[xX? ]', ability) and re.search('[xX? ]', item):
-            return
         if float(ability) < float(item):  # if ability is less than item, assign 0
             return '0'
         elif float(ability) > float(item):  # if ability is greater than item, assign 1
