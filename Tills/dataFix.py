@@ -4,6 +4,8 @@ Program: dataFix.py
  Author: Kyle Reese Almryde
    Date: 03/11/2014
 Updated: 06/06/2014
+         07/12/2014
+         07/25/2014
 
  Description: Replaces missing values in a behavioral score report based on
               scaled difficulty ratings and weighted "ability" metrics for
@@ -52,8 +54,9 @@ class ErrorLogger(object):
         self.ErrorIndex = {
             "001": "Missing SubTest Files",
             "002": "Size Mismatch! Data and Person file do not have equal entries",
-            "003": "Participant ID Mismatch Error! Data {0} != Person {0}",
-            "004": "Item/Data Size Mismatch!"
+            "003": "Item/Data Size Mismatch!",
+            "004": "Participant ID Mismatch Error!",
+            "005": "Size of Corrected Results vector does not match supplied Data vector"
         }
 
     def __call__(self, errorCode, sub_test):
@@ -73,6 +76,8 @@ class ErrorLogger(object):
             self.error003(sub_test)
         elif errorCode is '004':
             self.error004(sub_test)
+        elif errorCode is '005':
+            self.error005(sub_test)
 
     def error001(self, sub_test):
         missing = []
@@ -93,17 +98,25 @@ class ErrorLogger(object):
         self.log.append(error)
 
     def error003(self, sub_test):
-        index = sub_test.index - 1
-        dataSub = sub_test.dataScores[index][0]
-        personSub = sub_test.abilityScores[index][0]
-        error = "SubTest{}: Subjects do not match: Data {} != Person {}, on line {}".format(sub_test.ID, dataSub, personSub, sub_test.index)
-        self.log.append(error)
-
-    def error004(self, sub_test):
-        dataLen = len(sub_test.dataScores[sub_test.index][1])
+        dataLen = len(sub_test.dataScores[sub_test.stopIndex][1])
         itemLen = len(sub_test.itemScores)
         error = "SubTest{}: Number of Data points does match number of items: Data has {} points, Items has {}".format(sub_test.ID, dataLen, itemLen)
         self.log.append(error)
+
+    def error004(self, sub_test):
+        index = sub_test.stopIndex - 1
+        dataSub = sub_test.dataScores[index][0]
+        personSub = sub_test.abilityScores[index][0]
+        error = "SubTest{}: Subjects do not match: Data {} != Person {}, on line {}".format(sub_test.ID, dataSub, personSub, sub_test.stopIndex)
+        self.log.append(error)
+
+    def error005(self, sub_test):
+        index = sub_test.error005[0] + 1
+        subj = sub_test.error005[1]
+        lenResult = sub_test.error005[2]
+        lenData = sub_test.error005[3]
+        error = "SubTest{}: Size of Corrected Results vector({}) != Supplied Data vector({}) for Subject {} on line {}".format(sub_test.ID, lenResult, lenData, subj, index)
+        self.log.appen(error)
 
     def generateReport(self, outDIR):
         """ Writes error report with associated problem
@@ -140,11 +153,12 @@ class SubTestManager(object):
         self.personFile = None
         self.abilityScores = None
 
-        self.index = None  # This is used exclusively in the event that a mismatch occurs with subjects
+        self.stopIndex = None  # This is used exclusively in the event that a mismatch occurs with subjects
         self.pattern = self.makePattern()
 
         self.result = ""
         self.outFile = "SubTest{0}_results.txt".format(self.ID)
+        self.error005 = None
 
     def hasFiles(self):
         fileList = []
@@ -180,15 +194,6 @@ class SubTestManager(object):
         else:  # They do!
             return True
 
-    def hasMatchingSubjects(self):
-        _index = 1
-        for dataSub, abilSub in zip(self.dataScores, self.abilityScores):
-            if dataSub[0] != abilSub[0]:
-                self.index = _index
-                return False
-            _index += 1
-        return True
-
     def hasMatchingItemLengths(self):
         if self.itemScores is None:
             try:
@@ -198,12 +203,23 @@ class SubTestManager(object):
         _index = 0
         for _, scores in self.dataScores:
             if len(self.itemScores) != len(scores):
-                self.index = _index
+                self.stopIndex = _index
                 return False
             _index += 1
         return True
 
-    def FixData(self):
+    def hasMatchingSubjects(self):
+        _index = 1
+        for dataSub, abilSub in zip(self.dataScores, self.abilityScores):
+            if dataSub[0] != abilSub[0]:
+                self.stopIndex = _index
+                return False
+            _index += 1
+        return True
+
+    def FixData(self, errorLog):
+        if not self.hasMatchingSubjects():
+            errorLog('004', self)
         for i, subjScores in enumerate(self.dataScores):
             subj = subjScores[0]
             scores = subjScores[1]
@@ -212,19 +228,25 @@ class SubTestManager(object):
                 ability = self.abilityScores[i][1]
             except IndexError:
                 ability = 'x'
+            if i is self.stopIndex:
+                return True
             for j, point in enumerate(scores):
                 item = self.itemScores[j]
                 if re.search('[xX? ]', item):
-                    result += "-"
+                    result += "*"
                 elif re.search('[xX? ]', ability):  # If the ability file has an X, a ?, or is simply blank, skip it. Subj never took the test
-                    result += "."  # "{0}".format(scores)
+                    if point != '.':
+                        result += point
+                    else:
+                        result += "."  # "{0}".format(scores)
                 elif point != '.':
                     result += point
                 else:
-                    result += self.getPerformanceScore(item, ability)
+                    result += self.calculatePerformance(item, ability)
             if len(result) != len(scores):
                 print "\tProblems!!", len(result), len(scores)
-                return False
+                self.error005 = (i, subj, len(result), len(scores))
+                errorLog('005', self)
             self.result += "{0}\t{1}\n".format(subj, result)
         return True
 
@@ -317,7 +339,7 @@ class SubTestManager(object):
                     _ability.append(sline)
             return _ability
 
-    def getPerformanceScore(self, item, ability):
+    def calculatePerformance(self, item, ability):
         if float(ability) < float(item):  # if ability is less than item, assign 0
             return '0'
         elif float(ability) > float(item):  # if ability is greater than item, assign 1
@@ -357,11 +379,9 @@ def main():
             errorLog('001', subTest)
         elif not subTest.hasMatchingLengths():
             errorLog('002', subTest)
-        elif not subTest.hasMatchingSubjects():
-            errorLog('003', subTest)
         elif not subTest.hasMatchingItemLengths():
-            errorLog('004', subTest)
-        elif subTest.FixData():
+            errorLog('003', subTest)
+        elif subTest.FixData(errorLog):
             subTest.generateReport(FINAL)
 
     print "\nThere was {} Error(s)! See {} for more details".format(errorLog.numErrors, errorLog.outFile)

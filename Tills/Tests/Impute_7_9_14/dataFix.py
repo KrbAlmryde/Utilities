@@ -12,23 +12,23 @@ Updated: 06/06/2014
               tests they will not have scores computed for them.
 
               Program will check that datasets match in both length and via
-              subject IDs. In the event that an error is encountered, the 
-              program will do 1 of the following: 
+              subject IDs. In the event that an error is encountered, the
+              program will do 1 of the following:
                 1) If the Dataset does not match the person_measure in terms
                    of the number of entries, an error will be reported, and
                    no corrections will be made to that dataset.
-                2) If there is a mismatch in terms of subject IDs in the 
+                2) If there is a mismatch in terms of subject IDs in the
                    dataset against the person_measure, the program will log
                    an error, but WILL report corrections made up to the point
                    of mismatch in the file.
-              In all cases, the program will indicate which Subtest it 
-              encountered the error and in the case of subject ID mismatch, 
-              will also identify the entry number. 
+              In all cases, the program will indicate which Subtest it
+              encountered the error and in the case of subject ID mismatch,
+              will also identify the entry number.
 
           NB: If you encounter a strange error, bug, or problem that you cant
               (or wont) resolve, feel free to contact me via email at:
-               
-               kyle.almryde@gmail.com 
+
+               kyle.almryde@gmail.com
 
 ==============================================================================
 """
@@ -85,7 +85,7 @@ def main():
     FINAL = "final"
 
     # Mainly for testing purposes
-    if len(sys.argv) > 1: 
+    if len(sys.argv) > 1:
         DATA = os.path.join(sys.argv[1], DATA)
         MEASURE = os.path.join(sys.argv[1], MEASURE)
         FINAL = os.path.join(sys.argv[1], FINAL)
@@ -96,7 +96,7 @@ def main():
 
     # Create a dictionary with Subtest #s as the keys and a list of the data
     # file as values. Uses a Dictionary Comprehension
-    SubTestIndex = {os.path.split(_file)[1].split('_')[0].split('Test')[1]: [_file] for _file in glob(os.path.join(DATA,"*.txt"))}       
+    SubTestIndex = {os.path.split(_file)[1].split('_')[0].split('Test')[1]: [_file] for _file in glob(os.path.join(DATA,"*.txt"))}
 
     for measure in glob(os.path.join(MEASURE,"*.txt")):
         sn = os.path.split(measure)[1].split('_')[0].split('Sub')[1] # sn => subtest number
@@ -117,7 +117,7 @@ def main():
             if os.path.isfile(outFn):
                 print "{0} already exists! Removing...".format(outFn)
                 os.remove(outFn) # check that the file doenst already exist
-            
+
             dFn, iFn, aFn = v  # [d]ata,[i]tem,[a]bility [F]ile[n]ame
             subtest_data = open(dFn, 'U').read().strip().split('\n')
             items_measures = open(iFn, 'U').read().strip().split()
@@ -138,7 +138,7 @@ def main():
                 persons_ability[i] = persons_ability[i].split()
 
                 result = "{0}\t".format(subtest_data[i][0])
-                
+
                 # print result
                 if subtest_data[i][0] != persons_ability[i][0]:  # if the subtest participant id does not match the person id, log the error!
                     SubTestErrorIndex.append((dFn, "Participant ID Mismatch Error: line {0}".format(i)))
@@ -166,11 +166,11 @@ def main():
                                     result += "1"  # Passed
 
                     writeResults(outFn, result)  # write final results to file
-            
+
     if SubTestErrorIndex:
         print "There were errors in the program! Writing error report..."
         errorFN = os.path.join(FINAL,"ErrorReport_")
-        writeErrorReport(errorFN, SubTestErrorIndex) # Write 
+        writeErrorReport(errorFN, SubTestErrorIndex) # Write
     else:
         print "There were no errors detected! Be sure to look over your results for accuracy!"
 

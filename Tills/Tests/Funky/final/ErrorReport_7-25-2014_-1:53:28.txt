@@ -1,0 +1,7 @@
+SubTest02: Number of Data points does match number of items: Data has 22 points, Items has 21
+SubTest06: Number of Data points does match number of items: Data has 27 points, Items has 24
+SubTest07: Number of Data points does match number of items: Data has 24 points, Items has 21
+SubTest09a: Number of Data points does match number of items: Data has 33 points, Items has 32
+SubTest13: Number of entries do not match: Data has 1605, Person has 1974 entries
+SubTest15: 2 File(s) missing:  item_measure person_measure
+SubTest3b: Number of Data points does match number of items: Data has 55 points, Items has 52
