@@ -36,98 +36,22 @@ Updated: 06/06/2014
 import os, sys, re
 from glob import glob
 from random import random
-
-
-def loadSubtTestDataFiles(fileList):
-    """ One line description
-
-    Params:
-     arg -- arg
-
-    Returns:
-      Description of returns
-    """
-    dFn, iFn, aFn = fileList
-
-    # _data = open(dFn, 'U').read().strip()
-    with open(dFn, 'U') as dataStream:
-        _data = dataStream.read().strip().split(os.linesep)  # re.split('\t+|\r\n+|\r+|\n+', _data)
-
-    # _data = open(iFn, 'U').read().strip()
-    with open(iFn, 'U') as measureStream:
-        _measures = measureStream.read().strip().split()
-
-    with open(aFn, 'U') as abilityStream:
-        _ability = [el.split() for el in abilityStream.read().strip().split(os.linesep)]
-
-    # print "\ndata loaded", _data, "\n\n"
-    # print "\nmeasure loaded", _measures, "\n\n"
-    # print "\nability loaded", _ability, "\n\n"
-    return _data, _measures, _ability
-
-
-def writeResults(outFile, data):
-    """ Writes data to a file
-
-    Params:
-        outFile -- String: The output file name
-        data -- String: 1s and 0s (and optionally all '.')
-                denoting subjects performance.
-    Returns:
-        None
-    """
-    data += "\n"  # Add a newline just in case
-    with open(outFile, 'a') as report:  # Append to the file
-        report.write(data)
-
-
-def writeErrorReport(data):
-    """ Writes error report with associated problem
-
-    Params:
-        data -- List: Contains tuple of offending Subtest and type of
-                    error, ie size mismatch, order mismatch, etc
-    Returns:
-        None
-    """
-    from datetime import datetime
-    result = ""
-    outFile = "ErrorReport_{}.txt".format(datetime.now().time().isoformat())
-    with open(outFile, 'w') as report:
-        for test, error in data:
-            result += "{0}:\t {1}\n".format(test, error)
-        report.write(result)
-
-
-class Subject(object):
-    """docstring for Subject"""
-    def __init__(self, ID):
-        super(Subject, self).__init__()
-        self.ID = ID
-        self.ability = None
-        self.performance = None
-
-    def __call__(self, _ability, _perfomance):
-        self.ability = _ability
-        self.performance = _perfomance
-
-    def hasMatchingSubjects(self):
-        if self.ability is None:
-            return False
+from datetime import datetime
 
 
 class ErrorLogger(object):
     """Tracks errors and creates log detailing problems that occurred"""
     def __init__(self):
         super(ErrorLogger, self).__init__()
-        from datetime import datetime
 
         self.log = []
         self.numErrors = 0
-        self.outFile = "ErrorReport_{}.txt".format(datetime.now().time().isoformat())
+        self.result = ""
+        tm = datetime.now().timetuple()
+        self.outFile = "ErrorReport_{}-{}-{}_{}:{}:{}.txt".format(tm.tm_mon, tm.tm_mday, tm.tm_year, tm.tm_hour-12, tm.tm_min, tm.tm_sec)
         self.ErrorIndex = {
             "001": "Missing SubTest Files",
-            "002": "Size Mismatch! Data has {0}, Person has {0} entries",
+            "002": "Size Mismatch! Data and Person file do not have equal entries",
             "003": "Participant ID Mismatch Error! Data {0} != Person {0}",
             "004": "Item/Data Size Mismatch!"
         }
@@ -139,42 +63,49 @@ class ErrorLogger(object):
         """
         self.numErrors += 1
         error = self.ErrorIndex[errorCode]
-        print "{:>10} !! {} !!".format('ERROR', error)
+        print "{:>15} {}".format('!! ERROR !!', error)
 
-        if error is '001':
+        if errorCode is '001':
             self.error001(sub_test)
-        elif error is '002':
+        elif errorCode is '002':
             self.error002(sub_test)
-        elif error is '003':
+        elif errorCode is '003':
             self.error003(sub_test)
-        elif error is '004':
+        elif errorCode is '004':
             self.error004(sub_test)
 
     def error001(self, sub_test):
         missing = []
         if sub_test.itemFile is None:
-            missing.append("item_measure.txt")
+            missing.append("item_measure")
         if sub_test.personFile is None:
-            missing.append("person_measure.txt")
+            missing.append("person_measure")
 
-        error = "Files missing From SubTest{}:".format('ERROR', len(missing), sub_test.ID)
+        error = "SubTest{}: {} File(s) missing: ".format(sub_test.ID, len(missing))
         for el in missing:
             error += " {}".format(el)
         self.log.append(error)
 
-    def error002(self, fileList):
-        print self.spacer+"ERROR !! Size Mismatch:\tdata: {0}\tability: {1}".format(len(fileList[0]), len(fileList[1]))
+    def error002(self, sub_test):
+        dataSize = len(sub_test.dataScores)
+        personSize = len(sub_test.abilityScores)
+        error = "SubTest{}: Number of entries do not match: Data has {}, Person has {} entries".format(sub_test.ID, dataSize, personSize)
+        self.log.append(error)
 
-    def error003(self, fileList):
-        pass
+    def error003(self, sub_test):
+        index = sub_test.index - 1
+        dataSub = sub_test.dataScores[index][0]
+        personSub = sub_test.abilityScores[index][0]
+        error = "SubTest{}: Subjects do not match: Data {} != Person {}, on line {}".format(sub_test.ID, dataSub, personSub, sub_test.index)
+        self.log.append(error)
 
-    def error004(self, fileList):
-        pass
+    def error004(self, sub_test):
+        dataLen = len(sub_test.dataScores[sub_test.index][1])
+        itemLen = len(sub_test.itemScores)
+        error = "SubTest{}: Number of Data points does match number of items: Data has {} points, Items has {}".format(sub_test.ID, dataLen, itemLen)
+        self.log.append(error)
 
-    def error005(self, fileList):
-        pass
-
-    def generateReport(self):
+    def generateReport(self, outDIR):
         """ Writes error report with associated problem
 
         Params:
@@ -183,14 +114,11 @@ class ErrorLogger(object):
         Returns:
             None
         """
-        pass
-        # from datetime import datetime
-        # result = ""
-        # outFile = "ErrorReport_{}.txt".format(datetime.now().time().isoformat())
-        # with open(outFile, 'w') as report:
-        #     # for test, error in data:
-        #         result += "{0}:\t {1}\n".format(test, error)
-            # report.write(result)
+        self.outFile = os.path.join(outDIR, self.outFile)
+        with open(self.outFile, 'w') as report:
+            for error in self.log:
+                self.result += "{}\n".format(error)
+            report.write(self.result)
 
 
 class SubTestManager(object):
@@ -198,23 +126,124 @@ class SubTestManager(object):
     def __init__(self, _dFile, _mDIR):
         super(SubTestManager, self).__init__()
 
-        self.MEASURE = _mDIR
-        self.dataFile = _dFile
-
         self.ID = self.getTestID(_dFile)
+
+        self.MEASURE = _mDIR
         self.DATA = os.path.split(_dFile)[0]
 
-        self.pattern = self.makePattern()
+        self.dataFile = _dFile
         self.dataScores = self.loadDataScores()
 
         self.itemFile = None
-        self.itemMeasure = None
+        self.itemScores = None
 
         self.personFile = None
-        self.abilityMeasure = None
+        self.abilityScores = None
+
+        self.index = None  # This is used exclusively in the event that a mismatch occurs with subjects
+        self.pattern = self.makePattern()
 
         self.result = ""
-        self.outFile = "final/SubTest{0}_results.txt".format(self.ID)
+        self.outFile = "SubTest{0}_results.txt".format(self.ID)
+
+    def hasFiles(self):
+        fileList = []
+        path = os.path.join(self.MEASURE, "*.txt")
+        fileList = [f for f in glob(path) if re.search(self.pattern, f)]
+
+        if len(fileList) < 2:
+            return False
+        elif len(fileList) >= 2:
+            for fn in fileList:
+                _fn = os.path.split(fn)[1].split('_')[0]
+                rawID = re.split('[sS]ub', _fn)[1]
+                pat = '^{}$'.format(self.pattern)
+                if re.search(pat, rawID):
+                    if re.search('[iI]tem', fn):
+                        # print "\tItem {}".format(fn)
+                        self.itemFile = fn
+                    elif re.search('[pP]erson', fn):
+                        # print "\tPerson {}".format(fn)
+                        self.personFile = fn
+            return True
+
+    def hasMatchingLengths(self):
+        # Check that subtest_data is the same size as the persons_ability
+        if self.abilityScores is None:
+            try:
+                self.abilityScores = self.loadAbilityScores()
+            except IOError:
+                return False
+
+        if len(self.dataScores) != len(self.abilityScores):
+            return False
+        else:  # They do!
+            return True
+
+    def hasMatchingSubjects(self):
+        _index = 1
+        for dataSub, abilSub in zip(self.dataScores, self.abilityScores):
+            if dataSub[0] != abilSub[0]:
+                self.index = _index
+                return False
+            _index += 1
+        return True
+
+    def hasMatchingItemLengths(self):
+        if self.itemScores is None:
+            try:
+                self.itemScores = self.loadItemScores()
+            except IOError:
+                return False
+        _index = 0
+        for _, scores in self.dataScores:
+            if len(self.itemScores) != len(scores):
+                self.index = _index
+                return False
+            _index += 1
+        return True
+
+    def FixData(self):
+        for i, subjScores in enumerate(self.dataScores):
+            subj = subjScores[0]
+            scores = subjScores[1]
+            result = ""
+            try:
+                ability = self.abilityScores[i][1]
+            except IndexError:
+                ability = 'x'
+
+            if re.search('[xX? ]', ability):  # If the ability file has an X, a ?, or is simply blank, skip it. Subj never took the test
+                result += "{0}".format(scores)
+            elif re.search('[0-9]+', ability):
+                for j, value in enumerate(scores):
+                    item = self.itemScores[j]
+                    if re.search('[xX? ]', item):
+                        result += " "
+                    elif value != '.':
+                        result += value
+                    else:
+                        result += self.getPerformanceScore(item, ability)
+            if len(result) != len(scores):
+                print "\tProblems!!", len(result), len(scores)
+                return False
+            self.result += "{0}\t{1}\n".format(subj, result)
+        return True
+
+    def generateReport(self, outDIR):
+        """ Writes data to a file
+
+        Returns:
+            None
+        """
+        self.outFile = os.path.join(outDIR, self.outFile)
+        if os.path.isfile(self.outFile):  # check that the file doenst already exist
+            print "{:>17} {} already exists! Removing...".format("!! WARNING !!", self.outFile)
+            os.remove(self.outFile)
+        with open(self.outFile, 'a') as report:  # Append to the file
+            report.write(self.result)
+
+    # ================== Private Methods ==================
 
     def getTestID(self, filePath):
         """ Extracts the Test ID from the provided file path using a
@@ -234,51 +263,41 @@ class SubTestManager(object):
 
         if numMatch and alphaMatch:
             num, alpha = numMatch.group(), alphaMatch.group()
-            num = str(int(num))  # convert the string to an int to strip the leading 0 (if there is one)
+            # num = str(int(num))  # convert the string to an int to strip the leading 0 (if there is one)
             return num+alpha
         elif numMatch and not alphaMatch:
-            num = numMatch.group()
-            return str(int(num))
+            return numMatch.group()
+            # num = numMatch.group()
+            # return str(int(num))
         else:
             alpha = alphaMatch.group()
             return alpha
 
     def makePattern(self):
-        pat = r'0?'
-        for l in self.ID:
-            if re.search('[a-zA-Z]', l):
+        pat = r''
+        for i, l in enumerate(self.ID):
+            if i is 0 and l is '0':
+                pat = r'0?'
+            elif re.search('[a-zA-Z]', l):
                 pat += "[{}{}]".format(l.upper(), l.lower())
             elif re.search('[0-9]', l):
                 pat += l
         return pat
 
-    def hasFiles(self):
-        fileList = []
-        path = os.path.join(self.MEASURE, "*.txt")
-        fileList = [f for f in glob(path) if re.search(self.pattern, f)]
-
-        for fn in fileList:
-            if re.search('[iI]tem', fn):
-                self.itemFile = fn
-            elif re.search('[pP]erson', fn):
-                self.personFile = fn
-
-        if len(fileList) < 2:
-            return False
-        else:
-            return True
-
     def loadDataScores(self):
-        _data = []
-        with open(self.dataFile, 'U') as d:
-            for line in d:
-                rline = line.rstrip('\r\n')
-                sline = rline.split()
-                scores = ''.join(sline[9:])
-                _data.append([sline[0], scores])
-        return _data
+        if self.dataFile is None:
+            return None
+        else:
+            _data = []
+            with open(self.dataFile, 'U') as d:
+                for line in d:
+                    rline = line.rstrip('\r\n')
+                    sline = rline.split()
+                    scores = ''.join(sline[9:])
+                    _data.append([sline[0], scores])
+            return _data
 
-    def loadItemMeasure(self):
+    def loadItemScores(self):
         if self.itemFile is None:
             return None
         else:
@@ -286,7 +305,7 @@ class SubTestManager(object):
                 _item = i.read().rstrip('\r\n').split()
             return _item
 
-    def loadAbilityMeasure(self):
+    def loadAbilityScores(self):
         if self.personFile is None:
             return None
         else:
@@ -300,84 +319,23 @@ class SubTestManager(object):
                     _ability.append(sline)
             return _ability
 
-    def hasMatchingLengths(self):
-        # Check that subtest_data is the same size as the persons_ability
-        if self.abilityMeasure is None:
-            return False
-        elif len(self.dataScores) is not len(self.abilityMeasure):
-            return False
-        else:  # They do!
-            return True
-
-    def hasMatchingSubjects(self):
-        index = 1
-        for dataSub, abilSub in zip(self.dataScores, self.abilityMeasure):
-            if dataSub[0] != abilSub[0]:
-                return (False, index)
-            index += 1
-        return (True, index)
-
-    def hasMatchingItemLengths(self):
-        for index, scores in enumerate(self.dataScores):
-            if len(self.itemMeasure) != len(zip(scores[1], self.itemMeasure)):
-                self.ErrorLog('A2', index, len(self.itemMeasure), len(scores[1]))
-                return False
-        return True
-
-    def FixData(self):
-        for i, subjScores in enumerate(self.dataScores):
-            subj = subjScores[0]
-            scores = subjScores[1]
-            self.result = "{0}\t".format(subj)
-            ability = self.abilityMeasure[i][1]
-            if ability in ["X", "x", "?"]:  # If the ability file has an X, skip it. Subj never took the test
-                self.result += "{0}\n".format(scores)
-            else:
-                for j, value in enumerate(scores):
-                    if value != '.':
-                        self.result += value
-                    else:
-                        item = self.itemMeasure[j]
-                        self.result += self.getPerformanceScore(item, ability)
-
     def getPerformanceScore(self, item, ability):
-        if item in ["X", "x", "?"]:
-            return " "
-        elif float(ability) < float(item):  # if ability is less than measure, assign 0
+        if re.search('[xX? ]', ability) and re.search('[xX? ]', item):
+            return
+        if float(ability) < float(item):  # if ability is less than item, assign 0
             return '0'
-        elif float(ability) > float(item):  # if ability is greater than measure, assign 1
+        elif float(ability) > float(item):  # if ability is greater than item, assign 1
             return '1'
-        else:  # if ability is equal to measure...
+        else:  # if ability is equal to item...
             if random() < 0.5:  # assign a 0 if a randomly generated value between 0-1 is less than 0.5
                 return '0'  # Failed
             else:  # assign a 1 if a randomly generated value between 0-1 is greater than 0.5
                 return '1'  # Passed
 
-    def generateReport(self):
-        """ Writes data to a file
-
-        Returns:
-            None
-        """
-        if os.path.isfile(self.outFile):
-            print self.ErrorLog.spacer+"WARNING !! {0} already exists! Removing...".format(self.outFile)
-            os.remove(self.outFile)  # check that the file doenst already exist
-        self.result += "\n"  # Add a newline just in case
-        with open(self.outFile, 'a') as report:  # Append to the file
-            report.write(self.result)
-
-    def hasErrors(self):
-        if self.ErrorLog.has_Error:
-            return True
-        else:
-            return False
-
 #=============================== START OF MAIN ===============================
 
 
 def main():
-    # Several datafiles, each with a long list of subjects
-
     # Directory path variable assignment, assumes script is in working directory!!!
     DATA = "data"
     MEASURE = "measure"
@@ -403,9 +361,15 @@ def main():
             errorLog('001', subTest)
         elif not subTest.hasMatchingLengths():
             errorLog('002', subTest)
-        elif not subTest.hasMatchingSubjects()[0]:
+        elif not subTest.hasMatchingSubjects():
+            errorLog('003', subTest)
+        elif not subTest.hasMatchingItemLengths():
+            errorLog('004', subTest)
+        elif subTest.FixData():
+            subTest.generateReport(FINAL)
 
-    print "There was {} Error(s)! See {} for more details".format(errorLog.numErrors, errorLog.outFile)
+    print "\nThere was {} Error(s)! See {} for more details".format(errorLog.numErrors, errorLog.outFile)
+    errorLog.generateReport(FINAL)
 
 if __name__ == '__main__':
     main()

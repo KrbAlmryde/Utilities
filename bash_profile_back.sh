@@ -234,19 +234,19 @@ function geta () { scp -p auk:/Users/dpat/temp/ $* . ; }
 function puta () { scp -p $* auk:/Users/dpat/temp/ ; }
 
 
-function cutn () { 
+function cutn () {
     local d=$1
     local f=$2
     case $# in
         0 )
             d=' '
-            f=1 
+            f=1
         ;;
-        1 )  
+        1 )
             f=1
         ;;
     esac
-    cut -d $d -f $f 
+    cut -d $d -f $f
 }
 
 
@@ -257,7 +257,7 @@ function maker () {
     #           c++ program. It will perform the following steps in order:
     #           clean, make, and execute project
     #
-    #    Input: compile -- should be the executable name in the targeted 
+    #    Input: compile -- should be the executable name in the targeted
     #                      makefile.
     #
     #   usage: make homework4
@@ -355,12 +355,12 @@ function split() {
     #------------------------------------------------------------------------
     #
     #  Purpose: Simple function to split a word based on delimiter, returning
-    #           input to an array (if desired) or the word as a string 
+    #           input to an array (if desired) or the word as a string
     #           separated by white-space
     #
     #    Input: $1 should be the delimiter eg. '.'
     #           $2 should be the word you wish to split
-    #   
+    #
     #   Output: If everything works, it should be the word split on the chosen
     #           delimiter. Otherwise an error code will appear
     #
@@ -369,7 +369,7 @@ function split() {
     local delim=$1
     local word=$2
     local STOP=0
-    local EXIT=1 # By default set Exit code to 1, presumes bad exit. 
+    local EXIT=1 # By default set Exit code to 1, presumes bad exit.
     local f=1 # field index
     local i=0 # array index
     declare -a splitList
@@ -380,15 +380,15 @@ function split() {
     fi
 
     while [[ $STOP -ne 1 ]]; do
-        
+
         temp=$(echo $word | cut -d "${delim}" -f$f)
 
         case $temp in
-            $word ) 
+            $word )
                     STOP=1
                     return $EXIT; # "Bad delimiter, exiting..."
                 ;;
-               "" ) 
+               "" )
                     echo ${splitList[*]} # reached end of splits
                     STOP=1
                 ;;
@@ -447,7 +447,7 @@ function pass? () {
     else
         echo
         egrep -A 2 "${query}" ${location}/UnPw.txt
-       local password=$(\
+        local password=$(\
                     egrep -A 2 "${query}" ${location}/UnPw.txt \
                     | egrep 'Password: ' \
                     | cut -d " " -f2 \
@@ -489,8 +489,8 @@ function addpass() {
     local location=~/Dropbox/Code-Projects
 
     local account=$1
-    local username=$1
-    local password=$1
+    local username=$2
+    local password=$3
 
     if [[ ! $account ]]; then
         echo "Account name: "
@@ -835,7 +835,7 @@ function messWithYou() {
         fi
 
         ((counter++))
-    done    
+    done
 
 } # End of messWithYou
 
