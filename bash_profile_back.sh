@@ -197,12 +197,6 @@ source ~/.bash_aliases
 #================================================================================
 #                            FUNCTION DEFINITIONS
 #================================================================================
-function git_branch () { git rev-parse --abbrev-ref HEAD 2>/dev/null; }
-function git+ () { git add $*; git status ; }
-function git- () { git reset HEAD $*; git status ; }
-function gclone () { git clone $*; }
-
-
 function loc () { chmod a-w $* ; }
 function ffd () { find . -name $* -print ; }
 function fedit () { edit `find . -name \!*` ; }
@@ -235,6 +229,11 @@ function puta () { scp -p $* auk:/Users/dpat/temp/ ; }
 
 
 function cutn () {
+    #------------------------------------------------------------------------
+    #
+    #  Purpose: Shorter form of using the cut unix commandline tool
+    #
+    #------------------------------------------------------------------------
     local d=$1
     local f=$2
     case $# in
@@ -302,7 +301,7 @@ function cxx () {
 } # End of cxx
 
 
-function pid() {
+function pid () {
     #------------------------------------------------------------------------
     #
     #  Purpose: Get the process ID of the supplied process name. If none is
@@ -328,7 +327,7 @@ function pid() {
 
 
 
-function upafni() {
+function upafni () {
     #------------------------------------------------------------------------
     #
     #  Purpose: Check for updates and if necessary update afni.
@@ -351,7 +350,7 @@ function upafni() {
 } # End of upafni
 
 
-function split() {
+function split () {
     #------------------------------------------------------------------------
     #
     #  Purpose: Simple function to split a word based on delimiter, returning
@@ -401,7 +400,7 @@ function split() {
 }
 
 
-function hidden() {
+function hidden () {
     #------------------------------------------------------------------------
     #
     #  Purpose: Shows or Hides hidden files on Mac
@@ -440,88 +439,40 @@ function pass? () {
     #
     #------------------------------------------------------------------------
     local query=$1
-    local location=~/Dropbox/Code-Projects
+    local location="/Users/krbalmryde/Dropbox/Code-Projects"
 
-    if [[ ${query} == "upd" ]]; then
-        subl ${location}/UnPw.txt
-    else
-        echo
-        egrep -A 2 "${query}" ${location}/UnPw.txt
-        local password=$(\
-                    egrep -A 2 "${query}" ${location}/UnPw.txt \
-                    | egrep 'Password: ' \
-                    | cut -d " " -f2 \
-                )
-        echo
-        echo $password | pbcopy
-    fi
+    case $# in
+        1 )
+            if [[ ${query} = "edit" ]]; then
+                subl ${location}/UnPw.txt
+            else
+                echo
+                egrep -A 2 "${query}" ${location}/UnPw.txt
+                local password=$(\
+                            egrep -A 2 "${query}" ${location}/UnPw.txt \
+                            | egrep 'Password: ' \
+                            | cut -d " " -f2 \
+                        )
+                echo
+                echo $password | pbcopy
+            fi
+        ;;
+        3 )
+            local account=$1
+            local username=$2
+            local password=$3
+            printf "\n Account: %s\nUsername: %s\nPassword: %s\nOk to add?: " $account $username $password
+            read answer
+
+            if [[ ($answer = 'y') || ($answer = 'yes')]]; then
+                printf "\n Account: %s\nUsername: %s\nPassword: %s\n" $account $username $password >> ${location}/UnPw.txt
+                pass?
+            elif [[ (! $answer) || ($answer = 'n') || ($answer = 'no') ]]; then
+                echo "aborting!"
+            fi
+         ;;
+    esac
 }
-
-
-
-function setPass () {
-    #------------------------------------------------------------------------
-    #
-    #  Purpose: This function will set a new password using the Password.py
-    #           script I wrote.
-    #
-    #    Input: Account Name, Username, True/False, Password Length
-    #
-    #------------------------------------------------------------------------
-
-    python ~/Dropbox/Code-Projects/PGen/Password.py
-
-} # End of setPass
-
-
-
-
-function addpass() {
-    #------------------------------------------------------------------------
-    #
-    #  Purpose: Adds a new Account/Username/Passoword set to the password DB
-    #
-    #
-    #    Input: 3 arguments are required; The account name, The username
-    #           and the password
-    #
-    #------------------------------------------------------------------------
-    local location=~/Dropbox/Code-Projects
-
-    local account=$1
-    local username=$2
-    local password=$3
-
-    if [[ ! $account ]]; then
-        echo "Account name: "
-        read account
-    fi
-
-    if [[ ! $username ]]; then
-        echo "Username: "
-        read username
-    fi
-
-    if [[ ! $password ]]; then
-        echo "Password: "
-        read password
-    fi
-
-    printf "\n Account: %s\nUsername: %s\nPassword: %s\n" $account $username $password
-
-    echo "Ok to add?"
-    read answer
-
-    if [[ ! $answer ]]; then
-        printf "\n Account: %s\nUsername: %s\nPassword: %s\n" $account $username $password >> ${location}/UnPw.txt
-        pass?
-    else
-        echo "aborting!"
-    fi
-
-
-
-} # End of addpass
 
 
 function jcj (){
@@ -625,9 +576,12 @@ function getit () {
 }
 
 
+function git_branch () { git rev-parse --abbrev-ref HEAD 2>/dev/null; }
+function git+ () { git add $*; git status ; }
+function git- () { git reset HEAD $*; git status ; }
+function gclone () { git clone $*; }
 
-
-function ginit() {
+function ginit () {
     #------------------------------------------------------------------------
     #
     #  Purpose: Setup a new git repository. Initializes in the current working
@@ -648,7 +602,7 @@ function ginit() {
 
 
 
-function mkprj() {
+function mkprj () {
     #------------------------------------------------------------------------
     #
     #  Purpose: Creates a new project in the 'Projects' folder. It also setups
@@ -783,7 +737,7 @@ function xnii () {
 
 
 
-function messWithYou() {
+function messWithYou () {
     #------------------------------------------------------------------------
     #
     #  Purpose: All your bases are belong to us!
@@ -848,61 +802,73 @@ function messWithYou() {
 #   Defines frequently used aliases that make my life easier
 #================================================================================
 
-# Server based
-alias grad='ssh grad@128.196.62.60' #password is B@s@l4u
-alias get_grad='sftp grad@128.196.62.60' #password is B@s@l4u
-alias jump='ssh marija@128.196.62.133' #password is neurolab!   # Navigate to and from Marija's Machine
-alias lectura='ssh kalmryde@lectura.cs.arizona.edu' # HighWayToH3||1343  # Access lectura server in CS department
-alias paige='ssh cclab@128.196.98.155' # 417guest
-alias get_paige='sftp cclab@128.196.98.155' # 417guest
-alias pushlec='sftp kalmryde@lectura.cs.arizona.edu' # HighWayToH3||1343
-alias take='sftp marija@128.196.62.133' #password is neurolab!
-alias ted='sftp kalmryde@128.196.112.121' #password is zeebob15  # Access Trouardo2 server
-alias ted2='ssh kalmryde@128.196.112.121' #password is zeebob15
-
-
 # Afni specific
 alias afnir='afni -R -yesplugouts'
 alias 3di='3dinfo'
 alias 3div='3dinfo -verb'
 alias suuma='afnir -niml & suma -spec /usr/local/suma_MNI_N27/MNI_N27_both.spec -sv /usr/local/suma_MNI_N27/MNI_N27_SurfVol.nii &'    #'afni -niml & suma -spec /opt/local/suuma/N27_both_tlrc.spec -sv /opt/local/afni/TT_N27+tlrc &'
 
-
-# Common Directories
-alias db='cd /Users/krbalmryde/Dropbox'
-alias dl='cd /Users/krbalmryde/Downloads'
-alias home='cd /Users/krbalmryde'
-alias eye='cd /Users/krbalmryde/Dropbox/Work-Projects/EyeTracker'
-alias nii='cd /Users/krbalmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer; ls -Flt; pwd'
-alias opl='cd /opt/local; pwd; ls -Flt'
-alias prj='cd /Users/krbalmryde/Dropbox/Code-Projects; pwd; ls -Flt'
-alias utl='cd /opt/local/Utilities; pwd; ls -Flt'
-alias url='cd /usr/local; pwd; ls -Flt'
-alias work='cd /Users/krbalmryde/Dropbox/Work-Projects'
-alias xprj='cd /Users/krbalmryde/Dropbox/XCodeProjects/aluminum; pwd; ls -Flt'
-
-# Class specific aliases
-alias class='cd /Users/krbalmryde/Dropbox/Class-Projects'
-alias ista130='cd /Users/krbalmryde/Dropbox/Class-Projects/ISTA130'
-alias ista555='cd /Users/krbalmryde/Dropbox/Class-Projects/ISTA555'
-alias ista516='cd /Users/krbalmryde/Dropbox/Class-Projects/ISTA516'
-alias cs227='cd /Users/krbalmryde/Dropbox/Class-Projects/cs227'
-alias cs335='cd /Users/krbalmryde/Dropbox/Class-Projects/cs335'
-alias cs372='cd /Users/krbalmryde/Dropbox/Class-Projects/cs327'
-alias cs533='cd /Users/krbalmryde/Dropbox/Class-Projects/cs533'
-
 # Editor specific
 alias afn='subl /Users/krbalmryde/.afnirc'
-alias upd='subl /Users/krbalmryde/.bash_{profile,functions,aliases}'
+alias upd='subl /Users/krbalmryde/.bash_{aliases,functions,profile}'
 alias sb='source /Users/krbalmryde/.bash_profile'
 alias updi='subl /Users/krbalmryde/.ipython/profile_default/startup/00-profile.py'
 
 # Project stuff
-alias utls='subl --project /opt/local/Utilities/Utilities.sublime-project'
-alias niis='subl --project /Users/krbalmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/NiftiViewer.sublime-project'
-alias prjs='subl --project /Users/krbalmryde/Dropbox/Code-Projects/Projects.sublime-project'
-alias classp='subl --project /Users/krbalmryde/Dropbox/Class-Projects/Class.sublime-project'
-# alias xnii='open /Users/krbalmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer.xcodeproj'
+alias sublclass='subl --project /Users/krbalmryde/Dropbox/Class-Projects/Class.sublime-project'
+alias sublcode='subl --project /Users/krbalmryde/Dropbox/Code-Projects/Projects.sublime-project'
+alias sublnifti='subl --project /Users/krbalmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/NiftiViewer.sublime-project'
+alias sublutl='subl --project /opt/local/Utilities/Utilities.sublime-project'
+alias sublvis='subl --project /Users/krbalmryde/Dropbox/XCodeProjects/aluminum/osx/examples/visCog/VisCog.sublime-project'
+alias xnifti='open /Users/krbalmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer/niftiViewer.xcodeproj'
+
+
+# Tools (ones that make my life easier)
+alias allow='chmod ugo+x'
+alias ownit='sudo chomod a+rwx'  # requires a directory as input
+alias cls='clear'
+alias cp='cp -i'
+alias cpr='cp -Rnv'
+alias cur='dir=`pwd`'
+alias prev="cd ${dir}"
+alias lah='ls -Fltah'
+alias lh='ls -Flth'
+alias la='ls -Flta'
+alias ll='ls -Flt'
+alias l='ls -Ft'
+alias pass='cat /Users/krbalmryde/Dropbox/Code-Projects/UnPw.txt'
+alias total="ls -Flt . | egrep -c '^-'" # Counts the number of files in a directory
+alias up='cd ..; pwd; ls -Flt'
+alias unlock='chmod -R a+rwx \!*'
+alias mkdir='mkdir -p'
+alias h='history'
+alias which='type -a'
+alias ..='cd ..'
+# alias call='${CALL}/call.sh'  # deprecated
+
+# Pretty-print of some PATH variables:
+alias path='echo -e ${PATH//:/\\n}'
+alias libpath='echo -e ${LD_LIBRARY_PATH//:/\\n}'
+
+# Dianne's Aliases
+alias color='export CLICOLOR yes'
+alias cut3='cut -d " " -f 3'
+alias dir='ls -F'
+alias fv='fslview'
+alias fvs='fslview $STANDARD/avg152T1.nii.gz'
+alias ht='history 35'
+alias math='fslmaths'
+alias mv='mv -i'
+alias nocolor='unexport CLICOLOR'
+alias pathdump='echo $PATH | tr ":" "\n"'
+alias pd=dirs
+alias pe='printenv | sort | less'
+alias pp=popd
+alias psm='ps aux | less'
+alias rdj='rcsdiff *.java 2>&1 | less'
+alias ren='mv -i'
+alias view=less
+alias xod='od -tax1'
 
 # Package Managers
 alias ports='sudo port search'
@@ -925,13 +891,42 @@ alias gith='git help'
 alias gpush='git push -u origin master'
 alias gpull='git pull'
 
+# language Interpreters
+alias ghc='ghci -XNoMonomorphismRestriction'
+alias lr='lein repl'
+alias py='ipython'
 
-# Data related
+
+# Common Directories
+alias db='cd /Users/krbalmryde/Dropbox'
+alias dl='cd /Users/krbalmryde/Downloads'
+alias home='cd /Users/krbalmryde'
+alias eye='cd /Users/krbalmryde/Dropbox/Work-Projects/EyeTracker'
+alias nifti='cd /Users/krbalmryde/Dropbox/XCodeProjects/aluminum/osx/examples/niftiViewer; ls -Flt; pwd'
+alias opl='cd /opt/local; pwd; ls -Flt'
+alias prj='cd /Users/krbalmryde/Dropbox/Code-Projects; pwd; ls -Flt'
+alias utl='cd /opt/local/Utilities; pwd; ls -Flt'
+alias tills='cd /opt/local/Utilities/Tills; pwd; ls -Flt'
+alias url='cd /usr/local; pwd; ls -Flt'
+alias work='cd /Users/krbalmryde/Dropbox/Work-Projects'
+alias xprj='cd /Users/krbalmryde/Dropbox/XCodeProjects/aluminum; pwd; ls -Flt'
+
+# Class specific Directories
+alias class='cd /Users/krbalmryde/Dropbox/Class-Projects'
+alias ista130='cd /Users/krbalmryde/Dropbox/Class-Projects/ISTA130'
+alias ista555='cd /Users/krbalmryde/Dropbox/Class-Projects/ISTA555'
+alias ista516='cd /Users/krbalmryde/Dropbox/Class-Projects/ISTA516'
+alias cs227='cd /Users/krbalmryde/Dropbox/Class-Projects/cs227'
+alias cs335='cd /Users/krbalmryde/Dropbox/Class-Projects/cs335'
+alias cs372='cd /Users/krbalmryde/Dropbox/Class-Projects/cs327'
+alias cs533='cd /Users/krbalmryde/Dropbox/Class-Projects/cs533'
+
+# fMRI Data related directory shortcuts
+alias vol='cd /Volumes; pwd; ls -Flt'
+alias data='cd /Volumes/Data; pwd; ls -Flt'
 alias exp='cd /Volumes/Data/Exps; pwd; ls -Flt'
 alias expd='cd /Volumes/Data/Exps/Data; pwd; ls -Flt'
 alias expa='cd /Volumes/Data/Exps/Analysis; pwd; ls -Flt'
-alias vol='cd /Volumes; pwd; ls -Flt'
-alias data='cd /Volumes/Data; pwd; ls -Flt'
 alias mse='cd /Volumes/Data/Exps/Data/MouseHunger; ls -Flt; pwd'
 alias rat='cd /Volumes/Data/Exps/Data/RatPain; ls -Flt; pwd'
 alias strp='cd /Volumes/Data/Exps/Data/Stroop; ls -Flt; pwd'
@@ -947,71 +942,17 @@ alias wb2='cd /Volumes/Data/Exps/Data/WordBoundary2; ls -Flt; pwd'
 alias wb2a='cd /Volumes/Data/Exps/Analysis/WordBoundary2; ls -Flt; pwd'
 
 
-# language Interpreters
-alias ghc='ghci -XNoMonomorphismRestriction'
-alias lr='lein repl'
-alias py='ipython'
+# Server based
+alias grad='ssh grad@128.196.62.60' #password is B@s@l4u
+alias get_grad='sftp grad@128.196.62.60' #password is B@s@l4u
+alias jump='ssh marija@128.196.62.133' #password is neurolab!   # Navigate to and from Marija's Machine
+alias lectura='ssh kalmryde@lectura.cs.arizona.edu' # HighWayToH3||1343  # Access lectura server in CS department
+alias paige='ssh cclab@128.196.98.155' # 417guest
+alias get_paige='sftp cclab@128.196.98.155' # 417guest
+alias pushlec='sftp kalmryde@lectura.cs.arizona.edu' # HighWayToH3||1343
+alias take='sftp marija@128.196.62.133' #password is neurolab!
+alias ted='sftp kalmryde@128.196.112.121' #password is zeebob15  # Access Trouardo2 server
+alias ted2='ssh kalmryde@128.196.112.121' #password is zeebob15
 
-
-# Tools (ones that make my life easier)
-alias allow='chmod ugo+x'
-alias ownit='sudo chomod a+rwx'  # requires a directory as input
-alias call='${CALL}/call.sh'
-alias cls='clear'
-alias cp='cp -i'
-alias cpr='cp -Rnv'
-alias cur='dir=`pwd`'
-alias prev="cd ${dir}"
-alias lah='ls -Fltah'
-alias lh='ls -Flth'
-alias la='ls -Flta'
-alias ll='ls -Flt'
-alias l='ls -Ft'
-alias pass='cat /Users/krbalmryde/Dropbox/Code-Projects/UnPw.txt'
-alias total='ls -Flt . | egrep -c '^-'' # Counts the number of files in a directory
-alias up='cd ..; pwd; ls -Flt'
-alias unlock='chmod -R a+rwx \!*'
-alias mkdir='mkdir -p'
-alias h='history'
-alias j='jobs -l'
-alias which='type -a'
-alias ..='cd ..'
-
-# Pretty-print of some PATH variables:
-alias path='echo -e ${PATH//:/\\n}'
-alias libpath='echo -e ${LD_LIBRARY_PATH//:/\\n}'
-
-
-# Dianne's Aliases
-alias color='export CLICOLOR yes'
-alias cut3='cut -d " " -f 3'
-
-
-alias dir='ls -F'
-alias fe_dtierp='fe /Volumes/Data/Exps/Data/dti_erp lst_subj_dtierp.txt '
-alias fe_ice='fe /Exps/Data/IceIJN lst_subj_ice.txt '
-alias fe_ijn='fe /Exps/Data/ijn lst_subj_ijn.txt '
-alias fe_plante='fe /Exps/Data/plante lst_subj_plante.txt '
-alias fe_szr='fe /Exps/Data/lst_subj_szr.txt '
-alias fprob='time fprob'
-alias fprob2='time fprob2'
-alias fproc='time fproc'
-
-alias fv='fslview'
-alias fvs='fslview $STANDARD/avg152T1.nii.gz'
-alias ht='history 35'
-alias math='fslmaths'
-alias mv='mv -i'
-alias nocolor='unexport CLICOLOR'
-alias pathdump='echo $PATH | tr ":" "\n"'
-alias pd=dirs
-alias pe='printenv | sort | less'
-alias pp=popd
-alias psm='ps aux | less'
-alias rdj='rcsdiff *.java 2>&1 | less'
-
-alias ren='mv -i'
-alias view=less
-alias xod='od -tax1'
 
 

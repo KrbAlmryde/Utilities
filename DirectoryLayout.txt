@@ -1,0 +1,133 @@
+
+Directory Layout:
+    /Volumes/Data/...
+    Is the location in which I store all large datasets and files. This includes
+    fMRI Experiment data and analyses, as well as Parallels* Virtual Machines.
+
+    fMRI data resides under the Exps Parent folder in one of two places. The Data
+    folder contains all raw and preprocessed data for the Experiments listed below
+    as well an Archive folder for failed Pilot projects )-`:
+
+    The Analysis folder contains GLM and higher level analysis for the listed
+    studies. This directory structure is linked to the Main Hagar drive so as
+    to allow Dianne to easily push data over without taking up space on the main
+    Hagar drive.
+
+    ├── Exps
+    │   ├── Analysis
+    │   │   ├── HuanpingWB1
+    │   │   ├── Iceword
+    │   │   ├── Russian
+    │   │   ├── WordBoundary1
+    │   │   └── WordBoundary2
+    │   └── Data
+    │       ├── AttnMem
+    │       ├── Iceword
+    │       ├── Russian
+    │       ├── Stroop
+    │       ├── WordBoundary1
+    │       └── WordBoundary2
+    │       ├── Archive
+    │       │   ├── BehavStroop
+    │       │   ├── Dichotic
+    │       │   ├── Iceword_RealignDetails
+    │       │   ├── MLfMRI  <-- Contains some papers on Machine Learning and fMRI
+    │       │   ├── MouseHunger
+    │       │   ├── RatPain
+    │       │   ├── TAP
+    │       │   ├── TBI
+    │       │   └── WB2
+    ├── GlobalSession  <-- This is where I store "Gloabal" afni files. Mainly Anatomicals
+    │   └── etc
+    │       └── Brains
+    ├── Parallels
+    │   ├── Abel\ (1).pvm
+    │   │   ├── Abel-0.hdd
+    │   │   ├── Snapshots
+    │   │   └── Windows\ Disks
+    │   └── Ubuntu.pvm
+    │       ├── Snapshots
+    │       └── Ubuntu-0.hdd
+    └── WorkShop
+
+------------------------------------------------------------------------------
+/opt/local/...
+
+    Is the location where I keep all of my scripts. Every. Single. One. Want to
+    know what script I used for the Word Boundary1 GLM? Look under the WordBoundary
+    folder! I have done my best to organize scripts by project, so most times you should
+    only need to look under the Iceword folder for an Iceword specific program. Where that rule starts to break down is under the folder "WorkShop". This folder and its contents are a bit like the Wild Wild West. You are just as likely to find vast troves of knowledge as you are a breeding pit of vipers. If you want to see what my learning process was like, check in this directory.
+
+    Naming conventions tend to go as follows:
+    For later studies, such as WordBoundary, Iceword, and Russian I use 3 letter codes
+    to denote the experiment name, ie
+        WordBoundary1: wb1
+        WordBoundary2: wb2
+              Iceword: ice
+              Russian: rus
+
+        Preprocessing scripts are typically labelled in one of the following ways:
+            prep, preproc, pproc, pre, reg
+
+        GLM scripts are pretty consisitently labeled as:
+            glm
+
+        Group analysis scripts are often labeled as follows:
+            grp
+
+        Following that the naming conventions tend to focus on the type of task
+        involved. For example, if I am doing something involving SUMA focused, Ill
+        likely have "suma" in the file name.
+
+
+        So based on this naming convention, if you were looking for the Iceword
+        group analysis script I used to produce the group results, look under the
+        Iceword directory for a file called "ice.grp.sh". That would be your best
+        bet.
+
+    Some of the later studies, such as WordBoundary, Iceword, and Russian have
+    moderately well documented programs. For earlier stuff such as AttnMem, Stroop, Tap,
+    and Dichotic, it is a little less certain. My advice to you would be to look at what
+    and where the script is dumping files, and work backwards. ALL experimental data lives
+    under the /Volumes/Data/Exps/{Data,Analysis} directories. Obviously some of these
+    projects have moved machines over the years. Despite that, the basic file structure
+    should be fairly consistent with the actual experiment folder.
+
+    For example, Scripts belonging to the TAP expierment often point to the folder
+    /Volumes/Data/TAP. This is no longer the location of the TAP experiment data. However,
+    the layout of the directories under the TAP data folder have changed very little.
+    Let that be your guide....good luck!
+
+    ├── Utilities
+    │   ├── AttnMem
+    │   ├── BootCamp
+    │   ├── Dichotic
+    │   ├── Iceword
+    │   ├── Modules
+    │   │   ├── GLMAnalysis
+    │   │   ├── Preprocessing
+    │   │   └── ShellScripting
+    │   ├── Mouse
+    │   ├── NBack
+    │   ├── NiftiViewer
+    │   ├── Rat
+    │   ├── Russian
+    │   │   ├── Event
+    │   │   └── Mixed
+    │   ├── Stroop
+    │   │   └── data
+    │   ├── SustainedAttention
+    │   ├── Tap
+    │   │   └── etc
+    │   ├── Tills
+    │   │   ├── Tests
+    │   │   └── excel_files
+    │   ├── WordBoundary
+    │   │   └── etc
+    │   ├── WordBoundary2
+    │   └── WorkShop
+    │       ├── AFNI
+    │       ├── AWK-SED
+    │       ├── PYTHON
+    │       ├── SHELL
+    │       └── etc

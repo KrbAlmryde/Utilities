@@ -38,7 +38,7 @@ function updateReviewList() {
     done
 
     arr=(${!astr})
-    
+
     echo -e "REVIEWLIST has ${#arr[*]} elements!"
 
 } # End of updateReviewList
@@ -395,7 +395,7 @@ function regress_alphcor () {
 
     prev=$(pwd); cd ${STATS}
     for delay in {0..7}; do
-        fullmask=fullmask_${1} 
+        fullmask=fullmask_${1}
         input4d=${1}_${delay}sec_${condition}
 
         fwhmx=$(3dFWHMx \
@@ -423,7 +423,7 @@ function regress_alphcor () {
             ${input4d}.stats.nii.gz
 
         rm ClustSim.${condition}.*
-        
+
     done
     cd $prev
 }
@@ -586,9 +586,9 @@ function Review_Main() {
     #------------------------------------------------------------------------
     #
     #  Purpose: Review the EPI data via 'afni' and 'plugout_drive'. Allows for
-    #           a general overview of single subject 
+    #           a general overview of single subject
     #
-    #    Input: 
+    #    Input:
     #
     #   Output:
     #
@@ -658,7 +658,7 @@ function Review_Main() {
             #-------------------------------------#
             # Define pointers for Functional data #
             #-------------------------------------#
-            RUN=Run$i 
+            RUN=Run$i
             FUNC=${DATA}/${sub}/Func/${RUN}
 
             #---------------------------------#
@@ -679,7 +679,7 @@ function Review_Main() {
             mkdir -p ${GLM}/REVIEW
 
             case $range in
-                "all" ) 
+                "all" )
                     updateReviewList REVIEWLIST \
                         "${FUNC}/${input4d}.nii.gz" \
                         "${MASK}/${fullmask}.nii.gz"
@@ -692,7 +692,7 @@ function Review_Main() {
                             ${TTEST}/${subImage4D}_${delay}sec_${condition}_SentStats.nii.gz
                     done
                 ;;
-            
+
                 * )
                     for delay in {0..7}; do
                         updateReviewList REVIEWLIST \
@@ -706,15 +706,15 @@ function Review_Main() {
             for dset in ${REVIEWLIST[*]}; do
                 3dcopy $dset ${GLM}/REVIEW/`basename $dset`
             done
-            
+
             # ------------------------------------------------------
             # verify that the input data exists
 
             if [[ ! -f ${REVIEWLIST[0]} ]]; then
                 echo -e "\n** missing data to review!! (e.g. ${REVIEWLIST[0]})"
                 exit
-            else 
-                echo -e "\nReviewing ${#REVIEWLIST[*]} Files!" 
+            else
+                echo -e "\nReviewing ${#REVIEWLIST[*]} Files!"
                 echo -e "${REVIEWLIST[*]}\n"
             fi
 
@@ -805,7 +805,7 @@ function Review_Main() {
 
 function Main ()
 {
-    
+
     echo -e "\nMain has been called\n"
 
     condition=$1        # This is a command-line supplied variable which determines
