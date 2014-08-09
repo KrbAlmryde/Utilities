@@ -96,7 +96,9 @@ Directory Layout:
     For example, Scripts belonging to the TAP expierment often point to the folder
     /Volumes/Data/TAP. This is no longer the location of the TAP experiment data. However,
     the layout of the directories under the TAP data folder have changed very little.
-    Let that be your guide....good luck!
+    Let that be your guide....good luck! As an aside, you can find these scripts online at
+        https://github.com/KrbAlmryde/Utilities
+    I provide more indepth descriptions of what each folder actually contains, as well as some helpful hints as to which files are actually interesting or useful to look at. May it serve you well in the future.
 
     ├── Utilities
     │   ├── AttnMem
