@@ -200,12 +200,6 @@ Kyle Almryde
 
 --
 Kyle R. Almryde, B.S.
-Research Technician
-University of Arizona | The Plante Lab
-Speech Language, and Hearing Sciences
-Office: +1 (520) 621-0108
-Cell: +1 (760) 208-7827
-kalmryde@email.arizona.edu\n
 """.format(name)
 
     #to be tested...
